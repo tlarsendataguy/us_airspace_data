@@ -128,11 +128,11 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="702" y="150" />
+        <Position x="1182" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\4\Engine_4316_85248c925c8d428d89ef130d17ab313f_\Engine_7016_082f6d0c839b4fa8948fc269cc199f0b_.yxdb</TempFile>
+          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\4\Engine_8144_5f3e5e88920a49209544361279921756_\Engine_7016_203a3b6da235497f91084847b694e76b_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <View1>
@@ -183,7 +183,7 @@ Runway State Post Off...</DefaultAnnotationText>
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="510" y="150" />
+        <Position x="702" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -192,6 +192,7 @@ Runway State Post Off...</DefaultAnnotationText>
           <SelectFields>
             <SelectField field="Field_1" selected="False" />
             <SelectField field="RecordType" selected="False" />
+            <SelectField field="RAW Runway Surface Type and Condition" selected="False" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -205,6 +206,20 @@ Runway State Post Off...</DefaultAnnotationText>
             <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 3, 11)" type="String" />
             <Field name="Runway State Post Office Code" size="2" source="Formula: Substring([Field_1], 14, 2)" type="String" />
             <Field name="Runway Identification" size="7" source="Formula: Substring([Field_1], 16, 7)" type="String" />
+            <Field name="Physical Runway Length" source="Formula: ToNumber(Substring([Field_1], 23, 5))" type="Int32" />
+            <Field name="Physical Runway Width" source="Formula: ToNumber(Substring([Field_1], 28, 4))" type="Int32" />
+            <Field name="Runway Surface Condition" size="1" source="Formula: IF   Length([RAW Runway Surface Type and Condition]) = 1&#xA;THEN [RAW Runway Surface Type and Condition]&#xA;ELSE [Runway Surface Condition]&#xA;ENDIF" type="String" />
+            <Field name="Runway Surface Condition Name" size="50" source="Formula: Switch(&#xA;  [Runway Surface Condition], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;E&quot;, &quot;Excellent&quot;,&#xA;  &quot;G&quot;, &quot;Good&quot;,&#xA;  &quot;F&quot;, &quot;Fair&quot;,&#xA;  &quot;P&quot;, &quot;Poor&quot;,&#xA;  &quot;L&quot;, &quot;Failed&quot;&#xA;)" type="V_String" />
+            <Field name="Runway Surface Treatment" size="5" source="Formula: Substring([Field_1], 44, 5)" type="String" />
+            <Field name="Runway Surface Treatment Name" size="50" source="Formula: Switch(&#xA;  Trim([Runway Surface Treatment]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;GRVD&quot;, &quot;Saw-Cut or Plastic Grooved&quot;,&#xA;  &quot;PFC&quot;, &quot;Porous Friction Course&quot;,&#xA;  &quot;AFSC&quot;, &quot;Aggregate Friction Seal Coat&quot;,&#xA;  &quot;RFSC&quot;, &quot;Rubberized Friction Seal Coat&quot;,&#xA;  &quot;WC&quot;, &quot;Wire Comb or Wire Tine&quot;,&#xA;  &quot;NONE&quot;, &quot;None&quot;&#xA;)" type="V_String" />
+            <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
+            <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
+            <Field name="Base End Identifier" size="3" source="Formula: Substring([Field_1], 65, 3)" type="String" />
+            <Field name="Base End True Alignment" source="Formula: ToNumber(Substring([Field_1], 68, 3))" type="Int32" />
+            <Field name="Base End ILS Type" size="10" source="Formula: Substring([Field_1], 71, 10)" type="String" />
+            <Field name="Base End Right Hand Traffic" size="1" source="Formula: Substring([Field_1], 81, 1)" type="String" />
+            <Field name="Base End Runway Markings Type" size="5" source="Formula: Substring([Field_1], 82, 5)" type="String" />
+            <Field name="Base End Runway Markings Condition" size="1" source="Formula: Substring([Field_1], 87, 1)" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -212,7 +227,7 @@ Runway State Post Off...</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="606" y="150" />
+        <Position x="798" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -221,6 +236,8 @@ Runway State Post Off...</DefaultAnnotationText>
             <Field name="Landing Facility Site Number" />
             <Field name="Runway State Post Office Code" />
             <Field name="Runway Identification" />
+            <Field name="Runway Surface Condition" />
+            <Field name="Runway Surface Condition Name" />
             <Field name="*Unknown" />
           </Fields>
           <CopyOutput value="False" />
@@ -238,6 +255,355 @@ Runway State Post Off...</DefaultAnnotationText>
             <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Runway State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Runway Identification" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Physical Runway Length" source="Formula: ToNumber(Substring([Field_1], 23, 5))" type="Int32" />
+            <Field name="Physical Runway Width" source="Formula: ToNumber(Substring([Field_1], 28, 4))" type="Int32" />
+            <Field name="Runway Surface Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Surface Condition Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway Surface Treatment" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Surface Treatment Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Pavement Classification Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End True Alignment" source="Formula: ToNumber(Substring([Field_1], 68, 3))" type="Int32" />
+            <Field name="Base End ILS Type" size="10" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Right Hand Traffic" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Runway Markings Type" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Runway Markings Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="510" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ToNumber(Substring([Field_1], 23, 5))" field="Physical Runway Length" size="4" type="Int32" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 28, 4))" field="Physical Runway Width" size="4" type="Int32" />
+            <FormulaField expression="Trim(Substring([Field_1], 32, 12))" field="RAW Runway Surface Type and Condition" size="12" type="V_String" />
+            <FormulaField expression="IF   REGEX_Match([RAW Runway Surface Type and Condition], &quot;^[A-Z-]+-[A-Z]$&quot;)&#xA;THEN Right([RAW Runway Surface Type and Condition],1)&#xA;ELSE &quot;&quot;&#xA;ENDIF" field="Runway Surface Condition" size="1" type="String" />
+            <FormulaField expression="IF   Length([RAW Runway Surface Type and Condition]) = 1&#xA;THEN [RAW Runway Surface Type and Condition]&#xA;ELSE [Runway Surface Condition]&#xA;ENDIF" field="Runway Surface Condition" size="1" type="String" />
+            <FormulaField expression="Switch(&#xA;  [Runway Surface Condition], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;E&quot;, &quot;Excellent&quot;,&#xA;  &quot;G&quot;, &quot;Good&quot;,&#xA;  &quot;F&quot;, &quot;Fair&quot;,&#xA;  &quot;P&quot;, &quot;Poor&quot;,&#xA;  &quot;L&quot;, &quot;Failed&quot;&#xA;)" field="Runway Surface Condition Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 44, 5)" field="Runway Surface Treatment" size="5" type="String" />
+            <FormulaField expression="Switch(&#xA;  Trim([Runway Surface Treatment]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;GRVD&quot;, &quot;Saw-Cut or Plastic Grooved&quot;,&#xA;  &quot;PFC&quot;, &quot;Porous Friction Course&quot;,&#xA;  &quot;AFSC&quot;, &quot;Aggregate Friction Seal Coat&quot;,&#xA;  &quot;RFSC&quot;, &quot;Rubberized Friction Seal Coat&quot;,&#xA;  &quot;WC&quot;, &quot;Wire Comb or Wire Tine&quot;,&#xA;  &quot;NONE&quot;, &quot;None&quot;&#xA;)" field="Runway Surface Treatment Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 49, 11)" field="Pavement Classification Number" size="11" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 60, 5)" field="Runway Lights Edge Intensity" size="5" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[Common
+]]></AnnotationText>
+          <DefaultAnnotationText>Physical Runway Length = ToNumber(Substring([Field_1], 23, 5))
+Physical Runway W...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\APT.txt" type="V_String" />
+            <Field name="RecordType" size="3" source="Formula: Left([Field_1],3)" type="String" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 3, 11)" type="String" />
+            <Field name="Runway State Post Office Code" size="2" source="Formula: Substring([Field_1], 14, 2)" type="String" />
+            <Field name="Runway Identification" size="7" source="Formula: Substring([Field_1], 16, 7)" type="String" />
+            <Field name="Physical Runway Length" source="Formula: ToNumber(Substring([Field_1], 23, 5))" type="Int32" />
+            <Field name="Physical Runway Width" source="Formula: ToNumber(Substring([Field_1], 28, 4))" type="Int32" />
+            <Field name="RAW Runway Surface Type and Condition" size="12" source="Formula: Trim(Substring([Field_1], 32, 12))" type="V_String" />
+            <Field name="Runway Surface Condition" size="1" source="Formula: IF   Length([RAW Runway Surface Type and Condition]) = 1&#xA;THEN [RAW Runway Surface Type and Condition]&#xA;ELSE [Runway Surface Condition]&#xA;ENDIF" type="String" />
+            <Field name="Runway Surface Condition Name" size="50" source="Formula: Switch(&#xA;  [Runway Surface Condition], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;E&quot;, &quot;Excellent&quot;,&#xA;  &quot;G&quot;, &quot;Good&quot;,&#xA;  &quot;F&quot;, &quot;Fair&quot;,&#xA;  &quot;P&quot;, &quot;Poor&quot;,&#xA;  &quot;L&quot;, &quot;Failed&quot;&#xA;)" type="V_String" />
+            <Field name="Runway Surface Treatment" size="5" source="Formula: Substring([Field_1], 44, 5)" type="String" />
+            <Field name="Runway Surface Treatment Name" size="50" source="Formula: Switch(&#xA;  Trim([Runway Surface Treatment]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;GRVD&quot;, &quot;Saw-Cut or Plastic Grooved&quot;,&#xA;  &quot;PFC&quot;, &quot;Porous Friction Course&quot;,&#xA;  &quot;AFSC&quot;, &quot;Aggregate Friction Seal Coat&quot;,&#xA;  &quot;RFSC&quot;, &quot;Rubberized Friction Seal Coat&quot;,&#xA;  &quot;WC&quot;, &quot;Wire Comb or Wire Tine&quot;,&#xA;  &quot;NONE&quot;, &quot;None&quot;&#xA;)" type="V_String" />
+            <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
+            <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="606" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 65, 3)" field="Base End Identifier" size="3" type="String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 68, 3))" field="Base End True Alignment" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 71, 10)" field="Base End ILS Type" size="10" type="String" />
+            <FormulaField expression="Substring([Field_1], 81, 1)" field="Base End Right Hand Traffic" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 82, 5)" field="Base End Runway Markings Type" size="5" type="String" />
+            <FormulaField expression="Substring([Field_1], 87, 1)" field="Base End Runway Markings Condition" size="1" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Base Info</AnnotationText>
+          <DefaultAnnotationText>Base End Identifier = Substring([Field_1], 65, 3)
+Base End True Alignment = ToNu...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\APT.txt" type="V_String" />
+            <Field name="RecordType" size="3" source="Formula: Left([Field_1],3)" type="String" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 3, 11)" type="String" />
+            <Field name="Runway State Post Office Code" size="2" source="Formula: Substring([Field_1], 14, 2)" type="String" />
+            <Field name="Runway Identification" size="7" source="Formula: Substring([Field_1], 16, 7)" type="String" />
+            <Field name="Physical Runway Length" source="Formula: ToNumber(Substring([Field_1], 23, 5))" type="Int32" />
+            <Field name="Physical Runway Width" source="Formula: ToNumber(Substring([Field_1], 28, 4))" type="Int32" />
+            <Field name="RAW Runway Surface Type and Condition" size="12" source="Formula: Trim(Substring([Field_1], 32, 12))" type="V_String" />
+            <Field name="Runway Surface Condition" size="1" source="Formula: IF   Length([RAW Runway Surface Type and Condition]) = 1&#xA;THEN [RAW Runway Surface Type and Condition]&#xA;ELSE [Runway Surface Condition]&#xA;ENDIF" type="String" />
+            <Field name="Runway Surface Condition Name" size="50" source="Formula: Switch(&#xA;  [Runway Surface Condition], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;E&quot;, &quot;Excellent&quot;,&#xA;  &quot;G&quot;, &quot;Good&quot;,&#xA;  &quot;F&quot;, &quot;Fair&quot;,&#xA;  &quot;P&quot;, &quot;Poor&quot;,&#xA;  &quot;L&quot;, &quot;Failed&quot;&#xA;)" type="V_String" />
+            <Field name="Runway Surface Treatment" size="5" source="Formula: Substring([Field_1], 44, 5)" type="String" />
+            <Field name="Runway Surface Treatment Name" size="50" source="Formula: Switch(&#xA;  Trim([Runway Surface Treatment]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;GRVD&quot;, &quot;Saw-Cut or Plastic Grooved&quot;,&#xA;  &quot;PFC&quot;, &quot;Porous Friction Course&quot;,&#xA;  &quot;AFSC&quot;, &quot;Aggregate Friction Seal Coat&quot;,&#xA;  &quot;RFSC&quot;, &quot;Rubberized Friction Seal Coat&quot;,&#xA;  &quot;WC&quot;, &quot;Wire Comb or Wire Tine&quot;,&#xA;  &quot;NONE&quot;, &quot;None&quot;&#xA;)" type="V_String" />
+            <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
+            <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
+            <Field name="Base End Identifier" size="3" source="Formula: Substring([Field_1], 65, 3)" type="String" />
+            <Field name="Base End True Alignment" source="Formula: ToNumber(Substring([Field_1], 68, 3))" type="Int32" />
+            <Field name="Base End ILS Type" size="10" source="Formula: Substring([Field_1], 71, 10)" type="String" />
+            <Field name="Base End Right Hand Traffic" size="1" source="Formula: Substring([Field_1], 81, 1)" type="String" />
+            <Field name="Base End Runway Markings Type" size="5" source="Formula: Substring([Field_1], 82, 5)" type="String" />
+            <Field name="Base End Runway Markings Condition" size="1" source="Formula: Substring([Field_1], 87, 1)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="894" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="Base End ILS Type" />
+            <Field name="Landing Facility Site Number" selected="False" />
+            <Field name="Runway State Post Office Code" selected="False" />
+            <Field name="Runway Identification" selected="False" />
+            <Field name="Runway Surface Condition" selected="False" />
+            <Field name="Runway Surface Condition Name" selected="False" />
+            <Field name="Runway Surface Treatment" selected="False" />
+            <Field name="Runway Surface Treatment Name" selected="False" />
+            <Field name="Pavement Classification Number" selected="False" />
+            <Field name="Runway Lights Edge Intensity" selected="False" />
+            <Field name="Base End Identifier" selected="False" />
+            <Field name="Base End Right Hand Traffic" selected="False" />
+            <Field name="Base End Runway Markings Type" selected="False" />
+            <Field name="Base End Runway Markings Condition" selected="False" />
+            <Field name="*Unknown" selected="False" />
+          </Fields>
+          <NewFieldAddOn><![CDATA[ Name]]></NewFieldAddOn>
+          <NewFieldAddOnPos>Suffix</NewFieldAddOnPos>
+          <CopyOutput value="True" />
+          <Expression>Switch(
+  [_CurrentField_], "Unknown",
+  "", "",
+  "ILS", "Instrument Landing System",
+  "MLS", "Microwave Landing System",
+  "SDF", "Simplified Directional Facility",
+  "LOCALIZER", "Localizer",
+  "LDA", "Localizer-Type Directional Aid",
+  "ISMLS", "Interim Standard Microwave Landing System",
+  "ILS/DME", "Instrument Landing System with Distance Measuring Equipment",
+  "SDF/DME", "Simplified Directional Facility with Distance Measuring Equipment",
+  "LOC/DME", "Localizer with Distance Measuring Equipment",
+  "LOC/GS", "Localizer with Glide Slope",
+  "LDA/DME", "Localizer-Type Directional Aid with Distance Measuring Equipment"
+)</Expression>
+          <ChangeFieldType value="True" />
+          <OutputFieldType type="V_String" size="100" scale="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>ILS Type
+Name</AnnotationText>
+          <DefaultAnnotationText>Switch(
+  [_CurrentField_], "Unknown",
+  "", "",
+  "ILS", "In...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Identification" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Physical Runway Length" source="Formula: ToNumber(Substring([Field_1], 23, 5))" type="Int32" />
+            <Field name="Physical Runway Width" source="Formula: ToNumber(Substring([Field_1], 28, 4))" type="Int32" />
+            <Field name="Runway Surface Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Surface Condition Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway Surface Treatment" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Surface Treatment Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Pavement Classification Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End True Alignment" source="Formula: ToNumber(Substring([Field_1], 68, 3))" type="Int32" />
+            <Field name="Base End ILS Type" size="10" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Right Hand Traffic" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Runway Markings Type" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Runway Markings Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End ILS Type Name" size="100" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ILS&quot;, &quot;Instrument Landing System&quot;,&#xA;  &quot;MLS&quot;, &quot;Microwave Landing System&quot;,&#xA;  &quot;SDF&quot;, &quot;Simplified Directional Facility&quot;,&#xA;  &quot;LOCALIZER&quot;, &quot;Localizer&quot;,&#xA;  &quot;LDA&quot;, &quot;Localizer-Type Directional Aid&quot;,&#xA;  &quot;ISMLS&quot;, &quot;Interim Standard Microwave Landing System&quot;,&#xA;  &quot;ILS/DME&quot;, &quot;Instrument Landing System with Distance Measuring Equipment&quot;,&#xA;  &quot;SDF/DME&quot;, &quot;Simplified Directional Facility with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/DME&quot;, &quot;Localizer with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/GS&quot;, &quot;Localizer with Glide Slope&quot;,&#xA;  &quot;LDA/DME&quot;, &quot;Localizer-Type Directional Aid with Distance Measuring Equipment&quot;&#xA;)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="990" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="Base End Runway Markings Type" />
+            <Field name="Landing Facility Site Number" selected="False" />
+            <Field name="Runway State Post Office Code" selected="False" />
+            <Field name="Runway Identification" selected="False" />
+            <Field name="Runway Surface Condition" selected="False" />
+            <Field name="Runway Surface Condition Name" selected="False" />
+            <Field name="Runway Surface Treatment" selected="False" />
+            <Field name="Runway Surface Treatment Name" selected="False" />
+            <Field name="Pavement Classification Number" selected="False" />
+            <Field name="Runway Lights Edge Intensity" selected="False" />
+            <Field name="Base End Identifier" selected="False" />
+            <Field name="Base End ILS Type" selected="False" />
+            <Field name="Base End Right Hand Traffic" selected="False" />
+            <Field name="Base End Runway Markings Condition" selected="False" />
+            <Field name="Base End ILS Type Name" selected="False" />
+            <Field name="*Unknown" selected="False" />
+          </Fields>
+          <NewFieldAddOn><![CDATA[ Name]]></NewFieldAddOn>
+          <NewFieldAddOnPos>Suffix</NewFieldAddOnPos>
+          <CopyOutput value="True" />
+          <Expression>Switch(
+  [_CurrentField_], "Unknown",
+  "", "",
+  "PIR", "Precision Instrument",
+  "NPI", "Nonprecision Instrument",
+  "BSC", "Basic",
+  "NRS", "Numbers Only",
+  "NSTD", "Nonstandard",
+  "BUOY", "Buoys",
+  "STOL", "Short Takeoff and Landing",
+  "NONE", "None"
+)</Expression>
+          <ChangeFieldType value="True" />
+          <OutputFieldType type="V_String" size="50" scale="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Runway
+Markings
+Type Name</AnnotationText>
+          <DefaultAnnotationText>Switch(
+  [_CurrentField_], "Unknown",
+  "", "",
+  "PIR", "Pr...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Identification" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Physical Runway Length" source="Formula: ToNumber(Substring([Field_1], 23, 5))" type="Int32" />
+            <Field name="Physical Runway Width" source="Formula: ToNumber(Substring([Field_1], 28, 4))" type="Int32" />
+            <Field name="Runway Surface Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Surface Condition Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway Surface Treatment" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Surface Treatment Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Pavement Classification Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End True Alignment" source="Formula: ToNumber(Substring([Field_1], 68, 3))" type="Int32" />
+            <Field name="Base End ILS Type" size="10" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Right Hand Traffic" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Runway Markings Type" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Runway Markings Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End ILS Type Name" size="100" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ILS&quot;, &quot;Instrument Landing System&quot;,&#xA;  &quot;MLS&quot;, &quot;Microwave Landing System&quot;,&#xA;  &quot;SDF&quot;, &quot;Simplified Directional Facility&quot;,&#xA;  &quot;LOCALIZER&quot;, &quot;Localizer&quot;,&#xA;  &quot;LDA&quot;, &quot;Localizer-Type Directional Aid&quot;,&#xA;  &quot;ISMLS&quot;, &quot;Interim Standard Microwave Landing System&quot;,&#xA;  &quot;ILS/DME&quot;, &quot;Instrument Landing System with Distance Measuring Equipment&quot;,&#xA;  &quot;SDF/DME&quot;, &quot;Simplified Directional Facility with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/DME&quot;, &quot;Localizer with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/GS&quot;, &quot;Localizer with Glide Slope&quot;,&#xA;  &quot;LDA/DME&quot;, &quot;Localizer-Type Directional Aid with Distance Measuring Equipment&quot;&#xA;)" type="V_String" />
+            <Field name="Base End Runway Markings Type Name" size="50" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;PIR&quot;, &quot;Precision Instrument&quot;,&#xA;  &quot;NPI&quot;, &quot;Nonprecision Instrument&quot;,&#xA;  &quot;BSC&quot;, &quot;Basic&quot;,&#xA;  &quot;NRS&quot;, &quot;Numbers Only&quot;,&#xA;  &quot;NSTD&quot;, &quot;Nonstandard&quot;,&#xA;  &quot;BUOY&quot;, &quot;Buoys&quot;,&#xA;  &quot;STOL&quot;, &quot;Short Takeoff and Landing&quot;,&#xA;  &quot;NONE&quot;, &quot;None&quot;&#xA;)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="1086" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="Base End Runway Markings Condition" />
+            <Field name="Landing Facility Site Number" selected="False" />
+            <Field name="Runway State Post Office Code" selected="False" />
+            <Field name="Runway Identification" selected="False" />
+            <Field name="Runway Surface Condition" selected="False" />
+            <Field name="Runway Surface Condition Name" selected="False" />
+            <Field name="Runway Surface Treatment" selected="False" />
+            <Field name="Runway Surface Treatment Name" selected="False" />
+            <Field name="Pavement Classification Number" selected="False" />
+            <Field name="Runway Lights Edge Intensity" selected="False" />
+            <Field name="Base End Identifier" selected="False" />
+            <Field name="Base End ILS Type" selected="False" />
+            <Field name="Base End Right Hand Traffic" selected="False" />
+            <Field name="Base End Runway Markings Type" selected="False" />
+            <Field name="Base End ILS Type Name" selected="False" />
+            <Field name="Base End Runway Markings Type Name" selected="False" />
+            <Field name="*Unknown" selected="False" />
+          </Fields>
+          <NewFieldAddOn><![CDATA[ Name]]></NewFieldAddOn>
+          <NewFieldAddOnPos>Suffix</NewFieldAddOnPos>
+          <CopyOutput value="True" />
+          <Expression>Switch(
+  [_CurrentField_], "Unknown",
+  "", "",
+  "G", "Good",
+  "F", "Fair",
+  "P", "Poor"
+)</Expression>
+          <ChangeFieldType value="True" />
+          <OutputFieldType type="V_String" size="50" scale="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Runway
+Markings
+Condition
+Name</AnnotationText>
+          <DefaultAnnotationText>Switch(
+  [_CurrentField_], "Unknown",
+  "", "",
+  "G", "Good...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Identification" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Physical Runway Length" source="Formula: ToNumber(Substring([Field_1], 23, 5))" type="Int32" />
+            <Field name="Physical Runway Width" source="Formula: ToNumber(Substring([Field_1], 28, 4))" type="Int32" />
+            <Field name="Runway Surface Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Surface Condition Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway Surface Treatment" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Surface Treatment Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Pavement Classification Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End True Alignment" source="Formula: ToNumber(Substring([Field_1], 68, 3))" type="Int32" />
+            <Field name="Base End ILS Type" size="10" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Right Hand Traffic" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Runway Markings Type" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Runway Markings Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End ILS Type Name" size="100" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ILS&quot;, &quot;Instrument Landing System&quot;,&#xA;  &quot;MLS&quot;, &quot;Microwave Landing System&quot;,&#xA;  &quot;SDF&quot;, &quot;Simplified Directional Facility&quot;,&#xA;  &quot;LOCALIZER&quot;, &quot;Localizer&quot;,&#xA;  &quot;LDA&quot;, &quot;Localizer-Type Directional Aid&quot;,&#xA;  &quot;ISMLS&quot;, &quot;Interim Standard Microwave Landing System&quot;,&#xA;  &quot;ILS/DME&quot;, &quot;Instrument Landing System with Distance Measuring Equipment&quot;,&#xA;  &quot;SDF/DME&quot;, &quot;Simplified Directional Facility with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/DME&quot;, &quot;Localizer with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/GS&quot;, &quot;Localizer with Glide Slope&quot;,&#xA;  &quot;LDA/DME&quot;, &quot;Localizer-Type Directional Aid with Distance Measuring Equipment&quot;&#xA;)" type="V_String" />
+            <Field name="Base End Runway Markings Type Name" size="50" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;PIR&quot;, &quot;Precision Instrument&quot;,&#xA;  &quot;NPI&quot;, &quot;Nonprecision Instrument&quot;,&#xA;  &quot;BSC&quot;, &quot;Basic&quot;,&#xA;  &quot;NRS&quot;, &quot;Numbers Only&quot;,&#xA;  &quot;NSTD&quot;, &quot;Nonstandard&quot;,&#xA;  &quot;BUOY&quot;, &quot;Buoys&quot;,&#xA;  &quot;STOL&quot;, &quot;Short Takeoff and Landing&quot;,&#xA;  &quot;NONE&quot;, &quot;None&quot;&#xA;)" type="V_String" />
+            <Field name="Base End Runway Markings Condition Name" size="50" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;G&quot;, &quot;Good&quot;,&#xA;  &quot;F&quot;, &quot;Fair&quot;,&#xA;  &quot;P&quot;, &quot;Poor&quot;&#xA;)" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -259,7 +625,7 @@ Runway State Post Off...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="6" Connection="Output" />
-      <Destination ToolID="7" Connection="Input" />
+      <Destination ToolID="10" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="7" Connection="Output" />
@@ -267,6 +633,26 @@ Runway State Post Off...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
       <Destination ToolID="5" Connection="Input" />
     </Connection>
   </Connections>
