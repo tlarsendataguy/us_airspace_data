@@ -75,11 +75,11 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="810" y="150" />
+        <Position x="1098" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\4\Engine_1340_064d48862430469fabee173f7eb030a0_\Engine_7016_74d55b4a49a04113a52c1c7e9838c066_.yxdb</TempFile>
+          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\4\Engine_1516_f0e4a43fe24d4a3686e9874d385a50bc_\Engine_7016_17f7e344c5344a008ed0e325f823cbe9_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <View1>
@@ -161,16 +161,11 @@
             <FormulaField expression="Substring([Field_1], 91, 2)" field="Associated County State" size="2" type="String" />
             <FormulaField expression="Substring([Field_1], 93, 40)" field="Associated City" size="40" type="V_String" />
             <FormulaField expression="Substring([Field_1], 133, 50)" field="Official Facility Name" size="50" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 183, 2)" field="Airport Ownership Type" size="2" type="String" />
-            <FormulaField expression="Switch(&#xA;  [Airport Ownership Type], &quot;Invalid&quot;,&#xA;  &quot;PU&quot;, &quot;Publicly Owned&quot;,&#xA;  &quot;PR&quot;, &quot;Privately Owned&quot;,&#xA;  &quot;MA&quot;, &quot;Air Force Owned&quot;,&#xA;  &quot;MN&quot;, &quot;Navy Owned&quot;,&#xA;  &quot;MR&quot;, &quot;Army Owned&quot;,&#xA;  &quot;CG&quot;, &quot;Coast Guard Owned&quot;&#xA;)" field="Airport Ownership Type Name" size="50" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 185, 2)" field="Facility Use" size="2" type="String" />
-            <FormulaField expression="Switch(&#xA;  [Facility Use], &quot;Unknown&quot;,&#xA;  &quot;PU&quot;, &quot;Open to the Public&quot;,&#xA;  &quot;PR&quot;, &quot;Private&quot;&#xA;)" field="Facility Use Name" size="50" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 187, 35)" field="Facility Owner's Name" size="35" type="V_String" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <AnnotationText>Parse</AnnotationText>
+          <AnnotationText>Demographic</AnnotationText>
           <DefaultAnnotationText>Landing Facility Site Number = Substring([Field_1], 3, 11)
 Landing Facility Type...</DefaultAnnotationText>
           <Left value="False" />
@@ -192,11 +187,6 @@ Landing Facility Type...</DefaultAnnotationText>
             <Field name="Associated County State" size="2" source="Formula: Substring([Field_1], 91, 2)" type="String" />
             <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 93, 40)" type="V_String" />
             <Field name="Official Facility Name" size="50" source="Formula: Substring([Field_1], 133, 50)" type="V_String" />
-            <Field name="Airport Ownership Type" size="2" source="Formula: Substring([Field_1], 183, 2)" type="String" />
-            <Field name="Airport Ownership Type Name" size="50" source="Formula: Switch(&#xA;  [Airport Ownership Type], &quot;Invalid&quot;,&#xA;  &quot;PU&quot;, &quot;Publicly Owned&quot;,&#xA;  &quot;PR&quot;, &quot;Privately Owned&quot;,&#xA;  &quot;MA&quot;, &quot;Air Force Owned&quot;,&#xA;  &quot;MN&quot;, &quot;Navy Owned&quot;,&#xA;  &quot;MR&quot;, &quot;Army Owned&quot;,&#xA;  &quot;CG&quot;, &quot;Coast Guard Owned&quot;&#xA;)" type="V_String" />
-            <Field name="Facility Use" size="2" source="Formula: Substring([Field_1], 185, 2)" type="String" />
-            <Field name="Facility Use Name" size="50" source="Formula: Switch(&#xA;  [Facility Use], &quot;Unknown&quot;,&#xA;  &quot;PU&quot;, &quot;Open to the Public&quot;,&#xA;  &quot;PR&quot;, &quot;Private&quot;&#xA;)" type="V_String" />
-            <Field name="Facility Owner's Name" size="35" source="Formula: Substring([Field_1], 187, 35)" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -204,7 +194,7 @@ Landing Facility Type...</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="618" y="150" />
+        <Position x="906" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -213,6 +203,10 @@ Landing Facility Type...</DefaultAnnotationText>
           <SelectFields>
             <SelectField field="Field_1" selected="False" />
             <SelectField field="RecordType" selected="False" />
+            <SelectField field="RAW Airport Reference Point Latitude" selected="False" />
+            <SelectField field="RAW Airport Reference Point Longitude" selected="False" />
+            <SelectField field="RAW Airport Elevation" selected="False" />
+            <SelectField field="RAW Traffic Pattern Altitude" selected="False" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -241,6 +235,40 @@ Landing Facility Type...</DefaultAnnotationText>
             <Field name="Facility Use" size="2" source="Formula: Substring([Field_1], 185, 2)" type="String" />
             <Field name="Facility Use Name" size="50" source="Formula: Switch(&#xA;  [Facility Use], &quot;Unknown&quot;,&#xA;  &quot;PU&quot;, &quot;Open to the Public&quot;,&#xA;  &quot;PR&quot;, &quot;Private&quot;&#xA;)" type="V_String" />
             <Field name="Facility Owner's Name" size="35" source="Formula: Substring([Field_1], 187, 35)" type="V_String" />
+            <Field name="Owner's Address" size="72" source="Formula: Substring([Field_1], 222, 72)" type="V_String" />
+            <Field name="Owner's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 294, 45)" type="V_String" />
+            <Field name="Owner's Phone Number" size="16" source="Formula: Substring([Field_1], 339, 16)" type="V_String" />
+            <Field name="Facility Manager's Name" size="35" source="Formula: Substring([Field_1], 355, 35)" type="V_String" />
+            <Field name="Manager's Address" size="72" source="Formula: Substring([Field_1], 390, 72)" type="V_String" />
+            <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 462, 45)" type="V_String" />
+            <Field name="Manager's Phone Number" size="16" source="Formula: Substring([Field_1], 507, 16)" type="V_String" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Elevation" scale="1" size="10" source="Formula: ToNumber([RAW Airport Elevation])" type="FixedDecimal" />
+            <Field name="Airport Elevation Estimation Method" size="1" source="Formula: Substring([Field_1],585, 1)" type="String" />
+            <Field name="Magnetic Variation and Direction" size="3" source="Formula: Substring([Field_1], 586, 3)" type="String" />
+            <Field name="Magnetic Variation Epoch Year" size="4" source="Formula: Substring([Field_1], 589, 4)" type="String" />
+            <Field name="Traffic Pattern Altitude" source="Formula: IF   [Traffic Pattern Altitude] = 0&#xA;THEN 1000&#xA;ELSE [Traffic Pattern Altitude]&#xA;ENDIF" type="Int32" />
+            <Field name="Sectional Chart" size="30" source="Formula: Substring([Field_1], 597, 30)" type="V_String" />
+            <Field name="Distance from Associated City" source="Formula: ToNumber(Substring([Field_1], 627, 2))" type="Int32" />
+            <Field name="Direction from Associated City" size="3" source="Formula: Substring([Field_1], 629, 3)" type="String" />
+            <Field name="Land Area Covered By Airport" source="Formula: ToNumber(Substring([Field_1], 632, 5))" type="Int32" />
+            <Field name="Boundary ARTCC Identifier" size="4" source="Formula: Substring([Field_1], 637, 4)" type="String" />
+            <Field name="Boundary ARTCC Computer Identifier" size="3" source="Formula: Substring([Field_1], 641, 3)" type="String" />
+            <Field name="Boundary ARTCC Name" size="30" source="Formula: Substring([Field_1], 644, 30)" type="V_String" />
+            <Field name="Responsible ARTCC Identifier" size="4" source="Formula: Substring([Field_1], 674, 4)" type="String" />
+            <Field name="Responsible ARTCC Computer Identifier" size="3" source="Formula: Substring([Field_1], 678, 3)" type="String" />
+            <Field name="Responsible ARTCC Name" size="30" source="Formula: Substring([Field_1], 681, 30)" type="V_String" />
+            <Field name="Tie-In FSS Physically Located on Facility" size="1" source="Formula: Substring([Field_1], 711, 1)" type="String" />
+            <Field name="Tie-In FSS Identifier" size="4" source="Formula: Substring([Field_1], 712, 4)" type="String" />
+            <Field name="Tie-In FSS Name" size="30" source="Formula: Substring([Field_1], 716, 30)" type="V_String" />
+            <Field name="Phone Number to FSS for Administrative Services" size="16" source="Formula: Substring([Field_1], 746, 16)" type="V_String" />
+            <Field name="Phone Number to FSS for Pilot Briefing Services" size="16" source="Formula: Substring([Field_1], 762, 16)" type="V_String" />
+            <Field name="Alternate FSS Identifier" size="4" source="Formula: Substring([Field_1], 778, 4)" type="String" />
+            <Field name="Alternate FSS Name" size="30" source="Formula: Substring([Field_1], 782, 30)" type="V_String" />
+            <Field name="Phone Number to Alternate FSS for Pilot Briefing Services" size="16" source="Formula: Substring([Field_1], 812, 16)" type="V_String" />
+            <Field name="Facility Responsible for NOTAMS and Weather" size="4" source="Formula: Substring([Field_1], 828, 4)" type="String" />
+            <Field name="Availability of NOTAM D Service" size="1" source="Formula: Substring([Field_1], 832, 1)" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -248,45 +276,107 @@ Landing Facility Type...</DefaultAnnotationText>
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="714" y="150" />
+        <Position x="1002" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <FieldType>Text</FieldType>
           <Fields orderChanged="False">
             <Field name="Landing Facility Site Number" />
+            <Field name="Landing Facility Type" />
+            <Field name="Location Identifier" />
+            <Field name="FAA Region Code" />
+            <Field name="FAA Region Name" />
+            <Field name="FAA Field Office" />
+            <Field name="Associated State" />
+            <Field name="Associated State Name" />
+            <Field name="Associated County" />
+            <Field name="Associated County State" />
+            <Field name="Associated City" />
+            <Field name="Official Facility Name" />
+            <Field name="Airport Ownership Type" />
+            <Field name="Airport Ownership Type Name" />
+            <Field name="Facility Use" />
+            <Field name="Facility Use Name" />
+            <Field name="Facility Owner's Name" />
+            <Field name="Owner's Address" />
+            <Field name="Owner's City, State and Zip Code" />
+            <Field name="Owner's Phone Number" />
+            <Field name="Facility Manager's Name" />
+            <Field name="Manager's Address" />
+            <Field name="Manager's City, State and Zip Code" />
+            <Field name="Manager's Phone Number" />
+            <Field name="Airport Elevation Estimation Method" />
+            <Field name="Magnetic Variation and Direction" />
+            <Field name="Magnetic Variation Epoch Year" />
+            <Field name="Sectional Chart" />
+            <Field name="Direction from Associated City" />
             <Field name="*Unknown" />
           </Fields>
           <CopyOutput value="False" />
-          <Expression>TrimRight([_CurrentField_])</Expression>
+          <Expression>Trim([_CurrentField_])</Expression>
           <ChangeFieldType value="False" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
           <AnnotationText>Trim</AnnotationText>
-          <DefaultAnnotationText>TrimRight([_CurrentField_])</DefaultAnnotationText>
+          <DefaultAnnotationText>Trim([_CurrentField_])</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Landing Facility Site Number" size="11" source="Formula: TrimRight([_CurrentField_])" type="String" />
-            <Field name="Landing Facility Type" size="13" source="Formula: TrimRight([_CurrentField_])" type="String" />
-            <Field name="Location Identifier" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Facility Type" size="13" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Location Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 31, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
-            <Field name="FAA Region Code" size="3" source="Formula: TrimRight([_CurrentField_])" type="String" />
-            <Field name="FAA Region Name" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
-            <Field name="FAA Field Office" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
-            <Field name="Associated State" size="2" source="Formula: TrimRight([_CurrentField_])" type="String" />
-            <Field name="Associated State Name" size="20" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
-            <Field name="Associated County" size="21" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
-            <Field name="Associated County State" size="2" source="Formula: TrimRight([_CurrentField_])" type="String" />
-            <Field name="Associated City" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
-            <Field name="Official Facility Name" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
-            <Field name="Airport Ownership Type" size="2" source="Formula: TrimRight([_CurrentField_])" type="String" />
-            <Field name="Airport Ownership Type Name" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
-            <Field name="Facility Use" size="2" source="Formula: TrimRight([_CurrentField_])" type="String" />
-            <Field name="Facility Use Name" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
-            <Field name="Facility Owner's Name" size="35" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="FAA Region Code" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="FAA Region Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="FAA Field Office" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Associated State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Associated State Name" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated County" size="21" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated County State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Associated City" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Official Facility Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Ownership Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Ownership Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Use" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Facility Use Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Owner's Name" size="35" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Owner's Address" size="72" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Owner's City, State and Zip Code" size="45" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Owner's Phone Number" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Manager's Name" size="35" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Manager's Address" size="72" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Manager's Phone Number" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Elevation" scale="1" size="10" source="Formula: ToNumber([RAW Airport Elevation])" type="FixedDecimal" />
+            <Field name="Airport Elevation Estimation Method" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Magnetic Variation and Direction" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Magnetic Variation Epoch Year" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Traffic Pattern Altitude" source="Formula: IF   [Traffic Pattern Altitude] = 0&#xA;THEN 1000&#xA;ELSE [Traffic Pattern Altitude]&#xA;ENDIF" type="Int32" />
+            <Field name="Sectional Chart" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Distance from Associated City" source="Formula: ToNumber(Substring([Field_1], 627, 2))" type="Int32" />
+            <Field name="Direction from Associated City" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Land Area Covered By Airport" source="Formula: ToNumber(Substring([Field_1], 632, 5))" type="Int32" />
+            <Field name="Boundary ARTCC Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Boundary ARTCC Computer Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Boundary ARTCC Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Responsible ARTCC Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Responsible ARTCC Computer Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Responsible ARTCC Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Tie-In FSS Physically Located on Facility" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Tie-In FSS Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Tie-In FSS Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Phone Number to FSS for Administrative Services" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Phone Number to FSS for Pilot Briefing Services" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Alternate FSS Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Alternate FSS Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Phone Number to Alternate FSS for Pilot Briefing Services" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Responsible for NOTAMS and Weather" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Availability of NOTAM D Service" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -330,6 +420,248 @@ Landing Facility Type...</DefaultAnnotationText>
         </Annotation>
       </Properties>
     </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="618" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 183, 2)" field="Airport Ownership Type" size="2" type="String" />
+            <FormulaField expression="Switch(&#xA;  [Airport Ownership Type], &quot;Invalid&quot;,&#xA;  &quot;PU&quot;, &quot;Publicly Owned&quot;,&#xA;  &quot;PR&quot;, &quot;Privately Owned&quot;,&#xA;  &quot;MA&quot;, &quot;Air Force Owned&quot;,&#xA;  &quot;MN&quot;, &quot;Navy Owned&quot;,&#xA;  &quot;MR&quot;, &quot;Army Owned&quot;,&#xA;  &quot;CG&quot;, &quot;Coast Guard Owned&quot;&#xA;)" field="Airport Ownership Type Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 185, 2)" field="Facility Use" size="2" type="String" />
+            <FormulaField expression="Switch(&#xA;  [Facility Use], &quot;Unknown&quot;,&#xA;  &quot;PU&quot;, &quot;Open to the Public&quot;,&#xA;  &quot;PR&quot;, &quot;Private&quot;&#xA;)" field="Facility Use Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 187, 35)" field="Facility Owner's Name" size="35" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 222, 72)" field="Owner's Address" size="72" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 294, 45)" field="Owner's City, State and Zip Code" size="45" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 339, 16)" field="Owner's Phone Number" size="16" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 355, 35)" field="Facility Manager's Name" size="35" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 390, 72)" field="Manager's Address" size="72" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 462, 45)" field="Manager's City, State and Zip Code" size="45" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 507, 16)" field="Manager's Phone Number" size="16" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Ownership</AnnotationText>
+          <DefaultAnnotationText>Airport Ownership Type = Substring([Field_1], 183, 2)
+Airport Ownership Type Nam...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\APT.txt" type="V_String" />
+            <Field name="RecordType" size="3" source="Formula: Left([Field_1],3)" type="String" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 3, 11)" type="String" />
+            <Field name="Landing Facility Type" size="13" source="Formula: Substring([Field_1], 14, 13)" type="String" />
+            <Field name="Location Identifier" size="4" source="Formula: Substring([Field_1], 27, 4)" type="String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 31, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 41, 3)" type="String" />
+            <Field name="FAA Region Name" size="50" source="Formula: Switch(&#xA;  [FAA Region Code],&quot;Unknown&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western-Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="FAA Field Office" size="4" source="Formula: Substring([Field_1], 44, 4)" type="String" />
+            <Field name="Associated State" size="2" source="Formula: Substring([Field_1], 48, 2)" type="String" />
+            <Field name="Associated State Name" size="20" source="Formula: Substring([Field_1], 50, 20)" type="V_String" />
+            <Field name="Associated County" size="21" source="Formula: Substring([Field_1], 70, 21)" type="V_String" />
+            <Field name="Associated County State" size="2" source="Formula: Substring([Field_1], 91, 2)" type="String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 93, 40)" type="V_String" />
+            <Field name="Official Facility Name" size="50" source="Formula: Substring([Field_1], 133, 50)" type="V_String" />
+            <Field name="Airport Ownership Type" size="2" source="Formula: Substring([Field_1], 183, 2)" type="String" />
+            <Field name="Airport Ownership Type Name" size="50" source="Formula: Switch(&#xA;  [Airport Ownership Type], &quot;Invalid&quot;,&#xA;  &quot;PU&quot;, &quot;Publicly Owned&quot;,&#xA;  &quot;PR&quot;, &quot;Privately Owned&quot;,&#xA;  &quot;MA&quot;, &quot;Air Force Owned&quot;,&#xA;  &quot;MN&quot;, &quot;Navy Owned&quot;,&#xA;  &quot;MR&quot;, &quot;Army Owned&quot;,&#xA;  &quot;CG&quot;, &quot;Coast Guard Owned&quot;&#xA;)" type="V_String" />
+            <Field name="Facility Use" size="2" source="Formula: Substring([Field_1], 185, 2)" type="String" />
+            <Field name="Facility Use Name" size="50" source="Formula: Switch(&#xA;  [Facility Use], &quot;Unknown&quot;,&#xA;  &quot;PU&quot;, &quot;Open to the Public&quot;,&#xA;  &quot;PR&quot;, &quot;Private&quot;&#xA;)" type="V_String" />
+            <Field name="Facility Owner's Name" size="35" source="Formula: Substring([Field_1], 187, 35)" type="V_String" />
+            <Field name="Owner's Address" size="72" source="Formula: Substring([Field_1], 222, 72)" type="V_String" />
+            <Field name="Owner's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 294, 45)" type="V_String" />
+            <Field name="Owner's Phone Number" size="16" source="Formula: Substring([Field_1], 339, 16)" type="V_String" />
+            <Field name="Facility Manager's Name" size="35" source="Formula: Substring([Field_1], 355, 35)" type="V_String" />
+            <Field name="Manager's Address" size="72" source="Formula: Substring([Field_1], 390, 72)" type="V_String" />
+            <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 462, 45)" type="V_String" />
+            <Field name="Manager's Phone Number" size="16" source="Formula: Substring([Field_1], 507, 16)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="714" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 538, 12)" field="RAW Airport Reference Point Latitude" size="12" type="String" />
+            <FormulaField expression="ToNumber(Left([RAW Airport Reference Point Latitude], 11))/3600" field="Airport Reference Point Latitude" size="12.7" type="FixedDecimal" />
+            <FormulaField expression="IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" field="Airport Reference Point Latitude" size="12.7" type="FixedDecimal" />
+            <FormulaField expression="Substring([Field_1], 565, 12)" field="RAW Airport Reference Point Longitude" size="12" type="String" />
+            <FormulaField expression="ToNumber(Left([RAW Airport Reference Point Longitude],11))/3600" field="Airport Reference Point Longitude" size="12.7" type="FixedDecimal" />
+            <FormulaField expression="IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" field="Airport Reference Point Longitude" size="12.7" type="FixedDecimal" />
+            <FormulaField expression="Substring([Field_1], 578, 7)" field="RAW Airport Elevation" size="7" type="String" />
+            <FormulaField expression="ToNumber([RAW Airport Elevation])" field="Airport Elevation" size="10.1" type="FixedDecimal" />
+            <FormulaField expression="Substring([Field_1],585, 1)" field="Airport Elevation Estimation Method" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 586, 3)" field="Magnetic Variation and Direction" size="3" type="String" />
+            <FormulaField expression="Substring([Field_1], 589, 4)" field="Magnetic Variation Epoch Year" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 593, 4)" field="RAW Traffic Pattern Altitude" size="4" type="String" />
+            <FormulaField expression="ToNumber([RAW Traffic Pattern Altitude])" field="Traffic Pattern Altitude" size="4" type="Int32" />
+            <FormulaField expression="IF   [Traffic Pattern Altitude] = 0&#xA;THEN 1000&#xA;ELSE [Traffic Pattern Altitude]&#xA;ENDIF" field="Traffic Pattern Altitude" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 597, 30)" field="Sectional Chart" size="30" type="V_String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 627, 2))" field="Distance from Associated City" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 629, 3)" field="Direction from Associated City" size="3" type="String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 632, 5))" field="Land Area Covered By Airport" size="4" type="Int32" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Geographic</AnnotationText>
+          <DefaultAnnotationText>RAW Airport Reference Point Latitude = Substring([Field_1], 538, 12)
+Airport Ref...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\APT.txt" type="V_String" />
+            <Field name="RecordType" size="3" source="Formula: Left([Field_1],3)" type="String" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 3, 11)" type="String" />
+            <Field name="Landing Facility Type" size="13" source="Formula: Substring([Field_1], 14, 13)" type="String" />
+            <Field name="Location Identifier" size="4" source="Formula: Substring([Field_1], 27, 4)" type="String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 31, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 41, 3)" type="String" />
+            <Field name="FAA Region Name" size="50" source="Formula: Switch(&#xA;  [FAA Region Code],&quot;Unknown&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western-Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="FAA Field Office" size="4" source="Formula: Substring([Field_1], 44, 4)" type="String" />
+            <Field name="Associated State" size="2" source="Formula: Substring([Field_1], 48, 2)" type="String" />
+            <Field name="Associated State Name" size="20" source="Formula: Substring([Field_1], 50, 20)" type="V_String" />
+            <Field name="Associated County" size="21" source="Formula: Substring([Field_1], 70, 21)" type="V_String" />
+            <Field name="Associated County State" size="2" source="Formula: Substring([Field_1], 91, 2)" type="String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 93, 40)" type="V_String" />
+            <Field name="Official Facility Name" size="50" source="Formula: Substring([Field_1], 133, 50)" type="V_String" />
+            <Field name="Airport Ownership Type" size="2" source="Formula: Substring([Field_1], 183, 2)" type="String" />
+            <Field name="Airport Ownership Type Name" size="50" source="Formula: Switch(&#xA;  [Airport Ownership Type], &quot;Invalid&quot;,&#xA;  &quot;PU&quot;, &quot;Publicly Owned&quot;,&#xA;  &quot;PR&quot;, &quot;Privately Owned&quot;,&#xA;  &quot;MA&quot;, &quot;Air Force Owned&quot;,&#xA;  &quot;MN&quot;, &quot;Navy Owned&quot;,&#xA;  &quot;MR&quot;, &quot;Army Owned&quot;,&#xA;  &quot;CG&quot;, &quot;Coast Guard Owned&quot;&#xA;)" type="V_String" />
+            <Field name="Facility Use" size="2" source="Formula: Substring([Field_1], 185, 2)" type="String" />
+            <Field name="Facility Use Name" size="50" source="Formula: Switch(&#xA;  [Facility Use], &quot;Unknown&quot;,&#xA;  &quot;PU&quot;, &quot;Open to the Public&quot;,&#xA;  &quot;PR&quot;, &quot;Private&quot;&#xA;)" type="V_String" />
+            <Field name="Facility Owner's Name" size="35" source="Formula: Substring([Field_1], 187, 35)" type="V_String" />
+            <Field name="Owner's Address" size="72" source="Formula: Substring([Field_1], 222, 72)" type="V_String" />
+            <Field name="Owner's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 294, 45)" type="V_String" />
+            <Field name="Owner's Phone Number" size="16" source="Formula: Substring([Field_1], 339, 16)" type="V_String" />
+            <Field name="Facility Manager's Name" size="35" source="Formula: Substring([Field_1], 355, 35)" type="V_String" />
+            <Field name="Manager's Address" size="72" source="Formula: Substring([Field_1], 390, 72)" type="V_String" />
+            <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 462, 45)" type="V_String" />
+            <Field name="Manager's Phone Number" size="16" source="Formula: Substring([Field_1], 507, 16)" type="V_String" />
+            <Field name="RAW Airport Reference Point Latitude" size="12" source="Formula: Substring([Field_1], 538, 12)" type="String" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="RAW Airport Reference Point Longitude" size="12" source="Formula: Substring([Field_1], 565, 12)" type="String" />
+            <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="RAW Airport Elevation" size="7" source="Formula: Substring([Field_1], 578, 7)" type="String" />
+            <Field name="Airport Elevation" scale="1" size="10" source="Formula: ToNumber([RAW Airport Elevation])" type="FixedDecimal" />
+            <Field name="Airport Elevation Estimation Method" size="1" source="Formula: Substring([Field_1],585, 1)" type="String" />
+            <Field name="Magnetic Variation and Direction" size="3" source="Formula: Substring([Field_1], 586, 3)" type="String" />
+            <Field name="Magnetic Variation Epoch Year" size="4" source="Formula: Substring([Field_1], 589, 4)" type="String" />
+            <Field name="RAW Traffic Pattern Altitude" size="4" source="Formula: Substring([Field_1], 593, 4)" type="String" />
+            <Field name="Traffic Pattern Altitude" source="Formula: IF   [Traffic Pattern Altitude] = 0&#xA;THEN 1000&#xA;ELSE [Traffic Pattern Altitude]&#xA;ENDIF" type="Int32" />
+            <Field name="Sectional Chart" size="30" source="Formula: Substring([Field_1], 597, 30)" type="V_String" />
+            <Field name="Distance from Associated City" source="Formula: ToNumber(Substring([Field_1], 627, 2))" type="Int32" />
+            <Field name="Direction from Associated City" size="3" source="Formula: Substring([Field_1], 629, 3)" type="String" />
+            <Field name="Land Area Covered By Airport" source="Formula: ToNumber(Substring([Field_1], 632, 5))" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="810" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 637, 4)" field="Boundary ARTCC Identifier" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 641, 3)" field="Boundary ARTCC Computer Identifier" size="3" type="String" />
+            <FormulaField expression="Substring([Field_1], 644, 30)" field="Boundary ARTCC Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 674, 4)" field="Responsible ARTCC Identifier" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 678, 3)" field="Responsible ARTCC Computer Identifier" size="3" type="String" />
+            <FormulaField expression="Substring([Field_1], 681, 30)" field="Responsible ARTCC Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 711, 1)" field="Tie-In FSS Physically Located on Facility" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 712, 4)" field="Tie-In FSS Identifier" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 716, 30)" field="Tie-In FSS Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 746, 16)" field="Phone Number to FSS for Administrative Services" size="16" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 762, 16)" field="Phone Number to FSS for Pilot Briefing Services" size="16" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 778, 4)" field="Alternate FSS Identifier" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 782, 30)" field="Alternate FSS Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 812, 16)" field="Phone Number to Alternate FSS for Pilot Briefing Services" size="16" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 828, 4)" field="Facility Responsible for NOTAMS and Weather" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 832, 1)" field="Availability of NOTAM D Service" size="1" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>FAA Services</AnnotationText>
+          <DefaultAnnotationText>Boundary ARTCC Identifier = Substring([Field_1], 637, 4)
+Boundary ARTCC Computer...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\APT.txt" type="V_String" />
+            <Field name="RecordType" size="3" source="Formula: Left([Field_1],3)" type="String" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 3, 11)" type="String" />
+            <Field name="Landing Facility Type" size="13" source="Formula: Substring([Field_1], 14, 13)" type="String" />
+            <Field name="Location Identifier" size="4" source="Formula: Substring([Field_1], 27, 4)" type="String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 31, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 41, 3)" type="String" />
+            <Field name="FAA Region Name" size="50" source="Formula: Switch(&#xA;  [FAA Region Code],&quot;Unknown&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western-Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="FAA Field Office" size="4" source="Formula: Substring([Field_1], 44, 4)" type="String" />
+            <Field name="Associated State" size="2" source="Formula: Substring([Field_1], 48, 2)" type="String" />
+            <Field name="Associated State Name" size="20" source="Formula: Substring([Field_1], 50, 20)" type="V_String" />
+            <Field name="Associated County" size="21" source="Formula: Substring([Field_1], 70, 21)" type="V_String" />
+            <Field name="Associated County State" size="2" source="Formula: Substring([Field_1], 91, 2)" type="String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 93, 40)" type="V_String" />
+            <Field name="Official Facility Name" size="50" source="Formula: Substring([Field_1], 133, 50)" type="V_String" />
+            <Field name="Airport Ownership Type" size="2" source="Formula: Substring([Field_1], 183, 2)" type="String" />
+            <Field name="Airport Ownership Type Name" size="50" source="Formula: Switch(&#xA;  [Airport Ownership Type], &quot;Invalid&quot;,&#xA;  &quot;PU&quot;, &quot;Publicly Owned&quot;,&#xA;  &quot;PR&quot;, &quot;Privately Owned&quot;,&#xA;  &quot;MA&quot;, &quot;Air Force Owned&quot;,&#xA;  &quot;MN&quot;, &quot;Navy Owned&quot;,&#xA;  &quot;MR&quot;, &quot;Army Owned&quot;,&#xA;  &quot;CG&quot;, &quot;Coast Guard Owned&quot;&#xA;)" type="V_String" />
+            <Field name="Facility Use" size="2" source="Formula: Substring([Field_1], 185, 2)" type="String" />
+            <Field name="Facility Use Name" size="50" source="Formula: Switch(&#xA;  [Facility Use], &quot;Unknown&quot;,&#xA;  &quot;PU&quot;, &quot;Open to the Public&quot;,&#xA;  &quot;PR&quot;, &quot;Private&quot;&#xA;)" type="V_String" />
+            <Field name="Facility Owner's Name" size="35" source="Formula: Substring([Field_1], 187, 35)" type="V_String" />
+            <Field name="Owner's Address" size="72" source="Formula: Substring([Field_1], 222, 72)" type="V_String" />
+            <Field name="Owner's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 294, 45)" type="V_String" />
+            <Field name="Owner's Phone Number" size="16" source="Formula: Substring([Field_1], 339, 16)" type="V_String" />
+            <Field name="Facility Manager's Name" size="35" source="Formula: Substring([Field_1], 355, 35)" type="V_String" />
+            <Field name="Manager's Address" size="72" source="Formula: Substring([Field_1], 390, 72)" type="V_String" />
+            <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 462, 45)" type="V_String" />
+            <Field name="Manager's Phone Number" size="16" source="Formula: Substring([Field_1], 507, 16)" type="V_String" />
+            <Field name="RAW Airport Reference Point Latitude" size="12" source="Formula: Substring([Field_1], 538, 12)" type="String" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="RAW Airport Reference Point Longitude" size="12" source="Formula: Substring([Field_1], 565, 12)" type="String" />
+            <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="RAW Airport Elevation" size="7" source="Formula: Substring([Field_1], 578, 7)" type="String" />
+            <Field name="Airport Elevation" scale="1" size="10" source="Formula: ToNumber([RAW Airport Elevation])" type="FixedDecimal" />
+            <Field name="Airport Elevation Estimation Method" size="1" source="Formula: Substring([Field_1],585, 1)" type="String" />
+            <Field name="Magnetic Variation and Direction" size="3" source="Formula: Substring([Field_1], 586, 3)" type="String" />
+            <Field name="Magnetic Variation Epoch Year" size="4" source="Formula: Substring([Field_1], 589, 4)" type="String" />
+            <Field name="RAW Traffic Pattern Altitude" size="4" source="Formula: Substring([Field_1], 593, 4)" type="String" />
+            <Field name="Traffic Pattern Altitude" source="Formula: IF   [Traffic Pattern Altitude] = 0&#xA;THEN 1000&#xA;ELSE [Traffic Pattern Altitude]&#xA;ENDIF" type="Int32" />
+            <Field name="Sectional Chart" size="30" source="Formula: Substring([Field_1], 597, 30)" type="V_String" />
+            <Field name="Distance from Associated City" source="Formula: ToNumber(Substring([Field_1], 627, 2))" type="Int32" />
+            <Field name="Direction from Associated City" size="3" source="Formula: Substring([Field_1], 629, 3)" type="String" />
+            <Field name="Land Area Covered By Airport" source="Formula: ToNumber(Substring([Field_1], 632, 5))" type="Int32" />
+            <Field name="Boundary ARTCC Identifier" size="4" source="Formula: Substring([Field_1], 637, 4)" type="String" />
+            <Field name="Boundary ARTCC Computer Identifier" size="3" source="Formula: Substring([Field_1], 641, 3)" type="String" />
+            <Field name="Boundary ARTCC Name" size="30" source="Formula: Substring([Field_1], 644, 30)" type="V_String" />
+            <Field name="Responsible ARTCC Identifier" size="4" source="Formula: Substring([Field_1], 674, 4)" type="String" />
+            <Field name="Responsible ARTCC Computer Identifier" size="3" source="Formula: Substring([Field_1], 678, 3)" type="String" />
+            <Field name="Responsible ARTCC Name" size="30" source="Formula: Substring([Field_1], 681, 30)" type="V_String" />
+            <Field name="Tie-In FSS Physically Located on Facility" size="1" source="Formula: Substring([Field_1], 711, 1)" type="String" />
+            <Field name="Tie-In FSS Identifier" size="4" source="Formula: Substring([Field_1], 712, 4)" type="String" />
+            <Field name="Tie-In FSS Name" size="30" source="Formula: Substring([Field_1], 716, 30)" type="V_String" />
+            <Field name="Phone Number to FSS for Administrative Services" size="16" source="Formula: Substring([Field_1], 746, 16)" type="V_String" />
+            <Field name="Phone Number to FSS for Pilot Briefing Services" size="16" source="Formula: Substring([Field_1], 762, 16)" type="V_String" />
+            <Field name="Alternate FSS Identifier" size="4" source="Formula: Substring([Field_1], 778, 4)" type="String" />
+            <Field name="Alternate FSS Name" size="30" source="Formula: Substring([Field_1], 782, 30)" type="V_String" />
+            <Field name="Phone Number to Alternate FSS for Pilot Briefing Services" size="16" source="Formula: Substring([Field_1], 812, 16)" type="V_String" />
+            <Field name="Facility Responsible for NOTAMS and Weather" size="4" source="Formula: Substring([Field_1], 828, 4)" type="String" />
+            <Field name="Availability of NOTAM D Service" size="1" source="Formula: Substring([Field_1], 832, 1)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -346,7 +678,7 @@ Landing Facility Type...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="7" Connection="Output" />
-      <Destination ToolID="8" Connection="Input" />
+      <Destination ToolID="12" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="8" Connection="Output" />
@@ -359,6 +691,18 @@ Landing Facility Type...</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="10" Connection="Output" />
       <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
