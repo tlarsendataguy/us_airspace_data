@@ -277,7 +277,6 @@ Landing Facility Type...</DefaultAnnotationText>
             <Field name="Airport ARFF Certification CFR 139 Code" size="1" source="Formula: REGEX_Replace([Airport ARFF Certification Type and Date], &quot;^([^ ]+) ([^ ]) ([^ ]) ([^ ]+)$&quot;,&quot;$2&quot;)" type="String" />
             <Field name="Airport ARFF Certification Scheduled Service" size="1" source="Formula: REGEX_Replace([Airport ARFF Certification Type and Date], &quot;^([^ ]+) ([^ ]) ([^ ]) ([^ ]+)$&quot;,&quot;$3&quot;)" type="String" />
             <Field name="Airport ARFF Certification Date" size="8" source="Formula: REGEX_Replace([Airport ARFF Certification Type and Date], &quot;^([^ ]+) ([^ ]) ([^ ]) ([^ ]+)$&quot;,&quot;$4&quot;)" type="String" />
-            <Field name="NPIAS Federal Agreements Code" size="7" source="Formula: Substring([Field_1], 857, 7)" type="V_String" />
             <Field name="Airport Airspace Analysis Determination" size="13" source="Formula: Substring([Field_1], 864, 13)" type="V_String" />
             <Field name="Airport of Entry for Customs" size="1" source="Formula: Substring([Field_1], 877, 1)" type="String" />
             <Field name="Customs Landing Rights Airport" size="1" source="Formula: Substring([Field_1], 878, 1)" type="String" />
@@ -348,6 +347,22 @@ Landing Facility Type...</DefaultAnnotationText>
             <Field name="Facility Responsible for NOTAMS and Weather" />
             <Field name="Availability of NOTAM D Service" />
             <Field name="Airport Activation Date" />
+            <Field name="Airport Status Code" />
+            <Field name="Airport Status Name" />
+            <Field name="Airport ARFF Certification Type and Date" />
+            <Field name="Airport ARFF Certification Class" />
+            <Field name="Airport ARFF Certification CFR 139 Code" />
+            <Field name="Airport ARFF Certification Scheduled Service" />
+            <Field name="Airport ARFF Certification Date" />
+            <Field name="Airport Airspace Analysis Determination" />
+            <Field name="Airport of Entry for Customs" />
+            <Field name="Customs Landing Rights Airport" />
+            <Field name="Military Civil Join Use Agreement" />
+            <Field name="Landing Rights Granted to Military" />
+            <Field name="Airport Inspection Method" />
+            <Field name="Airport Inspection Method Name" />
+            <Field name="Group Performing Physical Inspection" />
+            <Field name="Group Performing Physical Inspection Name" />
             <Field name="*Unknown" />
           </Fields>
           <CopyOutput value="False" />
@@ -422,7 +437,6 @@ Landing Facility Type...</DefaultAnnotationText>
             <Field name="Airport ARFF Certification CFR 139 Code" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Airport ARFF Certification Scheduled Service" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Airport ARFF Certification Date" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="NPIAS Federal Agreements Code" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Airport Airspace Analysis Determination" size="13" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Airport of Entry for Customs" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Customs Landing Rights Airport" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -734,7 +748,6 @@ Boundary ARTCC Computer...</DefaultAnnotationText>
             <FormulaField expression="REGEX_Replace([Airport ARFF Certification Type and Date], &quot;^([^ ]+) ([^ ]) ([^ ]) ([^ ]+)$&quot;,&quot;$2&quot;)" field="Airport ARFF Certification CFR 139 Code" size="1" type="String" />
             <FormulaField expression="REGEX_Replace([Airport ARFF Certification Type and Date], &quot;^([^ ]+) ([^ ]) ([^ ]) ([^ ]+)$&quot;,&quot;$3&quot;)" field="Airport ARFF Certification Scheduled Service" size="1" type="String" />
             <FormulaField expression="REGEX_Replace([Airport ARFF Certification Type and Date], &quot;^([^ ]+) ([^ ]) ([^ ]) ([^ ]+)$&quot;,&quot;$4&quot;)" field="Airport ARFF Certification Date" size="8" type="String" />
-            <FormulaField expression="Substring([Field_1], 857, 7)" field="NPIAS Federal Agreements Code" size="7" type="V_String" />
             <FormulaField expression="Substring([Field_1], 864, 13)" field="Airport Airspace Analysis Determination" size="13" type="V_String" />
             <FormulaField expression="Substring([Field_1], 877, 1)" field="Airport of Entry for Customs" size="1" type="String" />
             <FormulaField expression="Substring([Field_1], 878, 1)" field="Customs Landing Rights Airport" size="1" type="String" />
@@ -817,7 +830,6 @@ Airport Status Code = Sub...</DefaultAnnotationText>
             <Field name="Airport ARFF Certification CFR 139 Code" size="1" source="Formula: REGEX_Replace([Airport ARFF Certification Type and Date], &quot;^([^ ]+) ([^ ]) ([^ ]) ([^ ]+)$&quot;,&quot;$2&quot;)" type="String" />
             <Field name="Airport ARFF Certification Scheduled Service" size="1" source="Formula: REGEX_Replace([Airport ARFF Certification Type and Date], &quot;^([^ ]+) ([^ ]) ([^ ]) ([^ ]+)$&quot;,&quot;$3&quot;)" type="String" />
             <Field name="Airport ARFF Certification Date" size="8" source="Formula: REGEX_Replace([Airport ARFF Certification Type and Date], &quot;^([^ ]+) ([^ ]) ([^ ]) ([^ ]+)$&quot;,&quot;$4&quot;)" type="String" />
-            <Field name="NPIAS Federal Agreements Code" size="7" source="Formula: Substring([Field_1], 857, 7)" type="V_String" />
             <Field name="Airport Airspace Analysis Determination" size="13" source="Formula: Substring([Field_1], 864, 13)" type="V_String" />
             <Field name="Airport of Entry for Customs" size="1" source="Formula: Substring([Field_1], 877, 1)" type="String" />
             <Field name="Customs Landing Rights Airport" size="1" source="Formula: Substring([Field_1], 878, 1)" type="String" />
@@ -918,7 +930,6 @@ Airport Inspection Meth...</DefaultAnnotationText>
             <Field name="Airport ARFF Certification CFR 139 Code" size="1" source="Formula: REGEX_Replace([Airport ARFF Certification Type and Date], &quot;^([^ ]+) ([^ ]) ([^ ]) ([^ ]+)$&quot;,&quot;$2&quot;)" type="String" />
             <Field name="Airport ARFF Certification Scheduled Service" size="1" source="Formula: REGEX_Replace([Airport ARFF Certification Type and Date], &quot;^([^ ]+) ([^ ]) ([^ ]) ([^ ]+)$&quot;,&quot;$3&quot;)" type="String" />
             <Field name="Airport ARFF Certification Date" size="8" source="Formula: REGEX_Replace([Airport ARFF Certification Type and Date], &quot;^([^ ]+) ([^ ]) ([^ ]) ([^ ]+)$&quot;,&quot;$4&quot;)" type="String" />
-            <Field name="NPIAS Federal Agreements Code" size="7" source="Formula: Substring([Field_1], 857, 7)" type="V_String" />
             <Field name="Airport Airspace Analysis Determination" size="13" source="Formula: Substring([Field_1], 864, 13)" type="V_String" />
             <Field name="Airport of Entry for Customs" size="1" source="Formula: Substring([Field_1], 877, 1)" type="String" />
             <Field name="Customs Landing Rights Airport" size="1" source="Formula: Substring([Field_1], 878, 1)" type="String" />
