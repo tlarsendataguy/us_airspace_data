@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="138" y="150" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -34,11 +34,8 @@
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText>APT.txt</DefaultAnnotationText>
-          <Left value="False" />
+          <Left value="True" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\APT.txt" type="V_String" />
@@ -49,7 +46,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="234" y="150" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -75,7 +72,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1770" y="150" />
+        <Position x="1590" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -92,7 +89,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="330" y="150" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -136,7 +133,7 @@
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="522" y="150" />
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -187,7 +184,7 @@ Landing Facility Type...</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1578" y="150" />
+        <Position x="1398" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -324,7 +321,7 @@ Landing Facility Type...</DefaultAnnotationText>
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="1674" y="150" />
+        <Position x="1494" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -518,37 +515,12 @@ Landing Facility Type...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
     </Node>
-    <Node ToolID="10">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="426" y="150" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\APT.txt" type="V_String" />
-            <Field name="RecordType" size="3" source="Formula: Left([Field_1],3)" type="String" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -558,7 +530,7 @@ Landing Facility Type...</DefaultAnnotationText>
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="618" y="150" />
+        <Position x="438" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -620,7 +592,7 @@ Airport Ownership Type Nam...</DefaultAnnotationText>
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="714" y="150" />
+        <Position x="534" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -703,7 +675,7 @@ Airport Ref...</DefaultAnnotationText>
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="810" y="150" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -800,7 +772,7 @@ Boundary ARTCC Computer...</DefaultAnnotationText>
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="906" y="150" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -907,7 +879,7 @@ Airport Status Code = Sub...</DefaultAnnotationText>
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1002" y="150" />
+        <Position x="822" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1013,7 +985,7 @@ Airport Inspection Meth...</DefaultAnnotationText>
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1098" y="150" />
+        <Position x="918" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1121,7 +1093,7 @@ Power Plant ...</DefaultAnnotationText>
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1194" y="150" />
+        <Position x="1014" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1245,7 +1217,7 @@ Beacon Lighting Schedul...</DefaultAnnotationText>
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1290" y="150" />
+        <Position x="1110" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1373,7 +1345,7 @@ Multi Engine...</DefaultAnnotationText>
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1386" y="150" />
+        <Position x="1206" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1507,7 +1479,7 @@ Multi Engine...</DefaultAnnotationText>
     </Node>
     <Node ToolID="21">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1482" y="150" />
+        <Position x="1302" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1661,7 +1633,7 @@ Airport Position Source...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="6" Connection="True" />
-      <Destination ToolID="10" Connection="Input" />
+      <Destination ToolID="7" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="7" Connection="Output" />
@@ -1674,10 +1646,6 @@ Airport Position Source...</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="9" Connection="Output" />
       <Destination ToolID="3" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="10" Connection="Output" />
-      <Destination ToolID="7" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="12" Connection="Output" />
@@ -1811,7 +1779,8 @@ Airport Position Source...</DefaultAnnotationText>
       <Wiz_CustomGraphic value="False" />
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
-        <Tool ToolId="3" Selected="False" />
+        <Tool ToolId="1" Selected="True" />
+        <Tool ToolId="3" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />
