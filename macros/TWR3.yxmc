@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="162" y="150" />
+        <Position x="54" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -34,11 +34,8 @@
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText>TWR.txt</DefaultAnnotationText>
-          <Left value="False" />
+          <Left value="True" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
@@ -49,7 +46,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1314" y="150" />
+        <Position x="1206" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -66,7 +63,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="258" y="150" />
+        <Position x="150" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -92,7 +89,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="354" y="150" />
+        <Position x="246" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -136,7 +133,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="450" y="150" />
+        <Position x="342" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -199,7 +196,7 @@ Freq 1 = Substr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="546" y="150" />
+        <Position x="438" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -244,7 +241,7 @@ Freq 1 = Substr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="642" y="150" />
+        <Position x="534" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -312,6 +309,7 @@ Freq 1 = Substr...</DefaultAnnotationText>
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -321,7 +319,7 @@ Freq 1 = Substr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
-        <Position x="738" y="150" />
+        <Position x="630" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -369,7 +367,7 @@ Freq 1 = Substr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="834" y="150" />
+        <Position x="726" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -407,7 +405,7 @@ Freq 1 = Substr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
-        <Position x="738" y="234" />
+        <Position x="630" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -455,7 +453,7 @@ Freq 1 = Substr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="834" y="234" />
+        <Position x="726" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -493,7 +491,7 @@ Freq 1 = Substr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="930" y="150" />
+        <Position x="822" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -568,7 +566,7 @@ Freq 1 = Substr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Test.Test">
-        <Position x="1026" y="66" />
+        <Position x="918" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -592,7 +590,7 @@ Freq 1 = Substr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Test.Test">
-        <Position x="1026" y="234" />
+        <Position x="918" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -616,7 +614,7 @@ Freq 1 = Substr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1026" y="150" />
+        <Position x="918" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -673,12 +671,12 @@ Freq 1 = Substr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1122" y="150" />
+        <Position x="1014" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <FormulaFields>
-            <FormulaField expression="ToNumber(REGEX_Replace([Frequency], &quot;^([0-9.]+).*$&quot;, &quot;$1&quot;))" field="Frequency Number" size="19.3" type="FixedDecimal" />
+            <FormulaField expression="ToNumber(REGEX_Replace([Frequency], &quot;^([0-9.]+).*$&quot;, &quot;$1&quot;))" field="Frequency Number" size="10.3" type="FixedDecimal" />
             <FormulaField expression="REGEX_Replace([Frequency], &quot;^[^;]*(;(.*)|$)&quot;,&quot;$2&quot;)" field="Frequency Comment" size="60" type="V_String" />
           </FormulaFields>
         </Configuration>
@@ -695,7 +693,7 @@ F...</DefaultAnnotationText>
             <Field name="Frequency" size="60" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
             <Field description="Formula: [Row-1:Sequence]+1" name="Sequence" source="Formula: [Row-1:Sequence]+1" type="Int32" />
             <Field name="Frequency Use" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
-            <Field name="Frequency Number" scale="3" size="19" source="Formula: ToNumber(REGEX_Replace([Frequency], &quot;^([0-9.]+).*$&quot;, &quot;$1&quot;))" type="FixedDecimal" />
+            <Field name="Frequency Number" scale="3" size="10" source="Formula: ToNumber(REGEX_Replace([Frequency], &quot;^([0-9.]+).*$&quot;, &quot;$1&quot;))" type="FixedDecimal" />
             <Field name="Frequency Comment" size="60" source="Formula: REGEX_Replace([Frequency], &quot;^[^;]*(;(.*)|$)&quot;,&quot;$2&quot;)" type="V_String" />
           </RecordInfo>
           <SortInfo>
@@ -708,7 +706,7 @@ F...</DefaultAnnotationText>
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1218" y="150" />
+        <Position x="1110" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -729,7 +727,7 @@ F...</DefaultAnnotationText>
             <Field name="Terminal Communications Facility ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
             <Field name="Frequency" size="60" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
             <Field name="Frequency Use" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
-            <Field name="Frequency Number" scale="3" size="19" source="Formula: ToNumber(REGEX_Replace([Frequency], &quot;^([0-9.]+).*$&quot;, &quot;$1&quot;))" type="FixedDecimal" />
+            <Field name="Frequency Number" scale="3" size="10" source="Formula: ToNumber(REGEX_Replace([Frequency], &quot;^([0-9.]+).*$&quot;, &quot;$1&quot;))" type="FixedDecimal" />
             <Field name="Frequency Comment" size="60" source="Formula: REGEX_Replace([Frequency], &quot;^[^;]*(;(.*)|$)&quot;,&quot;$2&quot;)" type="V_String" />
           </RecordInfo>
           <SortInfo>
@@ -901,7 +899,8 @@ F...</DefaultAnnotationText>
       <Wiz_CustomGraphic value="False" />
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
-        <Tool ToolId="2" Selected="False" />
+        <Tool ToolId="1" Selected="True" />
+        <Tool ToolId="2" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />
