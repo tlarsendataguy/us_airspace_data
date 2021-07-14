@@ -232,7 +232,7 @@ Landing Facility Type...</DefaultAnnotationText>
             <Field name="Manager's Address" size="72" source="Formula: Substring([Field_1], 390, 72)" type="V_String" />
             <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 462, 45)" type="V_String" />
             <Field name="Manager's Phone Number" size="16" source="Formula: Substring([Field_1], 507, 16)" type="V_String" />
-            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Airport Elevation" scale="1" size="10" source="Formula: ToNumber([RAW Airport Elevation])" type="FixedDecimal" />
             <Field name="Airport Elevation Estimation Method" size="1" source="Formula: Substring([Field_1],585, 1)" type="String" />
@@ -428,7 +428,7 @@ Landing Facility Type...</DefaultAnnotationText>
             <Field name="Manager's Address" size="72" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Manager's Phone Number" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Airport Elevation" scale="1" size="10" source="Formula: ToNumber([RAW Airport Elevation])" type="FixedDecimal" />
             <Field name="Airport Elevation Estimation Method" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -599,7 +599,7 @@ Airport Ownership Type Nam...</DefaultAnnotationText>
           <FormulaFields>
             <FormulaField expression="Substring([Field_1], 538, 12)" field="RAW Airport Reference Point Latitude" size="12" type="String" />
             <FormulaField expression="ToNumber(Left([RAW Airport Reference Point Latitude], 11))/3600" field="Airport Reference Point Latitude" size="12.7" type="FixedDecimal" />
-            <FormulaField expression="IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" field="Airport Reference Point Latitude" size="12.7" type="FixedDecimal" />
+            <FormulaField expression="IF   Right([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" field="Airport Reference Point Latitude" size="12.7" type="FixedDecimal" />
             <FormulaField expression="Substring([Field_1], 565, 12)" field="RAW Airport Reference Point Longitude" size="12" type="String" />
             <FormulaField expression="ToNumber(Left([RAW Airport Reference Point Longitude],11))/3600" field="Airport Reference Point Longitude" size="12.7" type="FixedDecimal" />
             <FormulaField expression="IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" field="Airport Reference Point Longitude" size="12.7" type="FixedDecimal" />
@@ -654,7 +654,7 @@ Airport Ref...</DefaultAnnotationText>
             <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 462, 45)" type="V_String" />
             <Field name="Manager's Phone Number" size="16" source="Formula: Substring([Field_1], 507, 16)" type="V_String" />
             <Field name="RAW Airport Reference Point Latitude" size="12" source="Formula: Substring([Field_1], 538, 12)" type="String" />
-            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Reference Point Longitude" size="12" source="Formula: Substring([Field_1], 565, 12)" type="String" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Elevation" size="7" source="Formula: Substring([Field_1], 578, 7)" type="String" />
@@ -735,7 +735,7 @@ Boundary ARTCC Computer...</DefaultAnnotationText>
             <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 462, 45)" type="V_String" />
             <Field name="Manager's Phone Number" size="16" source="Formula: Substring([Field_1], 507, 16)" type="V_String" />
             <Field name="RAW Airport Reference Point Latitude" size="12" source="Formula: Substring([Field_1], 538, 12)" type="String" />
-            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Reference Point Longitude" size="12" source="Formula: Substring([Field_1], 565, 12)" type="String" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Elevation" size="7" source="Formula: Substring([Field_1], 578, 7)" type="String" />
@@ -829,7 +829,7 @@ Airport Status Code = Sub...</DefaultAnnotationText>
             <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 462, 45)" type="V_String" />
             <Field name="Manager's Phone Number" size="16" source="Formula: Substring([Field_1], 507, 16)" type="V_String" />
             <Field name="RAW Airport Reference Point Latitude" size="12" source="Formula: Substring([Field_1], 538, 12)" type="String" />
-            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Reference Point Longitude" size="12" source="Formula: Substring([Field_1], 565, 12)" type="String" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Elevation" size="7" source="Formula: Substring([Field_1], 578, 7)" type="String" />
@@ -929,7 +929,7 @@ Airport Inspection Meth...</DefaultAnnotationText>
             <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 462, 45)" type="V_String" />
             <Field name="Manager's Phone Number" size="16" source="Formula: Substring([Field_1], 507, 16)" type="V_String" />
             <Field name="RAW Airport Reference Point Latitude" size="12" source="Formula: Substring([Field_1], 538, 12)" type="String" />
-            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Reference Point Longitude" size="12" source="Formula: Substring([Field_1], 565, 12)" type="String" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Elevation" size="7" source="Formula: Substring([Field_1], 578, 7)" type="String" />
@@ -1033,7 +1033,7 @@ Power Plant ...</DefaultAnnotationText>
             <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 462, 45)" type="V_String" />
             <Field name="Manager's Phone Number" size="16" source="Formula: Substring([Field_1], 507, 16)" type="V_String" />
             <Field name="RAW Airport Reference Point Latitude" size="12" source="Formula: Substring([Field_1], 538, 12)" type="String" />
-            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Reference Point Longitude" size="12" source="Formula: Substring([Field_1], 565, 12)" type="String" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Elevation" size="7" source="Formula: Substring([Field_1], 578, 7)" type="String" />
@@ -1147,7 +1147,7 @@ Beacon Lighting Schedul...</DefaultAnnotationText>
             <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 462, 45)" type="V_String" />
             <Field name="Manager's Phone Number" size="16" source="Formula: Substring([Field_1], 507, 16)" type="V_String" />
             <Field name="RAW Airport Reference Point Latitude" size="12" source="Formula: Substring([Field_1], 538, 12)" type="String" />
-            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Reference Point Longitude" size="12" source="Formula: Substring([Field_1], 565, 12)" type="String" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Elevation" size="7" source="Formula: Substring([Field_1], 578, 7)" type="String" />
@@ -1268,7 +1268,7 @@ Multi Engine...</DefaultAnnotationText>
             <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 462, 45)" type="V_String" />
             <Field name="Manager's Phone Number" size="16" source="Formula: Substring([Field_1], 507, 16)" type="V_String" />
             <Field name="RAW Airport Reference Point Latitude" size="12" source="Formula: Substring([Field_1], 538, 12)" type="String" />
-            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Reference Point Longitude" size="12" source="Formula: Substring([Field_1], 565, 12)" type="String" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Elevation" size="7" source="Formula: Substring([Field_1], 578, 7)" type="String" />
@@ -1395,7 +1395,7 @@ Multi Engine...</DefaultAnnotationText>
             <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 462, 45)" type="V_String" />
             <Field name="Manager's Phone Number" size="16" source="Formula: Substring([Field_1], 507, 16)" type="V_String" />
             <Field name="RAW Airport Reference Point Latitude" size="12" source="Formula: Substring([Field_1], 538, 12)" type="String" />
-            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Reference Point Longitude" size="12" source="Formula: Substring([Field_1], 565, 12)" type="String" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Elevation" size="7" source="Formula: Substring([Field_1], 578, 7)" type="String" />
@@ -1531,7 +1531,7 @@ Airport Position Source...</DefaultAnnotationText>
             <Field name="Manager's City, State and Zip Code" size="45" source="Formula: Substring([Field_1], 462, 45)" type="V_String" />
             <Field name="Manager's Phone Number" size="16" source="Formula: Substring([Field_1], 507, 16)" type="V_String" />
             <Field name="RAW Airport Reference Point Latitude" size="12" source="Formula: Substring([Field_1], 538, 12)" type="String" />
-            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Left([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Latitude],1) = 'S'&#xA;THEN -[Airport Reference Point Latitude]&#xA;ELSE [Airport Reference Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Reference Point Longitude" size="12" source="Formula: Substring([Field_1], 565, 12)" type="String" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Airport Reference Point Longitude], 1) = 'W'&#xA;THEN -[Airport Reference Point Longitude]&#xA;ELSE [Airport Reference Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="RAW Airport Elevation" size="7" source="Formula: Substring([Field_1], 578, 7)" type="String" />
