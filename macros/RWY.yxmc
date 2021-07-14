@@ -129,11 +129,11 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="1206" y="54" />
+        <Position x="1494" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\2\Engine_6096_ce2cfb3648a14463b1e09a775293fe41_\Engine_5744_c6b5631d7e4c4ac5b1b923510acdaf9e_.yxdb</TempFile>
+          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\2\Engine_6352_68d66234eabb438d9aad06a6f734cb1d_\Engine_5744_9900d91b358a486086c57ebcd17b5964_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <View1>
@@ -184,7 +184,7 @@ Runway State Post Off...</DefaultAnnotationText>
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="726" y="54" />
+        <Position x="822" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -233,6 +233,13 @@ Runway State Post Off...</DefaultAnnotationText>
             <Field name="Based Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Length" source="Formula: ToNumber(Substring([Field_1], 217, 4))" type="Int32" />
             <Field name="Base Elevation at Touchdown Zone" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 221, 7))" type="FixedDecimal" />
+            <Field name="Base Visual Glide Slope Indicator" size="5" source="Formula: Substring([Field_1], 228, 5)" type="String" />
+            <Field name="Base Runway Visual Range Equipment" size="3" source="Formula: Substring([Field_1], 233, 3)" type="String" />
+            <Field name="Base Runway Visibility Value Equipment" size="1" source="Formula: Substring([Field_1], 236, 1)" type="String" />
+            <Field name="Base Approach Light System" size="8" source="Formula: Substring([Field_1], 237, 8)" type="String" />
+            <Field name="Base Runway End Identifier Lights Available" size="1" source="Formula: Substring([Field_1], 245, 1)" type="String" />
+            <Field name="Base Runway Centerline Lights Available" size="1" source="Formula: Substring([Field_1], 246, 1)" type="String" />
+            <Field name="Base Runway End Touchdown Lights Available" size="1" source="Formula: Substring([Field_1], 247, 1)" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -240,7 +247,7 @@ Runway State Post Off...</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="822" y="54" />
+        <Position x="918" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -299,6 +306,13 @@ Runway State Post Off...</DefaultAnnotationText>
             <Field name="Based Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Length" source="Formula: ToNumber(Substring([Field_1], 217, 4))" type="Int32" />
             <Field name="Base Elevation at Touchdown Zone" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 221, 7))" type="FixedDecimal" />
+            <Field name="Base Visual Glide Slope Indicator" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Visual Range Equipment" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Visibility Value Equipment" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Approach Light System" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway End Identifier Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Centerline Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway End Touchdown Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -403,7 +417,7 @@ Base End True Alignment = ToNu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="918" y="54" />
+        <Position x="1014" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -483,6 +497,13 @@ Name</AnnotationText>
             <Field name="Based Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Length" source="Formula: ToNumber(Substring([Field_1], 217, 4))" type="Int32" />
             <Field name="Base Elevation at Touchdown Zone" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 221, 7))" type="FixedDecimal" />
+            <Field name="Base Visual Glide Slope Indicator" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Visual Range Equipment" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Visibility Value Equipment" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Approach Light System" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway End Identifier Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Centerline Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway End Touchdown Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base End ILS Type Name" size="100" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ILS&quot;, &quot;Instrument Landing System&quot;,&#xA;  &quot;MLS&quot;, &quot;Microwave Landing System&quot;,&#xA;  &quot;SDF&quot;, &quot;Simplified Directional Facility&quot;,&#xA;  &quot;LOCALIZER&quot;, &quot;Localizer&quot;,&#xA;  &quot;LDA&quot;, &quot;Localizer-Type Directional Aid&quot;,&#xA;  &quot;ISMLS&quot;, &quot;Interim Standard Microwave Landing System&quot;,&#xA;  &quot;ILS/DME&quot;, &quot;Instrument Landing System with Distance Measuring Equipment&quot;,&#xA;  &quot;SDF/DME&quot;, &quot;Simplified Directional Facility with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/DME&quot;, &quot;Localizer with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/GS&quot;, &quot;Localizer with Glide Slope&quot;,&#xA;  &quot;LDA/DME&quot;, &quot;Localizer-Type Directional Aid with Distance Measuring Equipment&quot;&#xA;)" type="V_String" />
           </RecordInfo>
         </MetaInfo>
@@ -491,7 +512,7 @@ Name</AnnotationText>
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="1014" y="54" />
+        <Position x="1110" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -570,6 +591,13 @@ Type Name</AnnotationText>
             <Field name="Based Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Length" source="Formula: ToNumber(Substring([Field_1], 217, 4))" type="Int32" />
             <Field name="Base Elevation at Touchdown Zone" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 221, 7))" type="FixedDecimal" />
+            <Field name="Base Visual Glide Slope Indicator" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Visual Range Equipment" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Visibility Value Equipment" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Approach Light System" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway End Identifier Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Centerline Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway End Touchdown Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base End ILS Type Name" size="100" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ILS&quot;, &quot;Instrument Landing System&quot;,&#xA;  &quot;MLS&quot;, &quot;Microwave Landing System&quot;,&#xA;  &quot;SDF&quot;, &quot;Simplified Directional Facility&quot;,&#xA;  &quot;LOCALIZER&quot;, &quot;Localizer&quot;,&#xA;  &quot;LDA&quot;, &quot;Localizer-Type Directional Aid&quot;,&#xA;  &quot;ISMLS&quot;, &quot;Interim Standard Microwave Landing System&quot;,&#xA;  &quot;ILS/DME&quot;, &quot;Instrument Landing System with Distance Measuring Equipment&quot;,&#xA;  &quot;SDF/DME&quot;, &quot;Simplified Directional Facility with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/DME&quot;, &quot;Localizer with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/GS&quot;, &quot;Localizer with Glide Slope&quot;,&#xA;  &quot;LDA/DME&quot;, &quot;Localizer-Type Directional Aid with Distance Measuring Equipment&quot;&#xA;)" type="V_String" />
             <Field name="Base End Runway Markings Type Name" size="50" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;PIR&quot;, &quot;Precision Instrument&quot;,&#xA;  &quot;NPI&quot;, &quot;Nonprecision Instrument&quot;,&#xA;  &quot;BSC&quot;, &quot;Basic&quot;,&#xA;  &quot;NRS&quot;, &quot;Numbers Only&quot;,&#xA;  &quot;NSTD&quot;, &quot;Nonstandard&quot;,&#xA;  &quot;BUOY&quot;, &quot;Buoys&quot;,&#xA;  &quot;STOL&quot;, &quot;Short Takeoff and Landing&quot;,&#xA;  &quot;NONE&quot;, &quot;None&quot;&#xA;)" type="V_String" />
           </RecordInfo>
@@ -579,7 +607,7 @@ Type Name</AnnotationText>
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="1110" y="54" />
+        <Position x="1206" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -655,6 +683,13 @@ Name</AnnotationText>
             <Field name="Based Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Length" source="Formula: ToNumber(Substring([Field_1], 217, 4))" type="Int32" />
             <Field name="Base Elevation at Touchdown Zone" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 221, 7))" type="FixedDecimal" />
+            <Field name="Base Visual Glide Slope Indicator" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Visual Range Equipment" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Visibility Value Equipment" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Approach Light System" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway End Identifier Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Centerline Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway End Touchdown Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base End ILS Type Name" size="100" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ILS&quot;, &quot;Instrument Landing System&quot;,&#xA;  &quot;MLS&quot;, &quot;Microwave Landing System&quot;,&#xA;  &quot;SDF&quot;, &quot;Simplified Directional Facility&quot;,&#xA;  &quot;LOCALIZER&quot;, &quot;Localizer&quot;,&#xA;  &quot;LDA&quot;, &quot;Localizer-Type Directional Aid&quot;,&#xA;  &quot;ISMLS&quot;, &quot;Interim Standard Microwave Landing System&quot;,&#xA;  &quot;ILS/DME&quot;, &quot;Instrument Landing System with Distance Measuring Equipment&quot;,&#xA;  &quot;SDF/DME&quot;, &quot;Simplified Directional Facility with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/DME&quot;, &quot;Localizer with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/GS&quot;, &quot;Localizer with Glide Slope&quot;,&#xA;  &quot;LDA/DME&quot;, &quot;Localizer-Type Directional Aid with Distance Measuring Equipment&quot;&#xA;)" type="V_String" />
             <Field name="Base End Runway Markings Type Name" size="50" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;PIR&quot;, &quot;Precision Instrument&quot;,&#xA;  &quot;NPI&quot;, &quot;Nonprecision Instrument&quot;,&#xA;  &quot;BSC&quot;, &quot;Basic&quot;,&#xA;  &quot;NRS&quot;, &quot;Numbers Only&quot;,&#xA;  &quot;NSTD&quot;, &quot;Nonstandard&quot;,&#xA;  &quot;BUOY&quot;, &quot;Buoys&quot;,&#xA;  &quot;STOL&quot;, &quot;Short Takeoff and Landing&quot;,&#xA;  &quot;NONE&quot;, &quot;None&quot;&#xA;)" type="V_String" />
             <Field name="Base End Runway Markings Condition Name" size="50" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;G&quot;, &quot;Good&quot;,&#xA;  &quot;F&quot;, &quot;Fair&quot;,&#xA;  &quot;P&quot;, &quot;Poor&quot;&#xA;)" type="V_String" />
@@ -734,6 +769,307 @@ Base End Latitude = ToNumb...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="726" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 228, 5)" field="Base Visual Glide Slope Indicator" size="5" type="String" />
+            <FormulaField expression="Substring([Field_1], 233, 3)" field="Base Runway Visual Range Equipment" size="3" type="String" />
+            <FormulaField expression="Substring([Field_1], 236, 1)" field="Base Runway Visibility Value Equipment" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 237, 8)" field="Base Approach Light System" size="8" type="String" />
+            <FormulaField expression="Substring([Field_1], 245, 1)" field="Base Runway End Identifier Lights Available" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 246, 1)" field="Base Runway Centerline Lights Available" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 247, 1)" field="Base Runway End Touchdown Lights Available" size="1" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Base Lighting</AnnotationText>
+          <DefaultAnnotationText>Base Visual Glide Slope Indicator = Substring([Field_1], 228, 5)
+Base Runway Vis...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\APT.txt" type="V_String" />
+            <Field name="RecordType" size="3" source="Formula: Left([Field_1],3)" type="String" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 3, 11)" type="String" />
+            <Field name="Runway State Post Office Code" size="2" source="Formula: Substring([Field_1], 14, 2)" type="String" />
+            <Field name="Runway Identification" size="7" source="Formula: Substring([Field_1], 16, 7)" type="String" />
+            <Field name="Physical Runway Length" source="Formula: ToNumber(Substring([Field_1], 23, 5))" type="Int32" />
+            <Field name="Physical Runway Width" source="Formula: ToNumber(Substring([Field_1], 28, 4))" type="Int32" />
+            <Field name="RAW Runway Surface Type and Condition" size="12" source="Formula: Trim(Substring([Field_1], 32, 12))" type="V_String" />
+            <Field name="Runway Surface Condition" size="1" source="Formula: IF   Length([RAW Runway Surface Type and Condition]) = 1&#xA;THEN [RAW Runway Surface Type and Condition]&#xA;ELSE [Runway Surface Condition]&#xA;ENDIF" type="String" />
+            <Field name="Runway Surface Condition Name" size="50" source="Formula: Switch(&#xA;  [Runway Surface Condition], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;E&quot;, &quot;Excellent&quot;,&#xA;  &quot;G&quot;, &quot;Good&quot;,&#xA;  &quot;F&quot;, &quot;Fair&quot;,&#xA;  &quot;P&quot;, &quot;Poor&quot;,&#xA;  &quot;L&quot;, &quot;Failed&quot;&#xA;)" type="V_String" />
+            <Field name="Runway Surface Treatment" size="5" source="Formula: Substring([Field_1], 44, 5)" type="String" />
+            <Field name="Runway Surface Treatment Name" size="50" source="Formula: Switch(&#xA;  Trim([Runway Surface Treatment]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;GRVD&quot;, &quot;Saw-Cut or Plastic Grooved&quot;,&#xA;  &quot;PFC&quot;, &quot;Porous Friction Course&quot;,&#xA;  &quot;AFSC&quot;, &quot;Aggregate Friction Seal Coat&quot;,&#xA;  &quot;RFSC&quot;, &quot;Rubberized Friction Seal Coat&quot;,&#xA;  &quot;WC&quot;, &quot;Wire Comb or Wire Tine&quot;,&#xA;  &quot;NONE&quot;, &quot;None&quot;&#xA;)" type="V_String" />
+            <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
+            <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
+            <Field name="Base End Identifier" size="3" source="Formula: Substring([Field_1], 65, 3)" type="String" />
+            <Field name="Base End True Alignment" source="Formula: ToNumber(Substring([Field_1], 68, 3))" type="Int32" />
+            <Field name="Base End ILS Type" size="10" source="Formula: Substring([Field_1], 71, 10)" type="String" />
+            <Field name="Base End Right Hand Traffic" size="1" source="Formula: Substring([Field_1], 81, 1)" type="String" />
+            <Field name="Base End Runway Markings Type" size="5" source="Formula: Substring([Field_1], 82, 5)" type="String" />
+            <Field name="Base End Runway Markings Condition" size="1" source="Formula: Substring([Field_1], 87, 1)" type="String" />
+            <Field name="RAW Base End Latitude" size="15" source="Formula: Substring([Field_1], 103, 12)" type="V_String" />
+            <Field name="Base End Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Base End Latitude],1) = 'S'&#xA;THEN -[Base End Latitude]&#xA;ELSE [Base End Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="RAW Base End Longitude" size="12" source="Formula: Substring([Field_1], 130, 12)" type="V_String" />
+            <Field name="Base End Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Base End Longitude],1) = 'W'&#xA;THEN -[Base End Longitude]&#xA;ELSE [Base End Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="RAW Base Displaced Threshold Latitude" size="12" source="Formula: Substring([Field_1], 171, 12)" type="V_String" />
+            <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Base Displaced Threshold Latitude],1) = 'S'&#xA;THEN -[Base Displaced Threshold Latitude]&#xA;ELSE [Base Displaced Threshold Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="RAW Base Displaced Threshold Longitude" size="12" source="Formula: Substring([Field_1], 198, 12)" type="V_String" />
+            <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Base Displaced Threshold Longitude],1) = 'W'&#xA;THEN -[Base Displaced Threshold Longitude]&#xA;ELSE [Base Displaced Threshold Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Based Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
+            <Field name="Base Displaced Threshold Length" source="Formula: ToNumber(Substring([Field_1], 217, 4))" type="Int32" />
+            <Field name="Base Elevation at Touchdown Zone" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 221, 7))" type="FixedDecimal" />
+            <Field name="Base Visual Glide Slope Indicator" size="5" source="Formula: Substring([Field_1], 228, 5)" type="String" />
+            <Field name="Base Runway Visual Range Equipment" size="3" source="Formula: Substring([Field_1], 233, 3)" type="String" />
+            <Field name="Base Runway Visibility Value Equipment" size="1" source="Formula: Substring([Field_1], 236, 1)" type="String" />
+            <Field name="Base Approach Light System" size="8" source="Formula: Substring([Field_1], 237, 8)" type="String" />
+            <Field name="Base Runway End Identifier Lights Available" size="1" source="Formula: Substring([Field_1], 245, 1)" type="String" />
+            <Field name="Base Runway Centerline Lights Available" size="1" source="Formula: Substring([Field_1], 246, 1)" type="String" />
+            <Field name="Base Runway End Touchdown Lights Available" size="1" source="Formula: Substring([Field_1], 247, 1)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="1302" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="Base Visual Glide Slope Indicator" />
+            <Field name="Landing Facility Site Number" selected="False" />
+            <Field name="Runway State Post Office Code" selected="False" />
+            <Field name="Runway Identification" selected="False" />
+            <Field name="Runway Surface Condition" selected="False" />
+            <Field name="Runway Surface Condition Name" selected="False" />
+            <Field name="Runway Surface Treatment" selected="False" />
+            <Field name="Runway Surface Treatment Name" selected="False" />
+            <Field name="Pavement Classification Number" selected="False" />
+            <Field name="Runway Lights Edge Intensity" selected="False" />
+            <Field name="Base End Identifier" selected="False" />
+            <Field name="Base End ILS Type" selected="False" />
+            <Field name="Base End Right Hand Traffic" selected="False" />
+            <Field name="Base End Runway Markings Type" selected="False" />
+            <Field name="Base End Runway Markings Condition" selected="False" />
+            <Field name="Base End ILS Type Name" selected="False" />
+            <Field name="Base End Runway Markings Type Name" selected="False" />
+            <Field name="Base End Runway Markings Condition Name" selected="False" />
+            <Field name="*Unknown" selected="False" />
+          </Fields>
+          <NewFieldAddOn><![CDATA[ Name]]></NewFieldAddOn>
+          <NewFieldAddOnPos>Suffix</NewFieldAddOnPos>
+          <CopyOutput value="True" />
+          <Expression>Switch(
+  [_CurrentField_], "Unknown",
+  "", "",
+  "S2L", "2-box SAVASI on left side of runway",
+  "S2R", "2-box SAVASI on right side of runway",
+  "V2L", "2-box VASI on left side of runway",
+  "V2R", "2-box VASI on right side of runway",
+  "V4L", "4-box VASI on left side of runway",
+  "V4R", "4-box VASI on right side of runway",
+  "V6L", "6-box VASI on left side of runway",
+  "V6R", "6-box VASI on right side of runway",
+  "V12", "12-box VASI on both sides of runway",
+  "V16", "16-box VASI on both sides of runway",
+  "P2L", "2-light PAPI on left side of runway",
+  "P2R", "2-light PAPI on right side of runway",
+  "P4L", "4-light PAPI on left side of runway",
+  "P4R", "4-light PAPI on right side of runway",
+  "NSTD", "Nonstandard VASI system",
+  "PVT", "Privately owned approach slope indicator light system on a public use airport that is intended for private use only",
+  "VAS", "Non-specific VASI system",
+  "NONE", "No approach slope light system",
+  "N", "No approach slope light system",
+  "TRIL", "Tri-color VASI on left side of runway",
+  "TRIR", "Tri-color VASI on right side of runway",
+  "PSIL", "Pulsating/steady burning VASI on left side of runway",
+  "PSIR", "Pulsating/steady burning VASI on right side of runway",
+  "PNIL", "System of panels on left side of runway that may or may not be lighted",
+  "PNIR", "System of panels on right side of runway that may or may not be lighted"
+)</Expression>
+          <ChangeFieldType value="True" />
+          <OutputFieldType type="V_String" size="150" scale="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Visual
+Glide Slope
+Indicator
+Name</AnnotationText>
+          <DefaultAnnotationText>Switch(
+  [_CurrentField_], "Unknown",
+  "", "",
+  "S2L", "2-...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Identification" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Physical Runway Length" source="Formula: ToNumber(Substring([Field_1], 23, 5))" type="Int32" />
+            <Field name="Physical Runway Width" source="Formula: ToNumber(Substring([Field_1], 28, 4))" type="Int32" />
+            <Field name="Runway Surface Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Surface Condition Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway Surface Treatment" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Surface Treatment Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Pavement Classification Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End True Alignment" source="Formula: ToNumber(Substring([Field_1], 68, 3))" type="Int32" />
+            <Field name="Base End ILS Type" size="10" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Right Hand Traffic" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Runway Markings Type" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Runway Markings Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Base End Latitude],1) = 'S'&#xA;THEN -[Base End Latitude]&#xA;ELSE [Base End Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Base End Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Base End Longitude],1) = 'W'&#xA;THEN -[Base End Longitude]&#xA;ELSE [Base End Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Base Displaced Threshold Latitude],1) = 'S'&#xA;THEN -[Base Displaced Threshold Latitude]&#xA;ELSE [Base Displaced Threshold Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Base Displaced Threshold Longitude],1) = 'W'&#xA;THEN -[Base Displaced Threshold Longitude]&#xA;ELSE [Base Displaced Threshold Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Based Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
+            <Field name="Base Displaced Threshold Length" source="Formula: ToNumber(Substring([Field_1], 217, 4))" type="Int32" />
+            <Field name="Base Elevation at Touchdown Zone" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 221, 7))" type="FixedDecimal" />
+            <Field name="Base Visual Glide Slope Indicator" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Visual Range Equipment" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Visibility Value Equipment" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Approach Light System" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway End Identifier Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Centerline Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway End Touchdown Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End ILS Type Name" size="100" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ILS&quot;, &quot;Instrument Landing System&quot;,&#xA;  &quot;MLS&quot;, &quot;Microwave Landing System&quot;,&#xA;  &quot;SDF&quot;, &quot;Simplified Directional Facility&quot;,&#xA;  &quot;LOCALIZER&quot;, &quot;Localizer&quot;,&#xA;  &quot;LDA&quot;, &quot;Localizer-Type Directional Aid&quot;,&#xA;  &quot;ISMLS&quot;, &quot;Interim Standard Microwave Landing System&quot;,&#xA;  &quot;ILS/DME&quot;, &quot;Instrument Landing System with Distance Measuring Equipment&quot;,&#xA;  &quot;SDF/DME&quot;, &quot;Simplified Directional Facility with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/DME&quot;, &quot;Localizer with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/GS&quot;, &quot;Localizer with Glide Slope&quot;,&#xA;  &quot;LDA/DME&quot;, &quot;Localizer-Type Directional Aid with Distance Measuring Equipment&quot;&#xA;)" type="V_String" />
+            <Field name="Base End Runway Markings Type Name" size="50" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;PIR&quot;, &quot;Precision Instrument&quot;,&#xA;  &quot;NPI&quot;, &quot;Nonprecision Instrument&quot;,&#xA;  &quot;BSC&quot;, &quot;Basic&quot;,&#xA;  &quot;NRS&quot;, &quot;Numbers Only&quot;,&#xA;  &quot;NSTD&quot;, &quot;Nonstandard&quot;,&#xA;  &quot;BUOY&quot;, &quot;Buoys&quot;,&#xA;  &quot;STOL&quot;, &quot;Short Takeoff and Landing&quot;,&#xA;  &quot;NONE&quot;, &quot;None&quot;&#xA;)" type="V_String" />
+            <Field name="Base End Runway Markings Condition Name" size="50" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;G&quot;, &quot;Good&quot;,&#xA;  &quot;F&quot;, &quot;Fair&quot;,&#xA;  &quot;P&quot;, &quot;Poor&quot;&#xA;)" type="V_String" />
+            <Field name="Base Visual Glide Slope Indicator Name" size="150" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;S2L&quot;, &quot;2-box SAVASI on left side of runway&quot;,&#xA;  &quot;S2R&quot;, &quot;2-box SAVASI on right side of runway&quot;,&#xA;  &quot;V2L&quot;, &quot;2-box VASI on left side of runway&quot;,&#xA;  &quot;V2R&quot;, &quot;2-box VASI on right side of runway&quot;,&#xA;  &quot;V4L&quot;, &quot;4-box VASI on left side of runway&quot;,&#xA;  &quot;V4R&quot;, &quot;4-box VASI on right side of runway&quot;,&#xA;  &quot;V6L&quot;, &quot;6-box VASI on left side of runway&quot;,&#xA;  &quot;V6R&quot;, &quot;6-box VASI on right side of runway&quot;,&#xA;  &quot;V12&quot;, &quot;12-box VASI on both sides of runway&quot;,&#xA;  &quot;V16&quot;, &quot;16-box VASI on both sides of runway&quot;,&#xA;  &quot;P2L&quot;, &quot;2-light PAPI on left side of runway&quot;,&#xA;  &quot;P2R&quot;, &quot;2-light PAPI on right side of runway&quot;,&#xA;  &quot;P4L&quot;, &quot;4-light PAPI on left side of runway&quot;,&#xA;  &quot;P4R&quot;, &quot;4-light PAPI on right side of runway&quot;,&#xA;  &quot;NSTD&quot;, &quot;Nonstandard VASI system&quot;,&#xA;  &quot;PVT&quot;, &quot;Privately owned approach slope indicator light system on a public use airport that is intended for private use only&quot;,&#xA;  &quot;VAS&quot;, &quot;Non-specific VASI system&quot;,&#xA;  &quot;NONE&quot;, &quot;No approach slope light system&quot;,&#xA;  &quot;N&quot;, &quot;No approach slope light system&quot;,&#xA;  &quot;TRIL&quot;, &quot;Tri-color VASI on left side of runway&quot;,&#xA;  &quot;TRIR&quot;, &quot;Tri-color VASI on right side of runway&quot;,&#xA;  &quot;PSIL&quot;, &quot;Pulsating/steady burning VASI on left side of runway&quot;,&#xA;  &quot;PSIR&quot;, &quot;Pulsating/steady burning VASI on right side of runway&quot;,&#xA;  &quot;PNIL&quot;, &quot;System of panels on left side of runway that may or may not be lighted&quot;,&#xA;  &quot;PNIR&quot;, &quot;System of panels on right side of runway that may or may not be lighted&quot;&#xA;)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="1398" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="Base Approach Light System" />
+            <Field name="Landing Facility Site Number" selected="False" />
+            <Field name="Runway State Post Office Code" selected="False" />
+            <Field name="Runway Identification" selected="False" />
+            <Field name="Runway Surface Condition" selected="False" />
+            <Field name="Runway Surface Condition Name" selected="False" />
+            <Field name="Runway Surface Treatment" selected="False" />
+            <Field name="Runway Surface Treatment Name" selected="False" />
+            <Field name="Pavement Classification Number" selected="False" />
+            <Field name="Runway Lights Edge Intensity" selected="False" />
+            <Field name="Base End Identifier" selected="False" />
+            <Field name="Base End ILS Type" selected="False" />
+            <Field name="Base End Right Hand Traffic" selected="False" />
+            <Field name="Base End Runway Markings Type" selected="False" />
+            <Field name="Base End Runway Markings Condition" selected="False" />
+            <Field name="Base Visual Glide Slope Indicator" selected="False" />
+            <Field name="Base Runway Visual Range Equipment" selected="False" />
+            <Field name="Base Runway Visibility Value Equipment" selected="False" />
+            <Field name="Base End ILS Type Name" selected="False" />
+            <Field name="Base End Runway Markings Type Name" selected="False" />
+            <Field name="Base End Runway Markings Condition Name" selected="False" />
+            <Field name="Base Visual Glide Slope Indicator Name" selected="False" />
+            <Field name="*Unknown" selected="False" />
+          </Fields>
+          <NewFieldAddOn><![CDATA[ Name]]></NewFieldAddOn>
+          <NewFieldAddOnPos>Suffix</NewFieldAddOnPos>
+          <CopyOutput value="True" />
+          <Expression>Switch(
+  [_CurrentField_], "Unknown",
+  "", "",
+  "ALSAF", "3,000 foot high intensity approach lighting system with centerline sequence flashers",
+  "ALSF1", "Standard 2,400 foot high intensity approach lighting system with sequenced flashes, category I config",
+  "ALSF2", "Standard 2,400 foot high intensity approach lighting system with sequenced flashes, category II or III config",
+  "MALS", "1,400 foot medium intensity approach lighting system",
+  "MALSF", "1,400 foot medium intensity approach lighting system with sequenced flashers",
+  "MALSR", "1,400 foot medium intensity approach lighting system with runway alignment indicator lights",
+  "SSALS", "Simplified short approach lighting system",
+  "SSALF", "Simplified short approach lighting system with sequenced flashers",
+  "SSALR", "Simplified short approach lighting system with runway alignment indicator lights",
+  "NEON", "Neon ladder system",
+  "ODALS", "Omnidirectional approach lighting system",
+  "RLLS", "Runway lead-in light system",
+  "MIL OVRN", "Military overrun",
+  "NSTD", "Nonstandard",
+  "NONE", "No approach lighting system",
+  "SALS", "1,500 foot high intensity approach lighting system",
+  "SALSF", "1,500 foot high intensity approach lighting system with sequenced flashers"
+)</Expression>
+          <ChangeFieldType value="True" />
+          <OutputFieldType type="V_String" size="150" scale="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Approach
+Light System
+Name</AnnotationText>
+          <DefaultAnnotationText>Switch(
+  [_CurrentField_], "Unknown",
+  "", "",
+  "ALSAF", "...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Identification" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Physical Runway Length" source="Formula: ToNumber(Substring([Field_1], 23, 5))" type="Int32" />
+            <Field name="Physical Runway Width" source="Formula: ToNumber(Substring([Field_1], 28, 4))" type="Int32" />
+            <Field name="Runway Surface Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Surface Condition Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway Surface Treatment" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Surface Treatment Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Pavement Classification Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End True Alignment" source="Formula: ToNumber(Substring([Field_1], 68, 3))" type="Int32" />
+            <Field name="Base End ILS Type" size="10" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Right Hand Traffic" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Runway Markings Type" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Runway Markings Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Base End Latitude],1) = 'S'&#xA;THEN -[Base End Latitude]&#xA;ELSE [Base End Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Base End Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Base End Longitude],1) = 'W'&#xA;THEN -[Base End Longitude]&#xA;ELSE [Base End Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Base Displaced Threshold Latitude],1) = 'S'&#xA;THEN -[Base Displaced Threshold Latitude]&#xA;ELSE [Base Displaced Threshold Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Base Displaced Threshold Longitude],1) = 'W'&#xA;THEN -[Base Displaced Threshold Longitude]&#xA;ELSE [Base Displaced Threshold Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Based Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
+            <Field name="Base Displaced Threshold Length" source="Formula: ToNumber(Substring([Field_1], 217, 4))" type="Int32" />
+            <Field name="Base Elevation at Touchdown Zone" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 221, 7))" type="FixedDecimal" />
+            <Field name="Base Visual Glide Slope Indicator" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Visual Range Equipment" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Visibility Value Equipment" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Approach Light System" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway End Identifier Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway Centerline Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base Runway End Touchdown Lights Available" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Base End ILS Type Name" size="100" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ILS&quot;, &quot;Instrument Landing System&quot;,&#xA;  &quot;MLS&quot;, &quot;Microwave Landing System&quot;,&#xA;  &quot;SDF&quot;, &quot;Simplified Directional Facility&quot;,&#xA;  &quot;LOCALIZER&quot;, &quot;Localizer&quot;,&#xA;  &quot;LDA&quot;, &quot;Localizer-Type Directional Aid&quot;,&#xA;  &quot;ISMLS&quot;, &quot;Interim Standard Microwave Landing System&quot;,&#xA;  &quot;ILS/DME&quot;, &quot;Instrument Landing System with Distance Measuring Equipment&quot;,&#xA;  &quot;SDF/DME&quot;, &quot;Simplified Directional Facility with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/DME&quot;, &quot;Localizer with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/GS&quot;, &quot;Localizer with Glide Slope&quot;,&#xA;  &quot;LDA/DME&quot;, &quot;Localizer-Type Directional Aid with Distance Measuring Equipment&quot;&#xA;)" type="V_String" />
+            <Field name="Base End Runway Markings Type Name" size="50" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;PIR&quot;, &quot;Precision Instrument&quot;,&#xA;  &quot;NPI&quot;, &quot;Nonprecision Instrument&quot;,&#xA;  &quot;BSC&quot;, &quot;Basic&quot;,&#xA;  &quot;NRS&quot;, &quot;Numbers Only&quot;,&#xA;  &quot;NSTD&quot;, &quot;Nonstandard&quot;,&#xA;  &quot;BUOY&quot;, &quot;Buoys&quot;,&#xA;  &quot;STOL&quot;, &quot;Short Takeoff and Landing&quot;,&#xA;  &quot;NONE&quot;, &quot;None&quot;&#xA;)" type="V_String" />
+            <Field name="Base End Runway Markings Condition Name" size="50" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;G&quot;, &quot;Good&quot;,&#xA;  &quot;F&quot;, &quot;Fair&quot;,&#xA;  &quot;P&quot;, &quot;Poor&quot;&#xA;)" type="V_String" />
+            <Field name="Base Visual Glide Slope Indicator Name" size="150" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;S2L&quot;, &quot;2-box SAVASI on left side of runway&quot;,&#xA;  &quot;S2R&quot;, &quot;2-box SAVASI on right side of runway&quot;,&#xA;  &quot;V2L&quot;, &quot;2-box VASI on left side of runway&quot;,&#xA;  &quot;V2R&quot;, &quot;2-box VASI on right side of runway&quot;,&#xA;  &quot;V4L&quot;, &quot;4-box VASI on left side of runway&quot;,&#xA;  &quot;V4R&quot;, &quot;4-box VASI on right side of runway&quot;,&#xA;  &quot;V6L&quot;, &quot;6-box VASI on left side of runway&quot;,&#xA;  &quot;V6R&quot;, &quot;6-box VASI on right side of runway&quot;,&#xA;  &quot;V12&quot;, &quot;12-box VASI on both sides of runway&quot;,&#xA;  &quot;V16&quot;, &quot;16-box VASI on both sides of runway&quot;,&#xA;  &quot;P2L&quot;, &quot;2-light PAPI on left side of runway&quot;,&#xA;  &quot;P2R&quot;, &quot;2-light PAPI on right side of runway&quot;,&#xA;  &quot;P4L&quot;, &quot;4-light PAPI on left side of runway&quot;,&#xA;  &quot;P4R&quot;, &quot;4-light PAPI on right side of runway&quot;,&#xA;  &quot;NSTD&quot;, &quot;Nonstandard VASI system&quot;,&#xA;  &quot;PVT&quot;, &quot;Privately owned approach slope indicator light system on a public use airport that is intended for private use only&quot;,&#xA;  &quot;VAS&quot;, &quot;Non-specific VASI system&quot;,&#xA;  &quot;NONE&quot;, &quot;No approach slope light system&quot;,&#xA;  &quot;N&quot;, &quot;No approach slope light system&quot;,&#xA;  &quot;TRIL&quot;, &quot;Tri-color VASI on left side of runway&quot;,&#xA;  &quot;TRIR&quot;, &quot;Tri-color VASI on right side of runway&quot;,&#xA;  &quot;PSIL&quot;, &quot;Pulsating/steady burning VASI on left side of runway&quot;,&#xA;  &quot;PSIR&quot;, &quot;Pulsating/steady burning VASI on right side of runway&quot;,&#xA;  &quot;PNIL&quot;, &quot;System of panels on left side of runway that may or may not be lighted&quot;,&#xA;  &quot;PNIR&quot;, &quot;System of panels on right side of runway that may or may not be lighted&quot;&#xA;)" type="V_String" />
+            <Field name="Base Approach Light System Name" size="150" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ALSAF&quot;, &quot;3,000 foot high intensity approach lighting system with centerline sequence flashers&quot;,&#xA;  &quot;ALSF1&quot;, &quot;Standard 2,400 foot high intensity approach lighting system with sequenced flashes, category I config&quot;,&#xA;  &quot;ALSF2&quot;, &quot;Standard 2,400 foot high intensity approach lighting system with sequenced flashes, category II or III config&quot;,&#xA;  &quot;MALS&quot;, &quot;1,400 foot medium intensity approach lighting system&quot;,&#xA;  &quot;MALSF&quot;, &quot;1,400 foot medium intensity approach lighting system with sequenced flashers&quot;,&#xA;  &quot;MALSR&quot;, &quot;1,400 foot medium intensity approach lighting system with runway alignment indicator lights&quot;,&#xA;  &quot;SSALS&quot;, &quot;Simplified short approach lighting system&quot;,&#xA;  &quot;SSALF&quot;, &quot;Simplified short approach lighting system with sequenced flashers&quot;,&#xA;  &quot;SSALR&quot;, &quot;Simplified short approach lighting system with runway alignment indicator lights&quot;,&#xA;  &quot;NEON&quot;, &quot;Neon ladder system&quot;,&#xA;  &quot;ODALS&quot;, &quot;Omnidirectional approach lighting system&quot;,&#xA;  &quot;RLLS&quot;, &quot;Runway lead-in light system&quot;,&#xA;  &quot;MIL OVRN&quot;, &quot;Military overrun&quot;,&#xA;  &quot;NSTD&quot;, &quot;Nonstandard&quot;,&#xA;  &quot;NONE&quot;, &quot;No approach lighting system&quot;,&#xA;  &quot;SALS&quot;, &quot;1,500 foot high intensity approach lighting system&quot;,&#xA;  &quot;SALSF&quot;, &quot;1,500 foot high intensity approach lighting system with sequenced flashers&quot;&#xA;)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -778,11 +1114,23 @@ Base End Latitude = ToNumb...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="14" Connection="Output" />
-      <Destination ToolID="5" Connection="Input" />
+      <Destination ToolID="17" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
       <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
