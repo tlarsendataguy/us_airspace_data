@@ -1,0 +1,925 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.2">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>APT</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\APT.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>2000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>APT.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\APT.txt" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="150" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Left([Field_1],3)" field="RecordType" size="3" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>RecordType</AnnotationText>
+          <DefaultAnnotationText><![CDATA[RecordType = Left([Field_1],3)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\APT.txt" type="V_String" />
+            <Field name="RecordType" size="3" source="Formula: Left([Field_1],3)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="918" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>RMK</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Output</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="246" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>RecordType</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2021-07-12 21:44:46</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>RMK</Operand>
+              <StartDate>2021-07-12 21:44:46</StartDate>
+              <EndDate>2021-07-12 21:44:46</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>RMK</AnnotationText>
+          <DefaultAnnotationText>[RecordType] = "RMK"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\APT.txt" type="V_String" />
+            <Field name="RecordType" size="3" source="Formula: Left([Field_1],3)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\APT.txt" type="V_String" />
+            <Field name="RecordType" size="3" source="Formula: Left([Field_1],3)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="342" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 3, 11)" field="Landing Facility Site Number" size="11" type="String" />
+            <FormulaField expression="Substring([Field_1],14, 2)" field="Landing Facility State Post Office Code" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 16, 15)" field="Remark Element" size="15" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 31, 1500)" field="Remark" size="1500" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>Landing Facility Site Number = Substring([Field_1], 3, 11)
+Landing Facility Stat...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\APT.txt" type="V_String" />
+            <Field name="RecordType" size="3" source="Formula: Left([Field_1],3)" type="String" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 3, 11)" type="String" />
+            <Field name="Landing Facility State Post Office Code" size="2" source="Formula: Substring([Field_1],14, 2)" type="String" />
+            <Field name="Remark Element" size="15" source="Formula: Substring([Field_1], 16, 15)" type="V_String" />
+            <Field name="Remark" size="1500" source="Formula: Substring([Field_1], 31, 1500)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="438" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Field_1" selected="False" />
+            <SelectField field="RecordType" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 3, 11)" type="String" />
+            <Field name="Landing Facility State Post Office Code" size="2" source="Formula: Substring([Field_1],14, 2)" type="String" />
+            <Field name="Remark Element" size="15" source="Formula: Substring([Field_1], 16, 15)" type="V_String" />
+            <Field name="Remark" size="1500" source="Formula: Substring([Field_1], 31, 1500)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="534" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="Landing Facility Site Number" />
+            <Field name="Landing Facility State Post Office Code" />
+            <Field name="Remark Element Name" />
+            <Field name="Remark" />
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>Trim([_CurrentField_])</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Trim</AnnotationText>
+          <DefaultAnnotationText>Trim([_CurrentField_])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Facility State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Remark Element" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Remark" size="1500" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="630" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="REGEX_Replace([Remark Element], &quot;^([A-Z0-9]+)(.*)$&quot;, &quot;$1&quot;)" field="Element Code" size="15" type="V_String" />
+            <FormulaField expression="Substring(REGEX_Replace([Remark Element], &quot;^([A-Z0-9]+)(.*)$&quot;, &quot;$2&quot;), 1)" field="Element ID" size="15" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Parse
+Element</AnnotationText>
+          <DefaultAnnotationText>Element Code = REGEX_Replace([Remark Element], "^([A-Z0-9]+)(.*)$", "$1")
+Elemen...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Facility State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Remark Element" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Remark" size="1500" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Element Code" size="15" source="Formula: REGEX_Replace([Remark Element], &quot;^([A-Z0-9]+)(.*)$&quot;, &quot;$1&quot;)" type="V_String" />
+            <Field name="Element ID" size="15" source="Formula: Substring(REGEX_Replace([Remark Element], &quot;^([A-Z0-9]+)(.*)$&quot;, &quot;$2&quot;), 1)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="54" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="101" />
+          <Fields>
+            <Field name="Element Code" />
+            <Field name="Element Description" />
+          </Fields>
+          <Data>
+            <r>
+              <c>A1</c>
+              <c>Associated City Name</c>
+            </r>
+            <r>
+              <c>A10</c>
+              <c>Airport Ownership Type</c>
+            </r>
+            <r>
+              <c>A100</c>
+              <c>Annual Commercial Services</c>
+            </r>
+            <r>
+              <c>A103</c>
+              <c>Annual Local GA Operations</c>
+            </r>
+            <r>
+              <c>A104</c>
+              <c>Annual Itinerant GA Operations</c>
+            </r>
+            <r>
+              <c>A105</c>
+              <c>Annual Military Operations</c>
+            </r>
+            <r>
+              <c>A11</c>
+              <c>Facility Owner's Name</c>
+            </r>
+            <r>
+              <c>A110</c>
+              <c>General Remark</c>
+            </r>
+            <r>
+              <c>A111</c>
+              <c>Agency/Group Performing Physical Inspection</c>
+            </r>
+            <r>
+              <c>A112</c>
+              <c>Last Physical Inspection Date</c>
+            </r>
+            <r>
+              <c>A113</c>
+              <c>Last Information Request Completed Date</c>
+            </r>
+            <r>
+              <c>A12</c>
+              <c>Owner's Address</c>
+            </r>
+            <r>
+              <c>A12A</c>
+              <c>Owners's City, State, and Zip Code</c>
+            </r>
+            <r>
+              <c>A13</c>
+              <c>Owner's Phone Number</c>
+            </r>
+            <r>
+              <c>A14</c>
+              <c>Facility Manager's Name</c>
+            </r>
+            <r>
+              <c>A15</c>
+              <c>Manager's Address</c>
+            </r>
+            <r>
+              <c>A15A</c>
+              <c>Manager's City, State, and Zip Code</c>
+            </r>
+            <r>
+              <c>A16</c>
+              <c>Manager's Phone Number</c>
+            </r>
+            <r>
+              <c>A17</c>
+              <c>Airport Attendance Schedule</c>
+            </r>
+            <r>
+              <c>A18</c>
+              <c>Facility Use</c>
+            </r>
+            <r>
+              <c>A19</c>
+              <c>Airport Reference Point Latitude</c>
+            </r>
+            <r>
+              <c>A19A</c>
+              <c>Airport Reference Point Determination Method</c>
+            </r>
+            <r>
+              <c>A2</c>
+              <c>Official Facility Name</c>
+            </r>
+            <r>
+              <c>A20</c>
+              <c>Airport Reference Point Longitude</c>
+            </r>
+            <r>
+              <c>A21</c>
+              <c>Airport Elevation</c>
+            </r>
+            <r>
+              <c>A22</c>
+              <c>Land Area</c>
+            </r>
+            <r>
+              <c>A23</c>
+              <c>Right Hand Traffic Pattern</c>
+            </r>
+            <r>
+              <c>A24</c>
+              <c>Landing Fee Charged to Non-Comemrcial Users</c>
+            </r>
+            <r>
+              <c>A25</c>
+              <c>NPIAS/Federal Agreements Code</c>
+            </r>
+            <r>
+              <c>A26</c>
+              <c>Airport ARFF Certification</c>
+            </r>
+            <r>
+              <c>A3</c>
+              <c>Direction of Airport from Associated City</c>
+            </r>
+            <r>
+              <c>A30</c>
+              <c>Runway</c>
+            </r>
+            <r>
+              <c>A30A</c>
+              <c>Runway End</c>
+            </r>
+            <r>
+              <c>A31</c>
+              <c>Physical Runway Length</c>
+            </r>
+            <r>
+              <c>A32</c>
+              <c>Physical Runway Width</c>
+            </r>
+            <r>
+              <c>A33</c>
+              <c>Runway Surface Type and Condition</c>
+            </r>
+            <r>
+              <c>A34</c>
+              <c>Runway Surface Treatment</c>
+            </r>
+            <r>
+              <c>A35</c>
+              <c>Runway Weight Bearing Capacity for Single Wheel Landing Gear</c>
+            </r>
+            <r>
+              <c>A36</c>
+              <c>Runway Weight Bearing Capacity for Dual Wheel Landing Gear</c>
+            </r>
+            <r>
+              <c>A37</c>
+              <c>Runway Weight Bearing Capacity for Two Dual Wheel Landing Gear</c>
+            </r>
+            <r>
+              <c>A38</c>
+              <c>Runway Weight Bearing Capacity for Double Two Dual Wheel Landing Gear</c>
+            </r>
+            <r>
+              <c>A39</c>
+              <c>Pavement Classification Number</c>
+            </r>
+            <r>
+              <c>A40</c>
+              <c>Runway Edge Lights Intensity</c>
+            </r>
+            <r>
+              <c>A42</c>
+              <c>Runway Markings</c>
+            </r>
+            <r>
+              <c>A43</c>
+              <c>Visual Glide Slope Indicators</c>
+            </r>
+            <r>
+              <c>A45</c>
+              <c>Visual Glide Path Angle</c>
+            </r>
+            <r>
+              <c>A46</c>
+              <c>Runway Centerline Lights</c>
+            </r>
+            <r>
+              <c>A46A</c>
+              <c>Runway End Touchdown Lights</c>
+            </r>
+            <r>
+              <c>A47</c>
+              <c>Runway Visual Range Equipment</c>
+            </r>
+            <r>
+              <c>A47A</c>
+              <c>Runway Visibility Value Equipment</c>
+            </r>
+            <r>
+              <c>A48</c>
+              <c>Runway End Identifier Lights</c>
+            </r>
+            <r>
+              <c>A49</c>
+              <c>Approach Light System</c>
+            </r>
+            <r>
+              <c>A5</c>
+              <c>Associated County's State</c>
+            </r>
+            <r>
+              <c>A50</c>
+              <c>FAA CFR Part 77 Runway Category</c>
+            </r>
+            <r>
+              <c>A51</c>
+              <c>Displaced Threshold</c>
+            </r>
+            <r>
+              <c>A52</c>
+              <c>Controlling Object</c>
+            </r>
+            <r>
+              <c>A53</c>
+              <c>Control Object Marked/Lighted</c>
+            </r>
+            <r>
+              <c>A54</c>
+              <c>Controlling Object Heigh Above Runway</c>
+            </r>
+            <r>
+              <c>A55</c>
+              <c>Controlling Object Distance from Runway End</c>
+            </r>
+            <r>
+              <c>A56</c>
+              <c>Controlling Object Centerline Offset</c>
+            </r>
+            <r>
+              <c>A57</c>
+              <c>Controlling Object Clearance Slope</c>
+            </r>
+            <r>
+              <c>A58</c>
+              <c />
+            </r>
+            <r>
+              <c>A60</c>
+              <c>Takeoff Run Available</c>
+            </r>
+            <r>
+              <c>A61</c>
+              <c>Takeoff Distance Available</c>
+            </r>
+            <r>
+              <c>A63</c>
+              <c>Landing Distance Available</c>
+            </r>
+            <r>
+              <c>A7</c>
+              <c>Sectional Chart</c>
+            </r>
+            <r>
+              <c>A70</c>
+              <c>Fuel Available for Public Use</c>
+            </r>
+            <r>
+              <c>A71</c>
+              <c>Airframe Repair Service</c>
+            </r>
+            <r>
+              <c>A72</c>
+              <c>Power Plant Repair</c>
+            </r>
+            <r>
+              <c>A73</c>
+              <c>Bottled Oxygen</c>
+            </r>
+            <r>
+              <c>A74</c>
+              <c>Bulk Oxygen</c>
+            </r>
+            <r>
+              <c>A75</c>
+              <c>Transient Storage Facilities</c>
+            </r>
+            <r>
+              <c>A76</c>
+              <c>Other Airport Services Available</c>
+            </r>
+            <r>
+              <c>A80</c>
+              <c>Beacon</c>
+            </r>
+            <r>
+              <c>A81</c>
+              <c>Beacon Lighting Schedule</c>
+            </r>
+            <r>
+              <c>A82</c>
+              <c>Unicom</c>
+            </r>
+            <r>
+              <c>A83</c>
+              <c>Wind Indicator</c>
+            </r>
+            <r>
+              <c>A84</c>
+              <c>Segmented Circle Airport Marker</c>
+            </r>
+            <r>
+              <c>A86</c>
+              <c>FSS</c>
+            </r>
+            <r>
+              <c>A87</c>
+              <c>FSS Physically Located on Airport</c>
+            </r>
+            <r>
+              <c>A90</c>
+              <c>Total Single Engine GA Aircraft</c>
+            </r>
+            <r>
+              <c>A91</c>
+              <c>Total Multi Engine GA Aircraft</c>
+            </r>
+            <r>
+              <c>A93</c>
+              <c>Total GA Helicopters</c>
+            </r>
+            <r>
+              <c>A94</c>
+              <c>Operational Gliders</c>
+            </r>
+            <r>
+              <c>A95</c>
+              <c>Operational Military Aircraft</c>
+            </r>
+            <r>
+              <c>A96</c>
+              <c>Ultralight Aircraft</c>
+            </r>
+            <r>
+              <c>E100</c>
+              <c>CTAF</c>
+            </r>
+            <r>
+              <c>E111</c>
+              <c>Airport Airspace Analysis</c>
+            </r>
+            <r>
+              <c>E115</c>
+              <c>Military/Civil Joint Use Agreement</c>
+            </r>
+            <r>
+              <c>E116</c>
+              <c>Military Landing Rights Agreement</c>
+            </r>
+            <r>
+              <c>E147</c>
+              <c>Traffic Pattern Altitude</c>
+            </r>
+            <r>
+              <c>E156A</c>
+              <c>Responsible ARTCC</c>
+            </r>
+            <r>
+              <c>E161</c>
+              <c>Latitude of Displaced Threshold</c>
+            </r>
+            <r>
+              <c>E46</c>
+              <c>Runway End True Alignment</c>
+            </r>
+            <r>
+              <c>E60</c>
+              <c>ARS</c>
+            </r>
+            <r>
+              <c>E67</c>
+              <c />
+            </r>
+            <r>
+              <c>E68</c>
+              <c>Latitude of Runway End</c>
+            </r>
+            <r>
+              <c>E70</c>
+              <c>Elevation of Runway End</c>
+            </r>
+            <r>
+              <c>E79</c>
+              <c>International Airport of Entry for Customs</c>
+            </r>
+            <r>
+              <c>E80</c>
+              <c>Customs Landing Rights Airport</c>
+            </r>
+            <r>
+              <c>E80A</c>
+              <c>Customs Landing Rights Airport</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Element Code" size="5" source="TextInput:" type="String" />
+            <Field name="Element Description" size="69" source="TextInput:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
+        <Position x="726" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldFind>Element Code</FieldFind>
+          <FieldSearch>Element Code</FieldSearch>
+          <ReplaceFoundField>Description</ReplaceFoundField>
+          <FindMode>FindWhole</FindMode>
+          <NoCase value="False" />
+          <MatchWholeWord value="True" />
+          <ReplaceMode>Append</ReplaceMode>
+          <ReplaceMultipleFound value="True" />
+          <ReplaceAppendFields>
+            <Field field="Element Description" />
+          </ReplaceAppendFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Facility State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Remark Element" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Remark" size="1500" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Element Code" size="15" source="Formula: REGEX_Replace([Remark Element], &quot;^([A-Z0-9]+)(.*)$&quot;, &quot;$1&quot;)" type="V_String" />
+            <Field name="Element ID" size="15" source="Formula: Substring(REGEX_Replace([Remark Element], &quot;^([A-Z0-9]+)(.*)$&quot;, &quot;$2&quot;), 1)" type="V_String" />
+            <Field name="Element Description" size="69" source="TextInput:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="822" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Landing Facility Site Number" selected="True" />
+            <SelectField field="Landing Facility State Post Office Code" selected="True" />
+            <SelectField field="Remark Element" selected="True" />
+            <SelectField field="Element Code" selected="True" />
+            <SelectField field="Element Description" selected="True" />
+            <SelectField field="Element ID" selected="True" />
+            <SelectField field="Remark" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Facility State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Remark Element" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Element Code" size="15" source="Formula: REGEX_Replace([Remark Element], &quot;^([A-Z0-9]+)(.*)$&quot;, &quot;$1&quot;)" type="V_String" />
+            <Field name="Element Description" size="69" source="TextInput:" type="V_String" />
+            <Field name="Element ID" size="15" source="Formula: Substring(REGEX_Replace([Remark Element], &quot;^([A-Z0-9]+)(.*)$&quot;, &quot;$2&quot;), 1)" type="V_String" />
+            <Field name="Remark" size="1500" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="True" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="18" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="18" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (1)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (3)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>RMK</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="4b99e026-ed1e-4c26-91b2-00f5ef45faf4" />
+      <Telemetry>
+        <PreviousWorkflowId value="7e18d97d-095d-4ed1-b53b-e72f0030660c" />
+        <OriginWorkflowId value="4b99e026-ed1e-4c26-91b2-00f5ef45faf4" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (11)</Name>
+          <ToolId value="11" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description />
+              <Name>Macro Input (1)</Name>
+              <ToolId value="1" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description />
+              <Name>Macro Output (3)</Name>
+              <ToolId value="3" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="1" Selected="True" />
+        <Tool ToolId="3" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
