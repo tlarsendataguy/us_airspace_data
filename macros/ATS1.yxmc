@@ -1,0 +1,442 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.2">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="78" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>ATS</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\ATS.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>500</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>ATS.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\ATS.txt" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="174" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Trim(Left([Field_1],4))" field="RecordType" size="64" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>RecordType</AnnotationText>
+          <DefaultAnnotationText><![CDATA[RecordType = Trim(Left([Field_1],4))
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\ATS.txt" type="V_String" />
+            <Field name="RecordType" size="64" source="Formula: Trim(Left([Field_1],4))" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="270" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>RecordType</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2021-07-15 05:38:22</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>ATS1</Operand>
+              <StartDate>2021-07-15 05:38:22</StartDate>
+              <EndDate>2021-07-15 05:38:22</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>ATS1</AnnotationText>
+          <DefaultAnnotationText>[RecordType] = "ATS1"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\ATS.txt" type="V_String" />
+            <Field name="RecordType" size="64" source="Formula: Trim(Left([Field_1],4))" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\ATS.txt" type="V_String" />
+            <Field name="RecordType" size="64" source="Formula: Trim(Left([Field_1],4))" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="654" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\4\Engine_5924_151696fb64d24320bba475d5dfdf9c60_\Engine_3112_41a47c8d3af548519844b0e7b57ce39f_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="366" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 4, 2)" field="ATS Airway Designation" size="2" type="String" />
+            <FormulaField expression="Switch(&#xA;  Trim([ATS Airway Designation]),&quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;AT&quot;, &quot;Atlantic Route&quot;,&#xA;  &quot;BF&quot;, &quot;Bahama Route&quot;,&#xA;  &quot;PA&quot;, &quot;Pacific Route&quot;,&#xA;  &quot;PR&quot;, &quot;Puerto Rico Route&quot;&#xA;)" field="ATS Airways Designation Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 6, 12)" field="ATS Airway ID" size="12" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 18, 1)" field="RNAV Indicator" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 19, 1)" field="Airway Type" size="1" type="String" />
+            <FormulaField expression="Switch(&#xA;  Trim([Airway Type]),&quot;General ATS Airway&quot;,&#xA;  &quot;A&quot;, &quot;Alaska Specific ATS Airway&quot;,&#xA;  &quot;H&quot;, &quot;Hawaii Specific ATS Airway&quot;&#xA;)" field="Airway Type Name" size="50" type="V_String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 20, 5))" field="Sequence" size="4" type="Int32" />
+            <FormulaField expression="DateTimeParse(Substring([Field_1], 25, 10), &quot;%m/%d/%Y&quot;)" field="Effective Date" size="10" type="Date" />
+            <FormulaField expression="Substring([Field_1], 35, 7)" field="RNAV Track Angle Outbound" size="7" type="String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 54, 6))" field="RNAV Distance to Changeover Point" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 47, 7)" field="RNAV Track Angle Inbound" size="7" type="String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 54, 6))" field="RNAV Distance to Next Point" size="10.2" type="FixedDecimal" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 60, 6))" field="Bearing" size="10.2" type="FixedDecimal" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 66, 6))" field="Segment Magnetic Course" size="10.2" type="FixedDecimal" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 73, 6))" field="Segment Opposite Magnetic Course" size="10.2" type="FixedDecimal" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 78, 6))" field="Distance to Next Point" size="10.2" type="FixedDecimal" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 84, 5))" field="Minimum Enroute Altitude" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 89, 7)" field="Minimum Enroute Direction" size="7" type="V_String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 96, 5))" field="Opposite Direction Minimum Enroute Altitude" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 101, 7)" field="Opposite Direction Minimum Enroute Direction" size="7" type="V_String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 108, 5))" field="Maximum Authorized Altitude" size="4" type="Int32" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 113, 5))" field="Minimum Obstruction Clearance Altitude" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 118, 1)" field="Airway Discontinued" size="1" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <AnnotationText><![CDATA[ATS Airway Designation = Substring([Field_1], 4, 2)
+]]></AnnotationText>
+          <DefaultAnnotationText>ATS Airway Designation = Substring([Field_1], 4, 2)
+ATS Airways Designation Name...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\ATS.txt" type="V_String" />
+            <Field name="RecordType" size="64" source="Formula: Trim(Left([Field_1],4))" type="String" />
+            <Field name="ATS Airway Designation" size="2" source="Formula: Substring([Field_1], 4, 2)" type="String" />
+            <Field name="ATS Airways Designation Name" size="50" source="Formula: Switch(&#xA;  Trim([ATS Airway Designation]),&quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;AT&quot;, &quot;Atlantic Route&quot;,&#xA;  &quot;BF&quot;, &quot;Bahama Route&quot;,&#xA;  &quot;PA&quot;, &quot;Pacific Route&quot;,&#xA;  &quot;PR&quot;, &quot;Puerto Rico Route&quot;&#xA;)" type="V_String" />
+            <Field name="ATS Airway ID" size="12" source="Formula: Substring([Field_1], 6, 12)" type="V_String" />
+            <Field name="RNAV Indicator" size="1" source="Formula: Substring([Field_1], 18, 1)" type="String" />
+            <Field name="Airway Type" size="1" source="Formula: Substring([Field_1], 19, 1)" type="String" />
+            <Field name="Airway Type Name" size="50" source="Formula: Switch(&#xA;  Trim([Airway Type]),&quot;General ATS Airway&quot;,&#xA;  &quot;A&quot;, &quot;Alaska Specific ATS Airway&quot;,&#xA;  &quot;H&quot;, &quot;Hawaii Specific ATS Airway&quot;&#xA;)" type="V_String" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 20, 5))" type="Int32" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 25, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="RNAV Track Angle Outbound" size="7" source="Formula: Substring([Field_1], 35, 7)" type="String" />
+            <Field name="RNAV Distance to Changeover Point" source="Formula: ToNumber(Substring([Field_1], 54, 6))" type="Int32" />
+            <Field name="RNAV Track Angle Inbound" size="7" source="Formula: Substring([Field_1], 47, 7)" type="String" />
+            <Field name="RNAV Distance to Next Point" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 54, 6))" type="FixedDecimal" />
+            <Field name="Bearing" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 60, 6))" type="FixedDecimal" />
+            <Field name="Segment Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
+            <Field name="Segment Opposite Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 73, 6))" type="FixedDecimal" />
+            <Field name="Distance to Next Point" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 78, 6))" type="FixedDecimal" />
+            <Field name="Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 84, 5))" type="Int32" />
+            <Field name="Minimum Enroute Direction" size="7" source="Formula: Substring([Field_1], 89, 7)" type="V_String" />
+            <Field name="Opposite Direction Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 96, 5))" type="Int32" />
+            <Field name="Opposite Direction Minimum Enroute Direction" size="7" source="Formula: Substring([Field_1], 101, 7)" type="V_String" />
+            <Field name="Maximum Authorized Altitude" source="Formula: ToNumber(Substring([Field_1], 108, 5))" type="Int32" />
+            <Field name="Minimum Obstruction Clearance Altitude" source="Formula: ToNumber(Substring([Field_1], 113, 5))" type="Int32" />
+            <Field name="Airway Discontinued" size="1" source="Formula: Substring([Field_1], 118, 1)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="462" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Field_1" selected="False" />
+            <SelectField field="RecordType" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="ATS Airway Designation" size="2" source="Formula: Substring([Field_1], 4, 2)" type="String" />
+            <Field name="ATS Airways Designation Name" size="50" source="Formula: Switch(&#xA;  Trim([ATS Airway Designation]),&quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;AT&quot;, &quot;Atlantic Route&quot;,&#xA;  &quot;BF&quot;, &quot;Bahama Route&quot;,&#xA;  &quot;PA&quot;, &quot;Pacific Route&quot;,&#xA;  &quot;PR&quot;, &quot;Puerto Rico Route&quot;&#xA;)" type="V_String" />
+            <Field name="ATS Airway ID" size="12" source="Formula: Substring([Field_1], 6, 12)" type="V_String" />
+            <Field name="RNAV Indicator" size="1" source="Formula: Substring([Field_1], 18, 1)" type="String" />
+            <Field name="Airway Type" size="1" source="Formula: Substring([Field_1], 19, 1)" type="String" />
+            <Field name="Airway Type Name" size="50" source="Formula: Switch(&#xA;  Trim([Airway Type]),&quot;General ATS Airway&quot;,&#xA;  &quot;A&quot;, &quot;Alaska Specific ATS Airway&quot;,&#xA;  &quot;H&quot;, &quot;Hawaii Specific ATS Airway&quot;&#xA;)" type="V_String" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 20, 5))" type="Int32" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 25, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="RNAV Track Angle Outbound" size="7" source="Formula: Substring([Field_1], 35, 7)" type="String" />
+            <Field name="RNAV Distance to Changeover Point" source="Formula: ToNumber(Substring([Field_1], 54, 6))" type="Int32" />
+            <Field name="RNAV Track Angle Inbound" size="7" source="Formula: Substring([Field_1], 47, 7)" type="String" />
+            <Field name="RNAV Distance to Next Point" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 54, 6))" type="FixedDecimal" />
+            <Field name="Bearing" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 60, 6))" type="FixedDecimal" />
+            <Field name="Segment Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
+            <Field name="Segment Opposite Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 73, 6))" type="FixedDecimal" />
+            <Field name="Distance to Next Point" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 78, 6))" type="FixedDecimal" />
+            <Field name="Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 84, 5))" type="Int32" />
+            <Field name="Minimum Enroute Direction" size="7" source="Formula: Substring([Field_1], 89, 7)" type="V_String" />
+            <Field name="Opposite Direction Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 96, 5))" type="Int32" />
+            <Field name="Opposite Direction Minimum Enroute Direction" size="7" source="Formula: Substring([Field_1], 101, 7)" type="V_String" />
+            <Field name="Maximum Authorized Altitude" source="Formula: ToNumber(Substring([Field_1], 108, 5))" type="Int32" />
+            <Field name="Minimum Obstruction Clearance Altitude" source="Formula: ToNumber(Substring([Field_1], 113, 5))" type="Int32" />
+            <Field name="Airway Discontinued" size="1" source="Formula: Substring([Field_1], 118, 1)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="558" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="ATS Airway Designation" />
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>Trim([_CurrentField_])</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Trim</AnnotationText>
+          <DefaultAnnotationText>Trim([_CurrentField_])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="ATS Airway Designation" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ATS Airways Designation Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="ATS Airway ID" size="12" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="RNAV Indicator" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airway Type" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airway Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 20, 5))" type="Int32" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 25, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="RNAV Track Angle Outbound" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="RNAV Distance to Changeover Point" source="Formula: ToNumber(Substring([Field_1], 54, 6))" type="Int32" />
+            <Field name="RNAV Track Angle Inbound" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="RNAV Distance to Next Point" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 54, 6))" type="FixedDecimal" />
+            <Field name="Bearing" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 60, 6))" type="FixedDecimal" />
+            <Field name="Segment Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
+            <Field name="Segment Opposite Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 73, 6))" type="FixedDecimal" />
+            <Field name="Distance to Next Point" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 78, 6))" type="FixedDecimal" />
+            <Field name="Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 84, 5))" type="Int32" />
+            <Field name="Minimum Enroute Direction" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Opposite Direction Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 96, 5))" type="Int32" />
+            <Field name="Opposite Direction Minimum Enroute Direction" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Maximum Authorized Altitude" source="Formula: ToNumber(Substring([Field_1], 108, 5))" type="Int32" />
+            <Field name="Minimum Obstruction Clearance Altitude" source="Formula: ToNumber(Substring([Field_1], 113, 5))" type="Int32" />
+            <Field name="Airway Discontinued" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="True" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (2)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>ATS1</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="78d9d436-fae6-479d-b9a0-6373bf96f75a" />
+      <Telemetry>
+        <PreviousWorkflowId value="" />
+        <OriginWorkflowId value="78d9d436-fae6-479d-b9a0-6373bf96f75a" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (2)</Description>
+              <Name>Macro Input (2)</Name>
+              <ToolId value="2" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="5" Selected="False" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
