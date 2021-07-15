@@ -1,0 +1,486 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.2">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="162" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>AFF</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\AFF.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>254</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>65001</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>AFF.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\AFF.txt" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="258" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Left([Field_1], 4)" field="RecordType" size="4" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>RecordType</AnnotationText>
+          <DefaultAnnotationText><![CDATA[RecordType = Left([Field_1], 4)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\AFF.txt" type="V_WString" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="354" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>RecordType</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2021-07-14 20:30:47</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <StartDate>2021-07-14 20:30:47</StartDate>
+              <EndDate>2021-07-14 20:30:47</EndDate>
+              <Operand>AFF1</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>AFF1</AnnotationText>
+          <DefaultAnnotationText>[RecordType] = "AFF1"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\AFF.txt" type="V_WString" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\AFF.txt" type="V_WString" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="450" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 4, 4)" field="ARTCC Identifier" size="4" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Id</AnnotationText>
+          <DefaultAnnotationText><![CDATA[ARTCC Identifier = Substring([Field_1], 4, 4)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\AFF.txt" type="V_WString" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="ARTCC Identifier" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="834" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="ARTCC Identifier" />
+            <Field name="ARTCC Name" />
+            <Field name="Site Location" />
+            <Field name="Alternate Name" />
+            <Field name="Facility Type" />
+            <Field name="Facility Type Name" />
+            <Field name="Site State Name" />
+            <Field name="Site State Post Office Code" />
+            <Field name="ICAO ARTCC ID" />
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>Trim([_CurrentField_])</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Trim</AnnotationText>
+          <DefaultAnnotationText>Trim([_CurrentField_])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="ARTCC Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ARTCC Name" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Site Location" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Alternate Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Type" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Facility Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Information Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 133, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Site State Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Site State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Site Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Site Latitude],1) = 'S'&#xA;THEN -[Site Latitude]&#xA;ELSE [Site Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Site Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Site Longitude],1) = 'W'&#xA;THEN -[Site Longitude]&#xA;ELSE [Site Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="ICAO ARTCC ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="738" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Field_1" selected="False" />
+            <SelectField field="RecordType" selected="False" />
+            <SelectField field="RAW Site Latitude" selected="False" />
+            <SelectField field="RAW Site Longitude" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="ARTCC Identifier" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="ARTCC Name" size="40" source="Formula: Substring([Field_1], 8, 40)" type="V_String" />
+            <Field name="Site Location" size="30" source="Formula: Substring([Field_1],48, 30)" type="V_String" />
+            <Field name="Alternate Name" size="50" source="Formula: Substring([Field_1], 78, 50)" type="V_String" />
+            <Field name="Facility Type" size="5" source="Formula: Substring([Field_1], 128, 5)" type="String" />
+            <Field name="Facility Type Name" size="50" source="Formula: Switch(&#xA;  Trim([Facility Type]), 'Unknown',&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ARSR&quot;, &quot;Air Route Surveillance Radar&quot;,&#xA;  &quot;ARTCC&quot;, &quot;Air Route Traffic Control Center&quot;,&#xA;  &quot;CERAP&quot;, &quot;Center Radar Approach Control Facility&quot;,&#xA;  &quot;RCAG&quot;, &quot;Remote Communications, Air/Ground&quot;,&#xA;  &quot;SECRA&quot;, &quot;Secondary Radar&quot;&#xA;)" type="V_String" />
+            <Field name="Information Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 133, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Site State Name" size="30" source="Formula: Substring([Field_1], 143, 30)" type="V_String" />
+            <Field name="Site State Post Office Code" size="2" source="Formula: Substring([Field_1], 173, 2)" type="String" />
+            <Field name="Site Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Site Latitude],1) = 'S'&#xA;THEN -[Site Latitude]&#xA;ELSE [Site Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Site Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Site Longitude],1) = 'W'&#xA;THEN -[Site Longitude]&#xA;ELSE [Site Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="ICAO ARTCC ID" size="4" source="Formula: Substring([Field_1], 225, 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="930" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>AFF1</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Output</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="546" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 8, 40)" field="ARTCC Name" size="40" type="V_String" />
+            <FormulaField expression="Substring([Field_1],48, 30)" field="Site Location" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 78, 50)" field="Alternate Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 128, 5)" field="Facility Type" size="5" type="String" />
+            <FormulaField expression="Switch(&#xA;  Trim([Facility Type]), 'Unknown',&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ARSR&quot;, &quot;Air Route Surveillance Radar&quot;,&#xA;  &quot;ARTCC&quot;, &quot;Air Route Traffic Control Center&quot;,&#xA;  &quot;CERAP&quot;, &quot;Center Radar Approach Control Facility&quot;,&#xA;  &quot;RCAG&quot;, &quot;Remote Communications, Air/Ground&quot;,&#xA;  &quot;SECRA&quot;, &quot;Secondary Radar&quot;&#xA;)" field="Facility Type Name" size="50" type="V_String" />
+            <FormulaField expression="DateTimeParse(Substring([Field_1], 133, 10), &quot;%m/%d/%Y&quot;)" field="Information Effective Date" size="10" type="Date" />
+            <FormulaField expression="Substring([Field_1], 143, 30)" field="Site State Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 173, 2)" field="Site State Post Office Code" size="2" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Admin</AnnotationText>
+          <DefaultAnnotationText>ARTCC Name = Substring([Field_1], 8, 40)
+Site Location = Substring([Field_1],48,...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\AFF.txt" type="V_WString" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="ARTCC Identifier" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="ARTCC Name" size="40" source="Formula: Substring([Field_1], 8, 40)" type="V_String" />
+            <Field name="Site Location" size="30" source="Formula: Substring([Field_1],48, 30)" type="V_String" />
+            <Field name="Alternate Name" size="50" source="Formula: Substring([Field_1], 78, 50)" type="V_String" />
+            <Field name="Facility Type" size="5" source="Formula: Substring([Field_1], 128, 5)" type="String" />
+            <Field name="Facility Type Name" size="50" source="Formula: Switch(&#xA;  Trim([Facility Type]), 'Unknown',&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ARSR&quot;, &quot;Air Route Surveillance Radar&quot;,&#xA;  &quot;ARTCC&quot;, &quot;Air Route Traffic Control Center&quot;,&#xA;  &quot;CERAP&quot;, &quot;Center Radar Approach Control Facility&quot;,&#xA;  &quot;RCAG&quot;, &quot;Remote Communications, Air/Ground&quot;,&#xA;  &quot;SECRA&quot;, &quot;Secondary Radar&quot;&#xA;)" type="V_String" />
+            <Field name="Information Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 133, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Site State Name" size="30" source="Formula: Substring([Field_1], 143, 30)" type="V_String" />
+            <Field name="Site State Post Office Code" size="2" source="Formula: Substring([Field_1], 173, 2)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="642" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 189, 11)" field="RAW Site Latitude" size="11" type="String" />
+            <FormulaField expression="ToNumber(Left([RAW Site Latitude], 10))/3600" field="Site Latitude" size="12.7" type="FixedDecimal" />
+            <FormulaField expression="IF   Right([RAW Site Latitude],1) = 'S'&#xA;THEN -[Site Latitude]&#xA;ELSE [Site Latitude]&#xA;ENDIF" field="Site Latitude" size="12.7" type="FixedDecimal" />
+            <FormulaField expression="Substring([Field_1], 214, 11)" field="RAW Site Longitude" size="11" type="String" />
+            <FormulaField expression="ToNumber(Left([RAW Site Longitude], 10))/3600" field="Site Longitude" size="12.7" type="FixedDecimal" />
+            <FormulaField expression="IF   Right([RAW Site Longitude],1) = 'W'&#xA;THEN -[Site Longitude]&#xA;ELSE [Site Longitude]&#xA;ENDIF" field="Site Longitude" size="12.7" type="FixedDecimal" />
+            <FormulaField expression="Substring([Field_1], 225, 4)" field="ICAO ARTCC ID" size="4" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Geographic</AnnotationText>
+          <DefaultAnnotationText>RAW Site Latitude = Substring([Field_1], 189, 11)
+Site Latitude = ToNumber(Left(...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\AFF.txt" type="V_WString" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="ARTCC Identifier" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="ARTCC Name" size="40" source="Formula: Substring([Field_1], 8, 40)" type="V_String" />
+            <Field name="Site Location" size="30" source="Formula: Substring([Field_1],48, 30)" type="V_String" />
+            <Field name="Alternate Name" size="50" source="Formula: Substring([Field_1], 78, 50)" type="V_String" />
+            <Field name="Facility Type" size="5" source="Formula: Substring([Field_1], 128, 5)" type="String" />
+            <Field name="Facility Type Name" size="50" source="Formula: Switch(&#xA;  Trim([Facility Type]), 'Unknown',&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ARSR&quot;, &quot;Air Route Surveillance Radar&quot;,&#xA;  &quot;ARTCC&quot;, &quot;Air Route Traffic Control Center&quot;,&#xA;  &quot;CERAP&quot;, &quot;Center Radar Approach Control Facility&quot;,&#xA;  &quot;RCAG&quot;, &quot;Remote Communications, Air/Ground&quot;,&#xA;  &quot;SECRA&quot;, &quot;Secondary Radar&quot;&#xA;)" type="V_String" />
+            <Field name="Information Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 133, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Site State Name" size="30" source="Formula: Substring([Field_1], 143, 30)" type="V_String" />
+            <Field name="Site State Post Office Code" size="2" source="Formula: Substring([Field_1], 173, 2)" type="String" />
+            <Field name="RAW Site Latitude" size="11" source="Formula: Substring([Field_1], 189, 11)" type="String" />
+            <Field name="Site Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Site Latitude],1) = 'S'&#xA;THEN -[Site Latitude]&#xA;ELSE [Site Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="RAW Site Longitude" size="11" source="Formula: Substring([Field_1], 214, 11)" type="String" />
+            <Field name="Site Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Site Longitude],1) = 'W'&#xA;THEN -[Site Longitude]&#xA;ELSE [Site Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="ICAO ARTCC ID" size="4" source="Formula: Substring([Field_1], 225, 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="True" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (2)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (8)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>AFF1</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="17b8a123-ae11-47c7-90a7-d62a8178b1f6" />
+      <Telemetry>
+        <PreviousWorkflowId value="" />
+        <OriginWorkflowId value="17b8a123-ae11-47c7-90a7-d62a8178b1f6" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (2)</Description>
+              <Name>Macro Input (2)</Name>
+              <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description />
+              <Name>Macro Output (8)</Name>
+              <ToolId value="8" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="8" Selected="False" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
