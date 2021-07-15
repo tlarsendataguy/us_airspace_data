@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.2">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="102" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>ARB</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\ARB.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>400</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>ARB.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="400" source="File: F:\repositories\us_airspace_data\28DaySubscription\ARB.txt" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="198" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1],0, 12)" field="Record ID" size="12" type="String" />
+            <FormulaField expression="Substring([Field_1], 0, 4)" field="ARTCC Identifier" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 12, 40)" field="Center Name" size="40" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 52, 10)" field="Altitude Structure Decode Name" size="10" type="V_String" />
+            <FormulaField expression="Trim(Substring([Field_1], 62, 14))" field="RAW Boundary Point Latitude" size="14" type="String" />
+            <FormulaField expression="ToNumber(Substring([RAW Boundary Point Latitude], 0, 2)) +&#xA;ToNumber(Substring([RAW Boundary Point Latitude], 3, 2))/60 +&#xA;ToNumber(Substring([RAW Boundary Point Latitude], 6, 4))/3600" field="Boundary Point Latitude" size="12.7" type="FixedDecimal" />
+            <FormulaField expression="IF   Right([RAW Boundary Point Latitude],1) = 'S'&#xA;THEN -[Boundary Point Latitude]&#xA;ELSE [Boundary Point Latitude]&#xA;ENDIF" field="Boundary Point Latitude" size="12.7" type="FixedDecimal" />
+            <FormulaField expression="Trim(Substring([Field_1], 76, 14))" field="RAW Boundary Point Longitude" size="14" type="String" />
+            <FormulaField expression="ToNumber(Substring([RAW Boundary Point Longitude], 0, 3)) +&#xA;ToNumber(Substring([RAW Boundary Point Longitude], 4, 2))/60 +&#xA;ToNumber(Substring([RAW Boundary Point Longitude], 7, 4))/3600" field="Boundary Point Longitude" size="12.7" type="FixedDecimal" />
+            <FormulaField expression="IF   Right([RAW Boundary Point Longitude],1) = 'W'&#xA;THEN -[Boundary Point Longitude]&#xA;ELSE [Boundary Point Longitude]&#xA;ENDIF" field="Boundary Point Longitude" size="12.7" type="FixedDecimal" />
+            <FormulaField expression="Substring([Field_1], 90, 300)" field="Description" size="300" type="V_String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 390, 6))" field="Sequence" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 396, 1)" field="Only in NAS Description" size="1" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>Record ID = Substring([Field_1],0, 12)
+ARTCC Identifier = Substring([Field_1], 0...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="400" source="File: F:\repositories\us_airspace_data\28DaySubscription\ARB.txt" type="V_String" />
+            <Field name="Record ID" size="12" source="Formula: Substring([Field_1],0, 12)" type="String" />
+            <Field name="ARTCC Identifier" size="4" source="Formula: Substring([Field_1], 0, 4)" type="String" />
+            <Field name="Center Name" size="40" source="Formula: Substring([Field_1], 12, 40)" type="V_String" />
+            <Field name="Altitude Structure Decode Name" size="10" source="Formula: Substring([Field_1], 52, 10)" type="V_String" />
+            <Field name="RAW Boundary Point Latitude" size="14" source="Formula: Trim(Substring([Field_1], 62, 14))" type="String" />
+            <Field name="Boundary Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Boundary Point Latitude],1) = 'S'&#xA;THEN -[Boundary Point Latitude]&#xA;ELSE [Boundary Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="RAW Boundary Point Longitude" size="14" source="Formula: Trim(Substring([Field_1], 76, 14))" type="String" />
+            <Field name="Boundary Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Boundary Point Longitude],1) = 'W'&#xA;THEN -[Boundary Point Longitude]&#xA;ELSE [Boundary Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Description" size="300" source="Formula: Substring([Field_1], 90, 300)" type="V_String" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 390, 6))" type="Int32" />
+            <Field name="Only in NAS Description" size="1" source="Formula: Substring([Field_1], 396, 1)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="294" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Field_1" selected="False" />
+            <SelectField field="RAW Boundary Point Latitude" selected="False" />
+            <SelectField field="RAW Boundary Point Longitude" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Record ID" size="12" source="Formula: Substring([Field_1],0, 12)" type="String" />
+            <Field name="ARTCC Identifier" size="4" source="Formula: Substring([Field_1], 0, 4)" type="String" />
+            <Field name="Center Name" size="40" source="Formula: Substring([Field_1], 12, 40)" type="V_String" />
+            <Field name="Altitude Structure Decode Name" size="10" source="Formula: Substring([Field_1], 52, 10)" type="V_String" />
+            <Field name="Boundary Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Boundary Point Latitude],1) = 'S'&#xA;THEN -[Boundary Point Latitude]&#xA;ELSE [Boundary Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Boundary Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Boundary Point Longitude],1) = 'W'&#xA;THEN -[Boundary Point Longitude]&#xA;ELSE [Boundary Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Description" size="300" source="Formula: Substring([Field_1], 90, 300)" type="V_String" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 390, 6))" type="Int32" />
+            <Field name="Only in NAS Description" size="1" source="Formula: Substring([Field_1], 396, 1)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="390" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="Record ID" />
+            <Field name="ARTCC Identifier" />
+            <Field name="Center Name" />
+            <Field name="Altitude Structure Decode Name" />
+            <Field name="Description" />
+            <Field name="Only in NAS Description" />
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>Trim([_CurrentField_])</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Trim</AnnotationText>
+          <DefaultAnnotationText>Trim([_CurrentField_])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Record ID" size="12" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ARTCC Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Center Name" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Altitude Structure Decode Name" size="10" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Boundary Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Boundary Point Latitude],1) = 'S'&#xA;THEN -[Boundary Point Latitude]&#xA;ELSE [Boundary Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Boundary Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Boundary Point Longitude],1) = 'W'&#xA;THEN -[Boundary Point Longitude]&#xA;ELSE [Boundary Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Description" size="300" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 390, 6))" type="Int32" />
+            <Field name="Only in NAS Description" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="486" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>ARB</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Output</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (2)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (6)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>ARB</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="56422b52-9d18-40dd-8a13-6fc4f9ee066c" />
+      <Telemetry>
+        <PreviousWorkflowId value="" />
+        <OriginWorkflowId value="56422b52-9d18-40dd-8a13-6fc4f9ee066c" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (2)</Description>
+              <Name>Macro Input (2)</Name>
+              <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description />
+              <Name>Macro Output (6)</Name>
+              <ToolId value="6" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="6" Selected="False" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
