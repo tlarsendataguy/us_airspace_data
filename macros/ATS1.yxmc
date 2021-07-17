@@ -130,28 +130,21 @@
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
     </Node>
     <Node ToolID="5">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="654" y="138" />
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="750" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\4\Engine_5924_151696fb64d24320bba475d5dfdf9c60_\Engine_3112_41a47c8d3af548519844b0e7b57ce39f_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <View1>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-          </Layout>
+          <Name>ATS1</Name>
+          <Abbrev />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText />
+          <DefaultAnnotationText>Output</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
@@ -168,10 +161,6 @@
             <FormulaField expression="Switch(&#xA;  Trim([Airway Type]),&quot;General ATS Airway&quot;,&#xA;  &quot;A&quot;, &quot;Alaska Specific ATS Airway&quot;,&#xA;  &quot;H&quot;, &quot;Hawaii Specific ATS Airway&quot;&#xA;)" field="Airway Type Name" size="50" type="V_String" />
             <FormulaField expression="ToNumber(Substring([Field_1], 20, 5))" field="Sequence" size="4" type="Int32" />
             <FormulaField expression="DateTimeParse(Substring([Field_1], 25, 10), &quot;%m/%d/%Y&quot;)" field="Effective Date" size="10" type="Date" />
-            <FormulaField expression="Substring([Field_1], 35, 7)" field="RNAV Track Angle Outbound" size="7" type="String" />
-            <FormulaField expression="ToNumber(Substring([Field_1], 54, 6))" field="RNAV Distance to Changeover Point" size="4" type="Int32" />
-            <FormulaField expression="Substring([Field_1], 47, 7)" field="RNAV Track Angle Inbound" size="7" type="String" />
-            <FormulaField expression="ToNumber(Substring([Field_1], 54, 6))" field="RNAV Distance to Next Point" size="10.2" type="FixedDecimal" />
             <FormulaField expression="ToNumber(Substring([Field_1], 60, 6))" field="Bearing" size="10.2" type="FixedDecimal" />
             <FormulaField expression="ToNumber(Substring([Field_1], 66, 6))" field="Segment Magnetic Course" size="10.2" type="FixedDecimal" />
             <FormulaField expression="ToNumber(Substring([Field_1], 73, 6))" field="Segment Opposite Magnetic Course" size="10.2" type="FixedDecimal" />
@@ -183,6 +172,12 @@
             <FormulaField expression="ToNumber(Substring([Field_1], 108, 5))" field="Maximum Authorized Altitude" size="4" type="Int32" />
             <FormulaField expression="ToNumber(Substring([Field_1], 113, 5))" field="Minimum Obstruction Clearance Altitude" size="4" type="Int32" />
             <FormulaField expression="Substring([Field_1], 118, 1)" field="Airway Discontinued" size="1" type="String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 119, 3))" field="Distance to Changeover Point" size="4" type="Int32" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 122, 5))" field="Minimum Crossing Altitude" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 127, 7)" field="Direction of Crossing" size="7" type="V_String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 134, 5))" field="Opposite Direction Minimum Crossing Altitude" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 139, 7)" field="Opposite Direction Direction of Crossing" size="7" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 147, 1)" field="Gap in Signal Coverage" size="1" type="String" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="2">
@@ -205,10 +200,6 @@ ATS Airways Designation Name...</DefaultAnnotationText>
             <Field name="Airway Type Name" size="50" source="Formula: Switch(&#xA;  Trim([Airway Type]),&quot;General ATS Airway&quot;,&#xA;  &quot;A&quot;, &quot;Alaska Specific ATS Airway&quot;,&#xA;  &quot;H&quot;, &quot;Hawaii Specific ATS Airway&quot;&#xA;)" type="V_String" />
             <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 20, 5))" type="Int32" />
             <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 25, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
-            <Field name="RNAV Track Angle Outbound" size="7" source="Formula: Substring([Field_1], 35, 7)" type="String" />
-            <Field name="RNAV Distance to Changeover Point" source="Formula: ToNumber(Substring([Field_1], 54, 6))" type="Int32" />
-            <Field name="RNAV Track Angle Inbound" size="7" source="Formula: Substring([Field_1], 47, 7)" type="String" />
-            <Field name="RNAV Distance to Next Point" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 54, 6))" type="FixedDecimal" />
             <Field name="Bearing" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 60, 6))" type="FixedDecimal" />
             <Field name="Segment Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
             <Field name="Segment Opposite Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 73, 6))" type="FixedDecimal" />
@@ -220,6 +211,12 @@ ATS Airways Designation Name...</DefaultAnnotationText>
             <Field name="Maximum Authorized Altitude" source="Formula: ToNumber(Substring([Field_1], 108, 5))" type="Int32" />
             <Field name="Minimum Obstruction Clearance Altitude" source="Formula: ToNumber(Substring([Field_1], 113, 5))" type="Int32" />
             <Field name="Airway Discontinued" size="1" source="Formula: Substring([Field_1], 118, 1)" type="String" />
+            <Field name="Distance to Changeover Point" source="Formula: ToNumber(Substring([Field_1], 119, 3))" type="Int32" />
+            <Field name="Minimum Crossing Altitude" source="Formula: ToNumber(Substring([Field_1], 122, 5))" type="Int32" />
+            <Field name="Direction of Crossing" size="7" source="Formula: Substring([Field_1], 127, 7)" type="V_String" />
+            <Field name="Opposite Direction Minimum Crossing Altitude" source="Formula: ToNumber(Substring([Field_1], 134, 5))" type="Int32" />
+            <Field name="Opposite Direction Direction of Crossing" size="7" source="Formula: Substring([Field_1], 139, 7)" type="V_String" />
+            <Field name="Gap in Signal Coverage" size="1" source="Formula: Substring([Field_1], 147, 1)" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -227,7 +224,7 @@ ATS Airways Designation Name...</DefaultAnnotationText>
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="462" y="138" />
+        <Position x="558" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -254,10 +251,6 @@ ATS Airways Designation Name...</DefaultAnnotationText>
             <Field name="Airway Type Name" size="50" source="Formula: Switch(&#xA;  Trim([Airway Type]),&quot;General ATS Airway&quot;,&#xA;  &quot;A&quot;, &quot;Alaska Specific ATS Airway&quot;,&#xA;  &quot;H&quot;, &quot;Hawaii Specific ATS Airway&quot;&#xA;)" type="V_String" />
             <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 20, 5))" type="Int32" />
             <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 25, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
-            <Field name="RNAV Track Angle Outbound" size="7" source="Formula: Substring([Field_1], 35, 7)" type="String" />
-            <Field name="RNAV Distance to Changeover Point" source="Formula: ToNumber(Substring([Field_1], 54, 6))" type="Int32" />
-            <Field name="RNAV Track Angle Inbound" size="7" source="Formula: Substring([Field_1], 47, 7)" type="String" />
-            <Field name="RNAV Distance to Next Point" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 54, 6))" type="FixedDecimal" />
             <Field name="Bearing" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 60, 6))" type="FixedDecimal" />
             <Field name="Segment Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
             <Field name="Segment Opposite Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 73, 6))" type="FixedDecimal" />
@@ -269,6 +262,27 @@ ATS Airways Designation Name...</DefaultAnnotationText>
             <Field name="Maximum Authorized Altitude" source="Formula: ToNumber(Substring([Field_1], 108, 5))" type="Int32" />
             <Field name="Minimum Obstruction Clearance Altitude" source="Formula: ToNumber(Substring([Field_1], 113, 5))" type="Int32" />
             <Field name="Airway Discontinued" size="1" source="Formula: Substring([Field_1], 118, 1)" type="String" />
+            <Field name="Distance to Changeover Point" source="Formula: ToNumber(Substring([Field_1], 119, 3))" type="Int32" />
+            <Field name="Minimum Crossing Altitude" source="Formula: ToNumber(Substring([Field_1], 122, 5))" type="Int32" />
+            <Field name="Direction of Crossing" size="7" source="Formula: Substring([Field_1], 127, 7)" type="V_String" />
+            <Field name="Opposite Direction Minimum Crossing Altitude" source="Formula: ToNumber(Substring([Field_1], 134, 5))" type="Int32" />
+            <Field name="Opposite Direction Direction of Crossing" size="7" source="Formula: Substring([Field_1], 139, 7)" type="V_String" />
+            <Field name="Gap in Signal Coverage" size="1" source="Formula: Substring([Field_1], 147, 1)" type="String" />
+            <Field name="US Airspace Only" size="1" source="Formula: Substring([Field_1], 147, 1)" type="String" />
+            <Field name="NAVAID Magnetic Variation" size="5" source="Formula: Substring([Field_1], 148, 5)" type="String" />
+            <Field name="NAVAID ARTCC" size="3" source="Formula: Substring([Field_1], 153, 3)" type="String" />
+            <Field name="GNSS Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 246, 5))" type="Int32" />
+            <Field name="GNSS Minimum Enroute Direction" size="7" source="Formula: Substring([Field_1], 251, 7)" type="V_String" />
+            <Field name="Opposite Direction GNSS Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1],258, 5))" type="Int32" />
+            <Field name="Opposite Direction GNSS Minimum Enroute Direction" size="7" source="Formula: Substring([Field_1], 263, 7)" type="V_String" />
+            <Field name="Minimum Crossing Point" size="50" source="Formula: Substring([Field_1], 270, 50)" type="V_String" />
+            <Field name="DME Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 320, 5))" type="Int32" />
+            <Field name="DME Minimum Enroute Direction" size="6" source="Formula: Substring([Field_1], 325, 6)" type="V_String" />
+            <Field name="Opposite Direction DME Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1],331, 5))" type="Int32" />
+            <Field name="Opposite Direction DME Minimum Enroute Direction" size="6" source="Formula: Substring([Field_1], 336, 6)" type="V_String" />
+            <Field name="Dogleg" size="1" source="Formula: Substring([Field_1], 342, 1)" type="String" />
+            <Field name="RNP Format" size="5" source="Formula: Substring([Field_1], 343, 5)" type="String" />
+            <Field name="Record Sort Sequence Number" source="Formula: ToNumber(Substring([Field_1], 348, 7))" type="Int32" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -276,7 +290,7 @@ ATS Airways Designation Name...</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="558" y="138" />
+        <Position x="654" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -305,10 +319,6 @@ ATS Airways Designation Name...</DefaultAnnotationText>
             <Field name="Airway Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 20, 5))" type="Int32" />
             <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 25, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
-            <Field name="RNAV Track Angle Outbound" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="RNAV Distance to Changeover Point" source="Formula: ToNumber(Substring([Field_1], 54, 6))" type="Int32" />
-            <Field name="RNAV Track Angle Inbound" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="RNAV Distance to Next Point" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 54, 6))" type="FixedDecimal" />
             <Field name="Bearing" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 60, 6))" type="FixedDecimal" />
             <Field name="Segment Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
             <Field name="Segment Opposite Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 73, 6))" type="FixedDecimal" />
@@ -320,10 +330,112 @@ ATS Airways Designation Name...</DefaultAnnotationText>
             <Field name="Maximum Authorized Altitude" source="Formula: ToNumber(Substring([Field_1], 108, 5))" type="Int32" />
             <Field name="Minimum Obstruction Clearance Altitude" source="Formula: ToNumber(Substring([Field_1], 113, 5))" type="Int32" />
             <Field name="Airway Discontinued" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Distance to Changeover Point" source="Formula: ToNumber(Substring([Field_1], 119, 3))" type="Int32" />
+            <Field name="Minimum Crossing Altitude" source="Formula: ToNumber(Substring([Field_1], 122, 5))" type="Int32" />
+            <Field name="Direction of Crossing" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Opposite Direction Minimum Crossing Altitude" source="Formula: ToNumber(Substring([Field_1], 134, 5))" type="Int32" />
+            <Field name="Opposite Direction Direction of Crossing" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Gap in Signal Coverage" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="US Airspace Only" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="NAVAID Magnetic Variation" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="NAVAID ARTCC" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="GNSS Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 246, 5))" type="Int32" />
+            <Field name="GNSS Minimum Enroute Direction" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Opposite Direction GNSS Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1],258, 5))" type="Int32" />
+            <Field name="Opposite Direction GNSS Minimum Enroute Direction" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Minimum Crossing Point" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="DME Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 320, 5))" type="Int32" />
+            <Field name="DME Minimum Enroute Direction" size="6" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Opposite Direction DME Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1],331, 5))" type="Int32" />
+            <Field name="Opposite Direction DME Minimum Enroute Direction" size="6" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Dogleg" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="RNP Format" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Record Sort Sequence Number" source="Formula: ToNumber(Substring([Field_1], 348, 7))" type="Int32" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="462" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 147, 1)" field="US Airspace Only" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 148, 5)" field="NAVAID Magnetic Variation" size="5" type="String" />
+            <FormulaField expression="Substring([Field_1], 153, 3)" field="NAVAID ARTCC" size="3" type="String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 246, 5))" field="GNSS Minimum Enroute Altitude" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 251, 7)" field="GNSS Minimum Enroute Direction" size="7" type="V_String" />
+            <FormulaField expression="ToNumber(Substring([Field_1],258, 5))" field="Opposite Direction GNSS Minimum Enroute Altitude" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 263, 7)" field="Opposite Direction GNSS Minimum Enroute Direction" size="7" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 270, 50)" field="Minimum Crossing Point" size="50" type="V_String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 320, 5))" field="DME Minimum Enroute Altitude" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 325, 6)" field="DME Minimum Enroute Direction" size="6" type="V_String" />
+            <FormulaField expression="ToNumber(Substring([Field_1],331, 5))" field="Opposite Direction DME Minimum Enroute Altitude" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 336, 6)" field="Opposite Direction DME Minimum Enroute Direction" size="6" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 342, 1)" field="Dogleg" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 343, 5)" field="RNP Format" size="5" type="String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 348, 7))" field="Record Sort Sequence Number" size="4" type="Int32" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <AnnotationText><![CDATA[
+]]></AnnotationText>
+          <DefaultAnnotationText>US Airspace Only = Substring([Field_1], 147, 1)
+NAVAID Magnetic Variation = Subs...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\ATS.txt" type="V_String" />
+            <Field name="RecordType" size="64" source="Formula: Trim(Left([Field_1],4))" type="String" />
+            <Field name="ATS Airway Designation" size="2" source="Formula: Substring([Field_1], 4, 2)" type="String" />
+            <Field name="ATS Airways Designation Name" size="50" source="Formula: Switch(&#xA;  Trim([ATS Airway Designation]),&quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;AT&quot;, &quot;Atlantic Route&quot;,&#xA;  &quot;BF&quot;, &quot;Bahama Route&quot;,&#xA;  &quot;PA&quot;, &quot;Pacific Route&quot;,&#xA;  &quot;PR&quot;, &quot;Puerto Rico Route&quot;&#xA;)" type="V_String" />
+            <Field name="ATS Airway ID" size="12" source="Formula: Substring([Field_1], 6, 12)" type="V_String" />
+            <Field name="RNAV Indicator" size="1" source="Formula: Substring([Field_1], 18, 1)" type="String" />
+            <Field name="Airway Type" size="1" source="Formula: Substring([Field_1], 19, 1)" type="String" />
+            <Field name="Airway Type Name" size="50" source="Formula: Switch(&#xA;  Trim([Airway Type]),&quot;General ATS Airway&quot;,&#xA;  &quot;A&quot;, &quot;Alaska Specific ATS Airway&quot;,&#xA;  &quot;H&quot;, &quot;Hawaii Specific ATS Airway&quot;&#xA;)" type="V_String" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 20, 5))" type="Int32" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 25, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Bearing" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 60, 6))" type="FixedDecimal" />
+            <Field name="Segment Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
+            <Field name="Segment Opposite Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 73, 6))" type="FixedDecimal" />
+            <Field name="Distance to Next Point" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 78, 6))" type="FixedDecimal" />
+            <Field name="Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 84, 5))" type="Int32" />
+            <Field name="Minimum Enroute Direction" size="7" source="Formula: Substring([Field_1], 89, 7)" type="V_String" />
+            <Field name="Opposite Direction Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 96, 5))" type="Int32" />
+            <Field name="Opposite Direction Minimum Enroute Direction" size="7" source="Formula: Substring([Field_1], 101, 7)" type="V_String" />
+            <Field name="Maximum Authorized Altitude" source="Formula: ToNumber(Substring([Field_1], 108, 5))" type="Int32" />
+            <Field name="Minimum Obstruction Clearance Altitude" source="Formula: ToNumber(Substring([Field_1], 113, 5))" type="Int32" />
+            <Field name="Airway Discontinued" size="1" source="Formula: Substring([Field_1], 118, 1)" type="String" />
+            <Field name="Distance to Changeover Point" source="Formula: ToNumber(Substring([Field_1], 119, 3))" type="Int32" />
+            <Field name="Minimum Crossing Altitude" source="Formula: ToNumber(Substring([Field_1], 122, 5))" type="Int32" />
+            <Field name="Direction of Crossing" size="7" source="Formula: Substring([Field_1], 127, 7)" type="V_String" />
+            <Field name="Opposite Direction Minimum Crossing Altitude" source="Formula: ToNumber(Substring([Field_1], 134, 5))" type="Int32" />
+            <Field name="Opposite Direction Direction of Crossing" size="7" source="Formula: Substring([Field_1], 139, 7)" type="V_String" />
+            <Field name="Gap in Signal Coverage" size="1" source="Formula: Substring([Field_1], 147, 1)" type="String" />
+            <Field name="US Airspace Only" size="1" source="Formula: Substring([Field_1], 147, 1)" type="String" />
+            <Field name="NAVAID Magnetic Variation" size="5" source="Formula: Substring([Field_1], 148, 5)" type="String" />
+            <Field name="NAVAID ARTCC" size="3" source="Formula: Substring([Field_1], 153, 3)" type="String" />
+            <Field name="GNSS Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 246, 5))" type="Int32" />
+            <Field name="GNSS Minimum Enroute Direction" size="7" source="Formula: Substring([Field_1], 251, 7)" type="V_String" />
+            <Field name="Opposite Direction GNSS Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1],258, 5))" type="Int32" />
+            <Field name="Opposite Direction GNSS Minimum Enroute Direction" size="7" source="Formula: Substring([Field_1], 263, 7)" type="V_String" />
+            <Field name="Minimum Crossing Point" size="50" source="Formula: Substring([Field_1], 270, 50)" type="V_String" />
+            <Field name="DME Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 320, 5))" type="Int32" />
+            <Field name="DME Minimum Enroute Direction" size="6" source="Formula: Substring([Field_1], 325, 6)" type="V_String" />
+            <Field name="Opposite Direction DME Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1],331, 5))" type="Int32" />
+            <Field name="Opposite Direction DME Minimum Enroute Direction" size="6" source="Formula: Substring([Field_1], 336, 6)" type="V_String" />
+            <Field name="Dogleg" size="1" source="Formula: Substring([Field_1], 342, 1)" type="String" />
+            <Field name="RNP Format" size="5" source="Formula: Substring([Field_1], 343, 5)" type="String" />
+            <Field name="Record Sort Sequence Number" source="Formula: ToNumber(Substring([Field_1], 348, 7))" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
   </Nodes>
   <Connections>
@@ -341,7 +453,7 @@ ATS Airways Designation Name...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="6" Connection="Output" />
-      <Destination ToolID="7" Connection="Input" />
+      <Destination ToolID="9" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="7" Connection="Output" />
@@ -350,6 +462,10 @@ ATS Airways Designation Name...</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="8" Connection="Output" />
       <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -373,6 +489,12 @@ ATS Airways Designation Name...</DefaultAnnotationText>
       <Constant>
         <Namespace>Question</Namespace>
         <Name>Macro Input (2)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (5)</Name>
         <Value />
         <IsNumeric value="False" />
       </Constant>
@@ -417,6 +539,12 @@ ATS Airways Designation Name...</DefaultAnnotationText>
               <Description>Macro Input (2)</Description>
               <Name>Macro Input (2)</Name>
               <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description />
+              <Name>Macro Output (5)</Name>
+              <ToolId value="5" />
             </Question>
           </Questions>
         </Question>
