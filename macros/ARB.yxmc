@@ -186,7 +186,7 @@ ARTCC Identifier = Substring([Field_1], 0...</DefaultAnnotationText>
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="486" y="126" />
+        <Position x="678" y="126" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -200,6 +200,94 @@ ARTCC Identifier = Substring([Field_1], 0...</DefaultAnnotationText>
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="582" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Field_1</UpdateField_Name>
+          <CreateField_Name>Shape ID</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>IF     [Row-1:Shape ID] = 0
+THEN   1
+ELSEIF Contains([Row-1:Description], "TO POINT OF BEGINNING")
+THEN   [Row-1:Shape ID] + 1
+ELSE   [Row-1:Shape ID]
+ENDIF</Expression>
+          <GroupByFields>
+            <Field field="ARTCC Identifier" />
+            <Field field="Altitude Structure Decode Name" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Shape ID</AnnotationText>
+          <DefaultAnnotationText>IF     [Row-1:Shape ID] = 0
+THEN   1
+ELSEIF Contains([Row-1:D...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Record ID" size="12" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ARTCC Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Center Name" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Altitude Structure Decode Name" size="10" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Boundary Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Boundary Point Latitude],1) = 'S'&#xA;THEN -[Boundary Point Latitude]&#xA;ELSE [Boundary Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Boundary Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Boundary Point Longitude],1) = 'W'&#xA;THEN -[Boundary Point Longitude]&#xA;ELSE [Boundary Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Description" size="300" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 390, 6))" type="Int32" />
+            <Field name="Only in NAS Description" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field description="Formula: IF     [Row-1:Shape ID] = 0&#xA;THEN   1&#xA;ELSEIF Contains([Row-1:Description], &quot;TO POINT OF BEGINNING&quot;)&#xA;THEN   [Row-1:Shape ID] + 1&#xA;ELSE   [Row-1:Shape ID]&#xA;ENDIF" name="Shape ID" source="Formula: IF     [Row-1:Shape ID] = 0&#xA;THEN   1&#xA;ELSEIF Contains([Row-1:Description], &quot;TO POINT OF BEGINNING&quot;)&#xA;THEN   [Row-1:Shape ID] + 1&#xA;ELSE   [Row-1:Shape ID]&#xA;ENDIF" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="ARTCC Identifier" order="Asc" />
+            <Field field="Altitude Structure Decode Name" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="486" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="1033">
+            <Field field="ARTCC Identifier" order="Ascending" />
+            <Field field="Altitude Structure Decode Name" order="Ascending" />
+            <Field field="Sequence" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>ARTCC Identifier - Ascending
+Altitude Structure Decode Name - Ascending
+Sequence - Ascending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Record ID" size="12" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ARTCC Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Center Name" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Altitude Structure Decode Name" size="10" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Boundary Point Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Boundary Point Latitude],1) = 'S'&#xA;THEN -[Boundary Point Latitude]&#xA;ELSE [Boundary Point Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Boundary Point Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Boundary Point Longitude],1) = 'W'&#xA;THEN -[Boundary Point Longitude]&#xA;ELSE [Boundary Point Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Description" size="300" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 390, 6))" type="Int32" />
+            <Field name="Only in NAS Description" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
     </Node>
   </Nodes>
   <Connections>
@@ -217,7 +305,15 @@ ARTCC Identifier = Substring([Field_1], 0...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
       <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
