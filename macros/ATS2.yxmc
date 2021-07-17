@@ -288,7 +288,7 @@ ATS Airway ID = Substring([F...</DefaultAnnotationText>
             <FormulaField expression="ToNumber(Substring([RAW NAVAID Latitude], 0, 2)) +&#xA;ToNumber(Substring([RAW NAVAID Latitude], 3, 2))/60 +&#xA;ToNumber(Substring([RAW NAVAID Latitude], 6, 4))/3600" field="NAVAID Latitude" size="12.7" type="FixedDecimal" />
             <FormulaField expression="IF   Right([RAW NAVAID Latitude],1) = 'S'&#xA;THEN -[NAVAID Latitude]&#xA;ELSE [NAVAID Latitude]&#xA;ENDIF" field="NAVAID Latitude" size="12.7" type="FixedDecimal" />
             <FormulaField expression="Trim(Substring([Field_1], 123, 14))" field="RAW NAVAID Longitude" size="1073741823" type="V_WString" />
-            <FormulaField expression="ToNumber(Substring([RAW NAVAID Longitude], 0, 2)) +&#xA;ToNumber(Substring([RAW NAVAID Longitude], 3, 2))/60 +&#xA;ToNumber(Substring([RAW NAVAID Longitude], 6, 4))/3600" field="NAVAID Longitude" size="12.7" type="FixedDecimal" />
+            <FormulaField expression="ToNumber(Substring([RAW NAVAID Longitude], 0, 3)) +&#xA;ToNumber(Substring([RAW NAVAID Longitude], 4, 2))/60 +&#xA;ToNumber(Substring([RAW NAVAID Longitude], 7, 4))/3600" field="NAVAID Longitude" size="12.7" type="FixedDecimal" />
             <FormulaField expression="IF   Right([RAW NAVAID Longitude],1) = 'W'&#xA;THEN -[NAVAID Longitude]&#xA;ELSE [NAVAID Longitude]&#xA;ENDIF" field="NAVAID Longitude" size="12.7" type="FixedDecimal" />
             <FormulaField expression="ToNumber(Substring([Field_1], 137, 5))" field="Fix Minimum Reception Altitude" size="4" type="Int32" />
             <FormulaField expression="Substring([Field_1], 142, 4)" field="NAVAID Identifier" size="4" type="String" />
