@@ -282,7 +282,6 @@ ATS Airways Designation Name...</DefaultAnnotationText>
             <Field name="Opposite Direction DME Minimum Enroute Direction" size="6" source="Formula: Substring([Field_1], 336, 6)" type="V_String" />
             <Field name="Dogleg" size="1" source="Formula: Substring([Field_1], 342, 1)" type="String" />
             <Field name="RNP Format" size="5" source="Formula: Substring([Field_1], 343, 5)" type="String" />
-            <Field name="Record Sort Sequence Number" source="Formula: ToNumber(Substring([Field_1], 348, 7))" type="Int32" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -297,6 +296,27 @@ ATS Airways Designation Name...</DefaultAnnotationText>
           <FieldType>Text</FieldType>
           <Fields orderChanged="False">
             <Field name="ATS Airway Designation" />
+            <Field name="ATS Airways Designation Name" />
+            <Field name="ATS Airway ID" />
+            <Field name="RNAV Indicator" />
+            <Field name="Airway Type" />
+            <Field name="Airway Type Name" />
+            <Field name="Minimum Enroute Direction" />
+            <Field name="Opposite Direction Minimum Enroute Direction" />
+            <Field name="Airway Discontinued" />
+            <Field name="Direction of Crossing" />
+            <Field name="Opposite Direction Direction of Crossing" />
+            <Field name="Gap in Signal Coverage" />
+            <Field name="US Airspace Only" />
+            <Field name="NAVAID Magnetic Variation" />
+            <Field name="NAVAID ARTCC" />
+            <Field name="GNSS Minimum Enroute Direction" />
+            <Field name="Opposite Direction GNSS Minimum Enroute Direction" />
+            <Field name="Minimum Crossing Point" />
+            <Field name="DME Minimum Enroute Direction" />
+            <Field name="Opposite Direction DME Minimum Enroute Direction" />
+            <Field name="Dogleg" />
+            <Field name="RNP Format" />
             <Field name="*Unknown" />
           </Fields>
           <CopyOutput value="False" />
@@ -350,7 +370,6 @@ ATS Airways Designation Name...</DefaultAnnotationText>
             <Field name="Opposite Direction DME Minimum Enroute Direction" size="6" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Dogleg" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="RNP Format" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Record Sort Sequence Number" source="Formula: ToNumber(Substring([Field_1], 348, 7))" type="Int32" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -377,7 +396,6 @@ ATS Airways Designation Name...</DefaultAnnotationText>
             <FormulaField expression="Substring([Field_1], 336, 6)" field="Opposite Direction DME Minimum Enroute Direction" size="6" type="V_String" />
             <FormulaField expression="Substring([Field_1], 342, 1)" field="Dogleg" size="1" type="String" />
             <FormulaField expression="Substring([Field_1], 343, 5)" field="RNP Format" size="5" type="String" />
-            <FormulaField expression="ToNumber(Substring([Field_1], 348, 7))" field="Record Sort Sequence Number" size="4" type="Int32" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="2">
@@ -431,7 +449,6 @@ NAVAID Magnetic Variation = Subs...</DefaultAnnotationText>
             <Field name="Opposite Direction DME Minimum Enroute Direction" size="6" source="Formula: Substring([Field_1], 336, 6)" type="V_String" />
             <Field name="Dogleg" size="1" source="Formula: Substring([Field_1], 342, 1)" type="String" />
             <Field name="RNP Format" size="5" source="Formula: Substring([Field_1], 343, 5)" type="String" />
-            <Field name="Record Sort Sequence Number" source="Formula: ToNumber(Substring([Field_1], 348, 7))" type="Int32" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
