@@ -6,6 +6,7 @@
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -15,7 +16,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="162" y="174" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -48,9 +49,6 @@
           <DefaultAnnotationText>AFF.txt</DefaultAnnotationText>
           <Left value="True" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\AFF.txt" type="V_WString" />
@@ -61,7 +59,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="258" y="174" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -87,7 +85,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="354" y="174" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -102,9 +100,9 @@
               <PeriodType>
               </PeriodType>
               <PeriodCount>0</PeriodCount>
+              <Operand>AFF1</Operand>
               <StartDate>2021-07-14 20:30:47</StartDate>
               <EndDate>2021-07-14 20:30:47</EndDate>
-              <Operand>AFF1</Operand>
             </Operands>
           </Simple>
         </Configuration>
@@ -131,7 +129,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="450" y="174" />
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -158,7 +156,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="834" y="174" />
+        <Position x="822" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -196,8 +194,8 @@
             <Field name="Information Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 133, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
             <Field name="Site State Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Site State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Site Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Site Latitude],1) = 'S'&#xA;THEN -[Site Latitude]&#xA;ELSE [Site Latitude]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Site Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Site Longitude],1) = 'W'&#xA;THEN -[Site Longitude]&#xA;ELSE [Site Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Site Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Site Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="ICAO ARTCC ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
           </RecordInfo>
         </MetaInfo>
@@ -206,7 +204,7 @@
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="738" y="174" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -215,8 +213,6 @@
           <SelectFields>
             <SelectField field="Field_1" selected="False" />
             <SelectField field="RecordType" selected="False" />
-            <SelectField field="RAW Site Latitude" selected="False" />
-            <SelectField field="RAW Site Longitude" selected="False" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -236,8 +232,8 @@
             <Field name="Information Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 133, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
             <Field name="Site State Name" size="30" source="Formula: Substring([Field_1], 143, 30)" type="V_String" />
             <Field name="Site State Post Office Code" size="2" source="Formula: Substring([Field_1], 173, 2)" type="String" />
-            <Field name="Site Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Site Latitude],1) = 'S'&#xA;THEN -[Site Latitude]&#xA;ELSE [Site Latitude]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Site Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Site Longitude],1) = 'W'&#xA;THEN -[Site Longitude]&#xA;ELSE [Site Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Site Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Site Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="ICAO ARTCC ID" size="4" source="Formula: Substring([Field_1], 225, 4)" type="String" />
           </RecordInfo>
         </MetaInfo>
@@ -246,7 +242,7 @@
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="930" y="174" />
+        <Position x="918" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -263,7 +259,7 @@
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="546" y="174" />
+        <Position x="438" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -305,25 +301,18 @@ Site Location = Substring([Field_1],48,...</DefaultAnnotationText>
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="642" y="174" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <FormulaFields>
-            <FormulaField expression="Substring([Field_1], 189, 11)" field="RAW Site Latitude" size="11" type="String" />
-            <FormulaField expression="ToNumber(Left([RAW Site Latitude], 10))/3600" field="Site Latitude" size="12.7" type="FixedDecimal" />
-            <FormulaField expression="IF   Right([RAW Site Latitude],1) = 'S'&#xA;THEN -[Site Latitude]&#xA;ELSE [Site Latitude]&#xA;ENDIF" field="Site Latitude" size="12.7" type="FixedDecimal" />
-            <FormulaField expression="Substring([Field_1], 214, 11)" field="RAW Site Longitude" size="11" type="String" />
-            <FormulaField expression="ToNumber(Left([RAW Site Longitude], 10))/3600" field="Site Longitude" size="12.7" type="FixedDecimal" />
-            <FormulaField expression="IF   Right([RAW Site Longitude],1) = 'W'&#xA;THEN -[Site Longitude]&#xA;ELSE [Site Longitude]&#xA;ENDIF" field="Site Longitude" size="12.7" type="FixedDecimal" />
             <FormulaField expression="Substring([Field_1], 225, 4)" field="ICAO ARTCC ID" size="4" type="String" />
           </FormulaFields>
         </Configuration>
-        <Annotation DisplayMode="0">
+        <Annotation DisplayMode="2">
           <Name />
-          <AnnotationText>Geographic</AnnotationText>
-          <DefaultAnnotationText>RAW Site Latitude = Substring([Field_1], 189, 11)
-Site Latitude = ToNumber(Left(...</DefaultAnnotationText>
+          <DefaultAnnotationText><![CDATA[ICAO ARTCC ID = Substring([Field_1], 225, 4)
+]]></DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
@@ -339,15 +328,53 @@ Site Latitude = ToNumber(Left(...</DefaultAnnotationText>
             <Field name="Information Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 133, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
             <Field name="Site State Name" size="30" source="Formula: Substring([Field_1], 143, 30)" type="V_String" />
             <Field name="Site State Post Office Code" size="2" source="Formula: Substring([Field_1], 173, 2)" type="String" />
-            <Field name="RAW Site Latitude" size="11" source="Formula: Substring([Field_1], 189, 11)" type="String" />
-            <Field name="Site Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Site Latitude],1) = 'S'&#xA;THEN -[Site Latitude]&#xA;ELSE [Site Latitude]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="RAW Site Longitude" size="11" source="Formula: Substring([Field_1], 214, 11)" type="String" />
-            <Field name="Site Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Site Longitude],1) = 'W'&#xA;THEN -[Site Longitude]&#xA;ELSE [Site Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Site Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Site Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="ICAO ARTCC ID" size="4" source="Formula: Substring([Field_1], 225, 4)" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings>
+        <Position x="534" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Prefix">Site</Value>
+          <Value name="LatStart">189</Value>
+          <Value name="LatLen">11</Value>
+          <Value name="LonStart">214</Value>
+          <Value name="LonLen">11</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\AFF.txt" type="V_WString" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="ARTCC Identifier" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="ARTCC Name" size="40" source="Formula: Substring([Field_1], 8, 40)" type="V_String" />
+            <Field name="Site Location" size="30" source="Formula: Substring([Field_1],48, 30)" type="V_String" />
+            <Field name="Alternate Name" size="50" source="Formula: Substring([Field_1], 78, 50)" type="V_String" />
+            <Field name="Facility Type" size="5" source="Formula: Substring([Field_1], 128, 5)" type="String" />
+            <Field name="Facility Type Name" size="50" source="Formula: Switch(&#xA;  Trim([Facility Type]), 'Unknown',&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ARSR&quot;, &quot;Air Route Surveillance Radar&quot;,&#xA;  &quot;ARTCC&quot;, &quot;Air Route Traffic Control Center&quot;,&#xA;  &quot;CERAP&quot;, &quot;Center Radar Approach Control Facility&quot;,&#xA;  &quot;RCAG&quot;, &quot;Remote Communications, Air/Ground&quot;,&#xA;  &quot;SECRA&quot;, &quot;Secondary Radar&quot;&#xA;)" type="V_String" />
+            <Field name="Information Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 133, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Site State Name" size="30" source="Formula: Substring([Field_1], 143, 30)" type="V_String" />
+            <Field name="Site State Post Office Code" size="2" source="Formula: Substring([Field_1], 173, 2)" type="String" />
+            <Field name="Site Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Site Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="utilities\Parse S Coordinates.yxmc" />
     </Node>
   </Nodes>
   <Connections>
@@ -377,11 +404,15 @@ Site Latitude = ToNumber(Left(...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="10" Connection="Output" />
-      <Destination ToolID="11" Connection="Input" />
+      <Destination ToolID="13" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="11" Connection="Output" />
       <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -476,7 +507,8 @@ Site Latitude = ToNumber(Left(...</DefaultAnnotationText>
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
         <Tool ToolId="2" Selected="True" />
-        <Tool ToolId="8" Selected="False" />
+        <Tool ToolId="8" Selected="True" />
+        <Tool ToolId="13" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />

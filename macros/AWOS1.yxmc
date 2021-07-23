@@ -6,6 +6,7 @@
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -15,7 +16,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="102" y="162" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -48,9 +49,6 @@
           <DefaultAnnotationText>AWOS.txt</DefaultAnnotationText>
           <Left value="True" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="300" source="File: F:\repositories\us_airspace_data\28DaySubscription\AWOS.txt" type="V_String" />
@@ -61,7 +59,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="198" y="162" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -87,7 +85,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="294" y="162" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -131,7 +129,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="678" y="162" />
+        <Position x="822" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -148,7 +146,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="486" y="162" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -157,8 +155,6 @@
           <SelectFields>
             <SelectField field="Field_1" selected="False" />
             <SelectField field="RecordType" selected="False" />
-            <SelectField field="RAW Station Latitude" selected="False" />
-            <SelectField field="RAW Station Longitude" selected="False" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -173,8 +169,8 @@
             <Field name="WX Sensor Type" size="10" source="Formula: Substring([Field_1], 9, 10)" type="V_String" />
             <Field name="Commissioning Status" size="1" source="Formula: Substring([Field_1], 19, 1)" type="String" />
             <Field name="Commissioning Status Date" source="Formula: IF   IsEmpty(Trim(Substring([Field_1],20, 10)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 20, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
-            <Field name="Station Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Station Latitude],1) = 'S'&#xA;THEN -[Station Latitude]&#xA;ELSE [Station Latitude]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Station Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Station Longitude],1) = 'W'&#xA;THEN -[Station Longitude]&#xA;ELSE [Station Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Station Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Station Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Elevation" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 60, 7)))" type="FixedDecimal" />
             <Field name="Survey Method Code" size="1" source="Formula: Substring([Field_1], 67, 1)" type="String" />
             <Field name="Station Frequency" scale="3" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 68, 7)))" type="FixedDecimal" />
@@ -192,7 +188,7 @@
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="582" y="162" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -201,12 +197,12 @@
             <Field name="WX Sensor ID" />
             <Field name="WX Sensor Type" />
             <Field name="Commissioning Status" />
-            <Field name="RAW Station Latitude" />
-            <Field name="RAW Station Longitude" />
             <Field name="Survey Method Code" />
             <Field name="Station Telephone Number" />
             <Field name="Second Station Telephone Number" />
             <Field name="Landing Facility Site Number" />
+            <Field name="Station City" />
+            <Field name="Station State Post Office Code" />
             <Field name="*Unknown" />
           </Fields>
           <CopyOutput value="False" />
@@ -225,8 +221,8 @@
             <Field name="WX Sensor Type" size="10" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Commissioning Status" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Commissioning Status Date" source="Formula: IF   IsEmpty(Trim(Substring([Field_1],20, 10)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 20, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
-            <Field name="Station Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Station Latitude],1) = 'S'&#xA;THEN -[Station Latitude]&#xA;ELSE [Station Latitude]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Station Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Station Longitude],1) = 'W'&#xA;THEN -[Station Longitude]&#xA;ELSE [Station Longitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Station Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Station Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Elevation" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 60, 7)))" type="FixedDecimal" />
             <Field name="Survey Method Code" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Station Frequency" scale="3" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 68, 7)))" type="FixedDecimal" />
@@ -244,7 +240,7 @@
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="390" y="162" />
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -253,22 +249,6 @@
             <FormulaField expression="Substring([Field_1], 9, 10)" field="WX Sensor Type" size="10" type="V_String" />
             <FormulaField expression="Substring([Field_1], 19, 1)" field="Commissioning Status" size="1" type="String" />
             <FormulaField expression="IF   IsEmpty(Trim(Substring([Field_1],20, 10)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 20, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" field="Commissioning Status Date" size="10" type="Date" />
-            <FormulaField expression="Substring([Field_1], 31, 14)" field="RAW Station Latitude" size="14" type="V_String" />
-            <FormulaField expression="ToNumber(Substring([RAW Station Latitude], 0, 2)) +&#xA;ToNumber(Substring([RAW Station Latitude], 3, 2))/60 +&#xA;ToNumber(Substring([RAW Station Latitude], 6, 7))/3600" field="Station Latitude" size="12.7" type="FixedDecimal" />
-            <FormulaField expression="IF   Right([RAW Station Latitude],1) = 'S'&#xA;THEN -[Station Latitude]&#xA;ELSE [Station Latitude]&#xA;ENDIF" field="Station Latitude" size="12.7" type="FixedDecimal" />
-            <FormulaField expression="Substring([Field_1], 45, 15)" field="RAW Station Longitude" size="15" type="V_String" />
-            <FormulaField expression="ToNumber(Substring([RAW Station Longitude], 0, 3)) +&#xA;ToNumber(Substring([RAW Station Longitude], 4, 2))/60 +&#xA;ToNumber(Substring([RAW Station Longitude], 7, 7))/3600" field="Station Longitude" size="12.7" type="FixedDecimal" />
-            <FormulaField expression="IF   Right([RAW Station Longitude],1) = 'W'&#xA;THEN -[Station Longitude]&#xA;ELSE [Station Longitude]&#xA;ENDIF" field="Station Longitude" size="12.7" type="FixedDecimal" />
-            <FormulaField expression="ToNumber(Trim(Substring([Field_1], 60, 7)))" field="Elevation" size="10.1" type="FixedDecimal" />
-            <FormulaField expression="Substring([Field_1], 67, 1)" field="Survey Method Code" size="1" type="String" />
-            <FormulaField expression="ToNumber(Trim(Substring([Field_1], 68, 7)))" field="Station Frequency" size="10.3" type="FixedDecimal" />
-            <FormulaField expression="ToNumber(Substring([Field_1], 75, 7))" field="Second Station Frequency" size="10.3" type="FixedDecimal" />
-            <FormulaField expression="Substring([Field_1], 82, 14)" field="Station Telephone Number" size="14" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 96, 14)" field="Second Station Telephone Number" size="14" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 110, 11)" field="Landing Facility Site Number" size="11" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 121, 40)" field="Station City" size="40" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 161, 2)" field="Station State Post Office Code" size="2" type="String" />
-            <FormulaField expression="DateTimeParse(Substring([Field_1], 163, 10),&quot;%m/%d/%Y&quot;)" field="Effective Date" size="10" type="Date" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="2">
@@ -287,10 +267,48 @@ WX Sensor Type = Substring([Field_1], ...</DefaultAnnotationText>
             <Field name="WX Sensor Type" size="10" source="Formula: Substring([Field_1], 9, 10)" type="V_String" />
             <Field name="Commissioning Status" size="1" source="Formula: Substring([Field_1], 19, 1)" type="String" />
             <Field name="Commissioning Status Date" source="Formula: IF   IsEmpty(Trim(Substring([Field_1],20, 10)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 20, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
-            <Field name="RAW Station Latitude" size="14" source="Formula: Substring([Field_1], 31, 14)" type="V_String" />
-            <Field name="Station Latitude" scale="7" size="12" source="Formula: IF   Right([RAW Station Latitude],1) = 'S'&#xA;THEN -[Station Latitude]&#xA;ELSE [Station Latitude]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="RAW Station Longitude" size="15" source="Formula: Substring([Field_1], 45, 15)" type="V_String" />
-            <Field name="Station Longitude" scale="7" size="12" source="Formula: IF   Right([RAW Station Longitude],1) = 'W'&#xA;THEN -[Station Longitude]&#xA;ELSE [Station Longitude]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="534" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ToNumber(Trim(Substring([Field_1], 60, 7)))" field="Elevation" size="10.1" type="FixedDecimal" />
+            <FormulaField expression="Substring([Field_1], 67, 1)" field="Survey Method Code" size="1" type="String" />
+            <FormulaField expression="ToNumber(Trim(Substring([Field_1], 68, 7)))" field="Station Frequency" size="10.3" type="FixedDecimal" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 75, 7))" field="Second Station Frequency" size="10.3" type="FixedDecimal" />
+            <FormulaField expression="Substring([Field_1], 82, 14)" field="Station Telephone Number" size="14" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 96, 14)" field="Second Station Telephone Number" size="14" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 110, 11)" field="Landing Facility Site Number" size="11" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 121, 40)" field="Station City" size="40" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 161, 2)" field="Station State Post Office Code" size="2" type="String" />
+            <FormulaField expression="DateTimeParse(Substring([Field_1], 163, 10),&quot;%m/%d/%Y&quot;)" field="Effective Date" size="10" type="Date" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <AnnotationText><![CDATA[WX Sensor ID = Substring([Field_1], 5, 4)
+]]></AnnotationText>
+          <DefaultAnnotationText>Elevation = ToNumber(Trim(Substring([Field_1], 60, 7)))
+Survey Method Code = Sub...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="300" source="File: F:\repositories\us_airspace_data\28DaySubscription\AWOS.txt" type="V_String" />
+            <Field name="RecordType" size="5" source="Formula: Trim(Substring([Field_1],0, 5))" type="String" />
+            <Field name="WX Sensor ID" size="4" source="Formula: Substring([Field_1], 5, 4)" type="String" />
+            <Field name="WX Sensor Type" size="10" source="Formula: Substring([Field_1], 9, 10)" type="V_String" />
+            <Field name="Commissioning Status" size="1" source="Formula: Substring([Field_1], 19, 1)" type="String" />
+            <Field name="Commissioning Status Date" source="Formula: IF   IsEmpty(Trim(Substring([Field_1],20, 10)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 20, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Station Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Station Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Elevation" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 60, 7)))" type="FixedDecimal" />
             <Field name="Survey Method Code" size="1" source="Formula: Substring([Field_1], 67, 1)" type="String" />
             <Field name="Station Frequency" scale="3" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 68, 7)))" type="FixedDecimal" />
@@ -305,6 +323,38 @@ WX Sensor Type = Substring([Field_1], ...</DefaultAnnotationText>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings>
+        <Position x="438" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Prefix">Station</Value>
+          <Value name="LatStart">31</Value>
+          <Value name="LatLen">14</Value>
+          <Value name="LonStart">45</Value>
+          <Value name="LonLen">15</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Parse H-M-S Coordinates (10)</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="300" source="File: F:\repositories\us_airspace_data\28DaySubscription\AWOS.txt" type="V_String" />
+            <Field name="RecordType" size="5" source="Formula: Trim(Substring([Field_1],0, 5))" type="String" />
+            <Field name="WX Sensor ID" size="4" source="Formula: Substring([Field_1], 5, 4)" type="String" />
+            <Field name="WX Sensor Type" size="10" source="Formula: Substring([Field_1], 9, 10)" type="V_String" />
+            <Field name="Commissioning Status" size="1" source="Formula: Substring([Field_1], 19, 1)" type="String" />
+            <Field name="Commissioning Status Date" source="Formula: IF   IsEmpty(Trim(Substring([Field_1],20, 10)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 20, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Station Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Station Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="utilities\Parse H-M-S Coordinates.yxmc" />
     </Node>
   </Nodes>
   <Connections>
@@ -330,7 +380,15 @@ WX Sensor Type = Substring([Field_1], ...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
       <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -425,7 +483,8 @@ WX Sensor Type = Substring([Field_1], ...</DefaultAnnotationText>
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
         <Tool ToolId="2" Selected="True" />
-        <Tool ToolId="5" Selected="False" />
+        <Tool ToolId="5" Selected="True" />
+        <Tool ToolId="12" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />
