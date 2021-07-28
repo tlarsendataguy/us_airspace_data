@@ -1,0 +1,520 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.2">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="126" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>FIX</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\FIX.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>500</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>FIX.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\FIX.txt" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="222" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Left([Field_1], 4)" field="RecordType" size="4" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>RecordType</AnnotationText>
+          <DefaultAnnotationText><![CDATA[RecordType = Left([Field_1], 4)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\FIX.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="318" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>RecordType</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2021-07-28 05:57:43</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <StartDate>2021-07-28 05:57:43</StartDate>
+              <EndDate>2021-07-28 05:57:43</EndDate>
+              <Operand>FIX1</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>FIX1</AnnotationText>
+          <DefaultAnnotationText>[RecordType] = "FIX1"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\FIX.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\FIX.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="414" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 4, 30)" field="Fix ID" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 34, 30)" field="Fix State Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 64, 2)" field="ICAO Region Code" size="2" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <AnnotationText><![CDATA[Fix ID = Substring([Field_1], 4, 30)
+]]></AnnotationText>
+          <DefaultAnnotationText>Fix ID = Substring([Field_1], 4, 30)
+Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\FIX.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="Fix ID" size="30" source="Formula: Substring([Field_1], 4, 30)" type="V_String" />
+            <Field name="Fix State Name" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
+            <Field name="ICAO Region Code" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="702" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Field_1" selected="False" />
+            <SelectField field="RecordType" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Fix ID" size="30" source="Formula: Substring([Field_1], 4, 30)" type="V_String" />
+            <Field name="Fix State Name" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
+            <Field name="ICAO Region Code" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
+            <Field name="Fix  Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Fix  Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Category" size="3" source="Formula: Substring([Field_1], 94, 3)" type="String" />
+            <Field name="MLS Component" size="22" source="Formula: Substring([Field_1], 97, 22)" type="V_String" />
+            <Field name="Radar Component" size="22" source="Formula: Substring([Field_1], 119, 22)" type="V_String" />
+            <Field name="Previous Name" size="33" source="Formula: Substring([Field_1], 141, 33)" type="V_String" />
+            <Field name="Charting Information" size="38" source="Formula: Substring([Field_1], 174, 38)" type="V_String" />
+            <Field name="To Be Published" size="1" source="Formula: Substring([Field_1], 212, 1)" type="String" />
+            <Field name="Fix Use" size="15" source="Formula: Substring([Field_1], 213, 15)" type="String" />
+            <Field name="Fix Use Name" size="100" source="Formula: Switch(&#xA;  Trim([Fix Use]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;CNF&quot;, &quot;Computer Navigation Fix&quot;,&#xA;  &quot;MIL-REP-PT&quot;, &quot;Military Reporting Point&quot;,&#xA;  &quot;MIL-WAYPOINT&quot;, &quot;Military Waypoint&quot;,&#xA;  &quot;NRS-WAYPOINT&quot;, &quot;NRS Waypoint&quot;,&#xA;  &quot;RADAR&quot;, &quot;Radar&quot;,&#xA;  &quot;REP-PT&quot;, &quot;Reporting Point&quot;,&#xA;  &quot;VFR-WP&quot;, &quot;VFR Waypoint&quot;,&#xA;  &quot;WAYPOINT&quot;, &quot;Waypoint&quot;&#xA;)" type="V_String" />
+            <Field name="NAS Identifier" size="5" source="Formula: Substring([Field_1], 228, 5)" type="String" />
+            <Field name="High ARTCC Area of Jurisdiction" size="4" source="Formula: Substring([Field_1], 233, 4)" type="String" />
+            <Field name="Low ARTCC Area of Jurisdiction" size="4" source="Formula: Substring([Field_1], 237, 4)" type="String" />
+            <Field name="Country Name" size="30" source="Formula: Substring([Field_1], 241, 30)" type="V_String" />
+            <Field name="Pitch" size="1" source="Formula: Substring([Field_1], 271, 1)" type="String" />
+            <Field name="Catch" size="1" source="Formula: Substring([Field_1], 272, 1)" type="String" />
+            <Field name="SUA or ATCAA" size="1" source="Formula: Substring([Field_1], 273, 1)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="798" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="Fix ID" />
+            <Field name="Fix State Name" />
+            <Field name="ICAO Region Code" />
+            <Field name="Category" />
+            <Field name="MLS Component" />
+            <Field name="Radar Component" />
+            <Field name="Previous Name" />
+            <Field name="Charting Information" />
+            <Field name="To Be Published" />
+            <Field name="Fix Use" />
+            <Field name="Fix Use Name" />
+            <Field name="NAS Identifier" />
+            <Field name="High ARTCC Area of Jurisdiction" />
+            <Field name="Low ARTCC Area of Jurisdiction" />
+            <Field name="Country Name" />
+            <Field name="Pitch" />
+            <Field name="Catch" />
+            <Field name="SUA or ATCAA" />
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>Trim([_CurrentField_])</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Trim</AnnotationText>
+          <DefaultAnnotationText>Trim([_CurrentField_])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Fix ID" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Fix State Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Fix  Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Fix  Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Category" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="MLS Component" size="22" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Radar Component" size="22" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Previous Name" size="33" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Charting Information" size="38" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="To Be Published" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Fix Use" size="15" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Fix Use Name" size="100" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="NAS Identifier" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="High ARTCC Area of Jurisdiction" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Low ARTCC Area of Jurisdiction" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Country Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Pitch" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Catch" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="SUA or ATCAA" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="894" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>FIX1</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Output</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings>
+        <Position x="510" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Prefix"><![CDATA[Fix ]]></Value>
+          <Value name="LatStart">66</Value>
+          <Value name="LatLen">14</Value>
+          <Value name="LonStart">80</Value>
+          <Value name="LonLen">14</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\FIX.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="Fix ID" size="30" source="Formula: Substring([Field_1], 4, 30)" type="V_String" />
+            <Field name="Fix State Name" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
+            <Field name="ICAO Region Code" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
+            <Field name="Fix  Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Fix  Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="utilities\Parse H-M-S Coordinates.yxmc" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="606" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 94, 3)" field="Category" size="3" type="String" />
+            <FormulaField expression="Substring([Field_1], 97, 22)" field="MLS Component" size="22" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 119, 22)" field="Radar Component" size="22" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 141, 33)" field="Previous Name" size="33" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 174, 38)" field="Charting Information" size="38" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 212, 1)" field="To Be Published" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 213, 15)" field="Fix Use" size="15" type="String" />
+            <FormulaField expression="Switch(&#xA;  Trim([Fix Use]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;CNF&quot;, &quot;Computer Navigation Fix&quot;,&#xA;  &quot;MIL-REP-PT&quot;, &quot;Military Reporting Point&quot;,&#xA;  &quot;MIL-WAYPOINT&quot;, &quot;Military Waypoint&quot;,&#xA;  &quot;NRS-WAYPOINT&quot;, &quot;NRS Waypoint&quot;,&#xA;  &quot;RADAR&quot;, &quot;Radar&quot;,&#xA;  &quot;REP-PT&quot;, &quot;Reporting Point&quot;,&#xA;  &quot;VFR-WP&quot;, &quot;VFR Waypoint&quot;,&#xA;  &quot;WAYPOINT&quot;, &quot;Waypoint&quot;&#xA;)" field="Fix Use Name" size="100" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 228, 5)" field="NAS Identifier" size="5" type="String" />
+            <FormulaField expression="Substring([Field_1], 233, 4)" field="High ARTCC Area of Jurisdiction" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 237, 4)" field="Low ARTCC Area of Jurisdiction" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 241, 30)" field="Country Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 271, 1)" field="Pitch" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 272, 1)" field="Catch" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 273, 1)" field="SUA or ATCAA" size="1" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>Category = Substring([Field_1], 94, 3)
+MLS Component = Substring([Field_1], 97, ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\FIX.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="Fix ID" size="30" source="Formula: Substring([Field_1], 4, 30)" type="V_String" />
+            <Field name="Fix State Name" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
+            <Field name="ICAO Region Code" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
+            <Field name="Fix  Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Fix  Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Category" size="3" source="Formula: Substring([Field_1], 94, 3)" type="String" />
+            <Field name="MLS Component" size="22" source="Formula: Substring([Field_1], 97, 22)" type="V_String" />
+            <Field name="Radar Component" size="22" source="Formula: Substring([Field_1], 119, 22)" type="V_String" />
+            <Field name="Previous Name" size="33" source="Formula: Substring([Field_1], 141, 33)" type="V_String" />
+            <Field name="Charting Information" size="38" source="Formula: Substring([Field_1], 174, 38)" type="V_String" />
+            <Field name="To Be Published" size="1" source="Formula: Substring([Field_1], 212, 1)" type="String" />
+            <Field name="Fix Use" size="15" source="Formula: Substring([Field_1], 213, 15)" type="String" />
+            <Field name="Fix Use Name" size="100" source="Formula: Switch(&#xA;  Trim([Fix Use]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;CNF&quot;, &quot;Computer Navigation Fix&quot;,&#xA;  &quot;MIL-REP-PT&quot;, &quot;Military Reporting Point&quot;,&#xA;  &quot;MIL-WAYPOINT&quot;, &quot;Military Waypoint&quot;,&#xA;  &quot;NRS-WAYPOINT&quot;, &quot;NRS Waypoint&quot;,&#xA;  &quot;RADAR&quot;, &quot;Radar&quot;,&#xA;  &quot;REP-PT&quot;, &quot;Reporting Point&quot;,&#xA;  &quot;VFR-WP&quot;, &quot;VFR Waypoint&quot;,&#xA;  &quot;WAYPOINT&quot;, &quot;Waypoint&quot;&#xA;)" type="V_String" />
+            <Field name="NAS Identifier" size="5" source="Formula: Substring([Field_1], 228, 5)" type="String" />
+            <Field name="High ARTCC Area of Jurisdiction" size="4" source="Formula: Substring([Field_1], 233, 4)" type="String" />
+            <Field name="Low ARTCC Area of Jurisdiction" size="4" source="Formula: Substring([Field_1], 237, 4)" type="String" />
+            <Field name="Country Name" size="30" source="Formula: Substring([Field_1], 241, 30)" type="V_String" />
+            <Field name="Pitch" size="1" source="Formula: Substring([Field_1], 271, 1)" type="String" />
+            <Field name="Catch" size="1" source="Formula: Substring([Field_1], 272, 1)" type="String" />
+            <Field name="SUA or ATCAA" size="1" source="Formula: Substring([Field_1], 273, 1)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="True" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (2)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (8)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>FIX1</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="cedd5fc0-3d43-4b49-a369-9b2a358ad990" />
+      <Telemetry>
+        <PreviousWorkflowId value="c2c8a8da-8d38-4842-ac04-214d6f175411" />
+        <OriginWorkflowId value="cedd5fc0-3d43-4b49-a369-9b2a358ad990" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (2)</Description>
+              <Name>Macro Input (2)</Name>
+              <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description />
+              <Name>Macro Output (8)</Name>
+              <ToolId value="8" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="8" Selected="False" />
+        <Tool ToolId="9" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
