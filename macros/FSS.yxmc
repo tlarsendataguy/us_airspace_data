@@ -1,0 +1,529 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.2">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>FSS</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\FSS.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>18000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>FSS.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="18000" source="File: F:\repositories\us_airspace_data\28DaySubscription\FSS.txt" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="150" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Trim(Substring([Field_1], 0, 4))" field="FSS ID" size="4" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>FSS ID</AnnotationText>
+          <DefaultAnnotationText><![CDATA[FSS ID = Trim(Substring([Field_1], 0, 4))
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="18000" source="File: F:\repositories\us_airspace_data\28DaySubscription\FSS.txt" type="V_String" />
+            <Field name="FSS ID" size="4" source="Formula: Trim(Substring([Field_1], 0, 4))" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="246" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Right([FSS ID], 1) != '*'</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Split</AnnotationText>
+          <DefaultAnnotationText>Right([FSS ID], 1) != '*'</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Field_1" size="18000" source="File: F:\repositories\us_airspace_data\28DaySubscription\FSS.txt" type="V_String" />
+            <Field name="FSS ID" size="4" source="Formula: Trim(Substring([Field_1], 0, 4))" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Field_1" size="18000" source="File: F:\repositories\us_airspace_data\28DaySubscription\FSS.txt" type="V_String" />
+            <Field name="FSS ID" size="4" source="Formula: Trim(Substring([Field_1], 0, 4))" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="342" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 4, 26)" field="FSS Name" size="26" type="V_String" />
+            <FormulaField expression="DateTimeParse(Substring([Field_1], 30, 11),&quot;%d %b %Y&quot;)" field="Last Updated" size="10" type="Date" />
+            <FormulaField expression="Substring([Field_1], 41, 11)" field="Associated Airport Site Number" size="11" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 52, 50)" field="Associated Airport Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 102, 26)" field="Associated Airport City" size="26" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 128, 20)" field="Associated Airport State" size="20" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <AnnotationText><![CDATA[FSS Name = Substring([Field_1], 4, 26)
+]]></AnnotationText>
+          <DefaultAnnotationText>FSS Name = Substring([Field_1], 4, 26)
+Last Updated = DateTimeParse(Substring([F...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="18000" source="File: F:\repositories\us_airspace_data\28DaySubscription\FSS.txt" type="V_String" />
+            <Field name="FSS ID" size="4" source="Formula: Trim(Substring([Field_1], 0, 4))" type="String" />
+            <Field name="FSS Name" size="26" source="Formula: Substring([Field_1], 4, 26)" type="V_String" />
+            <Field name="Last Updated" source="Formula: DateTimeParse(Substring([Field_1], 30, 11),&quot;%d %b %Y&quot;)" type="Date" />
+            <Field name="Associated Airport Site Number" size="11" source="Formula: Substring([Field_1], 41, 11)" type="V_String" />
+            <Field name="Associated Airport Name" size="50" source="Formula: Substring([Field_1], 52, 50)" type="V_String" />
+            <Field name="Associated Airport City" size="26" source="Formula: Substring([Field_1], 102, 26)" type="V_String" />
+            <Field name="Associated Airport State" size="20" source="Formula: Substring([Field_1], 128, 20)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="822" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>FSS-AssociatedNavaid</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Output</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="630" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Field_1" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="FSS ID" size="4" source="Formula: Trim(Substring([Field_1], 0, 4))" type="String" />
+            <Field name="FSS Name" size="26" source="Formula: Substring([Field_1], 4, 26)" type="V_String" />
+            <Field name="Last Updated" source="Formula: DateTimeParse(Substring([Field_1], 30, 11),&quot;%d %b %Y&quot;)" type="Date" />
+            <Field name="Associated Airport Site Number" size="11" source="Formula: Substring([Field_1], 41, 11)" type="V_String" />
+            <Field name="Associated Airport Name" size="50" source="Formula: Substring([Field_1], 52, 50)" type="V_String" />
+            <Field name="Associated Airport City" size="26" source="Formula: Substring([Field_1], 102, 26)" type="V_String" />
+            <Field name="Associated Airport State" size="20" source="Formula: Substring([Field_1], 128, 20)" type="V_String" />
+            <Field name="Associated Airport Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Associated Airport Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Facility Type" size="8" source="Formula: Substring([Field_1], 176, 8)" type="V_String" />
+            <Field name="Facility Type Name" size="50" source="Formula: Switch(&#xA;  Trim([Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;FSS&quot;, &quot;Flight Service Station&quot;,&#xA;  &quot;IFSS&quot;, &quot;International Flight Service Station&quot;,&#xA;  &quot;A/G&quot;, &quot;Air-Ground Facility&quot;,&#xA;  &quot;BASEOPS&quot;, &quot;Baseops&quot;,&#xA;  &quot;HUB&quot;, &quot;FS21 Hub Station&quot;,&#xA;  &quot;RADIO&quot;, &quot;FS21 Radio Service Area&quot;,&#xA;  &quot;CS/T&quot;, &quot;Combined Station/Tower&quot;&#xA;)" type="V_String" />
+            <Field name="Facility Identifier" size="26" source="Formula: Substring([Field_1], 184, 26)" type="V_String" />
+            <Field name="Owner Code" size="1" source="Formula: Substring([Field_1], 210, 1)" type="String" />
+            <Field name="Owner Code Name" size="50" source="Formula: Switch(&#xA;  Trim([Owner Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;A&quot;, &quot;US Air Force&quot;,&#xA;  &quot;C&quot;, &quot;US Coast Guard&quot;,&#xA;  &quot;D&quot;, &quot;Canadian Ministry of Transport&quot;,&#xA;  &quot;F&quot;, &quot;Federal Aviation Admin&quot;,&#xA;  &quot;G&quot;, &quot;Federal Government - Not USA&quot;,&#xA;  &quot;N&quot;, &quot;US Navy&quot;,&#xA;  &quot;O&quot;, &quot;Other&quot;,&#xA;  &quot;P&quot;, &quot;Private&quot;,&#xA;  &quot;R&quot;, &quot;US Army&quot;,&#xA;  &quot;X&quot;, &quot;Royal Canadian Air Force&quot;,&#xA;  &quot;Z&quot;, &quot;Unknown&quot;&#xA;)" type="V_String" />
+            <Field name="Owner Name" size="69" source="Formula: Substring([Field_1], 211, 69)" type="V_String" />
+            <Field name="Operator Code" size="1" source="Formula: Substring([Field_1], 280, 1)" type="String" />
+            <Field name="Operator Code Name" size="50" source="Formula: Switch(&#xA;  Trim([Operator Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;A&quot;, &quot;US Air Force&quot;,&#xA;  &quot;C&quot;, &quot;US Coast Guard&quot;,&#xA;  &quot;D&quot;, &quot;Canadian Ministry of Transport&quot;,&#xA;  &quot;F&quot;, &quot;Federal Aviation Admin&quot;,&#xA;  &quot;G&quot;, &quot;Federal Government - Not USA&quot;,&#xA;  &quot;N&quot;, &quot;US Navy&quot;,&#xA;  &quot;O&quot;, &quot;Other&quot;,&#xA;  &quot;P&quot;, &quot;Private&quot;,&#xA;  &quot;R&quot;, &quot;US Army&quot;,&#xA;  &quot;X&quot;, &quot;Royal Canadian Air Force&quot;,&#xA;  &quot;Z&quot;, &quot;Unknown&quot;&#xA;)" type="V_String" />
+            <Field name="Operator Name" size="69" source="Formula: Substring([Field_1], 281, 69)" type="V_String" />
+            <Field name="Hours of Operation" size="100" source="Formula: Substring([Field_1], 2750, 100)" type="V_String" />
+            <Field name="Status" size="20" source="Formula: Substring([Field_1], 2850, 20)" type="V_String" />
+            <Field name="Alternative FSS for Circuit B Teletype" size="3" source="Formula: Substring([Field_1], 2870, 3)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="726" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="FSS ID" />
+            <Field name="FSS Name" />
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>Trim([_CurrentField_])</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Trim</AnnotationText>
+          <DefaultAnnotationText>Trim([_CurrentField_])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="FSS ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="FSS Name" size="26" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Last Updated" source="Formula: DateTimeParse(Substring([Field_1], 30, 11),&quot;%d %b %Y&quot;)" type="Date" />
+            <Field name="Associated Airport Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated Airport Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated Airport City" size="26" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated Airport State" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated Airport Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Associated Airport Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Facility Type" size="8" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Identifier" size="26" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Owner Code" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Owner Code Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Owner Name" size="69" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Operator Code" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Operator Code Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Operator Name" size="69" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Hours of Operation" size="100" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Status" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Alternative FSS for Circuit B Teletype" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="822" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\7\Engine_1212_fa20e3c3792948eeaedab259f3bf1f60_\Engine_6436_7c985eac4fed47d9a3066b8ab6efde89_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings>
+        <Position x="438" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Prefix">Associated Airport</Value>
+          <Value name="LatStart">148</Value>
+          <Value name="LatLen">14</Value>
+          <Value name="LonStart">162</Value>
+          <Value name="LonLen">14</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="18000" source="File: F:\repositories\us_airspace_data\28DaySubscription\FSS.txt" type="V_String" />
+            <Field name="FSS ID" size="4" source="Formula: Trim(Substring([Field_1], 0, 4))" type="String" />
+            <Field name="FSS Name" size="26" source="Formula: Substring([Field_1], 4, 26)" type="V_String" />
+            <Field name="Last Updated" source="Formula: DateTimeParse(Substring([Field_1], 30, 11),&quot;%d %b %Y&quot;)" type="Date" />
+            <Field name="Associated Airport Site Number" size="11" source="Formula: Substring([Field_1], 41, 11)" type="V_String" />
+            <Field name="Associated Airport Name" size="50" source="Formula: Substring([Field_1], 52, 50)" type="V_String" />
+            <Field name="Associated Airport City" size="26" source="Formula: Substring([Field_1], 102, 26)" type="V_String" />
+            <Field name="Associated Airport State" size="20" source="Formula: Substring([Field_1], 128, 20)" type="V_String" />
+            <Field name="Associated Airport Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Associated Airport Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="utilities\Parse H-M-S Coordinates.yxmc" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="534" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 176, 8)" field="Facility Type" size="8" type="V_String" />
+            <FormulaField expression="Switch(&#xA;  Trim([Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;FSS&quot;, &quot;Flight Service Station&quot;,&#xA;  &quot;IFSS&quot;, &quot;International Flight Service Station&quot;,&#xA;  &quot;A/G&quot;, &quot;Air-Ground Facility&quot;,&#xA;  &quot;BASEOPS&quot;, &quot;Baseops&quot;,&#xA;  &quot;HUB&quot;, &quot;FS21 Hub Station&quot;,&#xA;  &quot;RADIO&quot;, &quot;FS21 Radio Service Area&quot;,&#xA;  &quot;CS/T&quot;, &quot;Combined Station/Tower&quot;&#xA;)" field="Facility Type Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 184, 26)" field="Facility Identifier" size="26" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 210, 1)" field="Owner Code" size="1" type="String" />
+            <FormulaField expression="Switch(&#xA;  Trim([Owner Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;A&quot;, &quot;US Air Force&quot;,&#xA;  &quot;C&quot;, &quot;US Coast Guard&quot;,&#xA;  &quot;D&quot;, &quot;Canadian Ministry of Transport&quot;,&#xA;  &quot;F&quot;, &quot;Federal Aviation Admin&quot;,&#xA;  &quot;G&quot;, &quot;Federal Government - Not USA&quot;,&#xA;  &quot;N&quot;, &quot;US Navy&quot;,&#xA;  &quot;O&quot;, &quot;Other&quot;,&#xA;  &quot;P&quot;, &quot;Private&quot;,&#xA;  &quot;R&quot;, &quot;US Army&quot;,&#xA;  &quot;X&quot;, &quot;Royal Canadian Air Force&quot;,&#xA;  &quot;Z&quot;, &quot;Unknown&quot;&#xA;)" field="Owner Code Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 211, 69)" field="Owner Name" size="69" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 280, 1)" field="Operator Code" size="1" type="String" />
+            <FormulaField expression="Switch(&#xA;  Trim([Operator Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;A&quot;, &quot;US Air Force&quot;,&#xA;  &quot;C&quot;, &quot;US Coast Guard&quot;,&#xA;  &quot;D&quot;, &quot;Canadian Ministry of Transport&quot;,&#xA;  &quot;F&quot;, &quot;Federal Aviation Admin&quot;,&#xA;  &quot;G&quot;, &quot;Federal Government - Not USA&quot;,&#xA;  &quot;N&quot;, &quot;US Navy&quot;,&#xA;  &quot;O&quot;, &quot;Other&quot;,&#xA;  &quot;P&quot;, &quot;Private&quot;,&#xA;  &quot;R&quot;, &quot;US Army&quot;,&#xA;  &quot;X&quot;, &quot;Royal Canadian Air Force&quot;,&#xA;  &quot;Z&quot;, &quot;Unknown&quot;&#xA;)" field="Operator Code Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 281, 69)" field="Operator Name" size="69" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 2750, 100)" field="Hours of Operation" size="100" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 2850, 20)" field="Status" size="20" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 2870, 3)" field="Alternative FSS for Circuit B Teletype" size="3" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>Facility Type = Substring([Field_1], 176, 8)
+Facility Type Name = Switch(
+  Trim...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="18000" source="File: F:\repositories\us_airspace_data\28DaySubscription\FSS.txt" type="V_String" />
+            <Field name="FSS ID" size="4" source="Formula: Trim(Substring([Field_1], 0, 4))" type="String" />
+            <Field name="FSS Name" size="26" source="Formula: Substring([Field_1], 4, 26)" type="V_String" />
+            <Field name="Last Updated" source="Formula: DateTimeParse(Substring([Field_1], 30, 11),&quot;%d %b %Y&quot;)" type="Date" />
+            <Field name="Associated Airport Site Number" size="11" source="Formula: Substring([Field_1], 41, 11)" type="V_String" />
+            <Field name="Associated Airport Name" size="50" source="Formula: Substring([Field_1], 52, 50)" type="V_String" />
+            <Field name="Associated Airport City" size="26" source="Formula: Substring([Field_1], 102, 26)" type="V_String" />
+            <Field name="Associated Airport State" size="20" source="Formula: Substring([Field_1], 128, 20)" type="V_String" />
+            <Field name="Associated Airport Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Associated Airport Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Facility Type" size="8" source="Formula: Substring([Field_1], 176, 8)" type="V_String" />
+            <Field name="Facility Type Name" size="50" source="Formula: Switch(&#xA;  Trim([Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;FSS&quot;, &quot;Flight Service Station&quot;,&#xA;  &quot;IFSS&quot;, &quot;International Flight Service Station&quot;,&#xA;  &quot;A/G&quot;, &quot;Air-Ground Facility&quot;,&#xA;  &quot;BASEOPS&quot;, &quot;Baseops&quot;,&#xA;  &quot;HUB&quot;, &quot;FS21 Hub Station&quot;,&#xA;  &quot;RADIO&quot;, &quot;FS21 Radio Service Area&quot;,&#xA;  &quot;CS/T&quot;, &quot;Combined Station/Tower&quot;&#xA;)" type="V_String" />
+            <Field name="Facility Identifier" size="26" source="Formula: Substring([Field_1], 184, 26)" type="V_String" />
+            <Field name="Owner Code" size="1" source="Formula: Substring([Field_1], 210, 1)" type="String" />
+            <Field name="Owner Code Name" size="50" source="Formula: Switch(&#xA;  Trim([Owner Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;A&quot;, &quot;US Air Force&quot;,&#xA;  &quot;C&quot;, &quot;US Coast Guard&quot;,&#xA;  &quot;D&quot;, &quot;Canadian Ministry of Transport&quot;,&#xA;  &quot;F&quot;, &quot;Federal Aviation Admin&quot;,&#xA;  &quot;G&quot;, &quot;Federal Government - Not USA&quot;,&#xA;  &quot;N&quot;, &quot;US Navy&quot;,&#xA;  &quot;O&quot;, &quot;Other&quot;,&#xA;  &quot;P&quot;, &quot;Private&quot;,&#xA;  &quot;R&quot;, &quot;US Army&quot;,&#xA;  &quot;X&quot;, &quot;Royal Canadian Air Force&quot;,&#xA;  &quot;Z&quot;, &quot;Unknown&quot;&#xA;)" type="V_String" />
+            <Field name="Owner Name" size="69" source="Formula: Substring([Field_1], 211, 69)" type="V_String" />
+            <Field name="Operator Code" size="1" source="Formula: Substring([Field_1], 280, 1)" type="String" />
+            <Field name="Operator Code Name" size="50" source="Formula: Switch(&#xA;  Trim([Operator Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;A&quot;, &quot;US Air Force&quot;,&#xA;  &quot;C&quot;, &quot;US Coast Guard&quot;,&#xA;  &quot;D&quot;, &quot;Canadian Ministry of Transport&quot;,&#xA;  &quot;F&quot;, &quot;Federal Aviation Admin&quot;,&#xA;  &quot;G&quot;, &quot;Federal Government - Not USA&quot;,&#xA;  &quot;N&quot;, &quot;US Navy&quot;,&#xA;  &quot;O&quot;, &quot;Other&quot;,&#xA;  &quot;P&quot;, &quot;Private&quot;,&#xA;  &quot;R&quot;, &quot;US Army&quot;,&#xA;  &quot;X&quot;, &quot;Royal Canadian Air Force&quot;,&#xA;  &quot;Z&quot;, &quot;Unknown&quot;&#xA;)" type="V_String" />
+            <Field name="Operator Name" size="69" source="Formula: Substring([Field_1], 281, 69)" type="V_String" />
+            <Field name="Hours of Operation" size="100" source="Formula: Substring([Field_1], 2750, 100)" type="V_String" />
+            <Field name="Status" size="20" source="Formula: Substring([Field_1], 2850, 20)" type="V_String" />
+            <Field name="Alternative FSS for Circuit B Teletype" size="3" source="Formula: Substring([Field_1], 2870, 3)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="True" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (2)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (8)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>FSS</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="5c3a35d6-4eb1-4f4b-986d-870fdf797a80" />
+      <Telemetry>
+        <PreviousWorkflowId value="703ecef4-ccd1-4d66-b62d-2658f5d3cfe3" />
+        <OriginWorkflowId value="5c3a35d6-4eb1-4f4b-986d-870fdf797a80" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (2)</Description>
+              <Name>Macro Input (2)</Name>
+              <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description />
+              <Name>Macro Output (8)</Name>
+              <ToolId value="8" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="8" Selected="True" />
+        <Tool ToolId="26" Selected="False" />
+        <Tool ToolId="27" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
