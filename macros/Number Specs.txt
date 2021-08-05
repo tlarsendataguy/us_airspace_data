@@ -1,2 +1,3 @@
-Bearing: FixedDecimal 10, 2
-Lon/Lat: Fixeddecimal 12, 7
+Bearing:   FixedDecimal 10, 2
+Lon/Lat:   FixedDecimal 12, 7
+Frequency: FixedDecimal 10, 3
