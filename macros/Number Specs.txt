@@ -1,0 +1,2 @@
+Bearing: FixedDecimal 10, 2
+Lon/Lat: Fixeddecimal 12, 7
