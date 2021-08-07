@@ -1,0 +1,593 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.2">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="126" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>MAA</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\MAA.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>1000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>MAA.txt</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\MAA.txt" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="222" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 0, 4)" field="RecordType" size="4" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>RecordType</AnnotationText>
+          <DefaultAnnotationText><![CDATA[RecordType = Substring([Field_1], 0, 4)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\MAA.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Substring([Field_1], 0, 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="318" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>RecordType</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2021-08-07 06:24:35</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <StartDate>2021-08-07 06:24:35</StartDate>
+              <EndDate>2021-08-07 06:24:35</EndDate>
+              <Operand>MAA1</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>MAA1</AnnotationText>
+          <DefaultAnnotationText>[RecordType] = "MAA1"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\MAA.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Substring([Field_1], 0, 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\MAA.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Substring([Field_1], 0, 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="414" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 4, 6)" field="MAA ID" size="6" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>ID</AnnotationText>
+          <DefaultAnnotationText><![CDATA[MAA ID = Substring([Field_1], 4, 6)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\MAA.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Substring([Field_1], 0, 4)" type="String" />
+            <Field name="MAA ID" size="6" source="Formula: Substring([Field_1], 4, 6)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="798" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Field_1" selected="False" />
+            <SelectField field="RecordType" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="MAA ID" size="6" source="Formula: Substring([Field_1], 4, 6)" type="String" />
+            <Field name="MAA Type" size="25" source="Formula: Substring([Field_1], 10, 25)" type="V_String" />
+            <Field name="NAVAID ID" size="4" source="Formula: Substring([Field_1], 35, 4)" type="String" />
+            <Field name="NAVAID Facility Type Code" size="2" source="Formula: Substring([Field_1], 39, 2)" type="String" />
+            <Field name="NAVAID Facility Type Name" size="25" source="Formula: Substring([Field_1], 41, 25)" type="V_String" />
+            <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
+            <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 72, 6))" type="FixedDecimal" />
+            <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 78, 30)" type="V_String" />
+            <Field name="State Code" size="2" source="Formula: Substring([Field_1], 108, 2)" type="String" />
+            <Field name="State Name" size="30" source="Formula: Substring([Field_1], 110, 30)" type="V_String" />
+            <Field name="Associated City" size="30" source="Formula: Substring([Field_1], 140, 30)" type="V_String" />
+            <Field name="MAA Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="MAA Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Associated Airport ID" size="4" source="Formula: Substring([Field_1], 223, 4)" type="String" />
+            <Field name="Associated Airport Name" size="50" source="Formula: Substring([Field_1], 227, 50)" type="V_String" />
+            <Field name="Associated Airport Site Number" size="11" source="Formula: Substring([Field_1], 277, 11)" type="V_String" />
+            <Field name="Nearest Airport ID" size="4" source="Formula: Substring([Field_1], 288, 4)" type="String" />
+            <Field name="Nearest Airport Distance" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 292, 6)))" type="FixedDecimal" />
+            <Field name="Nearest Airport Direction" size="2" source="Formula: Substring([Field_1], 298, 2)" type="String" />
+            <Field name="MAA Area Name" size="120" source="Formula: Substring([Field_1], 300, 120)" type="V_String" />
+            <Field name="MAA Maximum Altitude" size="8" source="Formula: Substring([Field_1], 420, 8)" type="V_String" />
+            <Field name="MAA Minimum Altitude" size="8" source="Formula: Substring([Field_1], 428, 8)" type="V_String" />
+            <Field name="MAA Radius" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 436, 5)))" type="FixedDecimal" />
+            <Field name="Show on VFR Chart" size="3" source="Formula: Substring([Field_1], 441, 3)" type="String" />
+            <Field name="MAA Description" size="450" source="Formula: Substring([Field_1], 444, 450)" type="V_String" />
+            <Field name="MAA Use" size="8" source="Formula: Substring([Field_1], 894, 8)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="894" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="MAA ID" />
+            <Field name="MAA Type" />
+            <Field name="NAVAID ID" />
+            <Field name="NAVAID Facility Type Code" />
+            <Field name="NAVAID Facility Type Name" />
+            <Field name="NAVAID Name" />
+            <Field name="State Code" />
+            <Field name="State Name" />
+            <Field name="Associated City" />
+            <Field name="Associated Airport ID" />
+            <Field name="Associated Airport Name" />
+            <Field name="Associated Airport Site Number" />
+            <Field name="Nearest Airport ID" />
+            <Field name="Nearest Airport Direction" />
+            <Field name="MAA Area Name" />
+            <Field name="MAA Maximum Altitude" />
+            <Field name="MAA Minimum Altitude" />
+            <Field name="Show on VFR Chart" />
+            <Field name="MAA Description" />
+            <Field name="MAA Use" />
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>Trim([_CurrentField_])</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Trim</AnnotationText>
+          <DefaultAnnotationText>Trim([_CurrentField_])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="MAA ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="MAA Type" size="25" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="NAVAID ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="NAVAID Facility Type Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="NAVAID Facility Type Name" size="25" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
+            <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 72, 6))" type="FixedDecimal" />
+            <Field name="NAVAID Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="State Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="State Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated City" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="MAA Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="MAA Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Associated Airport ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Associated Airport Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated Airport Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Nearest Airport ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Nearest Airport Distance" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 292, 6)))" type="FixedDecimal" />
+            <Field name="Nearest Airport Direction" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="MAA Area Name" size="120" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="MAA Maximum Altitude" size="8" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="MAA Minimum Altitude" size="8" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="MAA Radius" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 436, 5)))" type="FixedDecimal" />
+            <Field name="Show on VFR Chart" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="MAA Description" size="450" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="MAA Use" size="8" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="990" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>MAA1</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Output</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="510" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 10, 25)" field="MAA Type" size="25" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 35, 4)" field="NAVAID ID" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 39, 2)" field="NAVAID Facility Type Code" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 41, 25)" field="NAVAID Facility Type Name" size="25" type="V_String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 66, 6))" field="Azimuth from NAVAID" size="10.2" type="FixedDecimal" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 72, 6))" field="Distance from NAVAID" size="10.1" type="FixedDecimal" />
+            <FormulaField expression="Substring([Field_1], 78, 30)" field="NAVAID Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 108, 2)" field="State Code" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 110, 30)" field="State Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 140, 30)" field="Associated City" size="30" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <AnnotationText><![CDATA[MAA Type = Substring([Field_1], 10, 25)
+NAVAID ID = Substring([Field_1], 35, 4)
+]]></AnnotationText>
+          <DefaultAnnotationText>MAA Type = Substring([Field_1], 10, 25)
+NAVAID ID = Substring([Field_1], 35, 4)
+...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\MAA.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Substring([Field_1], 0, 4)" type="String" />
+            <Field name="MAA ID" size="6" source="Formula: Substring([Field_1], 4, 6)" type="String" />
+            <Field name="MAA Type" size="25" source="Formula: Substring([Field_1], 10, 25)" type="V_String" />
+            <Field name="NAVAID ID" size="4" source="Formula: Substring([Field_1], 35, 4)" type="String" />
+            <Field name="NAVAID Facility Type Code" size="2" source="Formula: Substring([Field_1], 39, 2)" type="String" />
+            <Field name="NAVAID Facility Type Name" size="25" source="Formula: Substring([Field_1], 41, 25)" type="V_String" />
+            <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
+            <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 72, 6))" type="FixedDecimal" />
+            <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 78, 30)" type="V_String" />
+            <Field name="State Code" size="2" source="Formula: Substring([Field_1], 108, 2)" type="String" />
+            <Field name="State Name" size="30" source="Formula: Substring([Field_1], 110, 30)" type="V_String" />
+            <Field name="Associated City" size="30" source="Formula: Substring([Field_1], 140, 30)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings>
+        <Position x="606" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Prefix">MAA</Value>
+          <Value name="LatStart">170</Value>
+          <Value name="LatLen">14</Value>
+          <Value name="LonStart">196</Value>
+          <Value name="LonLen">15</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\MAA.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Substring([Field_1], 0, 4)" type="String" />
+            <Field name="MAA ID" size="6" source="Formula: Substring([Field_1], 4, 6)" type="String" />
+            <Field name="MAA Type" size="25" source="Formula: Substring([Field_1], 10, 25)" type="V_String" />
+            <Field name="NAVAID ID" size="4" source="Formula: Substring([Field_1], 35, 4)" type="String" />
+            <Field name="NAVAID Facility Type Code" size="2" source="Formula: Substring([Field_1], 39, 2)" type="String" />
+            <Field name="NAVAID Facility Type Name" size="25" source="Formula: Substring([Field_1], 41, 25)" type="V_String" />
+            <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
+            <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 72, 6))" type="FixedDecimal" />
+            <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 78, 30)" type="V_String" />
+            <Field name="State Code" size="2" source="Formula: Substring([Field_1], 108, 2)" type="String" />
+            <Field name="State Name" size="30" source="Formula: Substring([Field_1], 110, 30)" type="V_String" />
+            <Field name="Associated City" size="30" source="Formula: Substring([Field_1], 140, 30)" type="V_String" />
+            <Field name="MAA Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="MAA Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="utilities\Parse H-M-S Coordinates.yxmc" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="702" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 223, 4)" field="Associated Airport ID" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 227, 50)" field="Associated Airport Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 277, 11)" field="Associated Airport Site Number" size="11" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 288, 4)" field="Nearest Airport ID" size="4" type="String" />
+            <FormulaField expression="ToNumber(Trim(Substring([Field_1], 292, 6)))" field="Nearest Airport Distance" size="10.1" type="FixedDecimal" />
+            <FormulaField expression="Substring([Field_1], 298, 2)" field="Nearest Airport Direction" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 300, 120)" field="MAA Area Name" size="120" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 420, 8)" field="MAA Maximum Altitude" size="8" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 428, 8)" field="MAA Minimum Altitude" size="8" type="V_String" />
+            <FormulaField expression="ToNumber(Trim(Substring([Field_1], 436, 5)))" field="MAA Radius" size="10.2" type="FixedDecimal" />
+            <FormulaField expression="Substring([Field_1], 441, 3)" field="Show on VFR Chart" size="3" type="String" />
+            <FormulaField expression="Substring([Field_1], 444, 450)" field="MAA Description" size="450" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 894, 8)" field="MAA Use" size="8" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>Associated Airport ID = Substring([Field_1], 223, 4)
+Associated Airport Name = S...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\MAA.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Substring([Field_1], 0, 4)" type="String" />
+            <Field name="MAA ID" size="6" source="Formula: Substring([Field_1], 4, 6)" type="String" />
+            <Field name="MAA Type" size="25" source="Formula: Substring([Field_1], 10, 25)" type="V_String" />
+            <Field name="NAVAID ID" size="4" source="Formula: Substring([Field_1], 35, 4)" type="String" />
+            <Field name="NAVAID Facility Type Code" size="2" source="Formula: Substring([Field_1], 39, 2)" type="String" />
+            <Field name="NAVAID Facility Type Name" size="25" source="Formula: Substring([Field_1], 41, 25)" type="V_String" />
+            <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
+            <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 72, 6))" type="FixedDecimal" />
+            <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 78, 30)" type="V_String" />
+            <Field name="State Code" size="2" source="Formula: Substring([Field_1], 108, 2)" type="String" />
+            <Field name="State Name" size="30" source="Formula: Substring([Field_1], 110, 30)" type="V_String" />
+            <Field name="Associated City" size="30" source="Formula: Substring([Field_1], 140, 30)" type="V_String" />
+            <Field name="MAA Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="MAA Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Associated Airport ID" size="4" source="Formula: Substring([Field_1], 223, 4)" type="String" />
+            <Field name="Associated Airport Name" size="50" source="Formula: Substring([Field_1], 227, 50)" type="V_String" />
+            <Field name="Associated Airport Site Number" size="11" source="Formula: Substring([Field_1], 277, 11)" type="V_String" />
+            <Field name="Nearest Airport ID" size="4" source="Formula: Substring([Field_1], 288, 4)" type="String" />
+            <Field name="Nearest Airport Distance" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 292, 6)))" type="FixedDecimal" />
+            <Field name="Nearest Airport Direction" size="2" source="Formula: Substring([Field_1], 298, 2)" type="String" />
+            <Field name="MAA Area Name" size="120" source="Formula: Substring([Field_1], 300, 120)" type="V_String" />
+            <Field name="MAA Maximum Altitude" size="8" source="Formula: Substring([Field_1], 420, 8)" type="V_String" />
+            <Field name="MAA Minimum Altitude" size="8" source="Formula: Substring([Field_1], 428, 8)" type="V_String" />
+            <Field name="MAA Radius" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 436, 5)))" type="FixedDecimal" />
+            <Field name="Show on VFR Chart" size="3" source="Formula: Substring([Field_1], 441, 3)" type="String" />
+            <Field name="MAA Description" size="450" source="Formula: Substring([Field_1], 444, 450)" type="V_String" />
+            <Field name="MAA Use" size="8" source="Formula: Substring([Field_1], 894, 8)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="True" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (1)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (7)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>MAA1</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="874db87b-eda0-474d-a159-9040926370d1" />
+      <Telemetry>
+        <PreviousWorkflowId value="c33c51a8-6ec8-4365-b176-b111ac10c887" />
+        <OriginWorkflowId value="874db87b-eda0-474d-a159-9040926370d1" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (9)</Name>
+          <ToolId value="9" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description />
+              <Name>Macro Input (1)</Name>
+              <ToolId value="1" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description />
+              <Name>Macro Output (7)</Name>
+              <ToolId value="7" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="7" Selected="False" />
+        <Tool ToolId="10" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
