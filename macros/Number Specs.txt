@@ -1,3 +1,4 @@
 Bearing:   FixedDecimal 10, 2
 Lon/Lat:   FixedDecimal 12, 7
 Frequency: FixedDecimal 10, 3
+Distance:  FixedDecimal 10, 1
