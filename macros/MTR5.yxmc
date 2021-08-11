@@ -1,0 +1,472 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.2">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>MTR</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\MTR.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>1000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>MTR.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\MTR.txt" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="150" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 0, 4)" field="RecordType" size="4" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>RecordType</AnnotationText>
+          <DefaultAnnotationText><![CDATA[RecordType = Substring([Field_1], 0, 4)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\MTR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Substring([Field_1], 0, 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="246" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>RecordType</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2021-08-10 19:55:58</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>MTR5</Operand>
+              <StartDate>2021-08-10 19:55:58</StartDate>
+              <EndDate>2021-08-10 19:55:58</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>MTR5</AnnotationText>
+          <DefaultAnnotationText>[RecordType] = "MTR5"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\MTR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Substring([Field_1], 0, 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\MTR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Substring([Field_1], 0, 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="342" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 4, 3)" field="Route Type" size="3" type="String" />
+            <FormulaField expression="Trim(Substring([Field_1], 7, 5))" field="Route ID" size="5" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>ID</AnnotationText>
+          <DefaultAnnotationText>Route Type = Substring([Field_1], 4, 3)
+Route ID = Trim(Substring([Field_1], 7, ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\MTR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Substring([Field_1], 0, 4)" type="String" />
+            <Field name="Route Type" size="3" source="Formula: Substring([Field_1], 4, 3)" type="String" />
+            <Field name="Route ID" size="5" source="Formula: Trim(Substring([Field_1], 7, 5))" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="822" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>MTR5</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Output</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="630" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Field_1" selected="False" />
+            <SelectField field="RecordType" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Route Type" size="3" source="Formula: Substring([Field_1], 4, 3)" type="String" />
+            <Field name="Route ID" size="5" source="Formula: Trim(Substring([Field_1], 7, 5))" type="String" />
+            <Field name="Route Point ID" size="5" source="Formula: Substring([Field_1], 12, 5)" type="V_String" />
+            <Field name="Approaching Segment Description" size="228" source="Formula: Substring([Field_1], 17, 228)" type="V_String" />
+            <Field name="Leaving Segment Description" size="228" source="Formula: Substring([Field_1], 245, 228)" type="V_String" />
+            <Field name="Related NAVAID ID" size="4" source="Formula: Substring([Field_1], 473, 4)" type="String" />
+            <Field name="NAVAID Bearing from Point" source="Formula: ToNumber(Substring([Field_1], 477, 5))" type="Int32" />
+            <Field name="NAVAID Distance from Point" source="Formula: ToNumber(Substring([Field_1], 482, 4))" type="Int32" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 514, 5))" type="Int32" />
+            <Field name="Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="726" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="Route Type" />
+            <Field name="Route ID" />
+            <Field name="Route Point ID" />
+            <Field name="Approaching Segment Description" />
+            <Field name="Leaving Segment Description" />
+            <Field name="Related NAVAID ID" />
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>Trim([_CurrentField_])</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Trim</AnnotationText>
+          <DefaultAnnotationText>Trim([_CurrentField_])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Route Type" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Route ID" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Route Point ID" size="5" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Approaching Segment Description" size="228" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Leaving Segment Description" size="228" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Related NAVAID ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="NAVAID Bearing from Point" source="Formula: ToNumber(Substring([Field_1], 477, 5))" type="Int32" />
+            <Field name="NAVAID Distance from Point" source="Formula: ToNumber(Substring([Field_1], 482, 4))" type="Int32" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 514, 5))" type="Int32" />
+            <Field name="Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings>
+        <Position x="534" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Prefix">Point</Value>
+          <Value name="LatStart">486</Value>
+          <Value name="LatLen">14</Value>
+          <Value name="LonStart">500</Value>
+          <Value name="LonLen">14</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\MTR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Substring([Field_1], 0, 4)" type="String" />
+            <Field name="Route Type" size="3" source="Formula: Substring([Field_1], 4, 3)" type="String" />
+            <Field name="Route ID" size="5" source="Formula: Trim(Substring([Field_1], 7, 5))" type="String" />
+            <Field name="Route Point ID" size="5" source="Formula: Substring([Field_1], 12, 5)" type="V_String" />
+            <Field name="Approaching Segment Description" size="228" source="Formula: Substring([Field_1], 17, 228)" type="V_String" />
+            <Field name="Leaving Segment Description" size="228" source="Formula: Substring([Field_1], 245, 228)" type="V_String" />
+            <Field name="Related NAVAID ID" size="4" source="Formula: Substring([Field_1], 473, 4)" type="String" />
+            <Field name="NAVAID Bearing from Point" source="Formula: ToNumber(Substring([Field_1], 477, 5))" type="Int32" />
+            <Field name="NAVAID Distance from Point" source="Formula: ToNumber(Substring([Field_1], 482, 4))" type="Int32" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 514, 5))" type="Int32" />
+            <Field name="Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="utilities\Parse H-M-S Coordinates.yxmc" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="438" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 12, 5)" field="Route Point ID" size="5" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 17, 228)" field="Approaching Segment Description" size="228" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 245, 228)" field="Leaving Segment Description" size="228" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 473, 4)" field="Related NAVAID ID" size="4" type="String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 477, 5))" field="NAVAID Bearing from Point" size="4" type="Int32" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 482, 4))" field="NAVAID Distance from Point" size="4" type="Int32" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 514, 5))" field="Sequence" size="4" type="Int32" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>Route Point ID = Substring([Field_1], 12, 5)
+Approaching Segment Description = S...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\MTR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Substring([Field_1], 0, 4)" type="String" />
+            <Field name="Route Type" size="3" source="Formula: Substring([Field_1], 4, 3)" type="String" />
+            <Field name="Route ID" size="5" source="Formula: Trim(Substring([Field_1], 7, 5))" type="String" />
+            <Field name="Route Point ID" size="5" source="Formula: Substring([Field_1], 12, 5)" type="V_String" />
+            <Field name="Approaching Segment Description" size="228" source="Formula: Substring([Field_1], 17, 228)" type="V_String" />
+            <Field name="Leaving Segment Description" size="228" source="Formula: Substring([Field_1], 245, 228)" type="V_String" />
+            <Field name="Related NAVAID ID" size="4" source="Formula: Substring([Field_1], 473, 4)" type="String" />
+            <Field name="NAVAID Bearing from Point" source="Formula: ToNumber(Substring([Field_1], 477, 5))" type="Int32" />
+            <Field name="NAVAID Distance from Point" source="Formula: ToNumber(Substring([Field_1], 482, 4))" type="Int32" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 514, 5))" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="True" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (2)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (6)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>MTR5</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="3f44a54d-e4b4-494f-b83a-a35e33d8cceb" />
+      <Telemetry>
+        <PreviousWorkflowId value="ac09e142-8020-4962-a232-6e299ee5c2f7" />
+        <OriginWorkflowId value="3f44a54d-e4b4-494f-b83a-a35e33d8cceb" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (2)</Description>
+              <Name>Macro Input (2)</Name>
+              <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description />
+              <Name>Macro Output (6)</Name>
+              <ToolId value="6" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="6" Selected="True" />
+        <Tool ToolId="12" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
