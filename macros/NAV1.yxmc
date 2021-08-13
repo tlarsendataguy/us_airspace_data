@@ -1,0 +1,1061 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.2">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="126" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>NAV</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\NAV.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>1000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>NAV.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="222" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Left([Field_1], 4)" field="RecordType" size="4" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>RecordType</AnnotationText>
+          <DefaultAnnotationText><![CDATA[RecordType = Left([Field_1], 4)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="318" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>RecordType</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2021-08-12 19:26:34</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <StartDate>2021-08-12 19:26:34</StartDate>
+              <EndDate>2021-08-12 19:26:34</EndDate>
+              <Operand>NAV1</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>NAV1</AnnotationText>
+          <DefaultAnnotationText>[RecordType] = "NAV1"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="414" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 4, 4)" field="NAVAID Facility ID" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 8, 20)" field="NAVAID Facility Type" size="20" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 72, 40)" field="Associated City" size="40" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>ID</AnnotationText>
+          <DefaultAnnotationText>NAVAID Facility ID = Substring([Field_1], 4, 4)
+NAVAID Facility Type = Substring...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="NAVAID Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="NAVAID Facility Type" size="20" source="Formula: Substring([Field_1], 8, 20)" type="V_String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 72, 40)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1278" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Field_1" selected="False" />
+            <SelectField field="RecordType" selected="False" />
+            <SelectField field="RAW Magnetic Variation" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="NAVAID Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="NAVAID Facility Type" size="20" source="Formula: Substring([Field_1], 8, 20)" type="V_String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 72, 40)" type="V_String" />
+            <Field name="NAVAID Facility Type Name" size="200" source="Formula: Switch(&#xA;  Trim([NAVAID Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;VORTAC&quot;, &quot;A facility consisting of two components, VOR and TACAN, which provides three individual services: VOR azimuth, TACAN azumuth, and TACAN distance (DME) at one site&quot;,&#xA;  &quot;VOR/DME&quot;, &quot;VHF omni-directional range with associated distance measuring equipment&quot;,&#xA;  &quot;FAN MARKER&quot;, &quot;An enroute marker beacon used to provide a positive identification of positions at definite points along the airways&quot;,&#xA;  &quot;CONSOLAN&quot;, &quot;A low frequency, long-distance NAVAID used principally for transoceanic navigation&quot;,&#xA;  &quot;MARINE NDB&quot;, &quot;A non-directional beacon used primarily for marine (surface) navigation&quot;,&#xA;  &quot;MARINE NDB/DME&quot;, &quot;A non-directional beacon with associated distance measuring equipment; used primarily for marine (surface) navigation&quot;,&#xA;  &quot;VOT&quot;, &quot;A FAA VOR test facility&quot;,&#xA;  &quot;NDB&quot;, &quot;A nondirectional beacon&quot;,&#xA;  &quot;NDB/DME&quot;, &quot;Non-directional beacon with associated distance measuring equipment&quot;,&#xA;  &quot;TACAN&quot;, &quot;A tactical air navigation system providing azimuth and slant range distance&quot;,&#xA;  &quot;UHF/NDB&quot;, &quot;Ultra high frequency / non-directional beacon&quot;,&#xA;  &quot;VOR&quot;, &quot;A VHF omni-directional range providing azimuth only&quot;,&#xA;  &quot;DME&quot;, &quot;Distance measuring equipment only&quot;&#xA;)" type="V_String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 32, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 42, 30)" type="V_String" />
+            <Field name="Associated City State Name" size="30" source="Formula: Substring([Field_1], 112, 30)" type="V_String" />
+            <Field name="Associated City State Code" size="2" source="Formula: Substring([Field_1], 142, 2)" type="String" />
+            <Field name="Responsible FAA Region" size="3" source="Formula: Substring([Field_1], 144,3)" type="String" />
+            <Field name="Responsible FAA Region Name" size="50" source="Formula: Switch(&#xA;  Trim([Responsible FAA Region]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot; ,&quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot; ,&quot;Western-Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Country Name" size="30" source="Formula: IF   IsEmpty(Trim([Country Name]))&#xA;THEN &quot;UNITED STATES&quot;&#xA;ELSE [Country Name]&#xA;ENDIF" type="V_String" />
+            <Field name="Country Code" size="2" source="Formula: IF   IsEmpty(Trim([Country Code]))&#xA;THEN 'US'&#xA;ELSE [Country Code]&#xA;ENDIF" type="String" />
+            <Field name="Owner Name" size="50" source="Formula: Substring([Field_1], 179, 50)" type="V_String" />
+            <Field name="Operator Name" size="50" source="Formula: Substring([Field_1], 229, 50)" type="V_String" />
+            <Field name="Common System Usage" size="1" source="Formula: Substring([Field_1], 279, 1)" type="String" />
+            <Field name="Public Use" size="1" source="Formula: Substring([Field_1], 280, 1)" type="String" />
+            <Field name="Class" size="11" source="Formula: Substring([Field_1], 281, 11)" type="V_String" />
+            <Field name="Hours of Operation" size="11" source="Formula: Substring([Field_1], 292, 11)" type="V_String" />
+            <Field name="High Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 303, 4)" type="String" />
+            <Field name="High Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 307, 30)" type="V_String" />
+            <Field name="Low Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 337, 4)" type="String" />
+            <Field name="Low Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 341, 30)" type="V_String" />
+            <Field name="NAVAID Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="NAVAID Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Location Accuracy Code" size="1" source="Formula: Substring([Field_1], 421, 1)" type="String" />
+            <Field name="Location Accuracy Code Name" size="50" source="Formula: Switch(&#xA;  [Location Accuracy Code], &quot;Unknown&quot;,&#xA;  &quot; &quot;, &quot;&quot;,&#xA;  &quot;1&quot;, &quot;Degree&quot;,&#xA;  &quot;2&quot;, &quot;10 minutes&quot;,&#xA;  &quot;3&quot;, &quot;1 minute&quot;,&#xA;  &quot;4&quot;, &quot;10 seconds&quot;,&#xA;  &quot;5&quot;, &quot;1 second or better&quot;,&#xA;  &quot;6&quot;, &quot;NOS&quot;,&#xA;  &quot;7&quot;, &quot;3rd order triangulation&quot;&#xA;)" type="V_String" />
+            <Field name="Offsite TACAN Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Offsite TACAN Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 472, 7))" type="FixedDecimal" />
+            <Field name="Magnetic Variation" source="Formula: IF   Right(Trim([RAW Magnetic Variation]),1) = 'W'&#xA;THEN -[Magnetic Variation]&#xA;ELSE [Magnetic Variation]&#xA;ENDIF" type="Int32" />
+            <Field name="Magnetic Variation Epoch Year" size="4" source="Formula: Substring([Field_1], 484, 4)" type="String" />
+            <Field name="Simultaneous Voice Feature" size="3" source="Formula: Substring([Field_1], 488, 3)" type="String" />
+            <Field name="Power Output" source="Formula: ToNumber(Substring([Field_1], 491, 4))" type="Int32" />
+            <Field name="Automatic Voice Identification Feature" size="3" source="Formula: Substring([Field_1], 495, 3)" type="String" />
+            <Field name="Monitoring Category" size="1" source="Formula: Substring([Field_1], 498, 1)" type="String" />
+            <Field name="Monitoring Category Name" size="200" source="Formula: Switch(&#xA;  [Monitoring Category], &quot;Unknown&quot;,&#xA;  &quot; &quot; , &quot;&quot;,&#xA;  &quot;1&quot;, &quot;Internal monitoring plus a status indicator installed at control point&quot;,&#xA;  &quot;2&quot;, &quot;Internal monitoring with status indicator at control point inoperative but pilot reports indicate facility is operating normally&quot;,&#xA;  &quot;3&quot;, &quot;Internal monitoring only; status indicator not installed at control point&quot;,&#xA;  &quot;4&quot;, &quot;Internal monitor not installed, remote status indicator provided at control point&quot;&#xA;)" type="V_String" />
+            <Field name="Radio Voice Call" size="30" source="Formula: Substring([Field_1], 499, 30)" type="V_String" />
+            <Field name="Transmit Channel" size="4" source="Formula: Substring([Field_1], 529, 4)" type="String" />
+            <Field name="Transmit Frequency" scale="3" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 533, 6)))" type="FixedDecimal" />
+            <Field name="Transmitted Identifier" size="24" source="Formula: Substring([Field_1], 539, 24)" type="V_String" />
+            <Field name="Fan Marker Type" size="10" source="Formula: Substring([Field_1], 563, 10)" type="V_String" />
+            <Field name="Fan Marker Major Axis True Bearing" source="Formula: ToNumber(Substring([Field_1], 573, 3))" type="Int32" />
+            <Field name="Protected Frequency Altitude" size="1" source="Formula: Substring([Field_1], 576, 1)" type="String" />
+            <Field name="Low Altitude Facility Used in High Structure" size="3" source="Formula: Substring([Field_1], 577, 3)" type="String" />
+            <Field name="Z Marker Available" size="3" source="Formula: Substring([Field_1], 580, 3)" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Hours" size="9" source="Formula: Substring([Field_1], 583, 9)" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Phone Number" size="9" source="Formula: Substring([Field_1], 583, 9)" type="V_String" />
+            <Field name="Associated FSS ID" size="4" source="Formula: Substring([Field_1], 612, 4)" type="String" />
+            <Field name="Associated FSS Name" size="30" source="Formula: Substring([Field_1], 616, 30)" type="V_String" />
+            <Field name="FSS Hours of Operation" size="100" source="Formula: Substring([Field_1], 646, 100)" type="V_String" />
+            <Field name="NOTAM Accountability Code" size="4" source="Formula: Substring([Field_1], 746, 4)" type="String" />
+            <Field name="Quadrant ID and Range Leg Bearing" size="16" source="Formula: Substring([Field_1], 750, 16)" type="V_String" />
+            <Field name="NAVAID Status" size="30" source="Formula: Substring([Field_1], 766, 30)" type="V_String" />
+            <Field name="Pitch Flag" size="1" source="Formula: Substring([Field_1], 796, 1)" type="String" />
+            <Field name="Catch Flag" size="1" source="Formula: Substring([Field_1], 797, 1)" type="String" />
+            <Field name="SUA ATCAA Flag" size="1" source="Formula: Substring([Field_1], 798, 1)" type="String" />
+            <Field name="NAVAID Restriction Flag" size="1" source="Formula: Substring([Field_1], 799, 1)" type="String" />
+            <Field name="HIWAS Flag" size="1" source="Formula: Substring([Field_1], 800, 1)" type="String" />
+            <Field name="Transcribed Weather Broadcast Restriction" size="1" source="Formula: Substring([Field_1], 801, 1)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="1374" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="NAVAID Facility ID" />
+            <Field name="NAVAID Facility Type" />
+            <Field name="Associated City" />
+            <Field name="NAVAID Facility Type Name" />
+            <Field name="NAVAID Name" />
+            <Field name="Associated City State Name" />
+            <Field name="Associated City State Code" />
+            <Field name="Responsible FAA Region" />
+            <Field name="Responsible FAA Region Name" />
+            <Field name="Country Name" />
+            <Field name="Country Code" />
+            <Field name="Owner Name" />
+            <Field name="Operator Name" />
+            <Field name="Common System Usage" />
+            <Field name="Public Use" />
+            <Field name="Class" />
+            <Field name="Hours of Operation" />
+            <Field name="High Altitude ARTCC ID" />
+            <Field name="High Altitude ARTCC Name" />
+            <Field name="Low Altitude ARTCC ID" />
+            <Field name="Low Altitude ARTCC Name" />
+            <Field name="Location Accuracy Code" />
+            <Field name="Location Accuracy Code Name" />
+            <Field name="Magnetic Variation Epoch Year" />
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>Trim([_CurrentField_])</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Trim</AnnotationText>
+          <DefaultAnnotationText>Trim([_CurrentField_])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="NAVAID Facility ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="NAVAID Facility Type" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated City" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="NAVAID Facility Type Name" size="200" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 32, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="NAVAID Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated City State Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated City State Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Responsible FAA Region" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Responsible FAA Region Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Country Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Country Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Owner Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Operator Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Common System Usage" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Public Use" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Class" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Hours of Operation" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="High Altitude ARTCC ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="High Altitude ARTCC Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Low Altitude ARTCC ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Low Altitude ARTCC Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="NAVAID Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="NAVAID Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Location Accuracy Code" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Location Accuracy Code Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Offsite TACAN Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Offsite TACAN Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 472, 7))" type="FixedDecimal" />
+            <Field name="Magnetic Variation" source="Formula: IF   Right(Trim([RAW Magnetic Variation]),1) = 'W'&#xA;THEN -[Magnetic Variation]&#xA;ELSE [Magnetic Variation]&#xA;ENDIF" type="Int32" />
+            <Field name="Magnetic Variation Epoch Year" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Simultaneous Voice Feature" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Power Output" source="Formula: ToNumber(Substring([Field_1], 491, 4))" type="Int32" />
+            <Field name="Automatic Voice Identification Feature" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Monitoring Category" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Monitoring Category Name" size="200" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Radio Voice Call" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Transmit Channel" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Transmit Frequency" scale="3" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 533, 6)))" type="FixedDecimal" />
+            <Field name="Transmitted Identifier" size="24" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Fan Marker Type" size="10" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Fan Marker Major Axis True Bearing" source="Formula: ToNumber(Substring([Field_1], 573, 3))" type="Int32" />
+            <Field name="Protected Frequency Altitude" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Low Altitude Facility Used in High Structure" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Z Marker Available" size="3" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Hours" size="9" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Phone Number" size="9" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated FSS ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Associated FSS Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="FSS Hours of Operation" size="100" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="NOTAM Accountability Code" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Quadrant ID and Range Leg Bearing" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="NAVAID Status" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Pitch Flag" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Catch Flag" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="SUA ATCAA Flag" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="NAVAID Restriction Flag" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="HIWAS Flag" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Transcribed Weather Broadcast Restriction" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1470" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>NAV1</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Output</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="510" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Switch(&#xA;  Trim([NAVAID Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;VORTAC&quot;, &quot;A facility consisting of two components, VOR and TACAN, which provides three individual services: VOR azimuth, TACAN azumuth, and TACAN distance (DME) at one site&quot;,&#xA;  &quot;VOR/DME&quot;, &quot;VHF omni-directional range with associated distance measuring equipment&quot;,&#xA;  &quot;FAN MARKER&quot;, &quot;An enroute marker beacon used to provide a positive identification of positions at definite points along the airways&quot;,&#xA;  &quot;CONSOLAN&quot;, &quot;A low frequency, long-distance NAVAID used principally for transoceanic navigation&quot;,&#xA;  &quot;MARINE NDB&quot;, &quot;A non-directional beacon used primarily for marine (surface) navigation&quot;,&#xA;  &quot;MARINE NDB/DME&quot;, &quot;A non-directional beacon with associated distance measuring equipment; used primarily for marine (surface) navigation&quot;,&#xA;  &quot;VOT&quot;, &quot;A FAA VOR test facility&quot;,&#xA;  &quot;NDB&quot;, &quot;A nondirectional beacon&quot;,&#xA;  &quot;NDB/DME&quot;, &quot;Non-directional beacon with associated distance measuring equipment&quot;,&#xA;  &quot;TACAN&quot;, &quot;A tactical air navigation system providing azimuth and slant range distance&quot;,&#xA;  &quot;UHF/NDB&quot;, &quot;Ultra high frequency / non-directional beacon&quot;,&#xA;  &quot;VOR&quot;, &quot;A VHF omni-directional range providing azimuth only&quot;,&#xA;  &quot;DME&quot;, &quot;Distance measuring equipment only&quot;&#xA;)" field="NAVAID Facility Type Name" size="200" type="V_String" />
+            <FormulaField expression="DateTimeParse(Substring([Field_1], 32, 10), &quot;%m/%d/%Y&quot;)" field="Effective Date" size="10" type="Date" />
+            <FormulaField expression="Substring([Field_1], 42, 30)" field="NAVAID Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 112, 30)" field="Associated City State Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 142, 2)" field="Associated City State Code" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 144,3)" field="Responsible FAA Region" size="3" type="String" />
+            <FormulaField expression="Switch(&#xA;  Trim([Responsible FAA Region]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot; ,&quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot; ,&quot;Western-Pacific&quot;&#xA;)" field="Responsible FAA Region Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 147, 30)" field="Country Name" size="30" type="V_String" />
+            <FormulaField expression="IF   IsEmpty(Trim([Country Name]))&#xA;THEN &quot;UNITED STATES&quot;&#xA;ELSE [Country Name]&#xA;ENDIF" field="Country Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 177, 2)" field="Country Code" size="2" type="String" />
+            <FormulaField expression="IF   IsEmpty(Trim([Country Code]))&#xA;THEN 'US'&#xA;ELSE [Country Code]&#xA;ENDIF" field="Country Code" size="2" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>NAVAID Facility Type Name = Switch(
+  Trim([NAVAID Facility Type]), "Unknown",
+ ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="NAVAID Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="NAVAID Facility Type" size="20" source="Formula: Substring([Field_1], 8, 20)" type="V_String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 72, 40)" type="V_String" />
+            <Field name="NAVAID Facility Type Name" size="200" source="Formula: Switch(&#xA;  Trim([NAVAID Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;VORTAC&quot;, &quot;A facility consisting of two components, VOR and TACAN, which provides three individual services: VOR azimuth, TACAN azumuth, and TACAN distance (DME) at one site&quot;,&#xA;  &quot;VOR/DME&quot;, &quot;VHF omni-directional range with associated distance measuring equipment&quot;,&#xA;  &quot;FAN MARKER&quot;, &quot;An enroute marker beacon used to provide a positive identification of positions at definite points along the airways&quot;,&#xA;  &quot;CONSOLAN&quot;, &quot;A low frequency, long-distance NAVAID used principally for transoceanic navigation&quot;,&#xA;  &quot;MARINE NDB&quot;, &quot;A non-directional beacon used primarily for marine (surface) navigation&quot;,&#xA;  &quot;MARINE NDB/DME&quot;, &quot;A non-directional beacon with associated distance measuring equipment; used primarily for marine (surface) navigation&quot;,&#xA;  &quot;VOT&quot;, &quot;A FAA VOR test facility&quot;,&#xA;  &quot;NDB&quot;, &quot;A nondirectional beacon&quot;,&#xA;  &quot;NDB/DME&quot;, &quot;Non-directional beacon with associated distance measuring equipment&quot;,&#xA;  &quot;TACAN&quot;, &quot;A tactical air navigation system providing azimuth and slant range distance&quot;,&#xA;  &quot;UHF/NDB&quot;, &quot;Ultra high frequency / non-directional beacon&quot;,&#xA;  &quot;VOR&quot;, &quot;A VHF omni-directional range providing azimuth only&quot;,&#xA;  &quot;DME&quot;, &quot;Distance measuring equipment only&quot;&#xA;)" type="V_String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 32, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 42, 30)" type="V_String" />
+            <Field name="Associated City State Name" size="30" source="Formula: Substring([Field_1], 112, 30)" type="V_String" />
+            <Field name="Associated City State Code" size="2" source="Formula: Substring([Field_1], 142, 2)" type="String" />
+            <Field name="Responsible FAA Region" size="3" source="Formula: Substring([Field_1], 144,3)" type="String" />
+            <Field name="Responsible FAA Region Name" size="50" source="Formula: Switch(&#xA;  Trim([Responsible FAA Region]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot; ,&quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot; ,&quot;Western-Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Country Name" size="30" source="Formula: IF   IsEmpty(Trim([Country Name]))&#xA;THEN &quot;UNITED STATES&quot;&#xA;ELSE [Country Name]&#xA;ENDIF" type="V_String" />
+            <Field name="Country Code" size="2" source="Formula: IF   IsEmpty(Trim([Country Code]))&#xA;THEN 'US'&#xA;ELSE [Country Code]&#xA;ENDIF" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="606" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 179, 50)" field="Owner Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 229, 50)" field="Operator Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 279, 1)" field="Common System Usage" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 280, 1)" field="Public Use" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 281, 11)" field="Class" size="11" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 292, 11)" field="Hours of Operation" size="11" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 303, 4)" field="High Altitude ARTCC ID" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 307, 30)" field="High Altitude ARTCC Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 337, 4)" field="Low Altitude ARTCC ID" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 341, 30)" field="Low Altitude ARTCC Name" size="30" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>Owner Name = Substring([Field_1], 179, 50)
+Operator Name = Substring([Field_1], ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="NAVAID Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="NAVAID Facility Type" size="20" source="Formula: Substring([Field_1], 8, 20)" type="V_String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 72, 40)" type="V_String" />
+            <Field name="NAVAID Facility Type Name" size="200" source="Formula: Switch(&#xA;  Trim([NAVAID Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;VORTAC&quot;, &quot;A facility consisting of two components, VOR and TACAN, which provides three individual services: VOR azimuth, TACAN azumuth, and TACAN distance (DME) at one site&quot;,&#xA;  &quot;VOR/DME&quot;, &quot;VHF omni-directional range with associated distance measuring equipment&quot;,&#xA;  &quot;FAN MARKER&quot;, &quot;An enroute marker beacon used to provide a positive identification of positions at definite points along the airways&quot;,&#xA;  &quot;CONSOLAN&quot;, &quot;A low frequency, long-distance NAVAID used principally for transoceanic navigation&quot;,&#xA;  &quot;MARINE NDB&quot;, &quot;A non-directional beacon used primarily for marine (surface) navigation&quot;,&#xA;  &quot;MARINE NDB/DME&quot;, &quot;A non-directional beacon with associated distance measuring equipment; used primarily for marine (surface) navigation&quot;,&#xA;  &quot;VOT&quot;, &quot;A FAA VOR test facility&quot;,&#xA;  &quot;NDB&quot;, &quot;A nondirectional beacon&quot;,&#xA;  &quot;NDB/DME&quot;, &quot;Non-directional beacon with associated distance measuring equipment&quot;,&#xA;  &quot;TACAN&quot;, &quot;A tactical air navigation system providing azimuth and slant range distance&quot;,&#xA;  &quot;UHF/NDB&quot;, &quot;Ultra high frequency / non-directional beacon&quot;,&#xA;  &quot;VOR&quot;, &quot;A VHF omni-directional range providing azimuth only&quot;,&#xA;  &quot;DME&quot;, &quot;Distance measuring equipment only&quot;&#xA;)" type="V_String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 32, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 42, 30)" type="V_String" />
+            <Field name="Associated City State Name" size="30" source="Formula: Substring([Field_1], 112, 30)" type="V_String" />
+            <Field name="Associated City State Code" size="2" source="Formula: Substring([Field_1], 142, 2)" type="String" />
+            <Field name="Responsible FAA Region" size="3" source="Formula: Substring([Field_1], 144,3)" type="String" />
+            <Field name="Responsible FAA Region Name" size="50" source="Formula: Switch(&#xA;  Trim([Responsible FAA Region]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot; ,&quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot; ,&quot;Western-Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Country Name" size="30" source="Formula: IF   IsEmpty(Trim([Country Name]))&#xA;THEN &quot;UNITED STATES&quot;&#xA;ELSE [Country Name]&#xA;ENDIF" type="V_String" />
+            <Field name="Country Code" size="2" source="Formula: IF   IsEmpty(Trim([Country Code]))&#xA;THEN 'US'&#xA;ELSE [Country Code]&#xA;ENDIF" type="String" />
+            <Field name="Owner Name" size="50" source="Formula: Substring([Field_1], 179, 50)" type="V_String" />
+            <Field name="Operator Name" size="50" source="Formula: Substring([Field_1], 229, 50)" type="V_String" />
+            <Field name="Common System Usage" size="1" source="Formula: Substring([Field_1], 279, 1)" type="String" />
+            <Field name="Public Use" size="1" source="Formula: Substring([Field_1], 280, 1)" type="String" />
+            <Field name="Class" size="11" source="Formula: Substring([Field_1], 281, 11)" type="V_String" />
+            <Field name="Hours of Operation" size="11" source="Formula: Substring([Field_1], 292, 11)" type="V_String" />
+            <Field name="High Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 303, 4)" type="String" />
+            <Field name="High Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 307, 30)" type="V_String" />
+            <Field name="Low Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 337, 4)" type="String" />
+            <Field name="Low Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 341, 30)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings>
+        <Position x="702" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Prefix">NAVAID</Value>
+          <Value name="LatStart">371</Value>
+          <Value name="LatLen">14</Value>
+          <Value name="LonStart">396</Value>
+          <Value name="LonLen">14</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="NAVAID Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="NAVAID Facility Type" size="20" source="Formula: Substring([Field_1], 8, 20)" type="V_String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 72, 40)" type="V_String" />
+            <Field name="NAVAID Facility Type Name" size="200" source="Formula: Switch(&#xA;  Trim([NAVAID Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;VORTAC&quot;, &quot;A facility consisting of two components, VOR and TACAN, which provides three individual services: VOR azimuth, TACAN azumuth, and TACAN distance (DME) at one site&quot;,&#xA;  &quot;VOR/DME&quot;, &quot;VHF omni-directional range with associated distance measuring equipment&quot;,&#xA;  &quot;FAN MARKER&quot;, &quot;An enroute marker beacon used to provide a positive identification of positions at definite points along the airways&quot;,&#xA;  &quot;CONSOLAN&quot;, &quot;A low frequency, long-distance NAVAID used principally for transoceanic navigation&quot;,&#xA;  &quot;MARINE NDB&quot;, &quot;A non-directional beacon used primarily for marine (surface) navigation&quot;,&#xA;  &quot;MARINE NDB/DME&quot;, &quot;A non-directional beacon with associated distance measuring equipment; used primarily for marine (surface) navigation&quot;,&#xA;  &quot;VOT&quot;, &quot;A FAA VOR test facility&quot;,&#xA;  &quot;NDB&quot;, &quot;A nondirectional beacon&quot;,&#xA;  &quot;NDB/DME&quot;, &quot;Non-directional beacon with associated distance measuring equipment&quot;,&#xA;  &quot;TACAN&quot;, &quot;A tactical air navigation system providing azimuth and slant range distance&quot;,&#xA;  &quot;UHF/NDB&quot;, &quot;Ultra high frequency / non-directional beacon&quot;,&#xA;  &quot;VOR&quot;, &quot;A VHF omni-directional range providing azimuth only&quot;,&#xA;  &quot;DME&quot;, &quot;Distance measuring equipment only&quot;&#xA;)" type="V_String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 32, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 42, 30)" type="V_String" />
+            <Field name="Associated City State Name" size="30" source="Formula: Substring([Field_1], 112, 30)" type="V_String" />
+            <Field name="Associated City State Code" size="2" source="Formula: Substring([Field_1], 142, 2)" type="String" />
+            <Field name="Responsible FAA Region" size="3" source="Formula: Substring([Field_1], 144,3)" type="String" />
+            <Field name="Responsible FAA Region Name" size="50" source="Formula: Switch(&#xA;  Trim([Responsible FAA Region]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot; ,&quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot; ,&quot;Western-Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Country Name" size="30" source="Formula: IF   IsEmpty(Trim([Country Name]))&#xA;THEN &quot;UNITED STATES&quot;&#xA;ELSE [Country Name]&#xA;ENDIF" type="V_String" />
+            <Field name="Country Code" size="2" source="Formula: IF   IsEmpty(Trim([Country Code]))&#xA;THEN 'US'&#xA;ELSE [Country Code]&#xA;ENDIF" type="String" />
+            <Field name="Owner Name" size="50" source="Formula: Substring([Field_1], 179, 50)" type="V_String" />
+            <Field name="Operator Name" size="50" source="Formula: Substring([Field_1], 229, 50)" type="V_String" />
+            <Field name="Common System Usage" size="1" source="Formula: Substring([Field_1], 279, 1)" type="String" />
+            <Field name="Public Use" size="1" source="Formula: Substring([Field_1], 280, 1)" type="String" />
+            <Field name="Class" size="11" source="Formula: Substring([Field_1], 281, 11)" type="V_String" />
+            <Field name="Hours of Operation" size="11" source="Formula: Substring([Field_1], 292, 11)" type="V_String" />
+            <Field name="High Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 303, 4)" type="String" />
+            <Field name="High Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 307, 30)" type="V_String" />
+            <Field name="Low Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 337, 4)" type="String" />
+            <Field name="Low Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 341, 30)" type="V_String" />
+            <Field name="NAVAID Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="NAVAID Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="utilities\Parse H-M-S Coordinates.yxmc" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="798" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 421, 1)" field="Location Accuracy Code" size="1" type="String" />
+            <FormulaField expression="Switch(&#xA;  [Location Accuracy Code], &quot;Unknown&quot;,&#xA;  &quot; &quot;, &quot;&quot;,&#xA;  &quot;1&quot;, &quot;Degree&quot;,&#xA;  &quot;2&quot;, &quot;10 minutes&quot;,&#xA;  &quot;3&quot;, &quot;1 minute&quot;,&#xA;  &quot;4&quot;, &quot;10 seconds&quot;,&#xA;  &quot;5&quot;, &quot;1 second or better&quot;,&#xA;  &quot;6&quot;, &quot;NOS&quot;,&#xA;  &quot;7&quot;, &quot;3rd order triangulation&quot;&#xA;)" field="Location Accuracy Code Name" size="50" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <AnnotationText><![CDATA[
+]]></AnnotationText>
+          <DefaultAnnotationText>Location Accuracy Code = Substring([Field_1], 421, 1)
+Location Accuracy Code Nam...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="NAVAID Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="NAVAID Facility Type" size="20" source="Formula: Substring([Field_1], 8, 20)" type="V_String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 72, 40)" type="V_String" />
+            <Field name="NAVAID Facility Type Name" size="200" source="Formula: Switch(&#xA;  Trim([NAVAID Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;VORTAC&quot;, &quot;A facility consisting of two components, VOR and TACAN, which provides three individual services: VOR azimuth, TACAN azumuth, and TACAN distance (DME) at one site&quot;,&#xA;  &quot;VOR/DME&quot;, &quot;VHF omni-directional range with associated distance measuring equipment&quot;,&#xA;  &quot;FAN MARKER&quot;, &quot;An enroute marker beacon used to provide a positive identification of positions at definite points along the airways&quot;,&#xA;  &quot;CONSOLAN&quot;, &quot;A low frequency, long-distance NAVAID used principally for transoceanic navigation&quot;,&#xA;  &quot;MARINE NDB&quot;, &quot;A non-directional beacon used primarily for marine (surface) navigation&quot;,&#xA;  &quot;MARINE NDB/DME&quot;, &quot;A non-directional beacon with associated distance measuring equipment; used primarily for marine (surface) navigation&quot;,&#xA;  &quot;VOT&quot;, &quot;A FAA VOR test facility&quot;,&#xA;  &quot;NDB&quot;, &quot;A nondirectional beacon&quot;,&#xA;  &quot;NDB/DME&quot;, &quot;Non-directional beacon with associated distance measuring equipment&quot;,&#xA;  &quot;TACAN&quot;, &quot;A tactical air navigation system providing azimuth and slant range distance&quot;,&#xA;  &quot;UHF/NDB&quot;, &quot;Ultra high frequency / non-directional beacon&quot;,&#xA;  &quot;VOR&quot;, &quot;A VHF omni-directional range providing azimuth only&quot;,&#xA;  &quot;DME&quot;, &quot;Distance measuring equipment only&quot;&#xA;)" type="V_String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 32, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 42, 30)" type="V_String" />
+            <Field name="Associated City State Name" size="30" source="Formula: Substring([Field_1], 112, 30)" type="V_String" />
+            <Field name="Associated City State Code" size="2" source="Formula: Substring([Field_1], 142, 2)" type="String" />
+            <Field name="Responsible FAA Region" size="3" source="Formula: Substring([Field_1], 144,3)" type="String" />
+            <Field name="Responsible FAA Region Name" size="50" source="Formula: Switch(&#xA;  Trim([Responsible FAA Region]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot; ,&quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot; ,&quot;Western-Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Country Name" size="30" source="Formula: IF   IsEmpty(Trim([Country Name]))&#xA;THEN &quot;UNITED STATES&quot;&#xA;ELSE [Country Name]&#xA;ENDIF" type="V_String" />
+            <Field name="Country Code" size="2" source="Formula: IF   IsEmpty(Trim([Country Code]))&#xA;THEN 'US'&#xA;ELSE [Country Code]&#xA;ENDIF" type="String" />
+            <Field name="Owner Name" size="50" source="Formula: Substring([Field_1], 179, 50)" type="V_String" />
+            <Field name="Operator Name" size="50" source="Formula: Substring([Field_1], 229, 50)" type="V_String" />
+            <Field name="Common System Usage" size="1" source="Formula: Substring([Field_1], 279, 1)" type="String" />
+            <Field name="Public Use" size="1" source="Formula: Substring([Field_1], 280, 1)" type="String" />
+            <Field name="Class" size="11" source="Formula: Substring([Field_1], 281, 11)" type="V_String" />
+            <Field name="Hours of Operation" size="11" source="Formula: Substring([Field_1], 292, 11)" type="V_String" />
+            <Field name="High Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 303, 4)" type="String" />
+            <Field name="High Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 307, 30)" type="V_String" />
+            <Field name="Low Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 337, 4)" type="String" />
+            <Field name="Low Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 341, 30)" type="V_String" />
+            <Field name="NAVAID Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="NAVAID Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Location Accuracy Code" size="1" source="Formula: Substring([Field_1], 421, 1)" type="String" />
+            <Field name="Location Accuracy Code Name" size="50" source="Formula: Switch(&#xA;  [Location Accuracy Code], &quot;Unknown&quot;,&#xA;  &quot; &quot;, &quot;&quot;,&#xA;  &quot;1&quot;, &quot;Degree&quot;,&#xA;  &quot;2&quot;, &quot;10 minutes&quot;,&#xA;  &quot;3&quot;, &quot;1 minute&quot;,&#xA;  &quot;4&quot;, &quot;10 seconds&quot;,&#xA;  &quot;5&quot;, &quot;1 second or better&quot;,&#xA;  &quot;6&quot;, &quot;NOS&quot;,&#xA;  &quot;7&quot;, &quot;3rd order triangulation&quot;&#xA;)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings>
+        <Position x="894" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Prefix">Offsite TACAN</Value>
+          <Value name="LatStart">422</Value>
+          <Value name="LatLen">14</Value>
+          <Value name="LonStart">447</Value>
+          <Value name="LonLen">14</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="NAVAID Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="NAVAID Facility Type" size="20" source="Formula: Substring([Field_1], 8, 20)" type="V_String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 72, 40)" type="V_String" />
+            <Field name="NAVAID Facility Type Name" size="200" source="Formula: Switch(&#xA;  Trim([NAVAID Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;VORTAC&quot;, &quot;A facility consisting of two components, VOR and TACAN, which provides three individual services: VOR azimuth, TACAN azumuth, and TACAN distance (DME) at one site&quot;,&#xA;  &quot;VOR/DME&quot;, &quot;VHF omni-directional range with associated distance measuring equipment&quot;,&#xA;  &quot;FAN MARKER&quot;, &quot;An enroute marker beacon used to provide a positive identification of positions at definite points along the airways&quot;,&#xA;  &quot;CONSOLAN&quot;, &quot;A low frequency, long-distance NAVAID used principally for transoceanic navigation&quot;,&#xA;  &quot;MARINE NDB&quot;, &quot;A non-directional beacon used primarily for marine (surface) navigation&quot;,&#xA;  &quot;MARINE NDB/DME&quot;, &quot;A non-directional beacon with associated distance measuring equipment; used primarily for marine (surface) navigation&quot;,&#xA;  &quot;VOT&quot;, &quot;A FAA VOR test facility&quot;,&#xA;  &quot;NDB&quot;, &quot;A nondirectional beacon&quot;,&#xA;  &quot;NDB/DME&quot;, &quot;Non-directional beacon with associated distance measuring equipment&quot;,&#xA;  &quot;TACAN&quot;, &quot;A tactical air navigation system providing azimuth and slant range distance&quot;,&#xA;  &quot;UHF/NDB&quot;, &quot;Ultra high frequency / non-directional beacon&quot;,&#xA;  &quot;VOR&quot;, &quot;A VHF omni-directional range providing azimuth only&quot;,&#xA;  &quot;DME&quot;, &quot;Distance measuring equipment only&quot;&#xA;)" type="V_String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 32, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 42, 30)" type="V_String" />
+            <Field name="Associated City State Name" size="30" source="Formula: Substring([Field_1], 112, 30)" type="V_String" />
+            <Field name="Associated City State Code" size="2" source="Formula: Substring([Field_1], 142, 2)" type="String" />
+            <Field name="Responsible FAA Region" size="3" source="Formula: Substring([Field_1], 144,3)" type="String" />
+            <Field name="Responsible FAA Region Name" size="50" source="Formula: Switch(&#xA;  Trim([Responsible FAA Region]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot; ,&quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot; ,&quot;Western-Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Country Name" size="30" source="Formula: IF   IsEmpty(Trim([Country Name]))&#xA;THEN &quot;UNITED STATES&quot;&#xA;ELSE [Country Name]&#xA;ENDIF" type="V_String" />
+            <Field name="Country Code" size="2" source="Formula: IF   IsEmpty(Trim([Country Code]))&#xA;THEN 'US'&#xA;ELSE [Country Code]&#xA;ENDIF" type="String" />
+            <Field name="Owner Name" size="50" source="Formula: Substring([Field_1], 179, 50)" type="V_String" />
+            <Field name="Operator Name" size="50" source="Formula: Substring([Field_1], 229, 50)" type="V_String" />
+            <Field name="Common System Usage" size="1" source="Formula: Substring([Field_1], 279, 1)" type="String" />
+            <Field name="Public Use" size="1" source="Formula: Substring([Field_1], 280, 1)" type="String" />
+            <Field name="Class" size="11" source="Formula: Substring([Field_1], 281, 11)" type="V_String" />
+            <Field name="Hours of Operation" size="11" source="Formula: Substring([Field_1], 292, 11)" type="V_String" />
+            <Field name="High Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 303, 4)" type="String" />
+            <Field name="High Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 307, 30)" type="V_String" />
+            <Field name="Low Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 337, 4)" type="String" />
+            <Field name="Low Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 341, 30)" type="V_String" />
+            <Field name="NAVAID Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="NAVAID Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Location Accuracy Code" size="1" source="Formula: Substring([Field_1], 421, 1)" type="String" />
+            <Field name="Location Accuracy Code Name" size="50" source="Formula: Switch(&#xA;  [Location Accuracy Code], &quot;Unknown&quot;,&#xA;  &quot; &quot;, &quot;&quot;,&#xA;  &quot;1&quot;, &quot;Degree&quot;,&#xA;  &quot;2&quot;, &quot;10 minutes&quot;,&#xA;  &quot;3&quot;, &quot;1 minute&quot;,&#xA;  &quot;4&quot;, &quot;10 seconds&quot;,&#xA;  &quot;5&quot;, &quot;1 second or better&quot;,&#xA;  &quot;6&quot;, &quot;NOS&quot;,&#xA;  &quot;7&quot;, &quot;3rd order triangulation&quot;&#xA;)" type="V_String" />
+            <Field name="Offsite TACAN Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Offsite TACAN Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="utilities\Parse H-M-S Coordinates.yxmc" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="990" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ToNumber(Substring([Field_1], 472, 7))" field="Elevation" size="10.1" type="FixedDecimal" />
+            <FormulaField expression="Trim(Substring([Field_1], 479, 5))" field="RAW Magnetic Variation" size="5" type="V_String" />
+            <FormulaField expression="ToNumber(Left([RAW Magnetic Variation],2))" field="Magnetic Variation" size="4" type="Int32" />
+            <FormulaField expression="IF   Right(Trim([RAW Magnetic Variation]),1) = 'W'&#xA;THEN -[Magnetic Variation]&#xA;ELSE [Magnetic Variation]&#xA;ENDIF" field="Magnetic Variation" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 484, 4)" field="Magnetic Variation Epoch Year" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 488, 3)" field="Simultaneous Voice Feature" size="3" type="String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 491, 4))" field="Power Output" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 495, 3)" field="Automatic Voice Identification Feature" size="3" type="String" />
+            <FormulaField expression="Substring([Field_1], 498, 1)" field="Monitoring Category" size="1" type="String" />
+            <FormulaField expression="Switch(&#xA;  [Monitoring Category], &quot;Unknown&quot;,&#xA;  &quot; &quot; , &quot;&quot;,&#xA;  &quot;1&quot;, &quot;Internal monitoring plus a status indicator installed at control point&quot;,&#xA;  &quot;2&quot;, &quot;Internal monitoring with status indicator at control point inoperative but pilot reports indicate facility is operating normally&quot;,&#xA;  &quot;3&quot;, &quot;Internal monitoring only; status indicator not installed at control point&quot;,&#xA;  &quot;4&quot;, &quot;Internal monitor not installed, remote status indicator provided at control point&quot;&#xA;)" field="Monitoring Category Name" size="200" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <AnnotationText><![CDATA[
+]]></AnnotationText>
+          <DefaultAnnotationText>Elevation = ToNumber(Substring([Field_1], 472, 7))
+RAW Magnetic Variation = Trim...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="NAVAID Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="NAVAID Facility Type" size="20" source="Formula: Substring([Field_1], 8, 20)" type="V_String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 72, 40)" type="V_String" />
+            <Field name="NAVAID Facility Type Name" size="200" source="Formula: Switch(&#xA;  Trim([NAVAID Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;VORTAC&quot;, &quot;A facility consisting of two components, VOR and TACAN, which provides three individual services: VOR azimuth, TACAN azumuth, and TACAN distance (DME) at one site&quot;,&#xA;  &quot;VOR/DME&quot;, &quot;VHF omni-directional range with associated distance measuring equipment&quot;,&#xA;  &quot;FAN MARKER&quot;, &quot;An enroute marker beacon used to provide a positive identification of positions at definite points along the airways&quot;,&#xA;  &quot;CONSOLAN&quot;, &quot;A low frequency, long-distance NAVAID used principally for transoceanic navigation&quot;,&#xA;  &quot;MARINE NDB&quot;, &quot;A non-directional beacon used primarily for marine (surface) navigation&quot;,&#xA;  &quot;MARINE NDB/DME&quot;, &quot;A non-directional beacon with associated distance measuring equipment; used primarily for marine (surface) navigation&quot;,&#xA;  &quot;VOT&quot;, &quot;A FAA VOR test facility&quot;,&#xA;  &quot;NDB&quot;, &quot;A nondirectional beacon&quot;,&#xA;  &quot;NDB/DME&quot;, &quot;Non-directional beacon with associated distance measuring equipment&quot;,&#xA;  &quot;TACAN&quot;, &quot;A tactical air navigation system providing azimuth and slant range distance&quot;,&#xA;  &quot;UHF/NDB&quot;, &quot;Ultra high frequency / non-directional beacon&quot;,&#xA;  &quot;VOR&quot;, &quot;A VHF omni-directional range providing azimuth only&quot;,&#xA;  &quot;DME&quot;, &quot;Distance measuring equipment only&quot;&#xA;)" type="V_String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 32, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 42, 30)" type="V_String" />
+            <Field name="Associated City State Name" size="30" source="Formula: Substring([Field_1], 112, 30)" type="V_String" />
+            <Field name="Associated City State Code" size="2" source="Formula: Substring([Field_1], 142, 2)" type="String" />
+            <Field name="Responsible FAA Region" size="3" source="Formula: Substring([Field_1], 144,3)" type="String" />
+            <Field name="Responsible FAA Region Name" size="50" source="Formula: Switch(&#xA;  Trim([Responsible FAA Region]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot; ,&quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot; ,&quot;Western-Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Country Name" size="30" source="Formula: IF   IsEmpty(Trim([Country Name]))&#xA;THEN &quot;UNITED STATES&quot;&#xA;ELSE [Country Name]&#xA;ENDIF" type="V_String" />
+            <Field name="Country Code" size="2" source="Formula: IF   IsEmpty(Trim([Country Code]))&#xA;THEN 'US'&#xA;ELSE [Country Code]&#xA;ENDIF" type="String" />
+            <Field name="Owner Name" size="50" source="Formula: Substring([Field_1], 179, 50)" type="V_String" />
+            <Field name="Operator Name" size="50" source="Formula: Substring([Field_1], 229, 50)" type="V_String" />
+            <Field name="Common System Usage" size="1" source="Formula: Substring([Field_1], 279, 1)" type="String" />
+            <Field name="Public Use" size="1" source="Formula: Substring([Field_1], 280, 1)" type="String" />
+            <Field name="Class" size="11" source="Formula: Substring([Field_1], 281, 11)" type="V_String" />
+            <Field name="Hours of Operation" size="11" source="Formula: Substring([Field_1], 292, 11)" type="V_String" />
+            <Field name="High Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 303, 4)" type="String" />
+            <Field name="High Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 307, 30)" type="V_String" />
+            <Field name="Low Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 337, 4)" type="String" />
+            <Field name="Low Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 341, 30)" type="V_String" />
+            <Field name="NAVAID Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="NAVAID Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Location Accuracy Code" size="1" source="Formula: Substring([Field_1], 421, 1)" type="String" />
+            <Field name="Location Accuracy Code Name" size="50" source="Formula: Switch(&#xA;  [Location Accuracy Code], &quot;Unknown&quot;,&#xA;  &quot; &quot;, &quot;&quot;,&#xA;  &quot;1&quot;, &quot;Degree&quot;,&#xA;  &quot;2&quot;, &quot;10 minutes&quot;,&#xA;  &quot;3&quot;, &quot;1 minute&quot;,&#xA;  &quot;4&quot;, &quot;10 seconds&quot;,&#xA;  &quot;5&quot;, &quot;1 second or better&quot;,&#xA;  &quot;6&quot;, &quot;NOS&quot;,&#xA;  &quot;7&quot;, &quot;3rd order triangulation&quot;&#xA;)" type="V_String" />
+            <Field name="Offsite TACAN Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Offsite TACAN Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 472, 7))" type="FixedDecimal" />
+            <Field name="RAW Magnetic Variation" size="5" source="Formula: Trim(Substring([Field_1], 479, 5))" type="V_String" />
+            <Field name="Magnetic Variation" source="Formula: IF   Right(Trim([RAW Magnetic Variation]),1) = 'W'&#xA;THEN -[Magnetic Variation]&#xA;ELSE [Magnetic Variation]&#xA;ENDIF" type="Int32" />
+            <Field name="Magnetic Variation Epoch Year" size="4" source="Formula: Substring([Field_1], 484, 4)" type="String" />
+            <Field name="Simultaneous Voice Feature" size="3" source="Formula: Substring([Field_1], 488, 3)" type="String" />
+            <Field name="Power Output" source="Formula: ToNumber(Substring([Field_1], 491, 4))" type="Int32" />
+            <Field name="Automatic Voice Identification Feature" size="3" source="Formula: Substring([Field_1], 495, 3)" type="String" />
+            <Field name="Monitoring Category" size="1" source="Formula: Substring([Field_1], 498, 1)" type="String" />
+            <Field name="Monitoring Category Name" size="200" source="Formula: Switch(&#xA;  [Monitoring Category], &quot;Unknown&quot;,&#xA;  &quot; &quot; , &quot;&quot;,&#xA;  &quot;1&quot;, &quot;Internal monitoring plus a status indicator installed at control point&quot;,&#xA;  &quot;2&quot;, &quot;Internal monitoring with status indicator at control point inoperative but pilot reports indicate facility is operating normally&quot;,&#xA;  &quot;3&quot;, &quot;Internal monitoring only; status indicator not installed at control point&quot;,&#xA;  &quot;4&quot;, &quot;Internal monitor not installed, remote status indicator provided at control point&quot;&#xA;)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1086" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 499, 30)" field="Radio Voice Call" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 529, 4)" field="Transmit Channel" size="4" type="String" />
+            <FormulaField expression="ToNumber(Trim(Substring([Field_1], 533, 6)))" field="Transmit Frequency" size="10.3" type="FixedDecimal" />
+            <FormulaField expression="Substring([Field_1], 539, 24)" field="Transmitted Identifier" size="24" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 563, 10)" field="Fan Marker Type" size="10" type="V_String" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 573, 3))" field="Fan Marker Major Axis True Bearing" size="4" type="Int32" />
+            <FormulaField expression="Substring([Field_1], 576, 1)" field="Protected Frequency Altitude" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 577, 3)" field="Low Altitude Facility Used in High Structure" size="3" type="String" />
+            <FormulaField expression="Substring([Field_1], 580, 3)" field="Z Marker Available" size="3" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 583, 9)" field="Transcribed Weather Broadcast Hours" size="9" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 583, 9)" field="Transcribed Weather Broadcast Phone Number" size="9" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 612, 4)" field="Associated FSS ID" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 616, 30)" field="Associated FSS Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 646, 100)" field="FSS Hours of Operation" size="100" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>Radio Voice Call = Substring([Field_1], 499, 30)
+Transmit Channel = Substring([F...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="NAVAID Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="NAVAID Facility Type" size="20" source="Formula: Substring([Field_1], 8, 20)" type="V_String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 72, 40)" type="V_String" />
+            <Field name="NAVAID Facility Type Name" size="200" source="Formula: Switch(&#xA;  Trim([NAVAID Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;VORTAC&quot;, &quot;A facility consisting of two components, VOR and TACAN, which provides three individual services: VOR azimuth, TACAN azumuth, and TACAN distance (DME) at one site&quot;,&#xA;  &quot;VOR/DME&quot;, &quot;VHF omni-directional range with associated distance measuring equipment&quot;,&#xA;  &quot;FAN MARKER&quot;, &quot;An enroute marker beacon used to provide a positive identification of positions at definite points along the airways&quot;,&#xA;  &quot;CONSOLAN&quot;, &quot;A low frequency, long-distance NAVAID used principally for transoceanic navigation&quot;,&#xA;  &quot;MARINE NDB&quot;, &quot;A non-directional beacon used primarily for marine (surface) navigation&quot;,&#xA;  &quot;MARINE NDB/DME&quot;, &quot;A non-directional beacon with associated distance measuring equipment; used primarily for marine (surface) navigation&quot;,&#xA;  &quot;VOT&quot;, &quot;A FAA VOR test facility&quot;,&#xA;  &quot;NDB&quot;, &quot;A nondirectional beacon&quot;,&#xA;  &quot;NDB/DME&quot;, &quot;Non-directional beacon with associated distance measuring equipment&quot;,&#xA;  &quot;TACAN&quot;, &quot;A tactical air navigation system providing azimuth and slant range distance&quot;,&#xA;  &quot;UHF/NDB&quot;, &quot;Ultra high frequency / non-directional beacon&quot;,&#xA;  &quot;VOR&quot;, &quot;A VHF omni-directional range providing azimuth only&quot;,&#xA;  &quot;DME&quot;, &quot;Distance measuring equipment only&quot;&#xA;)" type="V_String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 32, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 42, 30)" type="V_String" />
+            <Field name="Associated City State Name" size="30" source="Formula: Substring([Field_1], 112, 30)" type="V_String" />
+            <Field name="Associated City State Code" size="2" source="Formula: Substring([Field_1], 142, 2)" type="String" />
+            <Field name="Responsible FAA Region" size="3" source="Formula: Substring([Field_1], 144,3)" type="String" />
+            <Field name="Responsible FAA Region Name" size="50" source="Formula: Switch(&#xA;  Trim([Responsible FAA Region]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot; ,&quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot; ,&quot;Western-Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Country Name" size="30" source="Formula: IF   IsEmpty(Trim([Country Name]))&#xA;THEN &quot;UNITED STATES&quot;&#xA;ELSE [Country Name]&#xA;ENDIF" type="V_String" />
+            <Field name="Country Code" size="2" source="Formula: IF   IsEmpty(Trim([Country Code]))&#xA;THEN 'US'&#xA;ELSE [Country Code]&#xA;ENDIF" type="String" />
+            <Field name="Owner Name" size="50" source="Formula: Substring([Field_1], 179, 50)" type="V_String" />
+            <Field name="Operator Name" size="50" source="Formula: Substring([Field_1], 229, 50)" type="V_String" />
+            <Field name="Common System Usage" size="1" source="Formula: Substring([Field_1], 279, 1)" type="String" />
+            <Field name="Public Use" size="1" source="Formula: Substring([Field_1], 280, 1)" type="String" />
+            <Field name="Class" size="11" source="Formula: Substring([Field_1], 281, 11)" type="V_String" />
+            <Field name="Hours of Operation" size="11" source="Formula: Substring([Field_1], 292, 11)" type="V_String" />
+            <Field name="High Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 303, 4)" type="String" />
+            <Field name="High Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 307, 30)" type="V_String" />
+            <Field name="Low Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 337, 4)" type="String" />
+            <Field name="Low Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 341, 30)" type="V_String" />
+            <Field name="NAVAID Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="NAVAID Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Location Accuracy Code" size="1" source="Formula: Substring([Field_1], 421, 1)" type="String" />
+            <Field name="Location Accuracy Code Name" size="50" source="Formula: Switch(&#xA;  [Location Accuracy Code], &quot;Unknown&quot;,&#xA;  &quot; &quot;, &quot;&quot;,&#xA;  &quot;1&quot;, &quot;Degree&quot;,&#xA;  &quot;2&quot;, &quot;10 minutes&quot;,&#xA;  &quot;3&quot;, &quot;1 minute&quot;,&#xA;  &quot;4&quot;, &quot;10 seconds&quot;,&#xA;  &quot;5&quot;, &quot;1 second or better&quot;,&#xA;  &quot;6&quot;, &quot;NOS&quot;,&#xA;  &quot;7&quot;, &quot;3rd order triangulation&quot;&#xA;)" type="V_String" />
+            <Field name="Offsite TACAN Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Offsite TACAN Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 472, 7))" type="FixedDecimal" />
+            <Field name="RAW Magnetic Variation" size="5" source="Formula: Trim(Substring([Field_1], 479, 5))" type="V_String" />
+            <Field name="Magnetic Variation" source="Formula: IF   Right(Trim([RAW Magnetic Variation]),1) = 'W'&#xA;THEN -[Magnetic Variation]&#xA;ELSE [Magnetic Variation]&#xA;ENDIF" type="Int32" />
+            <Field name="Magnetic Variation Epoch Year" size="4" source="Formula: Substring([Field_1], 484, 4)" type="String" />
+            <Field name="Simultaneous Voice Feature" size="3" source="Formula: Substring([Field_1], 488, 3)" type="String" />
+            <Field name="Power Output" source="Formula: ToNumber(Substring([Field_1], 491, 4))" type="Int32" />
+            <Field name="Automatic Voice Identification Feature" size="3" source="Formula: Substring([Field_1], 495, 3)" type="String" />
+            <Field name="Monitoring Category" size="1" source="Formula: Substring([Field_1], 498, 1)" type="String" />
+            <Field name="Monitoring Category Name" size="200" source="Formula: Switch(&#xA;  [Monitoring Category], &quot;Unknown&quot;,&#xA;  &quot; &quot; , &quot;&quot;,&#xA;  &quot;1&quot;, &quot;Internal monitoring plus a status indicator installed at control point&quot;,&#xA;  &quot;2&quot;, &quot;Internal monitoring with status indicator at control point inoperative but pilot reports indicate facility is operating normally&quot;,&#xA;  &quot;3&quot;, &quot;Internal monitoring only; status indicator not installed at control point&quot;,&#xA;  &quot;4&quot;, &quot;Internal monitor not installed, remote status indicator provided at control point&quot;&#xA;)" type="V_String" />
+            <Field name="Radio Voice Call" size="30" source="Formula: Substring([Field_1], 499, 30)" type="V_String" />
+            <Field name="Transmit Channel" size="4" source="Formula: Substring([Field_1], 529, 4)" type="String" />
+            <Field name="Transmit Frequency" scale="3" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 533, 6)))" type="FixedDecimal" />
+            <Field name="Transmitted Identifier" size="24" source="Formula: Substring([Field_1], 539, 24)" type="V_String" />
+            <Field name="Fan Marker Type" size="10" source="Formula: Substring([Field_1], 563, 10)" type="V_String" />
+            <Field name="Fan Marker Major Axis True Bearing" source="Formula: ToNumber(Substring([Field_1], 573, 3))" type="Int32" />
+            <Field name="Protected Frequency Altitude" size="1" source="Formula: Substring([Field_1], 576, 1)" type="String" />
+            <Field name="Low Altitude Facility Used in High Structure" size="3" source="Formula: Substring([Field_1], 577, 3)" type="String" />
+            <Field name="Z Marker Available" size="3" source="Formula: Substring([Field_1], 580, 3)" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Hours" size="9" source="Formula: Substring([Field_1], 583, 9)" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Phone Number" size="9" source="Formula: Substring([Field_1], 583, 9)" type="V_String" />
+            <Field name="Associated FSS ID" size="4" source="Formula: Substring([Field_1], 612, 4)" type="String" />
+            <Field name="Associated FSS Name" size="30" source="Formula: Substring([Field_1], 616, 30)" type="V_String" />
+            <Field name="FSS Hours of Operation" size="100" source="Formula: Substring([Field_1], 646, 100)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1182" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 746, 4)" field="NOTAM Accountability Code" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 750, 16)" field="Quadrant ID and Range Leg Bearing" size="16" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 766, 30)" field="NAVAID Status" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 796, 1)" field="Pitch Flag" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 797, 1)" field="Catch Flag" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 798, 1)" field="SUA ATCAA Flag" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 799, 1)" field="NAVAID Restriction Flag" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 800, 1)" field="HIWAS Flag" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 801, 1)" field="Transcribed Weather Broadcast Restriction" size="1" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <AnnotationText><![CDATA[
+]]></AnnotationText>
+          <DefaultAnnotationText>NOTAM Accountability Code = Substring([Field_1], 746, 4)
+Quadrant ID and Range L...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="NAVAID Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="NAVAID Facility Type" size="20" source="Formula: Substring([Field_1], 8, 20)" type="V_String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 72, 40)" type="V_String" />
+            <Field name="NAVAID Facility Type Name" size="200" source="Formula: Switch(&#xA;  Trim([NAVAID Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;VORTAC&quot;, &quot;A facility consisting of two components, VOR and TACAN, which provides three individual services: VOR azimuth, TACAN azumuth, and TACAN distance (DME) at one site&quot;,&#xA;  &quot;VOR/DME&quot;, &quot;VHF omni-directional range with associated distance measuring equipment&quot;,&#xA;  &quot;FAN MARKER&quot;, &quot;An enroute marker beacon used to provide a positive identification of positions at definite points along the airways&quot;,&#xA;  &quot;CONSOLAN&quot;, &quot;A low frequency, long-distance NAVAID used principally for transoceanic navigation&quot;,&#xA;  &quot;MARINE NDB&quot;, &quot;A non-directional beacon used primarily for marine (surface) navigation&quot;,&#xA;  &quot;MARINE NDB/DME&quot;, &quot;A non-directional beacon with associated distance measuring equipment; used primarily for marine (surface) navigation&quot;,&#xA;  &quot;VOT&quot;, &quot;A FAA VOR test facility&quot;,&#xA;  &quot;NDB&quot;, &quot;A nondirectional beacon&quot;,&#xA;  &quot;NDB/DME&quot;, &quot;Non-directional beacon with associated distance measuring equipment&quot;,&#xA;  &quot;TACAN&quot;, &quot;A tactical air navigation system providing azimuth and slant range distance&quot;,&#xA;  &quot;UHF/NDB&quot;, &quot;Ultra high frequency / non-directional beacon&quot;,&#xA;  &quot;VOR&quot;, &quot;A VHF omni-directional range providing azimuth only&quot;,&#xA;  &quot;DME&quot;, &quot;Distance measuring equipment only&quot;&#xA;)" type="V_String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 32, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 42, 30)" type="V_String" />
+            <Field name="Associated City State Name" size="30" source="Formula: Substring([Field_1], 112, 30)" type="V_String" />
+            <Field name="Associated City State Code" size="2" source="Formula: Substring([Field_1], 142, 2)" type="String" />
+            <Field name="Responsible FAA Region" size="3" source="Formula: Substring([Field_1], 144,3)" type="String" />
+            <Field name="Responsible FAA Region Name" size="50" source="Formula: Switch(&#xA;  Trim([Responsible FAA Region]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot; ,&quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot; ,&quot;Western-Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Country Name" size="30" source="Formula: IF   IsEmpty(Trim([Country Name]))&#xA;THEN &quot;UNITED STATES&quot;&#xA;ELSE [Country Name]&#xA;ENDIF" type="V_String" />
+            <Field name="Country Code" size="2" source="Formula: IF   IsEmpty(Trim([Country Code]))&#xA;THEN 'US'&#xA;ELSE [Country Code]&#xA;ENDIF" type="String" />
+            <Field name="Owner Name" size="50" source="Formula: Substring([Field_1], 179, 50)" type="V_String" />
+            <Field name="Operator Name" size="50" source="Formula: Substring([Field_1], 229, 50)" type="V_String" />
+            <Field name="Common System Usage" size="1" source="Formula: Substring([Field_1], 279, 1)" type="String" />
+            <Field name="Public Use" size="1" source="Formula: Substring([Field_1], 280, 1)" type="String" />
+            <Field name="Class" size="11" source="Formula: Substring([Field_1], 281, 11)" type="V_String" />
+            <Field name="Hours of Operation" size="11" source="Formula: Substring([Field_1], 292, 11)" type="V_String" />
+            <Field name="High Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 303, 4)" type="String" />
+            <Field name="High Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 307, 30)" type="V_String" />
+            <Field name="Low Altitude ARTCC ID" size="4" source="Formula: Substring([Field_1], 337, 4)" type="String" />
+            <Field name="Low Altitude ARTCC Name" size="30" source="Formula: Substring([Field_1], 341, 30)" type="V_String" />
+            <Field name="NAVAID Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="NAVAID Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Location Accuracy Code" size="1" source="Formula: Substring([Field_1], 421, 1)" type="String" />
+            <Field name="Location Accuracy Code Name" size="50" source="Formula: Switch(&#xA;  [Location Accuracy Code], &quot;Unknown&quot;,&#xA;  &quot; &quot;, &quot;&quot;,&#xA;  &quot;1&quot;, &quot;Degree&quot;,&#xA;  &quot;2&quot;, &quot;10 minutes&quot;,&#xA;  &quot;3&quot;, &quot;1 minute&quot;,&#xA;  &quot;4&quot;, &quot;10 seconds&quot;,&#xA;  &quot;5&quot;, &quot;1 second or better&quot;,&#xA;  &quot;6&quot;, &quot;NOS&quot;,&#xA;  &quot;7&quot;, &quot;3rd order triangulation&quot;&#xA;)" type="V_String" />
+            <Field name="Offsite TACAN Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Offsite TACAN Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 472, 7))" type="FixedDecimal" />
+            <Field name="RAW Magnetic Variation" size="5" source="Formula: Trim(Substring([Field_1], 479, 5))" type="V_String" />
+            <Field name="Magnetic Variation" source="Formula: IF   Right(Trim([RAW Magnetic Variation]),1) = 'W'&#xA;THEN -[Magnetic Variation]&#xA;ELSE [Magnetic Variation]&#xA;ENDIF" type="Int32" />
+            <Field name="Magnetic Variation Epoch Year" size="4" source="Formula: Substring([Field_1], 484, 4)" type="String" />
+            <Field name="Simultaneous Voice Feature" size="3" source="Formula: Substring([Field_1], 488, 3)" type="String" />
+            <Field name="Power Output" source="Formula: ToNumber(Substring([Field_1], 491, 4))" type="Int32" />
+            <Field name="Automatic Voice Identification Feature" size="3" source="Formula: Substring([Field_1], 495, 3)" type="String" />
+            <Field name="Monitoring Category" size="1" source="Formula: Substring([Field_1], 498, 1)" type="String" />
+            <Field name="Monitoring Category Name" size="200" source="Formula: Switch(&#xA;  [Monitoring Category], &quot;Unknown&quot;,&#xA;  &quot; &quot; , &quot;&quot;,&#xA;  &quot;1&quot;, &quot;Internal monitoring plus a status indicator installed at control point&quot;,&#xA;  &quot;2&quot;, &quot;Internal monitoring with status indicator at control point inoperative but pilot reports indicate facility is operating normally&quot;,&#xA;  &quot;3&quot;, &quot;Internal monitoring only; status indicator not installed at control point&quot;,&#xA;  &quot;4&quot;, &quot;Internal monitor not installed, remote status indicator provided at control point&quot;&#xA;)" type="V_String" />
+            <Field name="Radio Voice Call" size="30" source="Formula: Substring([Field_1], 499, 30)" type="V_String" />
+            <Field name="Transmit Channel" size="4" source="Formula: Substring([Field_1], 529, 4)" type="String" />
+            <Field name="Transmit Frequency" scale="3" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 533, 6)))" type="FixedDecimal" />
+            <Field name="Transmitted Identifier" size="24" source="Formula: Substring([Field_1], 539, 24)" type="V_String" />
+            <Field name="Fan Marker Type" size="10" source="Formula: Substring([Field_1], 563, 10)" type="V_String" />
+            <Field name="Fan Marker Major Axis True Bearing" source="Formula: ToNumber(Substring([Field_1], 573, 3))" type="Int32" />
+            <Field name="Protected Frequency Altitude" size="1" source="Formula: Substring([Field_1], 576, 1)" type="String" />
+            <Field name="Low Altitude Facility Used in High Structure" size="3" source="Formula: Substring([Field_1], 577, 3)" type="String" />
+            <Field name="Z Marker Available" size="3" source="Formula: Substring([Field_1], 580, 3)" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Hours" size="9" source="Formula: Substring([Field_1], 583, 9)" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Phone Number" size="9" source="Formula: Substring([Field_1], 583, 9)" type="V_String" />
+            <Field name="Associated FSS ID" size="4" source="Formula: Substring([Field_1], 612, 4)" type="String" />
+            <Field name="Associated FSS Name" size="30" source="Formula: Substring([Field_1], 616, 30)" type="V_String" />
+            <Field name="FSS Hours of Operation" size="100" source="Formula: Substring([Field_1], 646, 100)" type="V_String" />
+            <Field name="NOTAM Accountability Code" size="4" source="Formula: Substring([Field_1], 746, 4)" type="String" />
+            <Field name="Quadrant ID and Range Leg Bearing" size="16" source="Formula: Substring([Field_1], 750, 16)" type="V_String" />
+            <Field name="NAVAID Status" size="30" source="Formula: Substring([Field_1], 766, 30)" type="V_String" />
+            <Field name="Pitch Flag" size="1" source="Formula: Substring([Field_1], 796, 1)" type="String" />
+            <Field name="Catch Flag" size="1" source="Formula: Substring([Field_1], 797, 1)" type="String" />
+            <Field name="SUA ATCAA Flag" size="1" source="Formula: Substring([Field_1], 798, 1)" type="String" />
+            <Field name="NAVAID Restriction Flag" size="1" source="Formula: Substring([Field_1], 799, 1)" type="String" />
+            <Field name="HIWAS Flag" size="1" source="Formula: Substring([Field_1], 800, 1)" type="String" />
+            <Field name="Transcribed Weather Broadcast Restriction" size="1" source="Formula: Substring([Field_1], 801, 1)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="True" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (2)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (8)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>NAV1</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="ffbdf8d6-e694-4ad1-b765-3b05f76d71db" />
+      <Telemetry>
+        <PreviousWorkflowId value="06ef350d-1571-462f-ab68-a48fe2e4d295" />
+        <OriginWorkflowId value="ffbdf8d6-e694-4ad1-b765-3b05f76d71db" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (2)</Description>
+              <Name>Macro Input (2)</Name>
+              <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description />
+              <Name>Macro Output (8)</Name>
+              <ToolId value="8" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="8" Selected="False" />
+        <Tool ToolId="13" Selected="True" />
+        <Tool ToolId="15" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
