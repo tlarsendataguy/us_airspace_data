@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="174" y="210" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -15,7 +15,7 @@
           <FileInput>
             <Configuration>
               <Passwords />
-              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\SSD.txt</File>
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\STARDP.txt</File>
               <FormatSpecificOptions>
                 <HeaderRow>False</HeaderRow>
                 <IgnoreErrors>False</IgnoreErrors>
@@ -33,7 +33,7 @@
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>SSD.txt</DefaultAnnotationText>
+          <DefaultAnnotationText>STARDP.txt</DefaultAnnotationText>
           <Left value="True" />
         </Annotation>
         <Dependencies>
@@ -41,7 +41,7 @@
         </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\SSD.txt" type="V_String" />
+            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\STARDP.txt" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -49,7 +49,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="2286" y="210" />
+        <Position x="2166" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -66,7 +66,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="270" y="210" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -87,7 +87,7 @@ Fix Type = Substring([Fiel...</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\SSD.txt" type="V_String" />
+            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\STARDP.txt" type="V_String" />
             <Field name="Internal Sequence Number" size="5" source="Formula: Substring([Field_1], 0, 5)" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Substring([Field_1], 10, 2)" type="String" />
             <Field name="Fix Type Name" size="1073741823" source="Formula: Switch(&#xA;  Trim([Fix Type]), 'Unknown',&#xA;  'AA', 'Adapted Airport',&#xA;  'B',  'Break In Route',&#xA;  'C',  'Coordinated Fix',&#xA;  'CN', 'Computer Navigation Fix',&#xA;  'D',  'Distance Measuring Equipment (DME)',&#xA;  'E',  'Entry (ARTCC)',&#xA;  'I',  'Bearing Intersection',&#xA;  'IB', 'Air Routes Bearing Intersection',&#xA;  'IS', 'Segment Bearing Intersection',&#xA;  'NA', 'Airport',&#xA;  'ND', 'VOR with DME',&#xA;  'NO', 'DME Only',&#xA;  'NV', 'VOR',&#xA;  'NW', 'VORTAC',&#xA;  'NX', 'RBN',&#xA;  'NT', 'TACAN',&#xA;  'NZ', 'ILS',&#xA;  'N7', 'LFR',&#xA;  'N8', 'VHFRBN',&#xA;  'N9', 'VHFRBN',&#xA;  'P',  'Waypoint',&#xA;  'R',  'Reporting Point',&#xA;  'SS', 'Start STARS Departing',&#xA;  'ST', 'Start STARS Transition',&#xA;  'T',  'Turning Point',&#xA;  'TA', 'Turning Point',&#xA;  'TP', 'Turning Point',&#xA;  'TT', 'Training Point',&#xA;  'U',  'ARTCC Boundary Point',&#xA;  'XA', 'Airway Crossing',&#xA;  'XT', 'Transition Crossing',&#xA;  'Z',  'ARTCC Boundary Crossing'&#xA;)" type="V_WString" />
@@ -102,6 +102,7 @@ Fix Type = Substring([Fiel...</DefaultAnnotationText>
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -111,7 +112,7 @@ Fix Type = Substring([Fiel...</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="366" y="210" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -131,7 +132,7 @@ ToNumber(Substring([Field_1],...</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\SSD.txt" type="V_String" />
+            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\STARDP.txt" type="V_String" />
             <Field name="Internal Sequence Number" size="5" source="Formula: Substring([Field_1], 0, 5)" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Substring([Field_1], 10, 2)" type="String" />
             <Field name="Fix Type Name" size="1073741823" source="Formula: Switch(&#xA;  Trim([Fix Type]), 'Unknown',&#xA;  'AA', 'Adapted Airport',&#xA;  'B',  'Break In Route',&#xA;  'C',  'Coordinated Fix',&#xA;  'CN', 'Computer Navigation Fix',&#xA;  'D',  'Distance Measuring Equipment (DME)',&#xA;  'E',  'Entry (ARTCC)',&#xA;  'I',  'Bearing Intersection',&#xA;  'IB', 'Air Routes Bearing Intersection',&#xA;  'IS', 'Segment Bearing Intersection',&#xA;  'NA', 'Airport',&#xA;  'ND', 'VOR with DME',&#xA;  'NO', 'DME Only',&#xA;  'NV', 'VOR',&#xA;  'NW', 'VORTAC',&#xA;  'NX', 'RBN',&#xA;  'NT', 'TACAN',&#xA;  'NZ', 'ILS',&#xA;  'N7', 'LFR',&#xA;  'N8', 'VHFRBN',&#xA;  'N9', 'VHFRBN',&#xA;  'P',  'Waypoint',&#xA;  'R',  'Reporting Point',&#xA;  'SS', 'Start STARS Departing',&#xA;  'ST', 'Start STARS Transition',&#xA;  'T',  'Turning Point',&#xA;  'TA', 'Turning Point',&#xA;  'TP', 'Turning Point',&#xA;  'TT', 'Training Point',&#xA;  'U',  'ARTCC Boundary Point',&#xA;  'XA', 'Airway Crossing',&#xA;  'XT', 'Transition Crossing',&#xA;  'Z',  'ARTCC Boundary Crossing'&#xA;)" type="V_WString" />
@@ -145,7 +146,7 @@ ToNumber(Substring([Field_1],...</DefaultAnnotationText>
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="462" y="210" />
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -165,7 +166,7 @@ ICAO Region Code = Substring([Field_1], 36,...</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\SSD.txt" type="V_String" />
+            <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\STARDP.txt" type="V_String" />
             <Field name="Internal Sequence Number" size="5" source="Formula: Substring([Field_1], 0, 5)" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Substring([Field_1], 10, 2)" type="String" />
             <Field name="Fix Type Name" size="1073741823" source="Formula: Switch(&#xA;  Trim([Fix Type]), 'Unknown',&#xA;  'AA', 'Adapted Airport',&#xA;  'B',  'Break In Route',&#xA;  'C',  'Coordinated Fix',&#xA;  'CN', 'Computer Navigation Fix',&#xA;  'D',  'Distance Measuring Equipment (DME)',&#xA;  'E',  'Entry (ARTCC)',&#xA;  'I',  'Bearing Intersection',&#xA;  'IB', 'Air Routes Bearing Intersection',&#xA;  'IS', 'Segment Bearing Intersection',&#xA;  'NA', 'Airport',&#xA;  'ND', 'VOR with DME',&#xA;  'NO', 'DME Only',&#xA;  'NV', 'VOR',&#xA;  'NW', 'VORTAC',&#xA;  'NX', 'RBN',&#xA;  'NT', 'TACAN',&#xA;  'NZ', 'ILS',&#xA;  'N7', 'LFR',&#xA;  'N8', 'VHFRBN',&#xA;  'N9', 'VHFRBN',&#xA;  'P',  'Waypoint',&#xA;  'R',  'Reporting Point',&#xA;  'SS', 'Start STARS Departing',&#xA;  'ST', 'Start STARS Transition',&#xA;  'T',  'Turning Point',&#xA;  'TA', 'Turning Point',&#xA;  'TP', 'Turning Point',&#xA;  'TT', 'Training Point',&#xA;  'U',  'ARTCC Boundary Point',&#xA;  'XA', 'Airway Crossing',&#xA;  'XT', 'Transition Crossing',&#xA;  'Z',  'ARTCC Boundary Crossing'&#xA;)" type="V_WString" />
@@ -184,7 +185,7 @@ ICAO Region Code = Substring([Field_1], 36,...</DefaultAnnotationText>
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="558" y="210" />
+        <Position x="438" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -220,7 +221,7 @@ ICAO Region Code = Substring([Field_1], 36,...</DefaultAnnotationText>
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="654" y="210" />
+        <Position x="534" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -264,7 +265,7 @@ ICAO Region Code = Substring([Field_1], 36,...</DefaultAnnotationText>
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="942" y="210" />
+        <Position x="822" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -312,7 +313,7 @@ ENDIF</DefaultAnnotationText>
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="750" y="210" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -356,7 +357,7 @@ ENDIF</Expression>
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="846" y="210" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -405,7 +406,7 @@ ELSEI...</DefaultAnnotationText>
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1230" y="210" />
+        <Position x="1110" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -440,7 +441,7 @@ ELSEI...</DefaultAnnotationText>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -455,7 +456,7 @@ ELSEI...</DefaultAnnotationText>
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="1134" y="210" />
+        <Position x="1014" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -466,7 +467,7 @@ ELSEI...</DefaultAnnotationText>
           <CreateField_Size>8</CreateField_Size>
           <OtherRows>Empty</OtherRows>
           <NumRows value="1" />
-          <Expression>IF   [ID] != [Row-1:ID]
+          <Expression>IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]
 THEN 1
 ELSE [Row-1:Sequence]+1
 ENDIF</Expression>
@@ -475,10 +476,9 @@ ENDIF</Expression>
         <Annotation DisplayMode="0">
           <Name />
           <AnnotationText>Sequence</AnnotationText>
-          <DefaultAnnotationText>IF   [ID] != [Row-1:ID]
+          <DefaultAnnotationText>IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]
 THEN 1
-ELSE [Row-1:Sequence]+1
-ENDIF</DefaultAnnotationText>
+ELSE...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
@@ -496,7 +496,7 @@ ENDIF</DefaultAnnotationText>
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field description="Formula: IF   [Row-1:Internal Sequence Number] !=[Internal Sequence Number]&#xA;THEN 1&#xA;ELSE [Row-1:Computer Code Record Number]+1&#xA;ENDIF" name="Computer Code Record Number" source="Formula: IF   [Row-1:Internal Sequence Number] !=[Internal Sequence Number]&#xA;THEN 1&#xA;ELSE [Row-1:Computer Code Record Number]+1&#xA;ENDIF" type="Int64" />
             <Field description="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" name="Type" size="20" source="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -504,7 +504,7 @@ ENDIF</DefaultAnnotationText>
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1230" y="294" />
+        <Position x="1110" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -546,7 +546,7 @@ ENDIF</DefaultAnnotationText>
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field description="Formula: IF   [Row-1:Internal Sequence Number] !=[Internal Sequence Number]&#xA;THEN 1&#xA;ELSE [Row-1:Computer Code Record Number]+1&#xA;ENDIF" name="Computer Code Record Number" source="Formula: IF   [Row-1:Internal Sequence Number] !=[Internal Sequence Number]&#xA;THEN 1&#xA;ELSE [Row-1:Computer Code Record Number]+1&#xA;ENDIF" type="Int64" />
             <Field description="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" name="Type" size="20" source="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
           </RecordInfo>
         </MetaInfo>
         <MetaInfo connection="False">
@@ -564,7 +564,7 @@ ENDIF</DefaultAnnotationText>
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field description="Formula: IF   [Row-1:Internal Sequence Number] !=[Internal Sequence Number]&#xA;THEN 1&#xA;ELSE [Row-1:Computer Code Record Number]+1&#xA;ENDIF" name="Computer Code Record Number" source="Formula: IF   [Row-1:Internal Sequence Number] !=[Internal Sequence Number]&#xA;THEN 1&#xA;ELSE [Row-1:Computer Code Record Number]+1&#xA;ENDIF" type="Int64" />
             <Field description="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" name="Type" size="20" source="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -572,7 +572,7 @@ ENDIF</DefaultAnnotationText>
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1326" y="294" />
+        <Position x="1206" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -587,9 +587,9 @@ ENDIF</DefaultAnnotationText>
               <PeriodType>
               </PeriodType>
               <PeriodCount>0</PeriodCount>
+              <Operand>1</Operand>
               <StartDate>2021-11-06 20:34:54</StartDate>
               <EndDate>2021-11-06 20:34:54</EndDate>
-              <Operand>1</Operand>
             </Operands>
           </Simple>
         </Configuration>
@@ -615,7 +615,7 @@ Transition</AnnotationText>
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field description="Formula: IF   [Row-1:Internal Sequence Number] !=[Internal Sequence Number]&#xA;THEN 1&#xA;ELSE [Row-1:Computer Code Record Number]+1&#xA;ENDIF" name="Computer Code Record Number" source="Formula: IF   [Row-1:Internal Sequence Number] !=[Internal Sequence Number]&#xA;THEN 1&#xA;ELSE [Row-1:Computer Code Record Number]+1&#xA;ENDIF" type="Int64" />
             <Field description="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" name="Type" size="20" source="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
           </RecordInfo>
         </MetaInfo>
         <MetaInfo connection="False">
@@ -633,7 +633,7 @@ Transition</AnnotationText>
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field description="Formula: IF   [Row-1:Internal Sequence Number] !=[Internal Sequence Number]&#xA;THEN 1&#xA;ELSE [Row-1:Computer Code Record Number]+1&#xA;ENDIF" name="Computer Code Record Number" source="Formula: IF   [Row-1:Internal Sequence Number] !=[Internal Sequence Number]&#xA;THEN 1&#xA;ELSE [Row-1:Computer Code Record Number]+1&#xA;ENDIF" type="Int64" />
             <Field description="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" name="Type" size="20" source="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -641,7 +641,7 @@ Transition</AnnotationText>
     </Node>
     <Node ToolID="21">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1422" y="294" />
+        <Position x="1302" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -671,7 +671,7 @@ Transition</AnnotationText>
     </Node>
     <Node ToolID="22">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1422" y="378" />
+        <Position x="1302" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -711,7 +711,7 @@ Transition</AnnotationText>
     </Node>
     <Node ToolID="28">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="1518" y="210" />
+        <Position x="1398" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -743,7 +743,7 @@ Transition</AnnotationText>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -762,7 +762,7 @@ Transition</AnnotationText>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -792,7 +792,7 @@ Transition</AnnotationText>
     </Node>
     <Node ToolID="29">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="1614" y="210" />
+        <Position x="1494" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -826,7 +826,7 @@ Transition</AnnotationText>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -848,7 +848,7 @@ Transition</AnnotationText>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -882,7 +882,7 @@ Transition</AnnotationText>
     </Node>
     <Node ToolID="30">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="1710" y="210" />
+        <Position x="1590" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -902,7 +902,7 @@ Transition</AnnotationText>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -921,7 +921,7 @@ Transition</AnnotationText>
     </Node>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1806" y="210" />
+        <Position x="1686" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -960,7 +960,7 @@ Transition</AnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="SID/STAR Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="Transition ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Transition Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -974,7 +974,7 @@ Transition</AnnotationText>
     </Node>
     <Node ToolID="32">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="1902" y="210" />
+        <Position x="1782" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1014,7 +1014,7 @@ E...</DefaultAnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="SID/STAR Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="Transition ID" size="13" source="Formula: IF   IsNull([_CurrentField_])&#xA;THEN ''&#xA;ELSE [_CurrentField_]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Transition Name" size="110" source="Formula: IF   IsNull([_CurrentField_])&#xA;THEN ''&#xA;ELSE [_CurrentField_]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -1028,7 +1028,7 @@ E...</DefaultAnnotationText>
     </Node>
     <Node ToolID="33">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="1998" y="210" />
+        <Position x="1878" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1055,7 +1055,7 @@ Sequence - Ascending</DefaultAnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="SID/STAR Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="Transition ID" size="13" source="Formula: IF   IsNull([_CurrentField_])&#xA;THEN ''&#xA;ELSE [_CurrentField_]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Transition Name" size="110" source="Formula: IF   IsNull([_CurrentField_])&#xA;THEN ''&#xA;ELSE [_CurrentField_]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -1069,7 +1069,7 @@ Sequence - Ascending</DefaultAnnotationText>
     </Node>
     <Node ToolID="38">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="1038" y="210" />
+        <Position x="918" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1117,7 +1117,7 @@ ENDIF</DefaultAnnotationText>
     </Node>
     <Node ToolID="39">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="2094" y="210" />
+        <Position x="1974" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1152,7 +1152,7 @@ ENDIF</DefaultAnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="SID/STAR Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="Transition ID" size="13" source="Formula: IF   IsNull([_CurrentField_])&#xA;THEN ''&#xA;ELSE [_CurrentField_]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Transition Name" size="110" source="Formula: IF   IsNull([_CurrentField_])&#xA;THEN ''&#xA;ELSE [_CurrentField_]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -1169,7 +1169,7 @@ ENDIF</DefaultAnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="SID/STAR Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="Transition ID" size="13" source="Formula: IF   IsNull([_CurrentField_])&#xA;THEN ''&#xA;ELSE [_CurrentField_]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Transition Name" size="110" source="Formula: IF   IsNull([_CurrentField_])&#xA;THEN ''&#xA;ELSE [_CurrentField_]&#xA;ENDIF" type="V_String" />
-            <Field description="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+            <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -1183,7 +1183,7 @@ ENDIF</DefaultAnnotationText>
     </Node>
     <Node ToolID="40">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="2190" y="210" />
+        <Position x="2070" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1219,7 +1219,7 @@ ENDIF</DefaultAnnotationText>
     </Node>
     <Node ToolID="42">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="2286" y="294" />
+        <Position x="2166" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1452,7 +1452,8 @@ ENDIF</DefaultAnnotationText>
       <Wiz_CustomGraphic value="False" />
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
-        <Tool ToolId="2" Selected="False" />
+        <Tool ToolId="1" Selected="True" />
+        <Tool ToolId="2" Selected="True" />
         <Tool ToolId="42" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
