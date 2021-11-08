@@ -1,0 +1,795 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>TWR</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\TWR.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>2000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TWR.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1206" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>TWR1</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Output</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="150" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Left([Field_1],4)" field="RecordType" size="4" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>RecordType</AnnotationText>
+          <DefaultAnnotationText><![CDATA[RecordType = Left([Field_1],4)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="246" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>RecordType</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2021-07-12 20:46:20</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>TWR1</Operand>
+              <StartDate>2021-07-12 20:46:20</StartDate>
+              <EndDate>2021-07-12 20:46:20</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>TWR1</AnnotationText>
+          <DefaultAnnotationText>[RecordType] = "TWR1"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="342" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 4, 4)" field="Terminal Communications Facility ID" size="4" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>ID</AnnotationText>
+          <DefaultAnnotationText><![CDATA[Terminal Communications Facility ID = Substring([Field_1], 4, 4)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1014" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Field_1" selected="False" />
+            <SelectField field="RecordType" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="Effective Date" source="Formula: DateTImeParse(Substring([Field_1], 8, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 18, 11)" type="V_String" />
+            <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 29, 3)" type="String" />
+            <Field name="FAA Region Code Name" size="50" source="Formula: Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Associated State Name" size="30" source="Formula: Substring([Field_1], 32, 30)" type="V_String" />
+            <Field name="Associated State Code" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
+            <Field name="Associated City Name" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
+            <Field name="Official Airport Name" size="50" source="Formula: Substring([Field_1], 104, 50)" type="V_String" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Tie In FSS ID" size="4" source="Formula: Substring([Field_1], 204, 4)" type="String" />
+            <Field name="Tie In FSS Name" size="30" source="Formula: Substring([Field_1], 208, 30)" type="V_String" />
+            <Field name="Facility Type" size="12" source="Formula: Substring([Field_1], 238, 12)" type="V_String" />
+            <Field name="Facility Type Description" size="1073741823" source="Formula: Switch(&#xA;  Trim([Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ATCT&quot;, &quot;Air Traffic Control Tower&quot;,&#xA;  &quot;NON-ATCT&quot;, &quot;Non-Air Traffic Control Tower Provided IFR Service&quot;,&#xA;  &quot;ATCT-A/C&quot;, &quot;Air Traffic Control Tower plus Approach Control&quot;,&#xA;  &quot;ATCT-RAPCON&quot;, &quot;Air Traffic Control Tower plus Air Force Operated Radar Approach Control&quot;,&#xA;  &quot;ATCT-RATCF&quot;, &quot;Air Traffic Control Tower plus Navy Operated Radar Approach Control&quot;,&#xA;  &quot;ATCT-TRACON&quot;, &quot;Air Traffic Control Tower plus Terminal Radar Approach Control&quot;,&#xA;  &quot;TRACON&quot;, &quot;Terminal Radar Approach Control&quot;,&#xA;  &quot;ATCT-TRACAB&quot;, &quot;Air Traffic Control Tower plus Terminal Radar Cab&quot;,&#xA;  &quot;ATCT-CERAP&quot;, &quot;Air Traffic Control Tower plus Center Radar Approach Control&quot;&#xA;)" type="V_WString" />
+            <Field name="Hours of Operation" size="2" source="Formula: Substring([Field_1], 250, 2)" type="String" />
+            <Field name="Days of Operation" size="3" source="Formula: Substring([Field_1], 252, 3)" type="String" />
+            <Field name="Days of Operation Description" size="50" source="Formula: Switch(&#xA;  Trim([Days of Operation]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;Daily&quot;,&#xA;  &quot;WDO&quot;, &quot;Weekdays Only&quot;,&#xA;  &quot;WEO&quot;, &quot;Weekends Only&quot;,&#xA;  &quot;SEA&quot;, &quot;Subject to Seasonal Adjustment&quot;,&#xA;  &quot;WDE&quot;, &quot;Weekdays, Other Hours Weekends&quot;,&#xA;  &quot;WDS&quot;, &quot;Weekdays, Subject to Seasonal Adjustment&quot;,&#xA;  &quot;WES&quot;, &quot;Weekends, Subject to Seasonal Adjustment&quot;,&#xA;  &quot;ALL&quot;, &quot;Daily&quot;&#xA;)" type="V_String" />
+            <Field name="Master Airport Location ID" size="4" source="Formula: Substring([Field_1], 255, 4)" type="String" />
+            <Field name="Master Airport Name" size="50" source="Formula: Substring([Field_1], 259, 50)" type="V_String" />
+            <Field name="Direction Finding Equipment" size="15" source="Formula: Substring([Field_1], 309, 15)" type="V_String" />
+            <Field name="Direction Finding Antenna Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Direction Finding Antenna Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Tower Operator Name" size="40" source="Formula: Substring([Field_1], 564, 40)" type="V_String" />
+            <Field name="Military Operations Operator" size="40" source="Formula: Substring([Field_1], 604, 40)" type="V_String" />
+            <Field name="Primary Approach Control Operator" size="40" source="Formula: Substring([Field_1], 644, 40)" type="V_String" />
+            <Field name="Secondary Approach Control Operator" size="40" source="Formula: Substring([Field_1], 684, 40)" type="V_String" />
+            <Field name="Primary Departure Control Operator" size="40" source="Formula: Substring([Field_1], 724, 40)" type="V_String" />
+            <Field name="Secondary Departure Control Operator" size="40" source="Formula: Substring([Field_1], 764, 40)" type="V_String" />
+            <Field name="Tower Radio Call" size="26" source="Formula: Substring([Field_1], 804, 26)" type="V_String" />
+            <Field name="Military Operations Radio Call" size="26" source="Formula: Substring([Field_1], 830, 26)" type="V_String" />
+            <Field name="Primary Approach Radio Call" size="26" source="Formula: Substring([Field_1], 856, 26)" type="V_String" />
+            <Field name="Secondary Approach Radio Call" size="26" source="Formula: Substring([Field_1], 882, 26)" type="V_String" />
+            <Field name="Primary Departure Radio Call" size="26" source="Formula: Substring([Field_1], 908, 26)" type="V_String" />
+            <Field name="Secondary Departure Radio Call" size="26" source="Formula: Substring([Field_1], 934, 26)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="1110" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="Terminal Communications Facility ID" />
+            <Field name="Landing Facility Site Number" />
+            <Field name="FAA Region Code" />
+            <Field name="FAA Region Code Name" />
+            <Field name="Associated State Name" />
+            <Field name="Associated State Code" />
+            <Field name="Associated City Name" />
+            <Field name="Official Airport Name" />
+            <Field name="Tie In FSS ID" />
+            <Field name="Tie In FSS Name" />
+            <Field name="Facility Type" />
+            <Field name="Facility Type Description" />
+            <Field name="Hours of Operation" />
+            <Field name="Days of Operation" />
+            <Field name="Days of Operation Description" />
+            <Field name="Master Airport Location ID" />
+            <Field name="Master Airport Name" />
+            <Field name="Direction Finding Equipment" />
+            <Field name="Tower Operator Name" />
+            <Field name="Military Operations Operator" />
+            <Field name="Primary Approach Control Operator" />
+            <Field name="Secondary Approach Control Operator" />
+            <Field name="Primary Departure Control Operator" />
+            <Field name="Secondary Departure Control Operator" />
+            <Field name="Tower Radio Call" />
+            <Field name="Military Operations Radio Call" />
+            <Field name="Primary Approach Radio Call" />
+            <Field name="Secondary Approach Radio Call" />
+            <Field name="Primary Departure Radio Call" />
+            <Field name="Secondary Departure Radio Call" />
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>TrimRight([_CurrentField_])</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Trim</AnnotationText>
+          <DefaultAnnotationText>TrimRight([_CurrentField_])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Effective Date" source="Formula: DateTImeParse(Substring([Field_1], 8, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="FAA Region Code" size="3" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="FAA Region Code Name" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Associated State Name" size="30" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Associated State Code" size="2" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Associated City Name" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Official Airport Name" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Tie In FSS ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Tie In FSS Name" size="30" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Facility Type" size="12" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Facility Type Description" size="1073741823" source="Formula: TrimRight([_CurrentField_])" type="V_WString" />
+            <Field name="Hours of Operation" size="2" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Days of Operation" size="3" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Days of Operation Description" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Master Airport Location ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Master Airport Name" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Direction Finding Equipment" size="15" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Direction Finding Antenna Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Direction Finding Antenna Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Tower Operator Name" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Military Operations Operator" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Primary Approach Control Operator" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Secondary Approach Control Operator" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Primary Departure Control Operator" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Secondary Departure Control Operator" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Tower Radio Call" size="26" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Military Operations Radio Call" size="26" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Primary Approach Radio Call" size="26" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Secondary Approach Radio Call" size="26" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Primary Departure Radio Call" size="26" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Secondary Departure Radio Call" size="26" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="438" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="DateTImeParse(Substring([Field_1], 8, 10), &quot;%m/%d/%Y&quot;)" field="Effective Date" size="10" type="Date" />
+            <FormulaField expression="Substring([Field_1], 18, 11)" field="Landing Facility Site Number" size="11" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 29, 3)" field="FAA Region Code" size="3" type="String" />
+            <FormulaField expression="Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" field="FAA Region Code Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 32, 30)" field="Associated State Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 62, 2)" field="Associated State Code" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 64, 40)" field="Associated City Name" size="40" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 104, 50)" field="Official Airport Name" size="50" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Data</AnnotationText>
+          <DefaultAnnotationText>Effective Date = DateTImeParse(Substring([Field_1], 8, 10), "%m/%d/%Y")
+Landing ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="Effective Date" source="Formula: DateTImeParse(Substring([Field_1], 8, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 18, 11)" type="V_String" />
+            <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 29, 3)" type="String" />
+            <Field name="FAA Region Code Name" size="50" source="Formula: Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Associated State Name" size="30" source="Formula: Substring([Field_1], 32, 30)" type="V_String" />
+            <Field name="Associated State Code" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
+            <Field name="Associated City Name" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
+            <Field name="Official Airport Name" size="50" source="Formula: Substring([Field_1], 104, 50)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings>
+        <Position x="534" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Prefix">Airport Reference Point</Value>
+          <Value name="LatStart">168</Value>
+          <Value name="LatLen">11</Value>
+          <Value name="LonStart">193</Value>
+          <Value name="LonLen">11</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="Effective Date" source="Formula: DateTImeParse(Substring([Field_1], 8, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 18, 11)" type="V_String" />
+            <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 29, 3)" type="String" />
+            <Field name="FAA Region Code Name" size="50" source="Formula: Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Associated State Name" size="30" source="Formula: Substring([Field_1], 32, 30)" type="V_String" />
+            <Field name="Associated State Code" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
+            <Field name="Associated City Name" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
+            <Field name="Official Airport Name" size="50" source="Formula: Substring([Field_1], 104, 50)" type="V_String" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="utilities\Parse S Coordinates.yxmc" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="630" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 204, 4)" field="Tie In FSS ID" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 208, 30)" field="Tie In FSS Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 238, 12)" field="Facility Type" size="12" type="V_String" />
+            <FormulaField expression="Switch(&#xA;  Trim([Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ATCT&quot;, &quot;Air Traffic Control Tower&quot;,&#xA;  &quot;NON-ATCT&quot;, &quot;Non-Air Traffic Control Tower Provided IFR Service&quot;,&#xA;  &quot;ATCT-A/C&quot;, &quot;Air Traffic Control Tower plus Approach Control&quot;,&#xA;  &quot;ATCT-RAPCON&quot;, &quot;Air Traffic Control Tower plus Air Force Operated Radar Approach Control&quot;,&#xA;  &quot;ATCT-RATCF&quot;, &quot;Air Traffic Control Tower plus Navy Operated Radar Approach Control&quot;,&#xA;  &quot;ATCT-TRACON&quot;, &quot;Air Traffic Control Tower plus Terminal Radar Approach Control&quot;,&#xA;  &quot;TRACON&quot;, &quot;Terminal Radar Approach Control&quot;,&#xA;  &quot;ATCT-TRACAB&quot;, &quot;Air Traffic Control Tower plus Terminal Radar Cab&quot;,&#xA;  &quot;ATCT-CERAP&quot;, &quot;Air Traffic Control Tower plus Center Radar Approach Control&quot;&#xA;)" field="Facility Type Description" size="1073741823" type="V_WString" />
+            <FormulaField expression="Substring([Field_1], 250, 2)" field="Hours of Operation" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 252, 3)" field="Days of Operation" size="3" type="String" />
+            <FormulaField expression="Switch(&#xA;  Trim([Days of Operation]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;Daily&quot;,&#xA;  &quot;WDO&quot;, &quot;Weekdays Only&quot;,&#xA;  &quot;WEO&quot;, &quot;Weekends Only&quot;,&#xA;  &quot;SEA&quot;, &quot;Subject to Seasonal Adjustment&quot;,&#xA;  &quot;WDE&quot;, &quot;Weekdays, Other Hours Weekends&quot;,&#xA;  &quot;WDS&quot;, &quot;Weekdays, Subject to Seasonal Adjustment&quot;,&#xA;  &quot;WES&quot;, &quot;Weekends, Subject to Seasonal Adjustment&quot;,&#xA;  &quot;ALL&quot;, &quot;Daily&quot;&#xA;)" field="Days of Operation Description" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 255, 4)" field="Master Airport Location ID" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 259, 50)" field="Master Airport Name" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 309, 15)" field="Direction Finding Equipment" size="15" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Data</AnnotationText>
+          <DefaultAnnotationText>Tie In FSS ID = Substring([Field_1], 204, 4)
+Tie In FSS Name = Substring([Field_...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="Effective Date" source="Formula: DateTImeParse(Substring([Field_1], 8, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 18, 11)" type="V_String" />
+            <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 29, 3)" type="String" />
+            <Field name="FAA Region Code Name" size="50" source="Formula: Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Associated State Name" size="30" source="Formula: Substring([Field_1], 32, 30)" type="V_String" />
+            <Field name="Associated State Code" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
+            <Field name="Associated City Name" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
+            <Field name="Official Airport Name" size="50" source="Formula: Substring([Field_1], 104, 50)" type="V_String" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Tie In FSS ID" size="4" source="Formula: Substring([Field_1], 204, 4)" type="String" />
+            <Field name="Tie In FSS Name" size="30" source="Formula: Substring([Field_1], 208, 30)" type="V_String" />
+            <Field name="Facility Type" size="12" source="Formula: Substring([Field_1], 238, 12)" type="V_String" />
+            <Field name="Facility Type Description" size="1073741823" source="Formula: Switch(&#xA;  Trim([Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ATCT&quot;, &quot;Air Traffic Control Tower&quot;,&#xA;  &quot;NON-ATCT&quot;, &quot;Non-Air Traffic Control Tower Provided IFR Service&quot;,&#xA;  &quot;ATCT-A/C&quot;, &quot;Air Traffic Control Tower plus Approach Control&quot;,&#xA;  &quot;ATCT-RAPCON&quot;, &quot;Air Traffic Control Tower plus Air Force Operated Radar Approach Control&quot;,&#xA;  &quot;ATCT-RATCF&quot;, &quot;Air Traffic Control Tower plus Navy Operated Radar Approach Control&quot;,&#xA;  &quot;ATCT-TRACON&quot;, &quot;Air Traffic Control Tower plus Terminal Radar Approach Control&quot;,&#xA;  &quot;TRACON&quot;, &quot;Terminal Radar Approach Control&quot;,&#xA;  &quot;ATCT-TRACAB&quot;, &quot;Air Traffic Control Tower plus Terminal Radar Cab&quot;,&#xA;  &quot;ATCT-CERAP&quot;, &quot;Air Traffic Control Tower plus Center Radar Approach Control&quot;&#xA;)" type="V_WString" />
+            <Field name="Hours of Operation" size="2" source="Formula: Substring([Field_1], 250, 2)" type="String" />
+            <Field name="Days of Operation" size="3" source="Formula: Substring([Field_1], 252, 3)" type="String" />
+            <Field name="Days of Operation Description" size="50" source="Formula: Switch(&#xA;  Trim([Days of Operation]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;Daily&quot;,&#xA;  &quot;WDO&quot;, &quot;Weekdays Only&quot;,&#xA;  &quot;WEO&quot;, &quot;Weekends Only&quot;,&#xA;  &quot;SEA&quot;, &quot;Subject to Seasonal Adjustment&quot;,&#xA;  &quot;WDE&quot;, &quot;Weekdays, Other Hours Weekends&quot;,&#xA;  &quot;WDS&quot;, &quot;Weekdays, Subject to Seasonal Adjustment&quot;,&#xA;  &quot;WES&quot;, &quot;Weekends, Subject to Seasonal Adjustment&quot;,&#xA;  &quot;ALL&quot;, &quot;Daily&quot;&#xA;)" type="V_String" />
+            <Field name="Master Airport Location ID" size="4" source="Formula: Substring([Field_1], 255, 4)" type="String" />
+            <Field name="Master Airport Name" size="50" source="Formula: Substring([Field_1], 259, 50)" type="V_String" />
+            <Field name="Direction Finding Equipment" size="15" source="Formula: Substring([Field_1], 309, 15)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings>
+        <Position x="726" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Prefix">Direction Finding Antenna</Value>
+          <Value name="LatStart">528</Value>
+          <Value name="LatLen">11</Value>
+          <Value name="LonStart">553</Value>
+          <Value name="LonLen">11</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="Effective Date" source="Formula: DateTImeParse(Substring([Field_1], 8, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 18, 11)" type="V_String" />
+            <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 29, 3)" type="String" />
+            <Field name="FAA Region Code Name" size="50" source="Formula: Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Associated State Name" size="30" source="Formula: Substring([Field_1], 32, 30)" type="V_String" />
+            <Field name="Associated State Code" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
+            <Field name="Associated City Name" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
+            <Field name="Official Airport Name" size="50" source="Formula: Substring([Field_1], 104, 50)" type="V_String" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Tie In FSS ID" size="4" source="Formula: Substring([Field_1], 204, 4)" type="String" />
+            <Field name="Tie In FSS Name" size="30" source="Formula: Substring([Field_1], 208, 30)" type="V_String" />
+            <Field name="Facility Type" size="12" source="Formula: Substring([Field_1], 238, 12)" type="V_String" />
+            <Field name="Facility Type Description" size="1073741823" source="Formula: Switch(&#xA;  Trim([Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ATCT&quot;, &quot;Air Traffic Control Tower&quot;,&#xA;  &quot;NON-ATCT&quot;, &quot;Non-Air Traffic Control Tower Provided IFR Service&quot;,&#xA;  &quot;ATCT-A/C&quot;, &quot;Air Traffic Control Tower plus Approach Control&quot;,&#xA;  &quot;ATCT-RAPCON&quot;, &quot;Air Traffic Control Tower plus Air Force Operated Radar Approach Control&quot;,&#xA;  &quot;ATCT-RATCF&quot;, &quot;Air Traffic Control Tower plus Navy Operated Radar Approach Control&quot;,&#xA;  &quot;ATCT-TRACON&quot;, &quot;Air Traffic Control Tower plus Terminal Radar Approach Control&quot;,&#xA;  &quot;TRACON&quot;, &quot;Terminal Radar Approach Control&quot;,&#xA;  &quot;ATCT-TRACAB&quot;, &quot;Air Traffic Control Tower plus Terminal Radar Cab&quot;,&#xA;  &quot;ATCT-CERAP&quot;, &quot;Air Traffic Control Tower plus Center Radar Approach Control&quot;&#xA;)" type="V_WString" />
+            <Field name="Hours of Operation" size="2" source="Formula: Substring([Field_1], 250, 2)" type="String" />
+            <Field name="Days of Operation" size="3" source="Formula: Substring([Field_1], 252, 3)" type="String" />
+            <Field name="Days of Operation Description" size="50" source="Formula: Switch(&#xA;  Trim([Days of Operation]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;Daily&quot;,&#xA;  &quot;WDO&quot;, &quot;Weekdays Only&quot;,&#xA;  &quot;WEO&quot;, &quot;Weekends Only&quot;,&#xA;  &quot;SEA&quot;, &quot;Subject to Seasonal Adjustment&quot;,&#xA;  &quot;WDE&quot;, &quot;Weekdays, Other Hours Weekends&quot;,&#xA;  &quot;WDS&quot;, &quot;Weekdays, Subject to Seasonal Adjustment&quot;,&#xA;  &quot;WES&quot;, &quot;Weekends, Subject to Seasonal Adjustment&quot;,&#xA;  &quot;ALL&quot;, &quot;Daily&quot;&#xA;)" type="V_String" />
+            <Field name="Master Airport Location ID" size="4" source="Formula: Substring([Field_1], 255, 4)" type="String" />
+            <Field name="Master Airport Name" size="50" source="Formula: Substring([Field_1], 259, 50)" type="V_String" />
+            <Field name="Direction Finding Equipment" size="15" source="Formula: Substring([Field_1], 309, 15)" type="V_String" />
+            <Field name="Direction Finding Antenna Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Direction Finding Antenna Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="utilities\Parse S Coordinates.yxmc" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="822" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 564, 40)" field="Tower Operator Name" size="40" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 604, 40)" field="Military Operations Operator" size="40" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 644, 40)" field="Primary Approach Control Operator" size="40" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 684, 40)" field="Secondary Approach Control Operator" size="40" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 724, 40)" field="Primary Departure Control Operator" size="40" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 764, 40)" field="Secondary Departure Control Operator" size="40" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Operator</AnnotationText>
+          <DefaultAnnotationText>Tower Operator Name = Substring([Field_1], 564, 40)
+Military Operations Operator...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="Effective Date" source="Formula: DateTImeParse(Substring([Field_1], 8, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 18, 11)" type="V_String" />
+            <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 29, 3)" type="String" />
+            <Field name="FAA Region Code Name" size="50" source="Formula: Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Associated State Name" size="30" source="Formula: Substring([Field_1], 32, 30)" type="V_String" />
+            <Field name="Associated State Code" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
+            <Field name="Associated City Name" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
+            <Field name="Official Airport Name" size="50" source="Formula: Substring([Field_1], 104, 50)" type="V_String" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Tie In FSS ID" size="4" source="Formula: Substring([Field_1], 204, 4)" type="String" />
+            <Field name="Tie In FSS Name" size="30" source="Formula: Substring([Field_1], 208, 30)" type="V_String" />
+            <Field name="Facility Type" size="12" source="Formula: Substring([Field_1], 238, 12)" type="V_String" />
+            <Field name="Facility Type Description" size="1073741823" source="Formula: Switch(&#xA;  Trim([Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ATCT&quot;, &quot;Air Traffic Control Tower&quot;,&#xA;  &quot;NON-ATCT&quot;, &quot;Non-Air Traffic Control Tower Provided IFR Service&quot;,&#xA;  &quot;ATCT-A/C&quot;, &quot;Air Traffic Control Tower plus Approach Control&quot;,&#xA;  &quot;ATCT-RAPCON&quot;, &quot;Air Traffic Control Tower plus Air Force Operated Radar Approach Control&quot;,&#xA;  &quot;ATCT-RATCF&quot;, &quot;Air Traffic Control Tower plus Navy Operated Radar Approach Control&quot;,&#xA;  &quot;ATCT-TRACON&quot;, &quot;Air Traffic Control Tower plus Terminal Radar Approach Control&quot;,&#xA;  &quot;TRACON&quot;, &quot;Terminal Radar Approach Control&quot;,&#xA;  &quot;ATCT-TRACAB&quot;, &quot;Air Traffic Control Tower plus Terminal Radar Cab&quot;,&#xA;  &quot;ATCT-CERAP&quot;, &quot;Air Traffic Control Tower plus Center Radar Approach Control&quot;&#xA;)" type="V_WString" />
+            <Field name="Hours of Operation" size="2" source="Formula: Substring([Field_1], 250, 2)" type="String" />
+            <Field name="Days of Operation" size="3" source="Formula: Substring([Field_1], 252, 3)" type="String" />
+            <Field name="Days of Operation Description" size="50" source="Formula: Switch(&#xA;  Trim([Days of Operation]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;Daily&quot;,&#xA;  &quot;WDO&quot;, &quot;Weekdays Only&quot;,&#xA;  &quot;WEO&quot;, &quot;Weekends Only&quot;,&#xA;  &quot;SEA&quot;, &quot;Subject to Seasonal Adjustment&quot;,&#xA;  &quot;WDE&quot;, &quot;Weekdays, Other Hours Weekends&quot;,&#xA;  &quot;WDS&quot;, &quot;Weekdays, Subject to Seasonal Adjustment&quot;,&#xA;  &quot;WES&quot;, &quot;Weekends, Subject to Seasonal Adjustment&quot;,&#xA;  &quot;ALL&quot;, &quot;Daily&quot;&#xA;)" type="V_String" />
+            <Field name="Master Airport Location ID" size="4" source="Formula: Substring([Field_1], 255, 4)" type="String" />
+            <Field name="Master Airport Name" size="50" source="Formula: Substring([Field_1], 259, 50)" type="V_String" />
+            <Field name="Direction Finding Equipment" size="15" source="Formula: Substring([Field_1], 309, 15)" type="V_String" />
+            <Field name="Direction Finding Antenna Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Direction Finding Antenna Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Tower Operator Name" size="40" source="Formula: Substring([Field_1], 564, 40)" type="V_String" />
+            <Field name="Military Operations Operator" size="40" source="Formula: Substring([Field_1], 604, 40)" type="V_String" />
+            <Field name="Primary Approach Control Operator" size="40" source="Formula: Substring([Field_1], 644, 40)" type="V_String" />
+            <Field name="Secondary Approach Control Operator" size="40" source="Formula: Substring([Field_1], 684, 40)" type="V_String" />
+            <Field name="Primary Departure Control Operator" size="40" source="Formula: Substring([Field_1], 724, 40)" type="V_String" />
+            <Field name="Secondary Departure Control Operator" size="40" source="Formula: Substring([Field_1], 764, 40)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="918" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 804, 26)" field="Tower Radio Call" size="26" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 830, 26)" field="Military Operations Radio Call" size="26" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 856, 26)" field="Primary Approach Radio Call" size="26" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 882, 26)" field="Secondary Approach Radio Call" size="26" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 908, 26)" field="Primary Departure Radio Call" size="26" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 934, 26)" field="Secondary Departure Radio Call" size="26" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Radio call</AnnotationText>
+          <DefaultAnnotationText>Tower Radio Call = Substring([Field_1], 804, 26)
+Military Operations Radio Call ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="Effective Date" source="Formula: DateTImeParse(Substring([Field_1], 8, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 18, 11)" type="V_String" />
+            <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 29, 3)" type="String" />
+            <Field name="FAA Region Code Name" size="50" source="Formula: Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" type="V_String" />
+            <Field name="Associated State Name" size="30" source="Formula: Substring([Field_1], 32, 30)" type="V_String" />
+            <Field name="Associated State Code" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
+            <Field name="Associated City Name" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
+            <Field name="Official Airport Name" size="50" source="Formula: Substring([Field_1], 104, 50)" type="V_String" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Tie In FSS ID" size="4" source="Formula: Substring([Field_1], 204, 4)" type="String" />
+            <Field name="Tie In FSS Name" size="30" source="Formula: Substring([Field_1], 208, 30)" type="V_String" />
+            <Field name="Facility Type" size="12" source="Formula: Substring([Field_1], 238, 12)" type="V_String" />
+            <Field name="Facility Type Description" size="1073741823" source="Formula: Switch(&#xA;  Trim([Facility Type]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ATCT&quot;, &quot;Air Traffic Control Tower&quot;,&#xA;  &quot;NON-ATCT&quot;, &quot;Non-Air Traffic Control Tower Provided IFR Service&quot;,&#xA;  &quot;ATCT-A/C&quot;, &quot;Air Traffic Control Tower plus Approach Control&quot;,&#xA;  &quot;ATCT-RAPCON&quot;, &quot;Air Traffic Control Tower plus Air Force Operated Radar Approach Control&quot;,&#xA;  &quot;ATCT-RATCF&quot;, &quot;Air Traffic Control Tower plus Navy Operated Radar Approach Control&quot;,&#xA;  &quot;ATCT-TRACON&quot;, &quot;Air Traffic Control Tower plus Terminal Radar Approach Control&quot;,&#xA;  &quot;TRACON&quot;, &quot;Terminal Radar Approach Control&quot;,&#xA;  &quot;ATCT-TRACAB&quot;, &quot;Air Traffic Control Tower plus Terminal Radar Cab&quot;,&#xA;  &quot;ATCT-CERAP&quot;, &quot;Air Traffic Control Tower plus Center Radar Approach Control&quot;&#xA;)" type="V_WString" />
+            <Field name="Hours of Operation" size="2" source="Formula: Substring([Field_1], 250, 2)" type="String" />
+            <Field name="Days of Operation" size="3" source="Formula: Substring([Field_1], 252, 3)" type="String" />
+            <Field name="Days of Operation Description" size="50" source="Formula: Switch(&#xA;  Trim([Days of Operation]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;Daily&quot;,&#xA;  &quot;WDO&quot;, &quot;Weekdays Only&quot;,&#xA;  &quot;WEO&quot;, &quot;Weekends Only&quot;,&#xA;  &quot;SEA&quot;, &quot;Subject to Seasonal Adjustment&quot;,&#xA;  &quot;WDE&quot;, &quot;Weekdays, Other Hours Weekends&quot;,&#xA;  &quot;WDS&quot;, &quot;Weekdays, Subject to Seasonal Adjustment&quot;,&#xA;  &quot;WES&quot;, &quot;Weekends, Subject to Seasonal Adjustment&quot;,&#xA;  &quot;ALL&quot;, &quot;Daily&quot;&#xA;)" type="V_String" />
+            <Field name="Master Airport Location ID" size="4" source="Formula: Substring([Field_1], 255, 4)" type="String" />
+            <Field name="Master Airport Name" size="50" source="Formula: Substring([Field_1], 259, 50)" type="V_String" />
+            <Field name="Direction Finding Equipment" size="15" source="Formula: Substring([Field_1], 309, 15)" type="V_String" />
+            <Field name="Direction Finding Antenna Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Direction Finding Antenna Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Tower Operator Name" size="40" source="Formula: Substring([Field_1], 564, 40)" type="V_String" />
+            <Field name="Military Operations Operator" size="40" source="Formula: Substring([Field_1], 604, 40)" type="V_String" />
+            <Field name="Primary Approach Control Operator" size="40" source="Formula: Substring([Field_1], 644, 40)" type="V_String" />
+            <Field name="Secondary Approach Control Operator" size="40" source="Formula: Substring([Field_1], 684, 40)" type="V_String" />
+            <Field name="Primary Departure Control Operator" size="40" source="Formula: Substring([Field_1], 724, 40)" type="V_String" />
+            <Field name="Secondary Departure Control Operator" size="40" source="Formula: Substring([Field_1], 764, 40)" type="V_String" />
+            <Field name="Tower Radio Call" size="26" source="Formula: Substring([Field_1], 804, 26)" type="V_String" />
+            <Field name="Military Operations Radio Call" size="26" source="Formula: Substring([Field_1], 830, 26)" type="V_String" />
+            <Field name="Primary Approach Radio Call" size="26" source="Formula: Substring([Field_1], 856, 26)" type="V_String" />
+            <Field name="Secondary Approach Radio Call" size="26" source="Formula: Substring([Field_1], 882, 26)" type="V_String" />
+            <Field name="Primary Departure Radio Call" size="26" source="Formula: Substring([Field_1], 908, 26)" type="V_String" />
+            <Field name="Secondary Departure Radio Call" size="26" source="Formula: Substring([Field_1], 934, 26)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="True" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (1)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (2)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>TWR1</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="da58e2d8-a95f-402a-b7cf-80df3741248a" />
+      <Telemetry>
+        <PreviousWorkflowId value="0392c591-c33b-4d28-9261-35eaf64da66a" />
+        <OriginWorkflowId value="da58e2d8-a95f-402a-b7cf-80df3741248a" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (8)</Name>
+          <ToolId value="8" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description />
+              <Name>Macro Input (1)</Name>
+              <ToolId value="1" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description />
+              <Name>Macro Output (2)</Name>
+              <ToolId value="2" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="1" Selected="True" />
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="11" Selected="True" />
+        <Tool ToolId="14" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
