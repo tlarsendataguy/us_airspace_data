@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -15,7 +16,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="114" y="150" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -58,7 +59,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="210" y="150" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -84,7 +85,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="306" y="150" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -114,7 +115,7 @@
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="402" y="150" />
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -141,7 +142,7 @@
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="594" y="150" />
+        <Position x="534" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -178,36 +179,25 @@
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
     </Node>
     <Node ToolID="12">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="882" y="150" />
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1110" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\8\Engine_6436_db9bf598add043e8910ed5ccd1a547df_\Engine_8008_908c936660ae4fd695a8ab0964c5b212_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Profile</DefaultTab>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
+          <Name>FSS-Facility</Name>
+          <Abbrev />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText />
+          <DefaultAnnotationText>Output</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="498" y="150" />
+        <Position x="438" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -234,7 +224,7 @@
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="690" y="150" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -265,7 +255,7 @@
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="786" y="150" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -302,7 +292,7 @@
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="402" y="234" />
+        <Position x="342" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -329,7 +319,7 @@
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="594" y="234" />
+        <Position x="534" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -365,37 +355,9 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
     </Node>
-    <Node ToolID="19">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="882" y="234" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\8\Engine_6436_db9bf598add043e8910ed5ccd1a547df_\Engine_8008_e081cbb00dba4b1aa286b12166787e55_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Profile</DefaultTab>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="498" y="234" />
+        <Position x="438" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -422,7 +384,7 @@
     </Node>
     <Node ToolID="21">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="690" y="234" />
+        <Position x="630" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -453,7 +415,7 @@
     </Node>
     <Node ToolID="23">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="786" y="234" />
+        <Position x="726" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -490,7 +452,7 @@
     </Node>
     <Node ToolID="24">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="402" y="318" />
+        <Position x="342" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -517,7 +479,7 @@
     </Node>
     <Node ToolID="25">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="594" y="318" />
+        <Position x="534" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -553,37 +515,9 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
     </Node>
-    <Node ToolID="26">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="882" y="318" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\8\Engine_6436_db9bf598add043e8910ed5ccd1a547df_\Engine_8008_d19d48e4b6d643a68b5071c694704f76_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Profile</DefaultTab>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
     <Node ToolID="27">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="498" y="318" />
+        <Position x="438" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -610,7 +544,7 @@
     </Node>
     <Node ToolID="28">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="690" y="318" />
+        <Position x="630" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -641,7 +575,7 @@
     </Node>
     <Node ToolID="29">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="786" y="318" />
+        <Position x="726" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -678,7 +612,7 @@
     </Node>
     <Node ToolID="30">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="402" y="402" />
+        <Position x="342" y="306" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -705,7 +639,7 @@
     </Node>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="594" y="402" />
+        <Position x="534" y="306" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -741,37 +675,9 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
     </Node>
-    <Node ToolID="32">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="882" y="402" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\8\Engine_6436_db9bf598add043e8910ed5ccd1a547df_\Engine_8008_f1b8c4464a24497faf5233adbd102448_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Profile</DefaultTab>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
     <Node ToolID="33">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="498" y="402" />
+        <Position x="438" y="306" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -798,7 +704,7 @@
     </Node>
     <Node ToolID="34">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="690" y="402" />
+        <Position x="630" y="306" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -829,7 +735,7 @@
     </Node>
     <Node ToolID="35">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="786" y="402" />
+        <Position x="726" y="306" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -866,7 +772,7 @@
     </Node>
     <Node ToolID="36">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="402" y="486" />
+        <Position x="342" y="390" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -893,7 +799,7 @@
     </Node>
     <Node ToolID="37">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="594" y="486" />
+        <Position x="534" y="390" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -929,37 +835,9 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
     </Node>
-    <Node ToolID="38">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="882" y="486" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\8\Engine_6436_db9bf598add043e8910ed5ccd1a547df_\Engine_8008_c7d6551e681c417fb2969f0c7f5f8807_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Profile</DefaultTab>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
     <Node ToolID="39">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="498" y="486" />
+        <Position x="438" y="390" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -986,7 +864,7 @@
     </Node>
     <Node ToolID="40">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="690" y="486" />
+        <Position x="630" y="390" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1017,7 +895,7 @@
     </Node>
     <Node ToolID="41">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="786" y="486" />
+        <Position x="726" y="390" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1051,6 +929,179 @@
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.JoinMultiple.JoinMultiple">
+        <Position x="918" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JoinByRecPos value="False" />
+          <JoinFields>
+            <JoinInfo connection="#1">
+              <Field field="FSS ID" />
+              <Field field="Sequence" />
+            </JoinInfo>
+            <JoinInfo connection="#2">
+              <Field field="FSS ID" />
+              <Field field="Sequence" />
+            </JoinInfo>
+            <JoinInfo connection="#3">
+              <Field field="FSS ID" />
+              <Field field="Sequence" />
+            </JoinInfo>
+            <JoinInfo connection="#4">
+              <Field field="FSS ID" />
+              <Field field="Sequence" />
+            </JoinInfo>
+            <JoinInfo connection="#5">
+              <Field field="FSS ID" />
+              <Field field="Sequence" />
+            </JoinInfo>
+          </JoinFields>
+          <CartesianMode>Error</CartesianMode>
+          <OutputJoinOnly value="False" />
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Input_#2_FSS ID" selected="False" rename="Input_#2_FSS ID" />
+                <SelectField field="Input_#2_Sequence" selected="False" rename="Input_#2_Sequence" />
+                <SelectField field="Input_#3_FSS ID" selected="False" rename="Input_#3_FSS ID" />
+                <SelectField field="Input_#3_Sequence" selected="False" rename="Input_#3_Sequence" />
+                <SelectField field="Input_#4_FSS ID" selected="False" rename="Input_#4_FSS ID" />
+                <SelectField field="Input_#4_Sequence" selected="False" rename="Input_#4_Sequence" />
+                <SelectField field="Input_#5_FSS ID" selected="False" rename="Input_#5_FSS ID" />
+                <SelectField field="Input_#5_Sequence" selected="False" rename="Input_#5_Sequence" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="FSS ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Facility City" size="780" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="Formula: [Row-1:Sequence]+1" name="Sequence" source="Formula: [Row-1:Sequence]+1" type="Int32" />
+            <Field name="Facility State" size="600" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Latitude" size="420" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Longitude" size="420" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Owner Code" size="400" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="FSS ID" order="" />
+            <Field field="Sequence" order="" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoinMultiple" />
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="822" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>&lt;=</Operator>
+            <Field>Sequence</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2021-11-09 06:47:39</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <StartDate>2021-11-09 06:47:39</StartDate>
+              <EndDate>2021-11-09 06:47:39</EndDate>
+              <Operand>30</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Sequence] &lt;= 30</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="FSS ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Facility Owner Code" size="400" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="Formula: [Row-1:Sequence]+1" name="Sequence" source="Formula: [Row-1:Sequence]+1" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="FSS ID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="FSS ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Facility Owner Code" size="400" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="Formula: [Row-1:Sequence]+1" name="Sequence" source="Formula: [Row-1:Sequence]+1" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="FSS ID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="45">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1014" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>!IsEmpty([Facility City]) ||
+!IsEmpty([Facility State])</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Not blank</AnnotationText>
+          <DefaultAnnotationText>!IsEmpty([Facility City]) ||
+!IsEmpty([Facility State])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="FSS ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Facility City" size="780" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="Formula: [Row-1:Sequence]+1" name="Sequence" source="Formula: [Row-1:Sequence]+1" type="Int32" />
+            <Field name="Facility State" size="600" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Latitude" size="420" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Longitude" size="420" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Owner Code" size="400" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="FSS ID" order="" />
+            <Field field="Sequence" order="" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="FSS ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Facility City" size="780" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="Formula: [Row-1:Sequence]+1" name="Sequence" source="Formula: [Row-1:Sequence]+1" type="Int32" />
+            <Field name="Facility State" size="600" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Latitude" size="420" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Longitude" size="420" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Owner Code" size="400" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="FSS ID" order="" />
+            <Field field="Sequence" order="" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
     </Node>
   </Nodes>
   <Connections>
@@ -1098,9 +1149,25 @@
       <Origin ToolID="14" Connection="Output" />
       <Destination ToolID="16" Connection="Input" />
     </Connection>
-    <Connection>
+    <Connection name="#1">
       <Origin ToolID="16" Connection="Output" />
-      <Destination ToolID="12" Connection="Input" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection name="#4">
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection name="#5">
+      <Origin ToolID="44" Connection="True" />
+      <Destination ToolID="42" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="17" Connection="Output" />
@@ -1119,10 +1186,6 @@
       <Destination ToolID="23" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="23" Connection="Output" />
-      <Destination ToolID="19" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="24" Connection="Output" />
       <Destination ToolID="27" Connection="Input" />
     </Connection>
@@ -1139,10 +1202,6 @@
       <Destination ToolID="29" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="29" Connection="Output" />
-      <Destination ToolID="26" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="30" Connection="Output" />
       <Destination ToolID="33" Connection="Input" />
     </Connection>
@@ -1157,10 +1216,6 @@
     <Connection>
       <Origin ToolID="34" Connection="Output" />
       <Destination ToolID="35" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="35" Connection="Output" />
-      <Destination ToolID="32" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="36" Connection="Output" />
@@ -1180,7 +1235,15 @@
     </Connection>
     <Connection>
       <Origin ToolID="41" Connection="Output" />
-      <Destination ToolID="38" Connection="Input" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="45" Connection="True" />
+      <Destination ToolID="12" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -1204,6 +1267,12 @@
       <Constant>
         <Namespace>Question</Namespace>
         <Name>Macro Input (2)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (12)</Name>
         <Value />
         <IsNumeric value="False" />
       </Constant>
@@ -1249,6 +1318,12 @@
               <Name>Macro Input (2)</Name>
               <ToolId value="2" />
             </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description />
+              <Name>Macro Output (12)</Name>
+              <ToolId value="12" />
+            </Question>
           </Questions>
         </Question>
       </Questions>
@@ -1264,10 +1339,6 @@
       <Wiz_OpenOutputTools>
         <Tool ToolId="2" Selected="True" />
         <Tool ToolId="12" Selected="False" />
-        <Tool ToolId="19" Selected="False" />
-        <Tool ToolId="26" Selected="False" />
-        <Tool ToolId="32" Selected="False" />
-        <Tool ToolId="38" Selected="False" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />
