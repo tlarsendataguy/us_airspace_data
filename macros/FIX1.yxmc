@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -15,7 +16,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="126" y="150" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -48,9 +49,6 @@
           <DefaultAnnotationText>FIX.txt</DefaultAnnotationText>
           <Left value="True" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\FIX.txt" type="V_String" />
@@ -61,7 +59,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="222" y="150" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -87,7 +85,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="318" y="150" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -131,14 +129,14 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="414" y="150" />
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <FormulaFields>
             <FormulaField expression="Substring([Field_1], 4, 30)" field="Fix ID" size="30" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 34, 30)" field="Fix State Name" size="30" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 64, 2)" field="ICAO Region Code" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 34, 30)" field="Fix State" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 64, 2)" field="ICAO Region" size="2" type="String" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="2">
@@ -146,7 +144,8 @@
           <AnnotationText><![CDATA[Fix ID = Substring([Field_1], 4, 30)
 ]]></AnnotationText>
           <DefaultAnnotationText>Fix ID = Substring([Field_1], 4, 30)
-Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
+Fix State = Substring([Field_1], 34, 30)
+IC...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
@@ -154,8 +153,8 @@ Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
             <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\FIX.txt" type="V_String" />
             <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
             <Field name="Fix ID" size="30" source="Formula: Substring([Field_1], 4, 30)" type="V_String" />
-            <Field name="Fix State Name" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
+            <Field name="Fix State" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
+            <Field name="ICAO Region" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -163,7 +162,7 @@ Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="702" y="150" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -183,8 +182,8 @@ Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Fix ID" size="30" source="Formula: Substring([Field_1], 4, 30)" type="V_String" />
-            <Field name="Fix State Name" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
+            <Field name="Fix State" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
+            <Field name="ICAO Region" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
             <Field name="Fix  Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix  Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Category" size="3" source="Formula: Substring([Field_1], 94, 3)" type="String" />
@@ -209,15 +208,15 @@ Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="798" y="150" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <FieldType>Text</FieldType>
           <Fields orderChanged="False">
             <Field name="Fix ID" />
-            <Field name="Fix State Name" />
-            <Field name="ICAO Region Code" />
+            <Field name="Fix State" />
+            <Field name="ICAO Region" />
             <Field name="Category" />
             <Field name="MLS Component" />
             <Field name="Radar Component" />
@@ -248,8 +247,8 @@ Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Fix ID" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Fix State Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Fix State" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix  Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix  Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Category" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -274,7 +273,7 @@ Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="894" y="150" />
+        <Position x="822" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -291,7 +290,7 @@ Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
     </Node>
     <Node ToolID="9">
       <GuiSettings>
-        <Position x="510" y="150" />
+        <Position x="438" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -306,16 +305,13 @@ Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\FIX.txt" type="V_String" />
             <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
             <Field name="Fix ID" size="30" source="Formula: Substring([Field_1], 4, 30)" type="V_String" />
-            <Field name="Fix State Name" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
+            <Field name="Fix State" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
+            <Field name="ICAO Region" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
             <Field name="Fix  Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix  Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
           </RecordInfo>
@@ -325,7 +321,7 @@ Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="606" y="150" />
+        <Position x="534" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -358,8 +354,8 @@ MLS Component = Substring([Field_1], 97, ...</DefaultAnnotationText>
             <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\FIX.txt" type="V_String" />
             <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
             <Field name="Fix ID" size="30" source="Formula: Substring([Field_1], 4, 30)" type="V_String" />
-            <Field name="Fix State Name" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
+            <Field name="Fix State" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
+            <Field name="ICAO Region" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
             <Field name="Fix  Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix  Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Category" size="3" source="Formula: Substring([Field_1], 94, 3)" type="String" />
@@ -509,7 +505,7 @@ MLS Component = Substring([Field_1], 97, ...</DefaultAnnotationText>
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
         <Tool ToolId="2" Selected="True" />
-        <Tool ToolId="8" Selected="False" />
+        <Tool ToolId="8" Selected="True" />
         <Tool ToolId="9" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />

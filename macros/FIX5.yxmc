@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
@@ -135,8 +135,8 @@
         <Configuration>
           <FormulaFields>
             <FormulaField expression="Substring([Field_1], 4, 30)" field="Fix ID" size="30" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 34, 30)" field="Fix State Name" size="30" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 64, 2)" field="ICAO Region Code" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 34, 30)" field="Fix State" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 64, 2)" field="ICAO Region" size="2" type="String" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="2">
@@ -144,7 +144,8 @@
           <AnnotationText><![CDATA[Fix ID = Substring([Field_1], 4, 30)
 ]]></AnnotationText>
           <DefaultAnnotationText>Fix ID = Substring([Field_1], 4, 30)
-Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
+Fix State = Substring([Field_1], 34, 30)
+IC...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
@@ -152,8 +153,8 @@ Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
             <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\FIX.txt" type="V_String" />
             <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
             <Field name="Fix ID" size="30" source="Formula: Substring([Field_1], 4, 30)" type="V_String" />
-            <Field name="Fix State Name" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
+            <Field name="Fix State" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
+            <Field name="ICAO Region" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -181,8 +182,8 @@ Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Fix ID" size="30" source="Formula: Substring([Field_1], 4, 30)" type="V_String" />
-            <Field name="Fix State Name" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
+            <Field name="Fix State" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
+            <Field name="ICAO Region" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
             <Field name="Chart" size="22" source="Formula: Substring([Field_1], 66, 22)" type="V_String" />
           </RecordInfo>
         </MetaInfo>
@@ -198,12 +199,9 @@ Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
           <FieldType>Text</FieldType>
           <Fields orderChanged="False">
             <Field name="Fix ID" />
-            <Field name="Fix State Name" />
-            <Field name="ICAO Region Code" />
-            <Field name="NAVAID Makeup" />
-            <Field name="Facility Identifier" />
-            <Field name="Facility Type" />
-            <Field name="Facility Type Name" />
+            <Field name="Fix State" />
+            <Field name="ICAO Region" />
+            <Field name="Chart" />
             <Field name="*Unknown" />
           </Fields>
           <CopyOutput value="False" />
@@ -219,8 +217,8 @@ Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Fix ID" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Fix State Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Fix State" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Chart" size="22" source="Formula: Trim([_CurrentField_])" type="V_String" />
           </RecordInfo>
         </MetaInfo>
@@ -265,8 +263,8 @@ Fix State Name = Substring([Field_1], 34, 3...</DefaultAnnotationText>
             <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\FIX.txt" type="V_String" />
             <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
             <Field name="Fix ID" size="30" source="Formula: Substring([Field_1], 4, 30)" type="V_String" />
-            <Field name="Fix State Name" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
+            <Field name="Fix State" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
+            <Field name="ICAO Region" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
             <Field name="Chart" size="22" source="Formula: Substring([Field_1], 66, 22)" type="V_String" />
           </RecordInfo>
         </MetaInfo>

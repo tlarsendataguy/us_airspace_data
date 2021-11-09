@@ -164,11 +164,27 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <OrderChanged value="False" />
+          <OrderChanged value="True" />
           <CommaDecimal value="False" />
           <SelectFields>
             <SelectField field="Field_1" selected="False" />
             <SelectField field="RecordType" selected="False" />
+            <SelectField field="Terminal Communications Facility ID" selected="True" />
+            <SelectField field="Satellite Frequency" selected="True" />
+            <SelectField field="Satellite Frequency Number" selected="True" />
+            <SelectField field="Satellite Frequency Comment" selected="True" />
+            <SelectField field="Satellite Frequency Use" selected="True" />
+            <SelectField field="Satellite Airport Site Number" selected="True" />
+            <SelectField field="Satellite Airport Location ID" selected="True" />
+            <SelectField field="Satellite FAA Region Code" selected="True" />
+            <SelectField field="Satellite Associated State" selected="True" />
+            <SelectField field="Satellite Associated State Name" selected="True" />
+            <SelectField field="Satellite Associated City" selected="True" />
+            <SelectField field="Satellite Airport Name" selected="True" />
+            <SelectField field="Satellite Latitude" selected="True" />
+            <SelectField field="Satellite Longitude" selected="True" />
+            <SelectField field="FSS Identifier" selected="True" />
+            <SelectField field="FSS Name" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -187,8 +203,8 @@
             <Field name="Satellite Airport Site Number" size="11" source="Formula: Substring([Field_1], 102, 11)" type="V_String" />
             <Field name="Satellite Airport Location ID" size="4" source="Formula: Substring([Field_1], 113, 4)" type="String" />
             <Field name="Satellite FAA Region Code" size="3" source="Formula: Substring([Field_1], 117, 3)" type="String" />
+            <Field name="Satellite Associated State" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
             <Field name="Satellite Associated State Name" size="30" source="Formula: Substring([Field_1], 120, 30)" type="V_String" />
-            <Field name="Satellite Associated State Code" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
             <Field name="Satellite Associated City" size="40" source="Formula: Substring([Field_1], 152, 40)" type="V_String" />
             <Field name="Satellite Airport Name" size="50" source="Formula: Substring([Field_1], 192, 50)" type="V_String" />
             <Field name="Satellite Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -209,6 +225,18 @@
           <FieldType>Text</FieldType>
           <Fields orderChanged="False">
             <Field name="Terminal Communications Facility ID" />
+            <Field name="Satellite Frequency" />
+            <Field name="Satellite Frequency Comment" />
+            <Field name="Satellite Frequency Use" />
+            <Field name="Satellite Airport Site Number" />
+            <Field name="Satellite Airport Location ID" />
+            <Field name="Satellite FAA Region Code" />
+            <Field name="Satellite Associated State" />
+            <Field name="Satellite Associated State Name" />
+            <Field name="Satellite Associated City" />
+            <Field name="Satellite Airport Name" />
+            <Field name="FSS Identifier" />
+            <Field name="FSS Name" />
             <Field name="*Unknown" />
           </Fields>
           <CopyOutput value="False" />
@@ -231,8 +259,8 @@
             <Field name="Satellite Airport Site Number" size="11" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
             <Field name="Satellite Airport Location ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
             <Field name="Satellite FAA Region Code" size="3" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Satellite Associated State" size="2" source="Formula: TrimRight([_CurrentField_])" type="String" />
             <Field name="Satellite Associated State Name" size="30" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
-            <Field name="Satellite Associated State Code" size="2" source="Formula: TrimRight([_CurrentField_])" type="String" />
             <Field name="Satellite Associated City" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
             <Field name="Satellite Airport Name" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
             <Field name="Satellite Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -270,7 +298,7 @@
             <FormulaField expression="Substring([Field_1], 113, 4)" field="Satellite Airport Location ID" size="4" type="String" />
             <FormulaField expression="Substring([Field_1], 117, 3)" field="Satellite FAA Region Code" size="3" type="String" />
             <FormulaField expression="Substring([Field_1], 120, 30)" field="Satellite Associated State Name" size="30" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 150, 2)" field="Satellite Associated State Code" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 150, 2)" field="Satellite Associated State" size="2" type="String" />
             <FormulaField expression="Substring([Field_1], 152, 40)" field="Satellite Associated City" size="40" type="V_String" />
             <FormulaField expression="Substring([Field_1], 192, 50)" field="Satellite Airport Name" size="50" type="V_String" />
           </FormulaFields>
@@ -294,7 +322,7 @@ Satellite Frequency Use = Subs...</DefaultAnnotationText>
             <Field name="Satellite Airport Location ID" size="4" source="Formula: Substring([Field_1], 113, 4)" type="String" />
             <Field name="Satellite FAA Region Code" size="3" source="Formula: Substring([Field_1], 117, 3)" type="String" />
             <Field name="Satellite Associated State Name" size="30" source="Formula: Substring([Field_1], 120, 30)" type="V_String" />
-            <Field name="Satellite Associated State Code" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
+            <Field name="Satellite Associated State" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
             <Field name="Satellite Associated City" size="40" source="Formula: Substring([Field_1], 152, 40)" type="V_String" />
             <Field name="Satellite Airport Name" size="50" source="Formula: Substring([Field_1], 192, 50)" type="V_String" />
           </RecordInfo>
@@ -319,9 +347,6 @@ Satellite Frequency Use = Subs...</DefaultAnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
@@ -333,7 +358,7 @@ Satellite Frequency Use = Subs...</DefaultAnnotationText>
             <Field name="Satellite Airport Location ID" size="4" source="Formula: Substring([Field_1], 113, 4)" type="String" />
             <Field name="Satellite FAA Region Code" size="3" source="Formula: Substring([Field_1], 117, 3)" type="String" />
             <Field name="Satellite Associated State Name" size="30" source="Formula: Substring([Field_1], 120, 30)" type="V_String" />
-            <Field name="Satellite Associated State Code" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
+            <Field name="Satellite Associated State" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
             <Field name="Satellite Associated City" size="40" source="Formula: Substring([Field_1], 152, 40)" type="V_String" />
             <Field name="Satellite Airport Name" size="50" source="Formula: Substring([Field_1], 192, 50)" type="V_String" />
             <Field name="Satellite Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -371,7 +396,7 @@ FSS Name = Substring([Field_1], 29...</DefaultAnnotationText>
             <Field name="Satellite Airport Location ID" size="4" source="Formula: Substring([Field_1], 113, 4)" type="String" />
             <Field name="Satellite FAA Region Code" size="3" source="Formula: Substring([Field_1], 117, 3)" type="String" />
             <Field name="Satellite Associated State Name" size="30" source="Formula: Substring([Field_1], 120, 30)" type="V_String" />
-            <Field name="Satellite Associated State Code" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
+            <Field name="Satellite Associated State" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
             <Field name="Satellite Associated City" size="40" source="Formula: Substring([Field_1], 152, 40)" type="V_String" />
             <Field name="Satellite Airport Name" size="50" source="Formula: Substring([Field_1], 192, 50)" type="V_String" />
             <Field name="Satellite Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -411,7 +436,7 @@ FSS Name = Substring([Field_1], 29...</DefaultAnnotationText>
             <Field name="Satellite Airport Location ID" size="4" source="Formula: Substring([Field_1], 113, 4)" type="String" />
             <Field name="Satellite FAA Region Code" size="3" source="Formula: Substring([Field_1], 117, 3)" type="String" />
             <Field name="Satellite Associated State Name" size="30" source="Formula: Substring([Field_1], 120, 30)" type="V_String" />
-            <Field name="Satellite Associated State Code" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
+            <Field name="Satellite Associated State" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
             <Field name="Satellite Associated City" size="40" source="Formula: Substring([Field_1], 152, 40)" type="V_String" />
             <Field name="Satellite Airport Name" size="50" source="Formula: Substring([Field_1], 192, 50)" type="V_String" />
             <Field name="Satellite Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -473,13 +498,13 @@ FSS Name = Substring([Field_1], 29...</DefaultAnnotationText>
             <Field name="Satellite Airport Location ID" size="4" source="Formula: Substring([Field_1], 113, 4)" type="String" />
             <Field name="Satellite FAA Region Code" size="3" source="Formula: Substring([Field_1], 117, 3)" type="String" />
             <Field name="Satellite Associated State Name" size="30" source="Formula: Substring([Field_1], 120, 30)" type="V_String" />
-            <Field name="Satellite Associated State Code" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
             <Field name="Satellite Associated City" size="40" source="Formula: Substring([Field_1], 152, 40)" type="V_String" />
             <Field name="Satellite Airport Name" size="50" source="Formula: Substring([Field_1], 192, 50)" type="V_String" />
             <Field name="Satellite Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Satellite Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="FSS Identifier" size="4" source="Formula: Substring([Field_1], 292, 4)" type="String" />
             <Field name="FSS Name" size="30" source="Formula: Substring([Field_1], 296, 30)" type="V_String" />
+            <Field name="Satellite Associated State" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>

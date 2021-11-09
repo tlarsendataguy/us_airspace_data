@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="54" y="138" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -46,7 +46,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1206" y="138" />
+        <Position x="1206" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -63,7 +63,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="150" y="138" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -89,7 +89,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="246" y="138" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -133,7 +133,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="342" y="138" />
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -160,7 +160,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1014" y="138" />
+        <Position x="1014" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -185,8 +185,8 @@
             <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 29, 3)" type="String" />
             <Field name="FAA Region Code Name" size="50" source="Formula: Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" type="V_String" />
             <Field name="Associated State Name" size="30" source="Formula: Substring([Field_1], 32, 30)" type="V_String" />
-            <Field name="Associated State Code" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
-            <Field name="Associated City Name" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
+            <Field name="Associated State" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
             <Field name="Official Airport Name" size="50" source="Formula: Substring([Field_1], 104, 50)" type="V_String" />
             <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -221,7 +221,7 @@
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="1110" y="138" />
+        <Position x="1110" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -232,8 +232,8 @@
             <Field name="FAA Region Code" />
             <Field name="FAA Region Code Name" />
             <Field name="Associated State Name" />
-            <Field name="Associated State Code" />
-            <Field name="Associated City Name" />
+            <Field name="Associated State" />
+            <Field name="Associated City" />
             <Field name="Official Airport Name" />
             <Field name="Tie In FSS ID" />
             <Field name="Tie In FSS Name" />
@@ -277,8 +277,8 @@
             <Field name="FAA Region Code" size="3" source="Formula: TrimRight([_CurrentField_])" type="String" />
             <Field name="FAA Region Code Name" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
             <Field name="Associated State Name" size="30" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
-            <Field name="Associated State Code" size="2" source="Formula: TrimRight([_CurrentField_])" type="String" />
-            <Field name="Associated City Name" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Associated State" size="2" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Associated City" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
             <Field name="Official Airport Name" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
             <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -326,7 +326,7 @@
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="438" y="138" />
+        <Position x="438" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -336,8 +336,8 @@
             <FormulaField expression="Substring([Field_1], 29, 3)" field="FAA Region Code" size="3" type="String" />
             <FormulaField expression="Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" field="FAA Region Code Name" size="50" type="V_String" />
             <FormulaField expression="Substring([Field_1], 32, 30)" field="Associated State Name" size="30" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 62, 2)" field="Associated State Code" size="2" type="String" />
-            <FormulaField expression="Substring([Field_1], 64, 40)" field="Associated City Name" size="40" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 62, 2)" field="Associated State" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 64, 40)" field="Associated City" size="40" type="V_String" />
             <FormulaField expression="Substring([Field_1], 104, 50)" field="Official Airport Name" size="50" type="V_String" />
           </FormulaFields>
         </Configuration>
@@ -358,8 +358,8 @@ Landing ...</DefaultAnnotationText>
             <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 29, 3)" type="String" />
             <Field name="FAA Region Code Name" size="50" source="Formula: Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" type="V_String" />
             <Field name="Associated State Name" size="30" source="Formula: Substring([Field_1], 32, 30)" type="V_String" />
-            <Field name="Associated State Code" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
-            <Field name="Associated City Name" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
+            <Field name="Associated State" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
             <Field name="Official Airport Name" size="50" source="Formula: Substring([Field_1], 104, 50)" type="V_String" />
           </RecordInfo>
         </MetaInfo>
@@ -368,7 +368,7 @@ Landing ...</DefaultAnnotationText>
     </Node>
     <Node ToolID="11">
       <GuiSettings>
-        <Position x="534" y="138" />
+        <Position x="534" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -383,9 +383,6 @@ Landing ...</DefaultAnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
@@ -396,8 +393,8 @@ Landing ...</DefaultAnnotationText>
             <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 29, 3)" type="String" />
             <Field name="FAA Region Code Name" size="50" source="Formula: Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" type="V_String" />
             <Field name="Associated State Name" size="30" source="Formula: Substring([Field_1], 32, 30)" type="V_String" />
-            <Field name="Associated State Code" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
-            <Field name="Associated City Name" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
+            <Field name="Associated State" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
             <Field name="Official Airport Name" size="50" source="Formula: Substring([Field_1], 104, 50)" type="V_String" />
             <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -408,7 +405,7 @@ Landing ...</DefaultAnnotationText>
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="630" y="138" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -442,8 +439,8 @@ Tie In FSS Name = Substring([Field_...</DefaultAnnotationText>
             <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 29, 3)" type="String" />
             <Field name="FAA Region Code Name" size="50" source="Formula: Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" type="V_String" />
             <Field name="Associated State Name" size="30" source="Formula: Substring([Field_1], 32, 30)" type="V_String" />
-            <Field name="Associated State Code" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
-            <Field name="Associated City Name" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
+            <Field name="Associated State" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
             <Field name="Official Airport Name" size="50" source="Formula: Substring([Field_1], 104, 50)" type="V_String" />
             <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -464,7 +461,7 @@ Tie In FSS Name = Substring([Field_...</DefaultAnnotationText>
     </Node>
     <Node ToolID="14">
       <GuiSettings>
-        <Position x="726" y="138" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -479,9 +476,6 @@ Tie In FSS Name = Substring([Field_...</DefaultAnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
@@ -492,8 +486,8 @@ Tie In FSS Name = Substring([Field_...</DefaultAnnotationText>
             <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 29, 3)" type="String" />
             <Field name="FAA Region Code Name" size="50" source="Formula: Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" type="V_String" />
             <Field name="Associated State Name" size="30" source="Formula: Substring([Field_1], 32, 30)" type="V_String" />
-            <Field name="Associated State Code" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
-            <Field name="Associated City Name" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
+            <Field name="Associated State" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
             <Field name="Official Airport Name" size="50" source="Formula: Substring([Field_1], 104, 50)" type="V_String" />
             <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -516,7 +510,7 @@ Tie In FSS Name = Substring([Field_...</DefaultAnnotationText>
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="822" y="138" />
+        <Position x="822" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -546,8 +540,8 @@ Military Operations Operator...</DefaultAnnotationText>
             <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 29, 3)" type="String" />
             <Field name="FAA Region Code Name" size="50" source="Formula: Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" type="V_String" />
             <Field name="Associated State Name" size="30" source="Formula: Substring([Field_1], 32, 30)" type="V_String" />
-            <Field name="Associated State Code" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
-            <Field name="Associated City Name" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
+            <Field name="Associated State" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
             <Field name="Official Airport Name" size="50" source="Formula: Substring([Field_1], 104, 50)" type="V_String" />
             <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -576,7 +570,7 @@ Military Operations Operator...</DefaultAnnotationText>
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="918" y="138" />
+        <Position x="918" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -606,8 +600,8 @@ Military Operations Radio Call ...</DefaultAnnotationText>
             <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 29, 3)" type="String" />
             <Field name="FAA Region Code Name" size="50" source="Formula: Switch(&#xA;  Trim([FAA Region Code]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,    &quot;&quot;,&#xA;  &quot;AAL&quot;, &quot;Alaska&quot;,&#xA;  &quot;ACE&quot;, &quot;Central&quot;,&#xA;  &quot;AEA&quot;, &quot;Eastern&quot;,&#xA;  &quot;AGL&quot;, &quot;Great Lakes&quot;,&#xA;  &quot;AIN&quot;, &quot;International&quot;,&#xA;  &quot;ANE&quot;, &quot;New England&quot;,&#xA;  &quot;ANM&quot;, &quot;Northwest Mountain&quot;,&#xA;  &quot;ASO&quot;, &quot;Southern&quot;,&#xA;  &quot;ASW&quot;, &quot;Southwest&quot;,&#xA;  &quot;AWP&quot;, &quot;Western Pacific&quot;&#xA;)" type="V_String" />
             <Field name="Associated State Name" size="30" source="Formula: Substring([Field_1], 32, 30)" type="V_String" />
-            <Field name="Associated State Code" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
-            <Field name="Associated City Name" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
+            <Field name="Associated State" size="2" source="Formula: Substring([Field_1], 62, 2)" type="String" />
+            <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 64, 40)" type="V_String" />
             <Field name="Official Airport Name" size="50" source="Formula: Substring([Field_1], 104, 50)" type="V_String" />
             <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />

@@ -188,8 +188,8 @@ Destination Facility ID = Substr...</DefaultAnnotationText>
             <Field name="Segment Number" size="3" source="Formula: Substring([Field_1], 19, 3)" type="String" />
             <Field name="Segment Identifier" size="48" source="Formula: Substring([Field_1], 22, 48)" type="V_String" />
             <Field name="Segment Type" size="7" source="Formula: Substring([Field_1], 70, 7)" type="V_String" />
-            <Field name="Fix State Code" size="2" source="Formula: Substring([Field_1], 77, 2)" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Substring([Field_1], 79, 2)" type="String" />
+            <Field name="Fix State" size="2" source="Formula: Substring([Field_1], 77, 2)" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Substring([Field_1], 79, 2)" type="String" />
             <Field name="NAVAID Facility Type" size="2" source="Formula: Substring([Field_1], 81, 2)" type="String" />
             <Field name="NAVAID Facility Type Description" size="20" source="Formula: Substring([Field_1], 83, 20)" type="V_String" />
             <Field name="Radial and Distance from NAVAID" size="7" source="Formula: Substring([Field_1], 103, 7)" type="V_String" />
@@ -214,8 +214,8 @@ Destination Facility ID = Substr...</DefaultAnnotationText>
             <Field name="Segment Number" />
             <Field name="Segment Identifier" />
             <Field name="Segment Type" />
-            <Field name="Fix State Code" />
-            <Field name="ICAO Region Code" />
+            <Field name="Fix State" />
+            <Field name="ICAO Region" />
             <Field name="NAVAID Facility Type" />
             <Field name="NAVAID Facility Type Description" />
             <Field name="Radial and Distance from NAVAID" />
@@ -240,8 +240,8 @@ Destination Facility ID = Substr...</DefaultAnnotationText>
             <Field name="Segment Number" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Segment Identifier" size="48" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Segment Type" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Fix State Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Fix State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="NAVAID Facility Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="NAVAID Facility Type Description" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Radial and Distance from NAVAID" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
@@ -279,8 +279,8 @@ Destination Facility ID = Substr...</DefaultAnnotationText>
             <FormulaField expression="Substring([Field_1], 19, 3)" field="Segment Number" size="3" type="String" />
             <FormulaField expression="Substring([Field_1], 22, 48)" field="Segment Identifier" size="48" type="V_String" />
             <FormulaField expression="Substring([Field_1], 70, 7)" field="Segment Type" size="7" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 77, 2)" field="Fix State Code" size="2" type="String" />
-            <FormulaField expression="Substring([Field_1], 79, 2)" field="ICAO Region Code" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 77, 2)" field="Fix State" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 79, 2)" field="ICAO Region" size="2" type="String" />
             <FormulaField expression="Substring([Field_1], 81, 2)" field="NAVAID Facility Type" size="2" type="String" />
             <FormulaField expression="Substring([Field_1], 83, 20)" field="NAVAID Facility Type Description" size="20" type="V_String" />
             <FormulaField expression="Substring([Field_1], 103, 7)" field="Radial and Distance from NAVAID" size="7" type="V_String" />
@@ -305,8 +305,8 @@ Segment Identifier = Substring([Fie...</DefaultAnnotationText>
             <Field name="Segment Number" size="3" source="Formula: Substring([Field_1], 19, 3)" type="String" />
             <Field name="Segment Identifier" size="48" source="Formula: Substring([Field_1], 22, 48)" type="V_String" />
             <Field name="Segment Type" size="7" source="Formula: Substring([Field_1], 70, 7)" type="V_String" />
-            <Field name="Fix State Code" size="2" source="Formula: Substring([Field_1], 77, 2)" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Substring([Field_1], 79, 2)" type="String" />
+            <Field name="Fix State" size="2" source="Formula: Substring([Field_1], 77, 2)" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Substring([Field_1], 79, 2)" type="String" />
             <Field name="NAVAID Facility Type" size="2" source="Formula: Substring([Field_1], 81, 2)" type="String" />
             <Field name="NAVAID Facility Type Description" size="20" source="Formula: Substring([Field_1], 83, 20)" type="V_String" />
             <Field name="Radial and Distance from NAVAID" size="7" source="Formula: Substring([Field_1], 103, 7)" type="V_String" />

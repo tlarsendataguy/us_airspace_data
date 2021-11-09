@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
@@ -184,7 +184,7 @@ Airway Type = Substring([Field_1...</DefaultAnnotationText>
             <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 10, 5))" type="Int32" />
             <Field name="NAVAID Facility Name" size="30" source="Formula: Substring([Field_1], 15, 30)" type="V_String" />
             <Field name="NAVAID Facility Type" size="19" source="Formula: Substring([Field_1], 45, 19)" type="V_String" />
-            <Field name="NAVAID Facility State PO Code" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
+            <Field name="NAVAID Facility State" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
             <Field name="NAVAID Facility Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="NAVAID Facility Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
           </RecordInfo>
@@ -204,7 +204,7 @@ Airway Type = Substring([Field_1...</DefaultAnnotationText>
             <Field name="Airway Type" />
             <Field name="NAVAID Facility Name" />
             <Field name="NAVAID Facility Type" />
-            <Field name="NAVAID Facility State PO Code" />
+            <Field name="NAVAID Facility State" />
             <Field name="*Unknown" />
           </Fields>
           <CopyOutput value="False" />
@@ -224,7 +224,7 @@ Airway Type = Substring([Field_1...</DefaultAnnotationText>
             <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 10, 5))" type="Int32" />
             <Field name="NAVAID Facility Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="NAVAID Facility Type" size="19" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="NAVAID Facility State PO Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="NAVAID Facility State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="NAVAID Facility Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="NAVAID Facility Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
           </RecordInfo>
@@ -258,7 +258,7 @@ Airway Type = Substring([Field_1...</DefaultAnnotationText>
           <FormulaFields>
             <FormulaField expression="Substring([Field_1], 15, 30)" field="NAVAID Facility Name" size="30" type="V_String" />
             <FormulaField expression="Substring([Field_1], 45, 19)" field="NAVAID Facility Type" size="19" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 64, 2)" field="NAVAID Facility State PO Code" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 64, 2)" field="NAVAID Facility State" size="2" type="String" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="2">
@@ -276,7 +276,7 @@ NAVAID Facility Type = Subst...</DefaultAnnotationText>
             <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 10, 5))" type="Int32" />
             <Field name="NAVAID Facility Name" size="30" source="Formula: Substring([Field_1], 15, 30)" type="V_String" />
             <Field name="NAVAID Facility Type" size="19" source="Formula: Substring([Field_1], 45, 19)" type="V_String" />
-            <Field name="NAVAID Facility State PO Code" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
+            <Field name="NAVAID Facility State" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -299,9 +299,6 @@ NAVAID Facility Type = Subst...</DefaultAnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\AWY.txt" type="V_String" />
@@ -311,7 +308,7 @@ NAVAID Facility Type = Subst...</DefaultAnnotationText>
             <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 10, 5))" type="Int32" />
             <Field name="NAVAID Facility Name" size="30" source="Formula: Substring([Field_1], 15, 30)" type="V_String" />
             <Field name="NAVAID Facility Type" size="19" source="Formula: Substring([Field_1], 45, 19)" type="V_String" />
-            <Field name="NAVAID Facility State PO Code" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
+            <Field name="NAVAID Facility State" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
             <Field name="NAVAID Facility Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="NAVAID Facility Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
           </RecordInfo>

@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -15,7 +16,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="126" y="174" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -48,9 +49,6 @@
           <DefaultAnnotationText>ILS.txt</DefaultAnnotationText>
           <Left value="True" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\ILS.txt" type="V_String" />
@@ -61,7 +59,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="222" y="174" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -87,7 +85,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="318" y="174" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -131,7 +129,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="414" y="174" />
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -162,7 +160,7 @@ Runway End Identifier = Substr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="702" y="174" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -189,7 +187,7 @@ Runway End Identifier = Substr...</DefaultAnnotationText>
             <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 34, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
             <Field name="Airport Name" size="50" source="Formula: Substring([Field_1], 44, 50)" type="V_String" />
             <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 94, 40)" type="V_String" />
-            <Field name="State Post Office Code" size="2" source="Formula: Substring([Field_1], 134, 2)" type="String" />
+            <Field name="State" size="2" source="Formula: Substring([Field_1], 134, 2)" type="String" />
             <Field name="State Name" size="20" source="Formula: Substring([Field_1], 136, 20)" type="V_String" />
             <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 156, 3)" type="String" />
             <Field name="Airport Identifier" size="4" source="Formula: Substring([Field_1], 159, 4)" type="String" />
@@ -208,7 +206,7 @@ Runway End Identifier = Substr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="798" y="174" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -221,7 +219,7 @@ Runway End Identifier = Substr...</DefaultAnnotationText>
             <Field name="ILS Identification Code" />
             <Field name="Airport Name" />
             <Field name="Associated City" />
-            <Field name="State Post Office Code" />
+            <Field name="State" />
             <Field name="State Name" />
             <Field name="FAA Region Code" />
             <Field name="Airport Identifier" />
@@ -251,7 +249,7 @@ Runway End Identifier = Substr...</DefaultAnnotationText>
             <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 34, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
             <Field name="Airport Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Associated City" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="State Name" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="FAA Region Code" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Airport Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -270,7 +268,7 @@ Runway End Identifier = Substr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="894" y="174" />
+        <Position x="822" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -287,7 +285,7 @@ Runway End Identifier = Substr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="510" y="174" />
+        <Position x="438" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -297,7 +295,7 @@ Runway End Identifier = Substr...</DefaultAnnotationText>
             <FormulaField expression="DateTimeParse(Substring([Field_1], 34, 10), &quot;%m/%d/%Y&quot;)" field="Effective Date" size="10" type="Date" />
             <FormulaField expression="Substring([Field_1], 44, 50)" field="Airport Name" size="50" type="V_String" />
             <FormulaField expression="Substring([Field_1], 94, 40)" field="Associated City" size="40" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 134, 2)" field="State Post Office Code" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 134, 2)" field="State" size="2" type="String" />
             <FormulaField expression="Substring([Field_1], 136, 20)" field="State Name" size="20" type="V_String" />
             <FormulaField expression="Substring([Field_1], 156, 3)" field="FAA Region Code" size="3" type="String" />
             <FormulaField expression="Substring([Field_1], 159, 4)" field="Airport Identifier" size="4" type="String" />
@@ -329,7 +327,7 @@ Info
             <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 34, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
             <Field name="Airport Name" size="50" source="Formula: Substring([Field_1], 44, 50)" type="V_String" />
             <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 94, 40)" type="V_String" />
-            <Field name="State Post Office Code" size="2" source="Formula: Substring([Field_1], 134, 2)" type="String" />
+            <Field name="State" size="2" source="Formula: Substring([Field_1], 134, 2)" type="String" />
             <Field name="State Name" size="20" source="Formula: Substring([Field_1], 136, 20)" type="V_String" />
             <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 156, 3)" type="String" />
             <Field name="Airport Identifier" size="4" source="Formula: Substring([Field_1], 159, 4)" type="String" />
@@ -342,7 +340,7 @@ Info
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="606" y="174" />
+        <Position x="534" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -376,7 +374,7 @@ Owner Name = Substring([Field_1], 18...</DefaultAnnotationText>
             <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 34, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
             <Field name="Airport Name" size="50" source="Formula: Substring([Field_1], 44, 50)" type="V_String" />
             <Field name="Associated City" size="40" source="Formula: Substring([Field_1], 94, 40)" type="V_String" />
-            <Field name="State Post Office Code" size="2" source="Formula: Substring([Field_1], 134, 2)" type="String" />
+            <Field name="State" size="2" source="Formula: Substring([Field_1], 134, 2)" type="String" />
             <Field name="State Name" size="20" source="Formula: Substring([Field_1], 136, 20)" type="V_String" />
             <Field name="FAA Region Code" size="3" source="Formula: Substring([Field_1], 156, 3)" type="String" />
             <Field name="Airport Identifier" size="4" source="Formula: Substring([Field_1], 159, 4)" type="String" />
@@ -520,7 +518,7 @@ Owner Name = Substring([Field_1], 18...</DefaultAnnotationText>
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
         <Tool ToolId="2" Selected="True" />
-        <Tool ToolId="8" Selected="False" />
+        <Tool ToolId="8" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />

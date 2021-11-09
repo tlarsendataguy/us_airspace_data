@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
@@ -258,6 +258,13 @@ Last Updated = DateTimeParse(Substring([F...</DefaultAnnotationText>
             <Field name="Weather Radar Available" />
             <Field name="Flight Watch Available" />
             <Field name="Flight Watch Hours of Operation" />
+            <Field name="FSS City" />
+            <Field name="FSS State" />
+            <Field name="FSS Region" />
+            <Field name="Type of Direction Finding Equipment" />
+            <Field name="FSS Telephone" />
+            <Field name="FSS Station Remarks" />
+            <Field name="Communication Remarks" />
             <Field name="*Unknown" />
           </Fields>
           <CopyOutput value="False" />
@@ -431,9 +438,6 @@ Facility Type Name = Switch(
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="18000" source="File: F:\repositories\us_airspace_data\28DaySubscription\FSS.txt" type="V_String" />
@@ -542,9 +546,6 @@ Type of Direction Finding Equipment =...</DefaultAnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="18000" source="File: F:\repositories\us_airspace_data\28DaySubscription\FSS.txt" type="V_String" />

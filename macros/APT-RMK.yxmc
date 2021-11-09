@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
@@ -139,7 +139,7 @@
         <Configuration>
           <FormulaFields>
             <FormulaField expression="Substring([Field_1], 3, 11)" field="Landing Facility Site Number" size="11" type="String" />
-            <FormulaField expression="Substring([Field_1],14, 2)" field="Landing Facility State Post Office Code" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1],14, 2)" field="Landing Facility State" size="2" type="String" />
             <FormulaField expression="Substring([Field_1], 16, 15)" field="Remark Element" size="15" type="V_String" />
             <FormulaField expression="Substring([Field_1], 31, 1500)" field="Remark" size="1500" type="V_String" />
           </FormulaFields>
@@ -155,7 +155,7 @@ Landing Facility Stat...</DefaultAnnotationText>
             <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\APT.txt" type="V_String" />
             <Field name="RecordType" size="3" source="Formula: Left([Field_1],3)" type="String" />
             <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 3, 11)" type="String" />
-            <Field name="Landing Facility State Post Office Code" size="2" source="Formula: Substring([Field_1],14, 2)" type="String" />
+            <Field name="Landing Facility State" size="2" source="Formula: Substring([Field_1],14, 2)" type="String" />
             <Field name="Remark Element" size="15" source="Formula: Substring([Field_1], 16, 15)" type="V_String" />
             <Field name="Remark" size="1500" source="Formula: Substring([Field_1], 31, 1500)" type="V_String" />
           </RecordInfo>
@@ -185,7 +185,7 @@ Landing Facility Stat...</DefaultAnnotationText>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Landing Facility Site Number" size="11" source="Formula: Substring([Field_1], 3, 11)" type="String" />
-            <Field name="Landing Facility State Post Office Code" size="2" source="Formula: Substring([Field_1],14, 2)" type="String" />
+            <Field name="Landing Facility State" size="2" source="Formula: Substring([Field_1],14, 2)" type="String" />
             <Field name="Remark Element" size="15" source="Formula: Substring([Field_1], 16, 15)" type="V_String" />
             <Field name="Remark" size="1500" source="Formula: Substring([Field_1], 31, 1500)" type="V_String" />
           </RecordInfo>
@@ -202,8 +202,8 @@ Landing Facility Stat...</DefaultAnnotationText>
           <FieldType>Text</FieldType>
           <Fields orderChanged="False">
             <Field name="Landing Facility Site Number" />
-            <Field name="Landing Facility State Post Office Code" />
-            <Field name="Remark Element Name" />
+            <Field name="Landing Facility State" />
+            <Field name="Remark Element" />
             <Field name="Remark" />
             <Field name="*Unknown" />
           </Fields>
@@ -220,7 +220,7 @@ Landing Facility Stat...</DefaultAnnotationText>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Landing Facility State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Facility State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Remark Element" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Remark" size="1500" source="Formula: Trim([_CurrentField_])" type="V_String" />
           </RecordInfo>
@@ -263,7 +263,7 @@ Elemen...</DefaultAnnotationText>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Landing Facility State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Facility State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Remark Element" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Remark" size="1500" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Element Code" size="15" source="Formula: REGEX_Replace([Remark Element], &quot;^([A-Z0-9]+)(.*)$&quot;, &quot;$1&quot;)" type="V_String" />
@@ -731,7 +731,7 @@ Elemen...</DefaultAnnotationText>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Landing Facility State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Facility State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Remark Element" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Remark" size="1500" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Element Code" size="15" source="Formula: REGEX_Replace([Remark Element], &quot;^([A-Z0-9]+)(.*)$&quot;, &quot;$1&quot;)" type="V_String" />
@@ -752,7 +752,7 @@ Elemen...</DefaultAnnotationText>
           <CommaDecimal value="False" />
           <SelectFields>
             <SelectField field="Landing Facility Site Number" selected="True" />
-            <SelectField field="Landing Facility State Post Office Code" selected="True" />
+            <SelectField field="Landing Facility State" selected="True" />
             <SelectField field="Remark Element" selected="True" />
             <SelectField field="Element Code" selected="True" />
             <SelectField field="Element Description" selected="True" />
@@ -769,7 +769,7 @@ Elemen...</DefaultAnnotationText>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Landing Facility State Post Office Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Facility State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Remark Element" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Element Code" size="15" source="Formula: REGEX_Replace([Remark Element], &quot;^([A-Z0-9]+)(.*)$&quot;, &quot;$1&quot;)" type="V_String" />
             <Field name="Element Description" size="69" source="TextInput:" type="V_String" />

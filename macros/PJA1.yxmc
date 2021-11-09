@@ -49,9 +49,6 @@
           <DefaultAnnotationText>PJA.txt</DefaultAnnotationText>
           <Left value="True" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\PJA.txt" type="V_String" />
@@ -185,7 +182,7 @@
             <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 41, 6)))" type="FixedDecimal" />
             <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 47, 8)))" type="FixedDecimal" />
             <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 55, 30)" type="V_String" />
-            <Field name="PJA State Abbreviation" size="2" source="Formula: Substring([Field_1], 85, 2)" type="String" />
+            <Field name="PJA State" size="2" source="Formula: Substring([Field_1], 85, 2)" type="String" />
             <Field name="PJA State Name" size="30" source="Formula: Substring([Field_1], 87, 30)" type="V_String" />
             <Field name="PJA City" size="30" source="Formula: Substring([Field_1], 117, 30)" type="V_String" />
             <Field name="PJA Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -221,7 +218,7 @@
             <Field name="NAVAID Facility Type" />
             <Field name="NAVAID Facility Type Description" />
             <Field name="NAVAID Name" />
-            <Field name="PJA State Abbreviation" />
+            <Field name="PJA State" />
             <Field name="PJA State Name" />
             <Field name="PJA City" />
             <Field name="Airport Name" />
@@ -230,6 +227,12 @@
             <Field name="Maximum Altitude Allowed" />
             <Field name="Maximum Altitude in Feet" />
             <Field name="Maximum Altitude Type" />
+            <Field name="Sectional Charting Required" />
+            <Field name="Publish in A/FD" />
+            <Field name="Additional Text for Area" />
+            <Field name="FSS Identifier" />
+            <Field name="FSS Name" />
+            <Field name="PJA Use" />
             <Field name="*Unknown" />
           </Fields>
           <CopyOutput value="False" />
@@ -251,7 +254,7 @@
             <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 41, 6)))" type="FixedDecimal" />
             <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 47, 8)))" type="FixedDecimal" />
             <Field name="NAVAID Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="PJA State Abbreviation" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="PJA State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="PJA State Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="PJA City" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="PJA Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -304,7 +307,7 @@
             <FormulaField expression="ToNumber(Trim(Substring([Field_1], 41, 6)))" field="Azimuth from NAVAID" size="10.2" type="FixedDecimal" />
             <FormulaField expression="ToNumber(Trim(Substring([Field_1], 47, 8)))" field="Distance from NAVAID" size="10.1" type="FixedDecimal" />
             <FormulaField expression="Substring([Field_1], 55, 30)" field="NAVAID Name" size="30" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 85, 2)" field="PJA State Abbreviation" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 85, 2)" field="PJA State" size="2" type="String" />
             <FormulaField expression="Substring([Field_1], 87, 30)" field="PJA State Name" size="30" type="V_String" />
             <FormulaField expression="Substring([Field_1], 117, 30)" field="PJA City" size="30" type="V_String" />
           </FormulaFields>
@@ -328,7 +331,7 @@ NAVAID Facility Type = Substring...</DefaultAnnotationText>
             <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 41, 6)))" type="FixedDecimal" />
             <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 47, 8)))" type="FixedDecimal" />
             <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 55, 30)" type="V_String" />
-            <Field name="PJA State Abbreviation" size="2" source="Formula: Substring([Field_1], 85, 2)" type="String" />
+            <Field name="PJA State" size="2" source="Formula: Substring([Field_1], 85, 2)" type="String" />
             <Field name="PJA State Name" size="30" source="Formula: Substring([Field_1], 87, 30)" type="V_String" />
             <Field name="PJA City" size="30" source="Formula: Substring([Field_1], 117, 30)" type="V_String" />
           </RecordInfo>
@@ -353,9 +356,6 @@ NAVAID Facility Type = Substring...</DefaultAnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\PJA.txt" type="V_String" />
@@ -367,7 +367,7 @@ NAVAID Facility Type = Substring...</DefaultAnnotationText>
             <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 41, 6)))" type="FixedDecimal" />
             <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 47, 8)))" type="FixedDecimal" />
             <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 55, 30)" type="V_String" />
-            <Field name="PJA State Abbreviation" size="2" source="Formula: Substring([Field_1], 85, 2)" type="String" />
+            <Field name="PJA State" size="2" source="Formula: Substring([Field_1], 85, 2)" type="String" />
             <Field name="PJA State Name" size="30" source="Formula: Substring([Field_1], 87, 30)" type="V_String" />
             <Field name="PJA City" size="30" source="Formula: Substring([Field_1], 117, 30)" type="V_String" />
             <Field name="PJA Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -409,7 +409,7 @@ Airport Site Number = Substring([Fie...</DefaultAnnotationText>
             <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 41, 6)))" type="FixedDecimal" />
             <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 47, 8)))" type="FixedDecimal" />
             <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 55, 30)" type="V_String" />
-            <Field name="PJA State Abbreviation" size="2" source="Formula: Substring([Field_1], 85, 2)" type="String" />
+            <Field name="PJA State" size="2" source="Formula: Substring([Field_1], 85, 2)" type="String" />
             <Field name="PJA State Name" size="30" source="Formula: Substring([Field_1], 87, 30)" type="V_String" />
             <Field name="PJA City" size="30" source="Formula: Substring([Field_1], 117, 30)" type="V_String" />
             <Field name="PJA Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -468,7 +468,7 @@ Airport Site Number = Substring([Fie...</DefaultAnnotationText>
             <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 41, 6)))" type="FixedDecimal" />
             <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 47, 8)))" type="FixedDecimal" />
             <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 55, 30)" type="V_String" />
-            <Field name="PJA State Abbreviation" size="2" source="Formula: Substring([Field_1], 85, 2)" type="String" />
+            <Field name="PJA State" size="2" source="Formula: Substring([Field_1], 85, 2)" type="String" />
             <Field name="PJA State Name" size="30" source="Formula: Substring([Field_1], 87, 30)" type="V_String" />
             <Field name="PJA City" size="30" source="Formula: Substring([Field_1], 117, 30)" type="V_String" />
             <Field name="PJA Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
@@ -519,7 +519,7 @@ ELSE [Maxi...</DefaultAnnotationText>
             <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 41, 6)))" type="FixedDecimal" />
             <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 47, 8)))" type="FixedDecimal" />
             <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 55, 30)" type="V_String" />
-            <Field name="PJA State Abbreviation" size="2" source="Formula: Substring([Field_1], 85, 2)" type="String" />
+            <Field name="PJA State" size="2" source="Formula: Substring([Field_1], 85, 2)" type="String" />
             <Field name="PJA State Name" size="30" source="Formula: Substring([Field_1], 87, 30)" type="V_String" />
             <Field name="PJA City" size="30" source="Formula: Substring([Field_1], 117, 30)" type="V_String" />
             <Field name="PJA Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />

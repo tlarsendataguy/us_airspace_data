@@ -36,9 +36,6 @@
           <DefaultAnnotationText>STARDP.txt</DefaultAnnotationText>
           <Left value="True" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\STARDP.txt" type="V_String" />
@@ -152,7 +149,7 @@ ToNumber(Substring([Field_1],...</DefaultAnnotationText>
         <Configuration>
           <FormulaFields>
             <FormulaField expression="Substring([Field_1], 30, 6)" field="Fix ID" size="6" type="String" />
-            <FormulaField expression="Substring([Field_1], 36, 2)" field="ICAO Region Code" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 36, 2)" field="ICAO Region" size="2" type="String" />
             <FormulaField expression="Substring([Field_1], 38, 13)" field="ID" size="13" type="V_String" />
             <FormulaField expression="Substring([Field_1], 51, 110)" field="Name" size="110" type="V_String" />
             <FormulaField expression="Substring([Field_1], 161, 62)" field="Airways and Navaids Using Fix" size="62" type="V_String" />
@@ -161,7 +158,8 @@ ToNumber(Substring([Field_1],...</DefaultAnnotationText>
         <Annotation DisplayMode="2">
           <Name />
           <DefaultAnnotationText>Fix ID = Substring([Field_1], 30, 6)
-ICAO Region Code = Substring([Field_1], 36,...</DefaultAnnotationText>
+ICAO Region = Substring([Field_1], 36, 2)
+I...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
@@ -174,7 +172,7 @@ ICAO Region Code = Substring([Field_1], 36,...</DefaultAnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Substring([Field_1], 30, 6)" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Substring([Field_1], 36, 2)" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Substring([Field_1], 36, 2)" type="String" />
             <Field name="ID" size="13" source="Formula: Substring([Field_1], 38, 13)" type="V_String" />
             <Field name="Name" size="110" source="Formula: Substring([Field_1], 51, 110)" type="V_String" />
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Substring([Field_1], 161, 62)" type="V_String" />
@@ -210,7 +208,7 @@ ICAO Region Code = Substring([Field_1], 36,...</DefaultAnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Substring([Field_1], 30, 6)" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Substring([Field_1], 36, 2)" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Substring([Field_1], 36, 2)" type="String" />
             <Field name="ID" size="13" source="Formula: Substring([Field_1], 38, 13)" type="V_String" />
             <Field name="Name" size="110" source="Formula: Substring([Field_1], 51, 110)" type="V_String" />
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Substring([Field_1], 161, 62)" type="V_String" />
@@ -254,7 +252,7 @@ ICAO Region Code = Substring([Field_1], 36,...</DefaultAnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="ID" size="13" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Name" size="110" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Trim([_CurrentField_])" type="V_String" />
@@ -300,7 +298,7 @@ ENDIF</DefaultAnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field name="Name" size="110" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Trim([_CurrentField_])" type="V_String" />
@@ -345,7 +343,7 @@ ENDIF</Expression>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="ID" size="13" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Name" size="110" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Trim([_CurrentField_])" type="V_String" />
@@ -393,7 +391,7 @@ ELSEI...</DefaultAnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="ID" size="13" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Name" size="110" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Trim([_CurrentField_])" type="V_String" />
@@ -423,7 +421,7 @@ ELSEI...</DefaultAnnotationText>
             <SelectField field="Latitude" selected="True" />
             <SelectField field="Longitude" selected="True" />
             <SelectField field="Fix ID" selected="True" />
-            <SelectField field="ICAO Region Code" selected="True" />
+            <SelectField field="ICAO Region" selected="True" />
             <SelectField field="Type" selected="True" />
             <SelectField field="Airways and Navaids Using Fix" selected="False" />
             <SelectField field="Computer Code Record Number" selected="False" />
@@ -447,7 +445,7 @@ ELSEI...</DefaultAnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" name="Type" size="20" source="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" type="V_String" />
           </RecordInfo>
         </MetaInfo>
@@ -490,7 +488,7 @@ ELSE...</DefaultAnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Trim([_CurrentField_])" type="V_String" />
@@ -540,7 +538,7 @@ ELSE...</DefaultAnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Trim([_CurrentField_])" type="V_String" />
@@ -558,7 +556,7 @@ ELSE...</DefaultAnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Trim([_CurrentField_])" type="V_String" />
@@ -609,7 +607,7 @@ Transition</AnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Trim([_CurrentField_])" type="V_String" />
@@ -627,7 +625,7 @@ Transition</AnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Trim([_CurrentField_])" type="V_String" />
@@ -749,7 +747,7 @@ Transition</AnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" name="Type" size="20" source="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" type="V_String" />
           </RecordInfo>
           <SortInfo noProgress="True">
@@ -768,7 +766,7 @@ Transition</AnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" name="Type" size="20" source="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="SID/STAR ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="SID/STAR Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
@@ -832,7 +830,7 @@ Transition</AnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" name="Type" size="20" source="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="SID/STAR ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="SID/STAR Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
@@ -854,7 +852,7 @@ Transition</AnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" name="Type" size="20" source="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="SID/STAR ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="SID/STAR Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
@@ -908,7 +906,7 @@ Transition</AnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" name="Type" size="20" source="Formula: IF     [Computer Code Record Number] = 1&#xA;THEN   'Basic'&#xA;ELSEIF !IsEmpty([ID])&#xA;THEN   'Transition'&#xA;ELSE   [Row-1:Type]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="SID/STAR ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="SID/STAR Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
@@ -943,7 +941,7 @@ Transition</AnnotationText>
             <SelectField field="Latitude" selected="True" />
             <SelectField field="Longitude" selected="True" />
             <SelectField field="Fix ID" selected="True" />
-            <SelectField field="ICAO Region Code" selected="True" />
+            <SelectField field="ICAO Region" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -966,7 +964,7 @@ Transition</AnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -984,10 +982,12 @@ Transition</AnnotationText>
             <Field name="Transition Name" />
             <Field name="Procedure" selected="False" />
             <Field name="Type" selected="False" />
-            <Field name="ID" selected="False" />
-            <Field name="Name" selected="False" />
+            <Field name="SID/STAR ID" selected="False" />
+            <Field name="SID/STAR Name" selected="False" />
             <Field name="Fix Type" selected="False" />
-            <Field name="ICAO Region Code" selected="False" />
+            <Field name="Fix Type Name" selected="False" />
+            <Field name="Fix ID" selected="False" />
+            <Field name="ICAO Region" selected="False" />
             <Field name="*Unknown" selected="False" />
           </Fields>
           <CopyOutput value="False" />
@@ -1020,7 +1020,7 @@ E...</DefaultAnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -1061,7 +1061,7 @@ Sequence - Ascending</DefaultAnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -1104,7 +1104,7 @@ ENDIF</DefaultAnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="ID" size="13" source="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field name="Airways and Navaids Using Fix" size="62" source="Formula: Trim([_CurrentField_])" type="V_String" />
@@ -1158,7 +1158,7 @@ ENDIF</DefaultAnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
           </RecordInfo>
         </MetaInfo>
         <MetaInfo connection="False">
@@ -1175,7 +1175,7 @@ ENDIF</DefaultAnnotationText>
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="ICAO Region Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
