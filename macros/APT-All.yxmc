@@ -1,0 +1,980 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="162" y="66" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>SaveTo</Name>
+          <DefaultAnnotationText>SaveTo</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="138" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>APT</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\APT.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>2000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>APT.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\APT.txt" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings>
+        <Position x="234" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="APT">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Facility Type" size="13" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Location Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 31, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="FAA Region Code" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="FAA Region Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="FAA Field Office" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Associated State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Associated State Name" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated County" size="21" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated County State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Associated City" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Official Facility Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Ownership Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Ownership Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Use" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Facility Use Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Owner Name" size="35" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Owner Address" size="72" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Owner City State and Zip Code" size="45" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Owner Phone Number" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Manager Name" size="35" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Manager Address" size="72" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Manager City State and Zip Code" size="45" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Manage Phone Number" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Elevation" scale="1" size="10" source="Formula: ToNumber([RAW Airport Elevation])" type="FixedDecimal" />
+            <Field name="Airport Elevation Estimation Method" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Magnetic Variation and Direction" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Magnetic Variation Epoch Year" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Traffic Pattern Altitude" source="Formula: IF   [Traffic Pattern Altitude] = 0&#xA;THEN 1000&#xA;ELSE [Traffic Pattern Altitude]&#xA;ENDIF" type="Int32" />
+            <Field name="Sectional Chart" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Distance from Associated City" source="Formula: ToNumber(Substring([Field_1], 627, 2))" type="Int32" />
+            <Field name="Direction from Associated City" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Land Area Covered By Airport" source="Formula: ToNumber(Substring([Field_1], 632, 5))" type="Int32" />
+            <Field name="Boundary ARTCC Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Boundary ARTCC Computer Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Boundary ARTCC Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Responsible ARTCC Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Responsible ARTCC Computer Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Responsible ARTCC Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Tie-In FSS Physically Located on Facility" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Tie-In FSS Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Tie-In FSS Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Phone Number to FSS for Administrative Services" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Phone Number to FSS for Pilot Briefing Services" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Alternate FSS Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Alternate FSS Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Phone Number to Alternate FSS for Pilot Briefing Services" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Responsible for NOTAMS and Weather" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Availability of NOTAM D Service" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Activation Date" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Status Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Status Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport ARFF Certification Type and Date" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport ARFF Certification Class" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport ARFF Certification CFR 139 Code" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport ARFF Certification Scheduled Service" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport ARFF Certification Date" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Airspace Analysis Determination" size="13" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport of Entry for Customs" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Customs Landing Rights Airport" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Military Civil Join Use Agreement" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Rights Granted to Military" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Inspection Method" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Inspection Method Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Group Performing Physical Inspection" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Group Performing Physical Inspection Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Last Physical Inspection Date" source="Formula: IF   IsEmpty(Trim(Substring([Field_1], 884, 8)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 884, 8), &quot;%m%d%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Last Date Information Request was Completed" source="Formula: IF   IsEmpty(Trim(Substring([Field_1], 892, 8)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 892, 8), &quot;%m%d%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Airframe Repair Service Availability" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Power Plant Repair Availability" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Type of Bottled Oxygen Available" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Type of Bulk Oxygen Available" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Lighting Schedule" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Beacon Lighting Schedule" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Air Traffic Control Tower Located on Airport" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Unicom Frequency" scale="3" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 981, 7)))" type="FixedDecimal" />
+            <Field name="CTAF" scale="3" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 988, 7)))" type="FixedDecimal" />
+            <Field name="Segmented Circle Airport Marker System" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Lens Color of Beacon" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Lens Color of Beacon Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Landing Fee Charged to Non-Commercial Users" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Facility Used for Medical Purposes" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Single Engine GA Aircraft" source="Formula: ToNumber(Substring([Field_1], 1004, 3))" type="Int32" />
+            <Field name="Multi Engine GA Aircraft" source="Formula: ToNumber(Substring([Field_1], 1007, 3))" type="Int32" />
+            <Field name="Jet Engine GA Aircraft" source="Formula: ToNumber(Substring([Field_1], 1010, 3))" type="Int32" />
+            <Field name="GA Helicopter" source="Formula: ToNumber(Substring([Field_1], 1013, 3))" type="Int32" />
+            <Field name="Operational Gliders" source="Formula: ToNumber(Substring([Field_1], 1016, 3))" type="Int32" />
+            <Field name="Operational Military Aircraft" source="Formula: ToNumber(Substring([Field_1], 1019, 3))" type="Int32" />
+            <Field name="Ultralight Aircraft" source="Formula: ToNumber(Substring([Field_1], 1022, 3))" type="Int32" />
+            <Field name="Scheduled Operations by CAB-Certified Carriers" source="Formula: ToNumber(Substring([Field_1], 1025, 6))" type="Int32" />
+            <Field name="Scheduled Commuter/Cargo Carriers" source="Formula: ToNumber(Substring([Field_1], 1031, 6))" type="Int32" />
+            <Field name="Air Taxi Operations" source="Formula: ToNumber(Substring([Field_1], 1037, 6))" type="Int32" />
+            <Field name="GA Local Operations" source="Formula: ToNumber(Substring([Field_1], 1043, 6))" type="Int32" />
+            <Field name="GA Itinerant Operations" source="Formula: ToNumber(Substring([Field_1], 1049, 6))" type="Int32" />
+            <Field name="Military Operations" source="Formula: ToNumber(Substring([Field_1], 1055, 6))" type="Int32" />
+            <Field name="12-Month Annual Operations Ending Date" source="Formula: IF   IsEmpty(Trim(Substring([Field_1], 1061, 10)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 1061, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Airport Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Position Source Date" source="Formula: IF   IsEmpty(Trim(Substring([Field_1], 1087, 10)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 1087, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Airport Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Elevation Source Date" source="Formula: IF   IsEmpty(Trim(Substring([Field_1], 1113, 10)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 1113, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Transient Storage Facilities" size="12" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Wind Indicator" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Identifier" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Minimum Operational Network" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="APT.yxmc" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="330" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\APT.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>APT.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings>
+        <Position x="234" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="APT-FuelTypes">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim(Substring([Field_1], 3, 11))" type="String" />
+            <Field name="Location Identifier" size="4" source="Formula: Trim(Substring([Field_1], 27, 4))" type="String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 31, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Fuel Types Available" size="40" source="Formula: Trim([Fuel Types Available])" type="V_String" />
+            <Field name="Fuel Types Available Name" size="200" source="Formula: Switch(&#xA;  [Fuel Types Available], &quot;Unknown&quot;,&#xA;  &quot;80&quot;, &quot;Grade 80 gasoline (Red)&quot;,&#xA;  &quot;100&quot;, &quot;Grade 100 gasoline (Green)&quot;,&#xA;  &quot;100LL&quot;, &quot;100LL gasoline (low lead)(Blue)&quot;,&#xA;  &quot;115&quot;, &quot;Grade 115 gasoline (115/145 military specification)(Purple)&quot;,&#xA;  &quot;A&quot;, &quot;Jet A, Kerosene, without FS-II, FP minus 40 C&quot;,&#xA;  &quot;A+&quot;, &quot;Jet A, Kerosene, with FS-II, FP minus 40 C&quot;,&#xA;  &quot;A++&quot;, &quot;Jet A, Kerosene, with FS-II, CI/LI, SDA, FP minus 40 C&quot;,&#xA;  &quot;A++10&quot;, &quot;Jet A, Kerosene, with FS-II, CI/LI, SDA, FPA minus 40 C, with +100 fuel additive that improves thermal stability characteristics of kerosene jet fuels&quot;,&#xA;  &quot;A1&quot;, &quot;Jet A-1, Kerosene, without FS-II, FP minus 47 C&quot;,&#xA;  &quot;A1+&quot;, &quot;Jet A-1, Kerosene, with FS-II, FP minus 47 C&quot;,&#xA;  &quot;B&quot;, &quot;Jet B, Wide-cut, turbine fuel, without FS-II, FP minus 50 C&quot;,&#xA;  &quot;B+&quot;, &quot;Jet B, Wide-cut, turbine fuel, with FS-II, FP minus 50 C&quot;,&#xA;  &quot;J4&quot;, &quot;JP-4 military specification, FP minus 58 C&quot;,&#xA;  &quot;J5&quot;, &quot;JP-5 military specification, Kerosene with FS-II, FP minus 46 C&quot;,&#xA;  &quot;J8&quot;, &quot;JP-8 military specification, Jet A-1, Kerosene with FS-II, CI/LI, SDA, FP minus 47 C&quot;,&#xA;  &quot;J8+10&quot;, &quot;JP-8 military specification, Jet A-1, Kerosene with FS-II, CI/LI, SDA, FP minus 47 C, with +100 fuel additive that improves thermal characteristics of kerosene jet fuels&quot;,&#xA;  &quot;J&quot;, &quot;Jet fuel type unknown&quot;,&#xA;  &quot;MOGAS&quot;, &quot;Automobile gasoline which is to be used as aircraft fuel&quot;,&#xA;  &quot;UL91&quot;, &quot;Unleaded grade 91 gasoline&quot;,&#xA;  &quot;UL94&quot;, &quot;Unleaded grade 94 gasoline&quot;&#xA;)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="APT-FuelTypes.yxmc" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings>
+        <Position x="234" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="APT-NPIAS">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim(Substring([Field_1], 3, 11))" type="String" />
+            <Field name="Location Identifier" size="4" source="Formula: Trim(Substring([Field_1], 27, 4))" type="String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 31, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="NPIAS Federal Agreements Code" size="7" source="Formula: Trim(Substring([Field_1], 857, 7))" type="String" />
+            <Field name="NAIPS Federal Agreements Name" size="200" source="Formula: Switch(&#xA;  [NPIAS Federal Agreements Code], &quot;Unknown&quot;,&#xA;  &quot;N&quot;, &quot;National Plan of Integrated Airport Systems (NAIPS)&quot;,&#xA;  &quot;B&quot;, &quot;Installation of Navigational Facilities on Privately Owned Airports under F&amp;E Program&quot;,&#xA;  &quot;G&quot;, &quot;Grant Agreements under FAAP/ADAP/AIP&quot;,&#xA;  &quot;P&quot;, &quot;Surplus Property Agreement under Public Law 289&quot;,&#xA;  &quot;R&quot;, &quot;Surplus Property Agreement under Regulation 16-WAA&quot;,&#xA;  &quot;S&quot;, &quot;Conveyance Under Seciton 16, Federal Airport Act of 1946 or Section 23, Airport and Airway Development Act of 1970&quot;,&#xA;  &quot;V&quot;, &quot;Advance Planning Agreement under FAAP&quot;,&#xA;  &quot;X&quot;, &quot;Obligations Assumed by Transfer&quot;,&#xA;  &quot;Y&quot;, &quot;Assurance Pursuant to Title VI, Civil Rights Act of 1964&quot;,&#xA;  &quot;Z&quot;, &quot;Conveyance Under Section 303(C), Federal Aviation Act of 1958&quot;,&#xA;  &quot;1&quot;, &quot;Grant agreement has expired; however, agreement remains in effect for this facility as long as it is public use.&quot;,&#xA;  &quot;2&quot;, &quot;Section 303(C) authority of FAA Act of 1958 has expired; however, agreement remains in effect for this facility as long as it is public use.&quot;,&#xA;  &quot;3&quot;, &quot;AP-4 agreement under DLAND or DCLA has expired&quot;&#xA;)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="APT-NPIAS.yxmc" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings>
+        <Position x="234" y="438" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="APT-OtherServices">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim(Substring([Field_1], 3, 11))" type="String" />
+            <Field name="Location Identifier" size="4" source="Formula: Trim(Substring([Field_1], 27, 4))" type="String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 31, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field description="TextToColumns: Parsed from Other Service" name="Other Service" size="71" source="TextToColumns: Parsed from Other Service" type="V_String" />
+            <Field name="Other Service Name" size="50" source="Formula: Switch(&#xA;  [Other Service], &quot;Unknown&quot;,&#xA;  &quot;AFRT&quot;, &quot;Air Freight Services&quot;,&#xA;  &quot;AGRI&quot;, &quot;Crop Dusting Services&quot;,&#xA;  &quot;AMB&quot;, &quot;Air Ambulance Services&quot;,&#xA;  &quot;AVNCS&quot;, &quot;Avionics&quot;,&#xA;  &quot;BCHGR&quot;, &quot;Beaching Gear&quot;,&#xA;  &quot;CARGO&quot;, &quot;Cargo Handling Services&quot;,&#xA;  &quot;CHTR&quot;, &quot;Charter Service&quot;,&#xA;  &quot;GLD&quot;, &quot;Glider Service&quot;,&#xA;  &quot;INSTR&quot;, &quot;Pilot Instruction&quot;,&#xA;  &quot;PAJA&quot;, &quot;Parachute Jump Activity&quot;,&#xA;  &quot;RNTL&quot;, &quot;Aircraft Rental&quot;,&#xA;  &quot;SALES&quot;, &quot;Aircraft Sales&quot;,&#xA;  &quot;SURV&quot;, &quot;Annual Surveying&quot;,&#xA;  &quot;TOW&quot;, &quot;Glider Towing Services&quot;&#xA;)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="APT-OtherServices.yxmc" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings>
+        <Position x="234" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="APT-RMK">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Facility State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Remark Element" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Element Code" size="15" source="Formula: REGEX_Replace([Remark Element], &quot;^([A-Z0-9]+)(.*)$&quot;, &quot;$1&quot;)" type="V_String" />
+            <Field name="Element Description" size="69" source="TextInput:" type="V_String" />
+            <Field name="Element ID" size="15" source="Formula: Substring(REGEX_Replace([Remark Element], &quot;^([A-Z0-9]+)(.*)$&quot;, &quot;$2&quot;), 1)" type="V_String" />
+            <Field name="Remark" size="1500" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="APT-RMK.yxmc" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings>
+        <Position x="234" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="RWY">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" type="String" source="Formula: Trim([_CurrentField_])" size="11" scale="0">
+            </Field>
+            <Field name="Runway State" type="String" source="Formula: Trim([_CurrentField_])" size="2" scale="0">
+            </Field>
+            <Field name="Runway Identification" type="String" source="Formula: Trim([_CurrentField_])" size="7" scale="0">
+            </Field>
+            <Field name="Physical Runway Length" type="Int32" source="Formula: ToNumber(Substring([Field_1], 23, 5))" size="4" scale="0">
+            </Field>
+            <Field name="Physical Runway Width" type="Int32" source="Formula: ToNumber(Substring([Field_1], 28, 4))" size="4" scale="0">
+            </Field>
+            <Field name="Runway Surface Condition" type="String" source="Formula: Trim([_CurrentField_])" size="1" scale="0">
+            </Field>
+            <Field name="Runway Surface Condition Name" type="V_String" source="Formula: Trim([_CurrentField_])" size="50" scale="0">
+            </Field>
+            <Field name="Runway Surface Treatment" type="String" source="Formula: Trim([_CurrentField_])" size="5" scale="0">
+            </Field>
+            <Field name="Runway Surface Treatment Name" type="V_String" source="Formula: Trim([_CurrentField_])" size="50" scale="0">
+            </Field>
+            <Field name="Pavement Classification Number" type="V_String" source="Formula: Trim([_CurrentField_])" size="11" scale="0">
+            </Field>
+            <Field name="Runway Lights Edge Intensity" type="String" source="Formula: Trim([_CurrentField_])" size="5" scale="0">
+            </Field>
+            <Field name="Runway Length Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
+            </Field>
+            <Field name="Runway Length Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            </Field>
+            <Field name="Single Wheel Weight Capacity" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 535, 6))" size="10" scale="1">
+            </Field>
+            <Field name="Dual Wheel Weight Capacity" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 541, 6))" size="10" scale="1">
+            </Field>
+            <Field name="Two Dual Wheels Weight Capacity" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 547, 6))" size="10" scale="1">
+            </Field>
+            <Field name="Two Dual Wheels Double Tandem Weight Capacity" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 553, 6))" size="10" scale="1">
+            </Field>
+            <Field name="Base Identifier" type="String" source="Formula: Trim([_CurrentField_])" size="3" scale="0">
+            </Field>
+            <Field name="Base True Alignment" type="Int32" source="Formula: ToNumber(Substring([Field_1], 68, 3))" size="4" scale="0">
+            </Field>
+            <Field name="Base ILS Type" type="String" source="Formula: Trim([_CurrentField_])" size="10" scale="0">
+            </Field>
+            <Field name="Base ILS Type Name" type="V_String" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ILS&quot;, &quot;Instrument Landing System&quot;,&#xA;  &quot;MLS&quot;, &quot;Microwave Landing System&quot;,&#xA;  &quot;SDF&quot;, &quot;Simplified Directional Facility&quot;,&#xA;  &quot;LOCALIZER&quot;, &quot;Localizer&quot;,&#xA;  &quot;LDA&quot;, &quot;Localizer-Type Directional Aid&quot;,&#xA;  &quot;ISMLS&quot;, &quot;Interim Standard Microwave Landing System&quot;,&#xA;  &quot;ILS/DME&quot;, &quot;Instrument Landing System with Distance Measuring Equipment&quot;,&#xA;  &quot;SDF/DME&quot;, &quot;Simplified Directional Facility with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/DME&quot;, &quot;Localizer with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/GS&quot;, &quot;Localizer with Glide Slope&quot;,&#xA;  &quot;LDA/DME&quot;, &quot;Localizer-Type Directional Aid with Distance Measuring Equipment&quot;&#xA;)" size="100" scale="0">
+            </Field>
+            <Field name="Base Right Hand Traffic" type="String" source="Formula: Trim([_CurrentField_])" size="1" scale="0">
+            </Field>
+            <Field name="Base Runway Markings Type" type="String" source="Formula: Trim([_CurrentField_])" size="5" scale="0">
+            </Field>
+            <Field name="Base Runway Markings Type Name" type="V_String" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;PIR&quot;, &quot;Precision Instrument&quot;,&#xA;  &quot;NPI&quot;, &quot;Nonprecision Instrument&quot;,&#xA;  &quot;BSC&quot;, &quot;Basic&quot;,&#xA;  &quot;NRS&quot;, &quot;Numbers Only&quot;,&#xA;  &quot;NSTD&quot;, &quot;Nonstandard&quot;,&#xA;  &quot;BUOY&quot;, &quot;Buoys&quot;,&#xA;  &quot;STOL&quot;, &quot;Short Takeoff and Landing&quot;,&#xA;  &quot;NONE&quot;, &quot;None&quot;&#xA;)" size="50" scale="0">
+            </Field>
+            <Field name="Base Runway Markings Condition" type="String" source="Formula: Trim([_CurrentField_])" size="1" scale="0">
+            </Field>
+            <Field name="Base Runway Markings Condition Name" type="V_String" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;G&quot;, &quot;Good&quot;,&#xA;  &quot;F&quot;, &quot;Fair&quot;,&#xA;  &quot;P&quot;, &quot;Poor&quot;&#xA;)" size="50" scale="0">
+            </Field>
+            <Field name="Base Latitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" size="12" scale="7">
+            </Field>
+            <Field name="Base Longitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" size="12" scale="7">
+            </Field>
+            <Field name="Base Elevation" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 142, 7))" size="10" scale="1">
+            </Field>
+            <Field name="Base Displaced Threshold Latitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" size="12" scale="7">
+            </Field>
+            <Field name="Base Displaced Threshold Longitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" size="12" scale="7">
+            </Field>
+            <Field name="Base Displace Threshold Elevation" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 210, 7))" size="10" scale="1">
+            </Field>
+            <Field name="Base Displaced Threshold Length" type="Int32" source="Formula: ToNumber(Substring([Field_1], 217, 4))" size="4" scale="0">
+            </Field>
+            <Field name="Base Elevation at Touchdown Zone" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 221, 7))" size="10" scale="1">
+            </Field>
+            <Field name="Base Visual Glide Slope Indicator" type="String" source="Formula: Trim([_CurrentField_])" size="5" scale="0">
+            </Field>
+            <Field name="Base Visual Glide Slope Indicator Name" type="V_String" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;S2L&quot;, &quot;2-box SAVASI on left side of runway&quot;,&#xA;  &quot;S2R&quot;, &quot;2-box SAVASI on right side of runway&quot;,&#xA;  &quot;V2L&quot;, &quot;2-box VASI on left side of runway&quot;,&#xA;  &quot;V2R&quot;, &quot;2-box VASI on right side of runway&quot;,&#xA;  &quot;V4L&quot;, &quot;4-box VASI on left side of runway&quot;,&#xA;  &quot;V4R&quot;, &quot;4-box VASI on right side of runway&quot;,&#xA;  &quot;V6L&quot;, &quot;6-box VASI on left side of runway&quot;,&#xA;  &quot;V6R&quot;, &quot;6-box VASI on right side of runway&quot;,&#xA;  &quot;V12&quot;, &quot;12-box VASI on both sides of runway&quot;,&#xA;  &quot;V16&quot;, &quot;16-box VASI on both sides of runway&quot;,&#xA;  &quot;P2L&quot;, &quot;2-light PAPI on left side of runway&quot;,&#xA;  &quot;P2R&quot;, &quot;2-light PAPI on right side of runway&quot;,&#xA;  &quot;P4L&quot;, &quot;4-light PAPI on left side of runway&quot;,&#xA;  &quot;P4R&quot;, &quot;4-light PAPI on right side of runway&quot;,&#xA;  &quot;NSTD&quot;, &quot;Nonstandard VASI system&quot;,&#xA;  &quot;PVT&quot;, &quot;Privately owned approach slope indicator light system on a public use airport that is intended for private use only&quot;,&#xA;  &quot;VAS&quot;, &quot;Non-specific VASI system&quot;,&#xA;  &quot;NONE&quot;, &quot;No approach slope light system&quot;,&#xA;  &quot;N&quot;, &quot;No approach slope light system&quot;,&#xA;  &quot;TRIL&quot;, &quot;Tri-color VASI on left side of runway&quot;,&#xA;  &quot;TRIR&quot;, &quot;Tri-color VASI on right side of runway&quot;,&#xA;  &quot;PSIL&quot;, &quot;Pulsating/steady burning VASI on left side of runway&quot;,&#xA;  &quot;PSIR&quot;, &quot;Pulsating/steady burning VASI on right side of runway&quot;,&#xA;  &quot;PNIL&quot;, &quot;System of panels on left side of runway that may or may not be lighted&quot;,&#xA;  &quot;PNIR&quot;, &quot;System of panels on right side of runway that may or may not be lighted&quot;&#xA;)" size="150" scale="0">
+            </Field>
+            <Field name="Base Runway Visual Range Equipment" type="String" source="Formula: Trim([_CurrentField_])" size="3" scale="0">
+            </Field>
+            <Field name="Base Runway Visibility Value Equipment" type="String" source="Formula: Trim([_CurrentField_])" size="1" scale="0">
+            </Field>
+            <Field name="Base Approach Light System" type="String" source="Formula: Trim([_CurrentField_])" size="8" scale="0">
+            </Field>
+            <Field name="Base Approach Light System Name" type="V_String" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ALSAF&quot;, &quot;3,000 foot high intensity approach lighting system with centerline sequence flashers&quot;,&#xA;  &quot;ALSF1&quot;, &quot;Standard 2,400 foot high intensity approach lighting system with sequenced flashes, category I config&quot;,&#xA;  &quot;ALSF2&quot;, &quot;Standard 2,400 foot high intensity approach lighting system with sequenced flashes, category II or III config&quot;,&#xA;  &quot;MALS&quot;, &quot;1,400 foot medium intensity approach lighting system&quot;,&#xA;  &quot;MALSF&quot;, &quot;1,400 foot medium intensity approach lighting system with sequenced flashers&quot;,&#xA;  &quot;MALSR&quot;, &quot;1,400 foot medium intensity approach lighting system with runway alignment indicator lights&quot;,&#xA;  &quot;SSALS&quot;, &quot;Simplified short approach lighting system&quot;,&#xA;  &quot;SSALF&quot;, &quot;Simplified short approach lighting system with sequenced flashers&quot;,&#xA;  &quot;SSALR&quot;, &quot;Simplified short approach lighting system with runway alignment indicator lights&quot;,&#xA;  &quot;NEON&quot;, &quot;Neon ladder system&quot;,&#xA;  &quot;ODALS&quot;, &quot;Omnidirectional approach lighting system&quot;,&#xA;  &quot;RLLS&quot;, &quot;Runway lead-in light system&quot;,&#xA;  &quot;MIL OVRN&quot;, &quot;Military overrun&quot;,&#xA;  &quot;NSTD&quot;, &quot;Nonstandard&quot;,&#xA;  &quot;NONE&quot;, &quot;No approach lighting system&quot;,&#xA;  &quot;SALS&quot;, &quot;1,500 foot high intensity approach lighting system&quot;,&#xA;  &quot;SALSF&quot;, &quot;1,500 foot high intensity approach lighting system with sequenced flashers&quot;&#xA;)" size="150" scale="0">
+            </Field>
+            <Field name="Base Runway End Identifier Lights Available" type="String" source="Formula: Trim([_CurrentField_])" size="1" scale="0">
+            </Field>
+            <Field name="Base Runway Centerline Lights Available" type="String" source="Formula: Trim([_CurrentField_])" size="1" scale="0">
+            </Field>
+            <Field name="Base Runway End Touchdown Lights Available" type="String" source="Formula: Trim([_CurrentField_])" size="1" scale="0">
+            </Field>
+            <Field name="Base Controlling Object" type="V_String" source="Formula: Trim([_CurrentField_])" size="11" scale="0">
+            </Field>
+            <Field name="Base Controlling Object Marked" type="String" source="Formula: Trim([_CurrentField_])" size="4" scale="0">
+            </Field>
+            <Field name="Base Controlling Object Marked Name" type="V_String" source="Formula: Switch(&#xA;  [_CurrentField_],&quot;Unknown&quot;,&#xA;  &quot;&quot; ,&quot;&quot;,&#xA;  &quot;M&quot;, &quot;Marked&quot;,&#xA;  &quot;L&quot;, &quot;Lighted&quot;,&#xA;  &quot;ML&quot;, &quot;Marked and Lighted&quot;,&#xA;  &quot;LM&quot;, &quot;Marked and Lighted&quot;,&#xA;  &quot;NONE&quot;, &quot;Not marked or lighted&quot;&#xA;)" size="50" scale="0">
+            </Field>
+            <Field name="Base FAA CFR Part 77 Category" type="String" source="Formula: Trim([_CurrentField_])" size="5" scale="0">
+            </Field>
+            <Field name="Base FAA CFR Part 77 Category Name" type="V_String" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;A(V)&quot;, &quot;Utility runway with a visual approach&quot;,&#xA;  &quot;B(V)&quot;, &quot;Other than utility runway with a visual approach&quot;,&#xA;  &quot;A(NP)&quot;, &quot;Utility runway with a nonprecision approach&quot;,&#xA;  &quot;C&quot;, &quot;Other than utility runway with a nonprevision approach&quot;,&#xA;  &quot;PIR&quot;, &quot;Precision instrument runway&quot;&#xA;)" size="100" scale="0">
+            </Field>
+            <Field name="Base Controlling Object Clearance Slope" type="String" source="Formula: Trim([_CurrentField_])" size="2" scale="0">
+            </Field>
+            <Field name="Base Controlling Object Height Above Runway" type="Int32" source="Formula: ToNumber(Substring([Field_1], 270, 5))" size="4" scale="0">
+            </Field>
+            <Field name="Base Controlling Object Distance from Runway End" type="Int32" source="Formula: ToNumber(Substring([Field_1], 275, 5))" size="4" scale="0">
+            </Field>
+            <Field name="Base Controlling Object Centerline Offset" type="Int32" source="Formula: ToNumber(REGEX_Replace([RAW Base Controlling Object Centerline Offset], &quot;[^0-9]&quot;, &quot;&quot;))" size="4" scale="0">
+            </Field>
+            <Field name="Base Controlling Object Centerline Offset Direction" type="V_String" source="Formula: Trim([_CurrentField_])" size="50" scale="0">
+            </Field>
+            <Field name="Base Gradient" type="String" source="Formula: Trim([_CurrentField_])" size="5" scale="0">
+            </Field>
+            <Field name="Base Gradient Direction" type="String" source="Formula: Trim([_CurrentField_])" size="4" scale="0">
+            </Field>
+            <Field name="Base Position Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
+            </Field>
+            <Field name="Base Position Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            </Field>
+            <Field name="Base Elevation Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
+            </Field>
+            <Field name="Base Elevation Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            </Field>
+            <Field name="Base Displaced Threshold Position Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
+            </Field>
+            <Field name="Base Displaced Threshold Position Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            </Field>
+            <Field name="Base Displaced Threshold Elevation Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
+            </Field>
+            <Field name="Base Displaced Threshold Elevation Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            </Field>
+            <Field name="Base Touchdown Zone Elevation Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
+            </Field>
+            <Field name="Base Touchdown Zone Elevation Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            </Field>
+            <Field name="Base Takeoff Run Available" type="Int32" source="Formula: ToNumber(Substring([Field_1], 698, 5))" size="4" scale="0">
+            </Field>
+            <Field name="Base Takeoff Distance Available" type="Int32" source="Formula: ToNumber(Substring([Field_1], 703, 5))" size="4" scale="0">
+            </Field>
+            <Field name="Base ACLT Stop Distance Available" type="Int32" source="Formula: ToNumber(Substring([Field_1], 708, 5))" size="4" scale="0">
+            </Field>
+            <Field name="Base Landing Distance Available" type="Int32" source="Formula: ToNumber(Substring([Field_1], 713, 5))" size="4" scale="0">
+            </Field>
+            <Field name="Base Available Distance for LAHSO" type="Int32" source="Formula: ToNumber(Substring([Field_1],718, 5))" size="4" scale="0">
+            </Field>
+            <Field name="Base LAHSO Intersecting Runway" type="V_String" source="Formula: Trim([_CurrentField_])" size="7" scale="0">
+            </Field>
+            <Field name="Base LAHSO Stop Point Description" type="V_String" source="Formula: Trim([_CurrentField_])" size="40" scale="0">
+            </Field>
+            <Field name="Base LAHSO Latitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" size="12" scale="7">
+            </Field>
+            <Field name="Base LAHSO Longitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" size="12" scale="7">
+            </Field>
+            <Field name="Base LAHSO Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
+            </Field>
+            <Field name="Base LAHSO Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            </Field>
+            <Field name="Reciprocal Identifier" type="String" source="Formula: Trim([_CurrentField_])" size="3" scale="0">
+            </Field>
+            <Field name="Reciprocal True Alignment" type="Int32" source="Formula: ToNumber(Substring([Field_1], 290, 3))" size="4" scale="0">
+            </Field>
+            <Field name="Reciprocal ILS Type" type="String" source="Formula: Trim([_CurrentField_])" size="10" scale="0">
+            </Field>
+            <Field name="Reciprocal ILS Type Name" type="V_String" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ILS&quot;, &quot;Instrument Landing System&quot;,&#xA;  &quot;MLS&quot;, &quot;Microwave Landing System&quot;,&#xA;  &quot;SDF&quot;, &quot;Simplified Directional Facility&quot;,&#xA;  &quot;LOCALIZER&quot;, &quot;Localizer&quot;,&#xA;  &quot;LDA&quot;, &quot;Localizer-Type Directional Aid&quot;,&#xA;  &quot;ISMLS&quot;, &quot;Interim Standard Microwave Landing System&quot;,&#xA;  &quot;ILS/DME&quot;, &quot;Instrument Landing System with Distance Measuring Equipment&quot;,&#xA;  &quot;SDF/DME&quot;, &quot;Simplified Directional Facility with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/DME&quot;, &quot;Localizer with Distance Measuring Equipment&quot;,&#xA;  &quot;LOC/GS&quot;, &quot;Localizer with Glide Slope&quot;,&#xA;  &quot;LDA/DME&quot;, &quot;Localizer-Type Directional Aid with Distance Measuring Equipment&quot;&#xA;)" size="100" scale="0">
+            </Field>
+            <Field name="Reciprocal Right Hand Traffic" type="String" source="Formula: Trim([_CurrentField_])" size="1" scale="0">
+            </Field>
+            <Field name="Reciprocal Runway Markings Type" type="String" source="Formula: Trim([_CurrentField_])" size="5" scale="0">
+            </Field>
+            <Field name="Reciprocal Runway Markings Type Name" type="V_String" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;PIR&quot;, &quot;Precision Instrument&quot;,&#xA;  &quot;NPI&quot;, &quot;Nonprecision Instrument&quot;,&#xA;  &quot;BSC&quot;, &quot;Basic&quot;,&#xA;  &quot;NRS&quot;, &quot;Numbers Only&quot;,&#xA;  &quot;NSTD&quot;, &quot;Nonstandard&quot;,&#xA;  &quot;BUOY&quot;, &quot;Buoys&quot;,&#xA;  &quot;STOL&quot;, &quot;Short Takeoff and Landing&quot;,&#xA;  &quot;NONE&quot;, &quot;None&quot;&#xA;)" size="50" scale="0">
+            </Field>
+            <Field name="Reciprocal Runway Markings Condition" type="String" source="Formula: Trim([_CurrentField_])" size="1" scale="0">
+            </Field>
+            <Field name="Reciprocal Runway Markings Condition Name" type="V_String" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;G&quot;, &quot;Good&quot;,&#xA;  &quot;F&quot;, &quot;Fair&quot;,&#xA;  &quot;P&quot;, &quot;Poor&quot;&#xA;)" size="50" scale="0">
+            </Field>
+            <Field name="Reciprocal Latitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" size="12" scale="7">
+            </Field>
+            <Field name="Reciprocal Longitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" size="12" scale="7">
+            </Field>
+            <Field name="Reciprocal Elevation" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 371, 7))" size="10" scale="1">
+            </Field>
+            <Field name="Reciprocal Displaced Threshold Latitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" size="12" scale="7">
+            </Field>
+            <Field name="Reciprocal Displaced Threshold Longitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" size="12" scale="7">
+            </Field>
+            <Field name="Reciprocal Displace Threshold Elevation" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 432, 7))" size="10" scale="1">
+            </Field>
+            <Field name="Reciprocal Displaced Threshold Length" type="Int32" source="Formula: ToNumber(Substring([Field_1], 439, 4))" size="4" scale="0">
+            </Field>
+            <Field name="Reciprocal Elevation at Touchdown Zone" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 443, 7))" size="10" scale="1">
+            </Field>
+            <Field name="Reciprocal Visual Glide Slope Indicator" type="String" source="Formula: Trim([_CurrentField_])" size="5" scale="0">
+            </Field>
+            <Field name="Reciprocal Visual Glide Slope Indicator Name" type="V_String" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;S2L&quot;, &quot;2-box SAVASI on left side of runway&quot;,&#xA;  &quot;S2R&quot;, &quot;2-box SAVASI on right side of runway&quot;,&#xA;  &quot;V2L&quot;, &quot;2-box VASI on left side of runway&quot;,&#xA;  &quot;V2R&quot;, &quot;2-box VASI on right side of runway&quot;,&#xA;  &quot;V4L&quot;, &quot;4-box VASI on left side of runway&quot;,&#xA;  &quot;V4R&quot;, &quot;4-box VASI on right side of runway&quot;,&#xA;  &quot;V6L&quot;, &quot;6-box VASI on left side of runway&quot;,&#xA;  &quot;V6R&quot;, &quot;6-box VASI on right side of runway&quot;,&#xA;  &quot;V12&quot;, &quot;12-box VASI on both sides of runway&quot;,&#xA;  &quot;V16&quot;, &quot;16-box VASI on both sides of runway&quot;,&#xA;  &quot;P2L&quot;, &quot;2-light PAPI on left side of runway&quot;,&#xA;  &quot;P2R&quot;, &quot;2-light PAPI on right side of runway&quot;,&#xA;  &quot;P4L&quot;, &quot;4-light PAPI on left side of runway&quot;,&#xA;  &quot;P4R&quot;, &quot;4-light PAPI on right side of runway&quot;,&#xA;  &quot;NSTD&quot;, &quot;Nonstandard VASI system&quot;,&#xA;  &quot;PVT&quot;, &quot;Privately owned approach slope indicator light system on a public use airport that is intended for private use only&quot;,&#xA;  &quot;VAS&quot;, &quot;Non-specific VASI system&quot;,&#xA;  &quot;NONE&quot;, &quot;No approach slope light system&quot;,&#xA;  &quot;N&quot;, &quot;No approach slope light system&quot;,&#xA;  &quot;TRIL&quot;, &quot;Tri-color VASI on left side of runway&quot;,&#xA;  &quot;TRIR&quot;, &quot;Tri-color VASI on right side of runway&quot;,&#xA;  &quot;PSIL&quot;, &quot;Pulsating/steady burning VASI on left side of runway&quot;,&#xA;  &quot;PSIR&quot;, &quot;Pulsating/steady burning VASI on right side of runway&quot;,&#xA;  &quot;PNIL&quot;, &quot;System of panels on left side of runway that may or may not be lighted&quot;,&#xA;  &quot;PNIR&quot;, &quot;System of panels on right side of runway that may or may not be lighted&quot;&#xA;)" size="150" scale="0">
+            </Field>
+            <Field name="Reciprocal Runway Visual Range Equipment" type="String" source="Formula: Trim([_CurrentField_])" size="3" scale="0">
+            </Field>
+            <Field name="Reciprocal Runway Visibility Value Equipment" type="String" source="Formula: Trim([_CurrentField_])" size="1" scale="0">
+            </Field>
+            <Field name="Reciprocal Approach Light System" type="String" source="Formula: Trim([_CurrentField_])" size="8" scale="0">
+            </Field>
+            <Field name="Reciprocal Approach Light System Name" type="V_String" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;ALSAF&quot;, &quot;3,000 foot high intensity approach lighting system with centerline sequence flashers&quot;,&#xA;  &quot;ALSF1&quot;, &quot;Standard 2,400 foot high intensity approach lighting system with sequenced flashes, category I config&quot;,&#xA;  &quot;ALSF2&quot;, &quot;Standard 2,400 foot high intensity approach lighting system with sequenced flashes, category II or III config&quot;,&#xA;  &quot;MALS&quot;, &quot;1,400 foot medium intensity approach lighting system&quot;,&#xA;  &quot;MALSF&quot;, &quot;1,400 foot medium intensity approach lighting system with sequenced flashers&quot;,&#xA;  &quot;MALSR&quot;, &quot;1,400 foot medium intensity approach lighting system with runway alignment indicator lights&quot;,&#xA;  &quot;SSALS&quot;, &quot;Simplified short approach lighting system&quot;,&#xA;  &quot;SSALF&quot;, &quot;Simplified short approach lighting system with sequenced flashers&quot;,&#xA;  &quot;SSALR&quot;, &quot;Simplified short approach lighting system with runway alignment indicator lights&quot;,&#xA;  &quot;NEON&quot;, &quot;Neon ladder system&quot;,&#xA;  &quot;ODALS&quot;, &quot;Omnidirectional approach lighting system&quot;,&#xA;  &quot;RLLS&quot;, &quot;Runway lead-in light system&quot;,&#xA;  &quot;MIL OVRN&quot;, &quot;Military overrun&quot;,&#xA;  &quot;NSTD&quot;, &quot;Nonstandard&quot;,&#xA;  &quot;NONE&quot;, &quot;No approach lighting system&quot;,&#xA;  &quot;SALS&quot;, &quot;1,500 foot high intensity approach lighting system&quot;,&#xA;  &quot;SALSF&quot;, &quot;1,500 foot high intensity approach lighting system with sequenced flashers&quot;&#xA;)" size="150" scale="0">
+            </Field>
+            <Field name="Reciprocal Runway End Identifier Lights Available" type="String" source="Formula: Trim([_CurrentField_])" size="1" scale="0">
+            </Field>
+            <Field name="Reciprocal Runway Centerline Lights Available" type="String" source="Formula: Trim([_CurrentField_])" size="1" scale="0">
+            </Field>
+            <Field name="Reciprocal Runway End Touchdown Lights Available" type="String" source="Formula: Trim([_CurrentField_])" size="1" scale="0">
+            </Field>
+            <Field name="Reciprocal Controlling Object" type="V_String" source="Formula: Trim([_CurrentField_])" size="11" scale="0">
+            </Field>
+            <Field name="Reciprocal Controlling Object Marked" type="String" source="Formula: Trim([_CurrentField_])" size="4" scale="0">
+            </Field>
+            <Field name="Reciprocal Controlling Object Marked Name" type="V_String" source="Formula: Switch(&#xA;  [_CurrentField_],&quot;Unknown&quot;,&#xA;  &quot;&quot; ,&quot;&quot;,&#xA;  &quot;M&quot;, &quot;Marked&quot;,&#xA;  &quot;L&quot;, &quot;Lighted&quot;,&#xA;  &quot;ML&quot;, &quot;Marked and Lighted&quot;,&#xA;  &quot;LM&quot;, &quot;Marked and Lighted&quot;,&#xA;  &quot;NONE&quot;, &quot;Not marked or lighted&quot;&#xA;)" size="50" scale="0">
+            </Field>
+            <Field name="Reciprocal FAA CFR Part 77 Category" type="String" source="Formula: Trim([_CurrentField_])" size="5" scale="0">
+            </Field>
+            <Field name="Reciprocal FAA CFR Part 77 Category Name" type="V_String" source="Formula: Switch(&#xA;  [_CurrentField_], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;A(V)&quot;, &quot;Utility runway with a visual approach&quot;,&#xA;  &quot;B(V)&quot;, &quot;Other than utility runway with a visual approach&quot;,&#xA;  &quot;A(NP)&quot;, &quot;Utility runway with a nonprecision approach&quot;,&#xA;  &quot;C&quot;, &quot;Other than utility runway with a nonprevision approach&quot;,&#xA;  &quot;PIR&quot;, &quot;Precision instrument runway&quot;&#xA;)" size="100" scale="0">
+            </Field>
+            <Field name="Reciprocal Controlling Object Clearance Slope" type="String" source="Formula: Trim([_CurrentField_])" size="2" scale="0">
+            </Field>
+            <Field name="Reciprocal Controlling Object Height Above Runway" type="Int32" source="Formula: ToNumber(Substring([Field_1], 492, 5))" size="4" scale="0">
+            </Field>
+            <Field name="Reciprocal Controlling Object Distance from Runway End" type="Int32" source="Formula: ToNumber(Substring([Field_1], 497, 5))" size="4" scale="0">
+            </Field>
+            <Field name="Reciprocal Controlling Object Centerline Offset" type="Int32" source="Formula: ToNumber(REGEX_Replace([RAW Reciprocal Controlling Object Centerline Offset], &quot;[^0-9]&quot;, &quot;&quot;))" size="4" scale="0">
+            </Field>
+            <Field name="Reciprocal Controlling Object Centerline Offset Direction" type="V_String" source="Formula: Trim([_CurrentField_])" size="50" scale="0">
+            </Field>
+            <Field name="Reciprocal Gradient" type="String" source="Formula: Trim([_CurrentField_])" size="5" scale="0">
+            </Field>
+            <Field name="Reciprocal Gradient Direction" type="String" source="Formula: Trim([_CurrentField_])" size="4" scale="0">
+            </Field>
+            <Field name="Reciprocal Position Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
+            </Field>
+            <Field name="Reciprocal Position Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Reciprocal Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Reciprocal Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            </Field>
+            <Field name="Reciprocal Elevation Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
+            </Field>
+            <Field name="Reciprocal Elevation Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Reciprocal Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Reciprocal Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            </Field>
+            <Field name="Reciprocal Displaced Threshold Position Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
+            </Field>
+            <Field name="Reciprocal Displaced Threshold Position Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Reciprocal Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Reciprocal Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            </Field>
+            <Field name="Reciprocal Displaced Threshold Elevation Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
+            </Field>
+            <Field name="Reciprocal Displaced Threshold Elevation Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Reciprocal Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Reciprocal Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            </Field>
+            <Field name="Reciprocal Touchdown Zone Elevation Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
+            </Field>
+            <Field name="Reciprocal Touchdown Zone Elevation Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Reciprocal Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Reciprocal Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            </Field>
+            <Field name="Reciprocal Takeoff Run Available" type="Int32" source="Formula: ToNumber(Substring([Field_1], 989, 5))" size="4" scale="0">
+            </Field>
+            <Field name="Reciprocal Takeoff Distance Available" type="Int32" source="Formula: ToNumber(Substring([Field_1], 994, 5))" size="4" scale="0">
+            </Field>
+            <Field name="Reciprocal ACLT Stop Distance Available" type="Int32" source="Formula: ToNumber(Substring([Field_1], 999, 5))" size="4" scale="0">
+            </Field>
+            <Field name="Reciprocal Landing Distance Available" type="Int32" source="Formula: ToNumber(Substring([Field_1], 1004, 5))" size="4" scale="0">
+            </Field>
+            <Field name="Reciprocal Available Distance for LAHSO" type="Int32" source="Formula: ToNumber(Substring([Field_1],1009, 5))" size="4" scale="0">
+            </Field>
+            <Field name="Reciprocal LAHSO Intersecting Runway" type="V_String" source="Formula: Trim([_CurrentField_])" size="7" scale="0">
+            </Field>
+            <Field name="Reciprocal LAHSO Stop Point Description" type="V_String" source="Formula: Trim([_CurrentField_])" size="40" scale="0">
+            </Field>
+            <Field name="Reciprocal LAHSO Latitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" size="12" scale="7">
+            </Field>
+            <Field name="Reciprocal LAHSO Longitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" size="12" scale="7">
+            </Field>
+            <Field name="Reciprocal LAHSO Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
+            </Field>
+            <Field name="Reciprocal LAHSO Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Reciprocal LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Reciprocal LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            </Field>
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="RWY.yxmc" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings>
+        <Position x="234" y="690" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="RWY-SurfaceType">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Runway Identification" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field description="TextToColumns: Parsed from Runway Surface Type" name="Runway Surface Type" size="12" source="TextToColumns: Parsed from Runway Surface Type" type="V_String" />
+            <Field name="Runway Surface Type Name" size="100" source="Formula: Switch(&#xA;  [Runway Surface Type], TitleCase([Runway Surface Type]),&#xA;  &quot;CONC&quot;, &quot;Portland Cement Concrete&quot;,&#xA;  &quot;ASPH&quot;, &quot;Asphalt or Bituminous Concrete&quot;,&#xA;  &quot;SNOW&quot;, &quot;Snow&quot;,&#xA;  &quot;ICE&quot;, &quot;Ice&quot;,&#xA;  &quot;MATS&quot;, &quot;Pierced Steel Planking, Landing Mats, Membranes&quot;,&#xA;  &quot;TREATED&quot;, &quot;Oiled, Soild Cement or Lime Stabilized&quot;,&#xA;  &quot;TRTD&quot;, &quot;Oiled, Soild Cement or Lime Stabilized&quot;,&#xA;  &quot;GRAVEL&quot;, &quot;Gravel, Cinders, Crushed Rock, Coral or Shells, Slag&quot;,&#xA;  &quot;GRVL&quot;, &quot;Gravel, Cinders, Crushed Rock, Coral or Shells, Slag&quot;,&#xA;  &quot;TURF&quot;, &quot;Grass, Sod&quot;,&#xA;  &quot;DIRT&quot;, &quot;Natural Soil&quot;,&#xA;  &quot;WATER&quot;, &quot;Water&quot;&#xA;)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="RWY-SurfaceType.yxmc" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="330" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\APT-FuelTypes.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>APT-FuelTypes.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="330" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\APT-NPIAS.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>APT-NPIAS.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="330" y="438" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\APT-OtherServices.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>APT-OtherServices.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="330" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\APT-RMK.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>APT-RMK.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="330" y="690" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\RWY-SurfaceType.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>RWY-SurfaceType.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="330" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\RWY.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>RWY.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="APT" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="6" Connection="APT" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="7" Connection="APT" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="8" Connection="APT" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="9" Connection="APT" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="10" Connection="APT" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="11" Connection="APT" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="APT" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="APT-FuelTypes" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="APT-NPIAS" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="APT-OtherServices" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="APT-RMK" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="RWY" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="RWY-SurfaceType" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>SaveTo</Name>
+        <Value>F:\repositories\us_airspace_data\parsed_data</Value>
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (3)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>APT-All</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="ab7038ae-e405-4e70-93a9-82511e85cd85" />
+      <Telemetry>
+        <PreviousWorkflowId value="20ada9ab-25c4-4756-99d5-fa4aeed68d27" />
+        <OriginWorkflowId value="20ada9ab-25c4-4756-99d5-fa4aeed68d27" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Save To</Description>
+              <Name>SaveTo</Name>
+              <ToolId value="2" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description />
+              <Name>Macro Input (3)</Name>
+              <ToolId value="3" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="3" Selected="True" />
+        <Tool ToolId="4" Selected="True" />
+        <Tool ToolId="5" Selected="True" />
+        <Tool ToolId="6" Selected="True" />
+        <Tool ToolId="7" Selected="True" />
+        <Tool ToolId="8" Selected="True" />
+        <Tool ToolId="9" Selected="True" />
+        <Tool ToolId="10" Selected="True" />
+        <Tool ToolId="11" Selected="True" />
+        <Tool ToolId="12" Selected="True" />
+        <Tool ToolId="13" Selected="True" />
+        <Tool ToolId="14" Selected="True" />
+        <Tool ToolId="15" Selected="True" />
+        <Tool ToolId="16" Selected="True" />
+        <Tool ToolId="17" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

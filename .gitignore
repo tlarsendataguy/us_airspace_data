@@ -1,5 +1,6 @@
 *.zip
 28DaySubscription\
 DAILY_DOF_CSV\
+parsed_data\
 *.bak
 *.yxzp
