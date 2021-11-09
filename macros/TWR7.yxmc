@@ -1,0 +1,635 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>TWR</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\TWR.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>2000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TWR.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1110" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>TWR7</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Output</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="150" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Left([Field_1],4)" field="RecordType" size="4" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>RecordType</AnnotationText>
+          <DefaultAnnotationText><![CDATA[RecordType = Left([Field_1],4)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="246" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>RecordType</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2021-07-12 20:46:20</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>TWR7</Operand>
+              <StartDate>2021-07-12 20:46:20</StartDate>
+              <EndDate>2021-07-12 20:46:20</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>TWR7</AnnotationText>
+          <DefaultAnnotationText>[RecordType] = "TWR7"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="342" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 4, 4)" field="Terminal Communications Facility ID" size="4" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>ID</AnnotationText>
+          <DefaultAnnotationText><![CDATA[Terminal Communications Facility ID = Substring([Field_1], 4, 4)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="918" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Field_1" selected="False" />
+            <SelectField field="RecordType" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="Satellite Frequency" size="44" source="Formula: Substring([Field_1], 8, 44)" type="V_String" />
+            <Field name="Satellite Frequency Number" scale="3" size="10" source="Formula: ToNumber(REGEX_Replace([Satellite Frequency], &quot;^([0-9.]+).*$&quot;, &quot;$1&quot;))" type="FixedDecimal" />
+            <Field name="Satellite Frequency Comment" size="60" source="Formula: REGEX_Replace([Satellite Frequency], &quot;^[^;]*(;(.*)|$)&quot;,&quot;$2&quot;)" type="V_String" />
+            <Field name="Satellite Frequency Use" size="50" source="Formula: Substring([Field_1], 52, 50)" type="V_String" />
+            <Field name="Satellite Airport Site Number" size="11" source="Formula: Substring([Field_1], 102, 11)" type="V_String" />
+            <Field name="Satellite Airport Location ID" size="4" source="Formula: Substring([Field_1], 113, 4)" type="String" />
+            <Field name="Satellite FAA Region Code" size="3" source="Formula: Substring([Field_1], 117, 3)" type="String" />
+            <Field name="Satellite Associated State Name" size="30" source="Formula: Substring([Field_1], 120, 30)" type="V_String" />
+            <Field name="Satellite Associated State Code" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
+            <Field name="Satellite Associated City" size="40" source="Formula: Substring([Field_1], 152, 40)" type="V_String" />
+            <Field name="Satellite Airport Name" size="50" source="Formula: Substring([Field_1], 192, 50)" type="V_String" />
+            <Field name="Satellite Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Satellite Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="FSS Identifier" size="4" source="Formula: Substring([Field_1], 292, 4)" type="String" />
+            <Field name="FSS Name" size="30" source="Formula: Substring([Field_1], 296, 30)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="1014" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="Terminal Communications Facility ID" />
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>TrimRight([_CurrentField_])</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Trim</AnnotationText>
+          <DefaultAnnotationText>TrimRight([_CurrentField_])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Satellite Frequency" size="44" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Satellite Frequency Number" scale="3" size="10" source="Formula: ToNumber(REGEX_Replace([Satellite Frequency], &quot;^([0-9.]+).*$&quot;, &quot;$1&quot;))" type="FixedDecimal" />
+            <Field name="Satellite Frequency Comment" size="60" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Satellite Frequency Use" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Satellite Airport Site Number" size="11" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Satellite Airport Location ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Satellite FAA Region Code" size="3" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Satellite Associated State Name" size="30" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Satellite Associated State Code" size="2" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Satellite Associated City" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Satellite Airport Name" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Satellite Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Satellite Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="FSS Identifier" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="FSS Name" size="30" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="438" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 8, 44)" field="Satellite Frequency" size="44" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 52, 50)" field="Satellite Frequency Use" size="50" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 102, 11)" field="Satellite Airport Site Number" size="11" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 113, 4)" field="Satellite Airport Location ID" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 117, 3)" field="Satellite FAA Region Code" size="3" type="String" />
+            <FormulaField expression="Substring([Field_1], 120, 30)" field="Satellite Associated State Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 150, 2)" field="Satellite Associated State Code" size="2" type="String" />
+            <FormulaField expression="Substring([Field_1], 152, 40)" field="Satellite Associated City" size="40" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 192, 50)" field="Satellite Airport Name" size="50" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <AnnotationText><![CDATA[Satellite Frequency = Substring([Field_1], 8, 44)
+]]></AnnotationText>
+          <DefaultAnnotationText>Satellite Frequency = Substring([Field_1], 8, 44)
+Satellite Frequency Use = Subs...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="Satellite Frequency" size="44" source="Formula: Substring([Field_1], 8, 44)" type="V_String" />
+            <Field name="Satellite Frequency Use" size="50" source="Formula: Substring([Field_1], 52, 50)" type="V_String" />
+            <Field name="Satellite Airport Site Number" size="11" source="Formula: Substring([Field_1], 102, 11)" type="V_String" />
+            <Field name="Satellite Airport Location ID" size="4" source="Formula: Substring([Field_1], 113, 4)" type="String" />
+            <Field name="Satellite FAA Region Code" size="3" source="Formula: Substring([Field_1], 117, 3)" type="String" />
+            <Field name="Satellite Associated State Name" size="30" source="Formula: Substring([Field_1], 120, 30)" type="V_String" />
+            <Field name="Satellite Associated State Code" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
+            <Field name="Satellite Associated City" size="40" source="Formula: Substring([Field_1], 152, 40)" type="V_String" />
+            <Field name="Satellite Airport Name" size="50" source="Formula: Substring([Field_1], 192, 50)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings>
+        <Position x="534" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Prefix">Satellite</Value>
+          <Value name="LatStart">256</Value>
+          <Value name="LatLen">11</Value>
+          <Value name="LonStart">281</Value>
+          <Value name="LonLen">11</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="Satellite Frequency" size="44" source="Formula: Substring([Field_1], 8, 44)" type="V_String" />
+            <Field name="Satellite Frequency Use" size="50" source="Formula: Substring([Field_1], 52, 50)" type="V_String" />
+            <Field name="Satellite Airport Site Number" size="11" source="Formula: Substring([Field_1], 102, 11)" type="V_String" />
+            <Field name="Satellite Airport Location ID" size="4" source="Formula: Substring([Field_1], 113, 4)" type="String" />
+            <Field name="Satellite FAA Region Code" size="3" source="Formula: Substring([Field_1], 117, 3)" type="String" />
+            <Field name="Satellite Associated State Name" size="30" source="Formula: Substring([Field_1], 120, 30)" type="V_String" />
+            <Field name="Satellite Associated State Code" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
+            <Field name="Satellite Associated City" size="40" source="Formula: Substring([Field_1], 152, 40)" type="V_String" />
+            <Field name="Satellite Airport Name" size="50" source="Formula: Substring([Field_1], 192, 50)" type="V_String" />
+            <Field name="Satellite Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Satellite Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="utilities\Parse S Coordinates.yxmc" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="630" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Substring([Field_1], 292, 4)" field="FSS Identifier" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 296, 30)" field="FSS Name" size="30" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>FSS Identifier = Substring([Field_1], 292, 4)
+FSS Name = Substring([Field_1], 29...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="Satellite Frequency" size="44" source="Formula: Substring([Field_1], 8, 44)" type="V_String" />
+            <Field name="Satellite Frequency Use" size="50" source="Formula: Substring([Field_1], 52, 50)" type="V_String" />
+            <Field name="Satellite Airport Site Number" size="11" source="Formula: Substring([Field_1], 102, 11)" type="V_String" />
+            <Field name="Satellite Airport Location ID" size="4" source="Formula: Substring([Field_1], 113, 4)" type="String" />
+            <Field name="Satellite FAA Region Code" size="3" source="Formula: Substring([Field_1], 117, 3)" type="String" />
+            <Field name="Satellite Associated State Name" size="30" source="Formula: Substring([Field_1], 120, 30)" type="V_String" />
+            <Field name="Satellite Associated State Code" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
+            <Field name="Satellite Associated City" size="40" source="Formula: Substring([Field_1], 152, 40)" type="V_String" />
+            <Field name="Satellite Airport Name" size="50" source="Formula: Substring([Field_1], 192, 50)" type="V_String" />
+            <Field name="Satellite Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Satellite Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="FSS Identifier" size="4" source="Formula: Substring([Field_1], 292, 4)" type="String" />
+            <Field name="FSS Name" size="30" source="Formula: Substring([Field_1], 296, 30)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="726" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ToNumber(REGEX_Replace([Satellite Frequency], &quot;^([0-9.]+).*$&quot;, &quot;$1&quot;))" field="Satellite Frequency Number" size="10.3" type="FixedDecimal" />
+            <FormulaField expression="REGEX_Replace([Satellite Frequency], &quot;^[^;]*(;(.*)|$)&quot;,&quot;$2&quot;)" field="Satellite Frequency Comment" size="60" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Parse freq</AnnotationText>
+          <DefaultAnnotationText>Satellite Frequency Number = ToNumber(REGEX_Replace([Satellite Frequency], "^([0...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="Satellite Frequency" size="44" source="Formula: Substring([Field_1], 8, 44)" type="V_String" />
+            <Field name="Satellite Frequency Use" size="50" source="Formula: Substring([Field_1], 52, 50)" type="V_String" />
+            <Field name="Satellite Airport Site Number" size="11" source="Formula: Substring([Field_1], 102, 11)" type="V_String" />
+            <Field name="Satellite Airport Location ID" size="4" source="Formula: Substring([Field_1], 113, 4)" type="String" />
+            <Field name="Satellite FAA Region Code" size="3" source="Formula: Substring([Field_1], 117, 3)" type="String" />
+            <Field name="Satellite Associated State Name" size="30" source="Formula: Substring([Field_1], 120, 30)" type="V_String" />
+            <Field name="Satellite Associated State Code" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
+            <Field name="Satellite Associated City" size="40" source="Formula: Substring([Field_1], 152, 40)" type="V_String" />
+            <Field name="Satellite Airport Name" size="50" source="Formula: Substring([Field_1], 192, 50)" type="V_String" />
+            <Field name="Satellite Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Satellite Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="FSS Identifier" size="4" source="Formula: Substring([Field_1], 292, 4)" type="String" />
+            <Field name="FSS Name" size="30" source="Formula: Substring([Field_1], 296, 30)" type="V_String" />
+            <Field name="Satellite Frequency Number" scale="3" size="10" source="Formula: ToNumber(REGEX_Replace([Satellite Frequency], &quot;^([0-9.]+).*$&quot;, &quot;$1&quot;))" type="FixedDecimal" />
+            <Field name="Satellite Frequency Comment" size="60" source="Formula: REGEX_Replace([Satellite Frequency], &quot;^[^;]*(;(.*)|$)&quot;,&quot;$2&quot;)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="822" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Field_1" selected="True" />
+            <SelectField field="RecordType" selected="True" />
+            <SelectField field="Terminal Communications Facility ID" selected="True" />
+            <SelectField field="Satellite Frequency" selected="True" />
+            <SelectField field="Satellite Frequency Number" selected="True" />
+            <SelectField field="Satellite Frequency Comment" selected="True" />
+            <SelectField field="Satellite Frequency Use" selected="True" />
+            <SelectField field="Satellite Airport Site Number" selected="True" />
+            <SelectField field="Satellite Airport Location ID" selected="True" />
+            <SelectField field="Satellite FAA Region Code" selected="True" />
+            <SelectField field="Satellite Associated State Name" selected="True" />
+            <SelectField field="Satellite Associated State Code" selected="True" />
+            <SelectField field="Satellite Associated City" selected="True" />
+            <SelectField field="Satellite Airport Name" selected="True" />
+            <SelectField field="Satellite Latitude" selected="True" />
+            <SelectField field="Satellite Longitude" selected="True" />
+            <SelectField field="FSS Identifier" selected="True" />
+            <SelectField field="FSS Name" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="Satellite Frequency" size="44" source="Formula: Substring([Field_1], 8, 44)" type="V_String" />
+            <Field name="Satellite Frequency Number" scale="3" size="10" source="Formula: ToNumber(REGEX_Replace([Satellite Frequency], &quot;^([0-9.]+).*$&quot;, &quot;$1&quot;))" type="FixedDecimal" />
+            <Field name="Satellite Frequency Comment" size="60" source="Formula: REGEX_Replace([Satellite Frequency], &quot;^[^;]*(;(.*)|$)&quot;,&quot;$2&quot;)" type="V_String" />
+            <Field name="Satellite Frequency Use" size="50" source="Formula: Substring([Field_1], 52, 50)" type="V_String" />
+            <Field name="Satellite Airport Site Number" size="11" source="Formula: Substring([Field_1], 102, 11)" type="V_String" />
+            <Field name="Satellite Airport Location ID" size="4" source="Formula: Substring([Field_1], 113, 4)" type="String" />
+            <Field name="Satellite FAA Region Code" size="3" source="Formula: Substring([Field_1], 117, 3)" type="String" />
+            <Field name="Satellite Associated State Name" size="30" source="Formula: Substring([Field_1], 120, 30)" type="V_String" />
+            <Field name="Satellite Associated State Code" size="2" source="Formula: Substring([Field_1], 150, 2)" type="String" />
+            <Field name="Satellite Associated City" size="40" source="Formula: Substring([Field_1], 152, 40)" type="V_String" />
+            <Field name="Satellite Airport Name" size="50" source="Formula: Substring([Field_1], 192, 50)" type="V_String" />
+            <Field name="Satellite Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Satellite Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="FSS Identifier" size="4" source="Formula: Substring([Field_1], 292, 4)" type="String" />
+            <Field name="FSS Name" size="30" source="Formula: Substring([Field_1], 296, 30)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="True" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (1)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (2)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>TWR7</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="da58e2d8-a95f-402a-b7cf-80df3741248a" />
+      <Telemetry>
+        <PreviousWorkflowId value="0392c591-c33b-4d28-9261-35eaf64da66a" />
+        <OriginWorkflowId value="da58e2d8-a95f-402a-b7cf-80df3741248a" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (8)</Name>
+          <ToolId value="8" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description />
+              <Name>Macro Input (1)</Name>
+              <ToolId value="1" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description />
+              <Name>Macro Output (2)</Name>
+              <ToolId value="2" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="1" Selected="True" />
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="11" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
