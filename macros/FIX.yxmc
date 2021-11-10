@@ -1,0 +1,505 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="150" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>FIX</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\FIX.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>10000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>65001</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>FIX.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="10000" source="File: F:\repositories\us_airspace_data\28DaySubscription\FIX.txt" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="174" y="102" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>SaveTo</Name>
+          <DefaultAnnotationText>SaveTo</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings>
+        <Position x="246" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="FIX1">
+          <RecordInfo>
+            <Field name="Fix ID" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Fix State" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Fix  Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Fix  Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Category" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="MLS Component" size="22" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Radar Component" size="22" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Previous Name" size="33" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Charting Information" size="38" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="To Be Published" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Fix Use" size="15" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Fix Use Name" size="100" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="NAS Identifier" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="High ARTCC Area of Jurisdiction" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Low ARTCC Area of Jurisdiction" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Country Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Pitch" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Catch" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="SUA or ATCAA" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="FIX1.yxmc" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings>
+        <Position x="246" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="FIX2">
+          <RecordInfo>
+            <Field name="Fix ID" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Fix State" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="NAVAID Makeup" size="23" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Identifier" size="10" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Facility Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Bearing" scale="2" size="10" source="Formula: ToNumber(REGEX_Replace([RAW Bearing / DME Distance], &quot;^([0-9.]*)(/([0-9.]*))?$&quot;, &quot;$1&quot;))" type="FixedDecimal" />
+            <Field name="DME Distance" scale="2" size="10" source="Formula: ToNumber(REGEX_Replace([RAW Bearing / DME Distance], &quot;^([0-9.]*)(/([0-9.]*))?$&quot;, &quot;$3&quot;))" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="FIX2.yxmc" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings>
+        <Position x="246" y="378" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="FIX3">
+          <RecordInfo>
+            <Field name="Fix ID" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Fix State" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ILS Component" size="23" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="ILS Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ILS Facility Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ILS Facility Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="ILS Course" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="FIX3.yxmc" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings>
+        <Position x="246" y="462" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="FIX4">
+          <RecordInfo>
+            <Field name="Fix ID" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Fix State" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Field Label" size="100" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Remark" size="300" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="FIX4.yxmc" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings>
+        <Position x="246" y="546" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="FIX5">
+          <RecordInfo>
+            <Field name="Fix ID" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Fix State" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Chart" size="22" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="FIX5.yxmc" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="342" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\FIX1.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>FIX1.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="342" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\FIX2.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>FIX2.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="342" y="378" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\FIX3.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>FIX3.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="342" y="462" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\FIX4.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>FIX4.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="342" y="546" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\FIX5.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>FIX5.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="4" Connection="FIX" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="5" Connection="FIX" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="6" Connection="FIX" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="7" Connection="FIX" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="8" Connection="FIX" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="FIX1" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="FIX2" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="FIX3" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="FIX4" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="FIX5" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>SaveTo</Name>
+        <Value>F:\repositories\us_airspace_data\parsed_data</Value>
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>FIX</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="dc197e3d-d8c6-4b32-9760-62639d2f542b" />
+      <Telemetry>
+        <PreviousWorkflowId value="29d97514-0bd8-4d6c-959c-60f0912ee812" />
+        <OriginWorkflowId value="29d97514-0bd8-4d6c-959c-60f0912ee812" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (2)</Description>
+              <Name>Macro Input (2)</Name>
+              <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Save To</Description>
+              <Name>SaveTo</Name>
+              <ToolId value="3" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="4" Selected="True" />
+        <Tool ToolId="5" Selected="True" />
+        <Tool ToolId="6" Selected="True" />
+        <Tool ToolId="7" Selected="True" />
+        <Tool ToolId="8" Selected="True" />
+        <Tool ToolId="9" Selected="True" />
+        <Tool ToolId="10" Selected="True" />
+        <Tool ToolId="11" Selected="True" />
+        <Tool ToolId="12" Selected="True" />
+        <Tool ToolId="13" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

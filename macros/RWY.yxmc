@@ -224,7 +224,7 @@ Runway State = Substr...</DefaultAnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -261,15 +261,15 @@ Runway State = Substr...</DefaultAnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Substring([Field_1], 559, 5)" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Substring([Field_1], 564, 4)" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Substring([Field_1], 568, 16)" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Substring([Field_1], 594, 16)" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Substring([Field_1], 620, 16)" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Substring([Field_1], 646, 16)" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Substring([Field_1], 672, 16)" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -278,7 +278,7 @@ Runway State = Substr...</DefaultAnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Substring([Field_1], 723, 7)" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Substring([Field_1], 730, 40)" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Substring([Field_1], 824, 16)" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Substring([Field_1], 287, 3)" type="String" />
@@ -436,7 +436,7 @@ Runway State = Substr...</DefaultAnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -473,15 +473,15 @@ Runway State = Substr...</DefaultAnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -490,7 +490,7 @@ Runway State = Substr...</DefaultAnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -637,8 +637,7 @@ Base True Alignment = ToNumber(Sub...</DefaultAnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -759,7 +758,7 @@ Name</AnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -796,15 +795,15 @@ Name</AnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -813,7 +812,7 @@ Name</AnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -980,7 +979,7 @@ Type Name</AnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -1017,15 +1016,15 @@ Type Name</AnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -1034,7 +1033,7 @@ Type Name</AnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -1201,7 +1200,7 @@ Name</AnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -1238,15 +1237,15 @@ Name</AnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -1255,7 +1254,7 @@ Name</AnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -1355,8 +1354,7 @@ Name</AnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -1415,8 +1413,7 @@ Base Runway Vis...</DefaultAnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -1572,7 +1569,7 @@ Name</AnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -1609,15 +1606,15 @@ Name</AnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -1626,7 +1623,7 @@ Name</AnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -1807,7 +1804,7 @@ Name</AnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -1844,15 +1841,15 @@ Name</AnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -1861,7 +1858,7 @@ Name</AnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -1976,8 +1973,7 @@ Base Controlling Object ...</DefaultAnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -2119,7 +2115,7 @@ Object Marked</AnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -2156,15 +2152,15 @@ Object Marked</AnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -2173,7 +2169,7 @@ Object Marked</AnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -2371,7 +2367,7 @@ Name</AnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -2408,15 +2404,15 @@ Name</AnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -2425,7 +2421,7 @@ Name</AnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -2539,8 +2535,7 @@ Reciprocal True Alignment =...</DefaultAnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -2578,20 +2573,15 @@ Reciprocal True Alignment =...</DefaultAnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Substring([Field_1], 559, 5)" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Substring([Field_1], 564, 4)" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Substring([Field_1], 568, 16)" type="V_String" />
-            <Field name="RAW Base Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 584, 10))" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Substring([Field_1], 594, 16)" type="V_String" />
-            <Field name="RAW Base Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 610, 10))" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Substring([Field_1], 620, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 636, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Substring([Field_1], 646, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 662, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Substring([Field_1], 672, 16)" type="V_String" />
-            <Field name="RAW Base Touchdown Zone Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 688, 10))" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -2600,8 +2590,7 @@ Reciprocal True Alignment =...</DefaultAnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Substring([Field_1], 723, 7)" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Substring([Field_1], 730, 40)" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Substring([Field_1], 824, 16)" type="V_String" />
-            <Field name="RAW Base LAHSO Source Date" size="10" source="Formula: Trim(Substring([Field_1], 840, 10))" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Substring([Field_1], 287, 3)" type="String" />
@@ -2650,8 +2639,7 @@ Geo</AnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -2689,20 +2677,15 @@ Geo</AnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Substring([Field_1], 559, 5)" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Substring([Field_1], 564, 4)" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Substring([Field_1], 568, 16)" type="V_String" />
-            <Field name="RAW Base Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 584, 10))" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Substring([Field_1], 594, 16)" type="V_String" />
-            <Field name="RAW Base Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 610, 10))" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Substring([Field_1], 620, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 636, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Substring([Field_1], 646, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 662, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Substring([Field_1], 672, 16)" type="V_String" />
-            <Field name="RAW Base Touchdown Zone Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 688, 10))" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -2711,8 +2694,7 @@ Geo</AnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Substring([Field_1], 723, 7)" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Substring([Field_1], 730, 40)" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Substring([Field_1], 824, 16)" type="V_String" />
-            <Field name="RAW Base LAHSO Source Date" size="10" source="Formula: Trim(Substring([Field_1], 840, 10))" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Substring([Field_1], 287, 3)" type="String" />
@@ -2770,8 +2752,7 @@ Reciproca...</DefaultAnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -2809,20 +2790,15 @@ Reciproca...</DefaultAnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Substring([Field_1], 559, 5)" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Substring([Field_1], 564, 4)" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Substring([Field_1], 568, 16)" type="V_String" />
-            <Field name="RAW Base Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 584, 10))" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Substring([Field_1], 594, 16)" type="V_String" />
-            <Field name="RAW Base Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 610, 10))" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Substring([Field_1], 620, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 636, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Substring([Field_1], 646, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 662, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Substring([Field_1], 672, 16)" type="V_String" />
-            <Field name="RAW Base Touchdown Zone Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 688, 10))" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -2831,8 +2807,7 @@ Reciproca...</DefaultAnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Substring([Field_1], 723, 7)" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Substring([Field_1], 730, 40)" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Substring([Field_1], 824, 16)" type="V_String" />
-            <Field name="RAW Base LAHSO Source Date" size="10" source="Formula: Trim(Substring([Field_1], 840, 10))" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Substring([Field_1], 287, 3)" type="String" />
@@ -2907,8 +2882,7 @@ Reciprocal Control...</DefaultAnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -2946,20 +2920,15 @@ Reciprocal Control...</DefaultAnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Substring([Field_1], 559, 5)" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Substring([Field_1], 564, 4)" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Substring([Field_1], 568, 16)" type="V_String" />
-            <Field name="RAW Base Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 584, 10))" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Substring([Field_1], 594, 16)" type="V_String" />
-            <Field name="RAW Base Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 610, 10))" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Substring([Field_1], 620, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 636, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Substring([Field_1], 646, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 662, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Substring([Field_1], 672, 16)" type="V_String" />
-            <Field name="RAW Base Touchdown Zone Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 688, 10))" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -2968,8 +2937,7 @@ Reciprocal Control...</DefaultAnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Substring([Field_1], 723, 7)" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Substring([Field_1], 730, 40)" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Substring([Field_1], 824, 16)" type="V_String" />
-            <Field name="RAW Base LAHSO Source Date" size="10" source="Formula: Trim(Substring([Field_1], 840, 10))" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Substring([Field_1], 287, 3)" type="String" />
@@ -3530,7 +3498,7 @@ Reciprocal Control...</DefaultAnnotationText>
             </Field>
             <Field name="Runway Length Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
             </Field>
-            <Field name="Runway Length Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            <Field name="Runway Length Source Date" type="Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
             </Field>
             <Field name="Single Wheel Weight Capacity" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 535, 6))" size="10" scale="1">
             </Field>
@@ -3618,23 +3586,23 @@ Reciprocal Control...</DefaultAnnotationText>
             </Field>
             <Field name="Base Position Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
             </Field>
-            <Field name="Base Position Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            <Field name="Base Position Source Date" type="Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
             </Field>
             <Field name="Base Elevation Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
             </Field>
-            <Field name="Base Elevation Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            <Field name="Base Elevation Source Date" type="Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
             </Field>
             <Field name="Base Displaced Threshold Position Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
             </Field>
-            <Field name="Base Displaced Threshold Position Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            <Field name="Base Displaced Threshold Position Source Date" type="Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
             </Field>
             <Field name="Base Displaced Threshold Elevation Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
             </Field>
-            <Field name="Base Displaced Threshold Elevation Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            <Field name="Base Displaced Threshold Elevation Source Date" type="Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
             </Field>
             <Field name="Base Touchdown Zone Elevation Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
             </Field>
-            <Field name="Base Touchdown Zone Elevation Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            <Field name="Base Touchdown Zone Elevation Source Date" type="Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
             </Field>
             <Field name="Base Takeoff Run Available" type="Int32" source="Formula: ToNumber(Substring([Field_1], 698, 5))" size="4" scale="0">
             </Field>
@@ -3656,7 +3624,7 @@ Reciprocal Control...</DefaultAnnotationText>
             </Field>
             <Field name="Base LAHSO Source" type="V_String" source="Formula: Trim([_CurrentField_])" size="16" scale="0">
             </Field>
-            <Field name="Base LAHSO Source Date" type="Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
+            <Field name="Base LAHSO Source Date" type="Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" size="10" scale="0">
             </Field>
             <Field name="Reciprocal Identifier" type="String" source="Formula: Trim([_CurrentField_])" size="3" scale="0">
             </Field>
@@ -3789,8 +3757,7 @@ Reciprocal Control...</DefaultAnnotationText>
         <Configuration>
           <FormulaFields>
             <FormulaField expression="Substring([Field_1], 509, 16)" field="Runway Length Source" size="16" type="V_String" />
-            <FormulaField expression="Trim(Substring([Field_1], 525, 10))" field="RAW Runway Length Source Date" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" field="Runway Length Source Date" size="10" type="Date" />
+            <FormulaField expression="IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" field="Runway Length Source Date" size="10" type="Date" />
             <FormulaField expression="ToNumber(Substring([Field_1], 535, 6))" field="Single Wheel Weight Capacity" size="10.1" type="FixedDecimal" />
             <FormulaField expression="ToNumber(Substring([Field_1], 541, 6))" field="Dual Wheel Weight Capacity" size="10.1" type="FixedDecimal" />
             <FormulaField expression="ToNumber(Substring([Field_1], 547, 6))" field="Two Dual Wheels Weight Capacity" size="10.1" type="FixedDecimal" />
@@ -3801,7 +3768,7 @@ Reciprocal Control...</DefaultAnnotationText>
           <Name />
           <AnnotationText>Additional</AnnotationText>
           <DefaultAnnotationText>Runway Length Source = Substring([Field_1], 509, 16)
-RAW Runway Length Source Da...</DefaultAnnotationText>
+Runway Length Source Date =...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
@@ -3821,8 +3788,7 @@ RAW Runway Length Source Da...</DefaultAnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -3842,20 +3808,15 @@ RAW Runway Length Source Da...</DefaultAnnotationText>
             <FormulaField expression="Substring([Field_1], 559, 5)" field="Base Gradient" size="5" type="String" />
             <FormulaField expression="Substring([Field_1], 564, 4)" field="Base Gradient Direction" size="4" type="String" />
             <FormulaField expression="Substring([Field_1], 568, 16)" field="Base Position Source" size="16" type="V_String" />
-            <FormulaField expression="Trim(Substring([Field_1], 584, 10))" field="RAW Base Position Source Date" size="10" type="V_String" />
-            <FormulaField expression="IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" field="Base Position Source Date" size="10" type="Date" />
+            <FormulaField expression="IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" field="Base Position Source Date" size="10" type="Date" />
             <FormulaField expression="Substring([Field_1], 594, 16)" field="Base Elevation Source" size="16" type="V_String" />
-            <FormulaField expression="Trim(Substring([Field_1], 610, 10))" field="RAW Base Elevation Source Date" size="10" type="V_String" />
-            <FormulaField expression="IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" field="Base Elevation Source Date" size="10" type="Date" />
+            <FormulaField expression="IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" field="Base Elevation Source Date" size="10" type="Date" />
             <FormulaField expression="Substring([Field_1], 620, 16)" field="Base Displaced Threshold Position Source" size="16" type="V_String" />
-            <FormulaField expression="Trim(Substring([Field_1], 636, 10))" field="RAW Base Displaced Threshold Position Source Date" size="10" type="V_String" />
-            <FormulaField expression="IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" field="Base Displaced Threshold Position Source Date" size="10" type="Date" />
+            <FormulaField expression="IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" field="Base Displaced Threshold Position Source Date" size="10" type="Date" />
             <FormulaField expression="Substring([Field_1], 646, 16)" field="Base Displaced Threshold Elevation Source" size="16" type="V_String" />
-            <FormulaField expression="Trim(Substring([Field_1], 662, 10))" field="RAW Base Displaced Threshold Elevation Source Date" size="10" type="V_String" />
-            <FormulaField expression="IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" field="Base Displaced Threshold Elevation Source Date" size="10" type="Date" />
+            <FormulaField expression="IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" field="Base Displaced Threshold Elevation Source Date" size="10" type="Date" />
             <FormulaField expression="Substring([Field_1], 672, 16)" field="Base Touchdown Zone Elevation Source" size="16" type="V_String" />
-            <FormulaField expression="Trim(Substring([Field_1], 688, 10))" field="RAW Base Touchdown Zone Elevation Source Date" size="10" type="V_String" />
-            <FormulaField expression="IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" field="Base Touchdown Zone Elevation Source Date" size="10" type="Date" />
+            <FormulaField expression="IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" field="Base Touchdown Zone Elevation Source Date" size="10" type="Date" />
             <FormulaField expression="ToNumber(Substring([Field_1], 698, 5))" field="Base Takeoff Run Available" size="4" type="Int32" />
             <FormulaField expression="ToNumber(Substring([Field_1], 703, 5))" field="Base Takeoff Distance Available" size="4" type="Int32" />
             <FormulaField expression="ToNumber(Substring([Field_1], 708, 5))" field="Base ACLT Stop Distance Available" size="4" type="Int32" />
@@ -3864,8 +3825,7 @@ RAW Runway Length Source Da...</DefaultAnnotationText>
             <FormulaField expression="Substring([Field_1], 723, 7)" field="Base LAHSO Intersecting Runway" size="7" type="V_String" />
             <FormulaField expression="Substring([Field_1], 730, 40)" field="Base LAHSO Stop Point Description" size="40" type="V_String" />
             <FormulaField expression="Substring([Field_1], 824, 16)" field="Base LAHSO Source" size="16" type="V_String" />
-            <FormulaField expression="Trim(Substring([Field_1], 840, 10))" field="RAW Base LAHSO Source Date" size="10" type="V_String" />
-            <FormulaField expression="IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" field="Base LAHSO Source Date" size="10" type="Date" />
+            <FormulaField expression="IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" field="Base LAHSO Source Date" size="10" type="Date" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="0">
@@ -3893,8 +3853,7 @@ Base Gradient Direction = Substring...</DefaultAnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -3932,20 +3891,15 @@ Base Gradient Direction = Substring...</DefaultAnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Substring([Field_1], 559, 5)" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Substring([Field_1], 564, 4)" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Substring([Field_1], 568, 16)" type="V_String" />
-            <Field name="RAW Base Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 584, 10))" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Substring([Field_1], 594, 16)" type="V_String" />
-            <Field name="RAW Base Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 610, 10))" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Substring([Field_1], 620, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 636, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Substring([Field_1], 646, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 662, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Substring([Field_1], 672, 16)" type="V_String" />
-            <Field name="RAW Base Touchdown Zone Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 688, 10))" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -3954,8 +3908,7 @@ Base Gradient Direction = Substring...</DefaultAnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Substring([Field_1], 723, 7)" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Substring([Field_1], 730, 40)" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Substring([Field_1], 824, 16)" type="V_String" />
-            <Field name="RAW Base LAHSO Source Date" size="10" source="Formula: Trim(Substring([Field_1], 840, 10))" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -4022,8 +3975,7 @@ Reciprocal Gradient Direction...</DefaultAnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -4061,20 +4013,15 @@ Reciprocal Gradient Direction...</DefaultAnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Substring([Field_1], 559, 5)" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Substring([Field_1], 564, 4)" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Substring([Field_1], 568, 16)" type="V_String" />
-            <Field name="RAW Base Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 584, 10))" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Substring([Field_1], 594, 16)" type="V_String" />
-            <Field name="RAW Base Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 610, 10))" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Substring([Field_1], 620, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 636, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Substring([Field_1], 646, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 662, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Substring([Field_1], 672, 16)" type="V_String" />
-            <Field name="RAW Base Touchdown Zone Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 688, 10))" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -4083,8 +4030,7 @@ Reciprocal Gradient Direction...</DefaultAnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Substring([Field_1], 723, 7)" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Substring([Field_1], 730, 40)" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Substring([Field_1], 824, 16)" type="V_String" />
-            <Field name="RAW Base LAHSO Source Date" size="10" source="Formula: Trim(Substring([Field_1], 840, 10))" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Substring([Field_1], 287, 3)" type="String" />
@@ -4183,8 +4129,7 @@ Reciprocal Gradient Direction...</DefaultAnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -4236,8 +4181,7 @@ Reciprocal Gradient Direction...</DefaultAnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -4294,8 +4238,7 @@ Base ...</DefaultAnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -4353,8 +4296,7 @@ Base ...</DefaultAnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -4392,20 +4334,15 @@ Base ...</DefaultAnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Substring([Field_1], 559, 5)" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Substring([Field_1], 564, 4)" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Substring([Field_1], 568, 16)" type="V_String" />
-            <Field name="RAW Base Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 584, 10))" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Substring([Field_1], 594, 16)" type="V_String" />
-            <Field name="RAW Base Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 610, 10))" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Substring([Field_1], 620, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 636, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Substring([Field_1], 646, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 662, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Substring([Field_1], 672, 16)" type="V_String" />
-            <Field name="RAW Base Touchdown Zone Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 688, 10))" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -4414,8 +4351,7 @@ Base ...</DefaultAnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Substring([Field_1], 723, 7)" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Substring([Field_1], 730, 40)" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Substring([Field_1], 824, 16)" type="V_String" />
-            <Field name="RAW Base LAHSO Source Date" size="10" source="Formula: Trim(Substring([Field_1], 840, 10))" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Substring([Field_1], 287, 3)" type="String" />
@@ -4467,8 +4403,7 @@ Geo</AnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -4506,20 +4441,15 @@ Geo</AnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Substring([Field_1], 559, 5)" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Substring([Field_1], 564, 4)" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Substring([Field_1], 568, 16)" type="V_String" />
-            <Field name="RAW Base Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 584, 10))" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Substring([Field_1], 594, 16)" type="V_String" />
-            <Field name="RAW Base Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 610, 10))" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Substring([Field_1], 620, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 636, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Substring([Field_1], 646, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 662, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Substring([Field_1], 672, 16)" type="V_String" />
-            <Field name="RAW Base Touchdown Zone Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 688, 10))" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -4528,8 +4458,7 @@ Geo</AnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Substring([Field_1], 723, 7)" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Substring([Field_1], 730, 40)" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Substring([Field_1], 824, 16)" type="V_String" />
-            <Field name="RAW Base LAHSO Source Date" size="10" source="Formula: Trim(Substring([Field_1], 840, 10))" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Substring([Field_1], 287, 3)" type="String" />
@@ -4585,8 +4514,7 @@ Geo</AnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -4624,20 +4552,15 @@ Geo</AnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Substring([Field_1], 559, 5)" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Substring([Field_1], 564, 4)" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Substring([Field_1], 568, 16)" type="V_String" />
-            <Field name="RAW Base Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 584, 10))" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Substring([Field_1], 594, 16)" type="V_String" />
-            <Field name="RAW Base Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 610, 10))" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Substring([Field_1], 620, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 636, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Substring([Field_1], 646, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 662, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Substring([Field_1], 672, 16)" type="V_String" />
-            <Field name="RAW Base Touchdown Zone Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 688, 10))" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -4646,8 +4569,7 @@ Geo</AnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Substring([Field_1], 723, 7)" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Substring([Field_1], 730, 40)" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Substring([Field_1], 824, 16)" type="V_String" />
-            <Field name="RAW Base LAHSO Source Date" size="10" source="Formula: Trim(Substring([Field_1], 840, 10))" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Substring([Field_1], 287, 3)" type="String" />
@@ -4700,8 +4622,7 @@ Geo</AnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -4739,20 +4660,15 @@ Geo</AnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Substring([Field_1], 559, 5)" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Substring([Field_1], 564, 4)" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Substring([Field_1], 568, 16)" type="V_String" />
-            <Field name="RAW Base Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 584, 10))" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Substring([Field_1], 594, 16)" type="V_String" />
-            <Field name="RAW Base Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 610, 10))" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Substring([Field_1], 620, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 636, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Substring([Field_1], 646, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 662, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Substring([Field_1], 672, 16)" type="V_String" />
-            <Field name="RAW Base Touchdown Zone Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 688, 10))" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -4761,8 +4677,7 @@ Geo</AnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Substring([Field_1], 723, 7)" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Substring([Field_1], 730, 40)" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Substring([Field_1], 824, 16)" type="V_String" />
-            <Field name="RAW Base LAHSO Source Date" size="10" source="Formula: Trim(Substring([Field_1], 840, 10))" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Identifier" size="3" source="Formula: Substring([Field_1], 287, 3)" type="String" />
@@ -4863,8 +4778,7 @@ Geo</AnnotationText>
             <Field name="Pavement Classification Number" size="11" source="Formula: Substring([Field_1], 49, 11)" type="V_String" />
             <Field name="Runway Lights Edge Intensity" size="5" source="Formula: Substring([Field_1], 60, 5)" type="String" />
             <Field name="Runway Length Source" size="16" source="Formula: Substring([Field_1], 509, 16)" type="V_String" />
-            <Field name="RAW Runway Length Source Date" size="1073741823" source="Formula: Trim(Substring([Field_1], 525, 10))" type="V_WString" />
-            <Field name="Runway Length Source Date" source="Formula: IF   IsEmpty([RAW Runway Length Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Runway Length Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Runway Length Source Date" source="Formula: IF   Substring([Field_1], 531, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 525, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Single Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 535, 6))" type="FixedDecimal" />
             <Field name="Dual Wheel Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 541, 6))" type="FixedDecimal" />
             <Field name="Two Dual Wheels Weight Capacity" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 547, 6))" type="FixedDecimal" />
@@ -4902,20 +4816,15 @@ Geo</AnnotationText>
             <Field name="Base Gradient" size="5" source="Formula: Substring([Field_1], 559, 5)" type="String" />
             <Field name="Base Gradient Direction" size="4" source="Formula: Substring([Field_1], 564, 4)" type="String" />
             <Field name="Base Position Source" size="16" source="Formula: Substring([Field_1], 568, 16)" type="V_String" />
-            <Field name="RAW Base Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 584, 10))" type="V_String" />
-            <Field name="Base Position Source Date" source="Formula: IF   IsEmpty([RAW Base Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Position Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Position Source Date" source="Formula: IF   Substring([Field_1], 590, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 584, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Elevation Source" size="16" source="Formula: Substring([Field_1], 594, 16)" type="V_String" />
-            <Field name="RAW Base Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 610, 10))" type="V_String" />
-            <Field name="Base Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Elevation Source Date], &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Elevation Source Date" source="Formula: IF   Substring([Field_1], 616, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 610, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Position Source" size="16" source="Formula: Substring([Field_1], 620, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Position Source Date" size="10" source="Formula: Trim(Substring([Field_1], 636, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Position Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Position Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Position Source Date" source="Formula: IF   Substring([Field_1], 642, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 636, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Displaced Threshold Elevation Source" size="16" source="Formula: Substring([Field_1], 646, 16)" type="V_String" />
-            <Field name="RAW Base Displaced Threshold Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 662, 10))" type="V_String" />
-            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Displaced Threshold Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Displaced Threshold Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Displaced Threshold Elevation Source Date" source="Formula: IF   Substring([Field_1], 668, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 662, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Touchdown Zone Elevation Source" size="16" source="Formula: Substring([Field_1], 672, 16)" type="V_String" />
-            <Field name="RAW Base Touchdown Zone Elevation Source Date" size="10" source="Formula: Trim(Substring([Field_1], 688, 10))" type="V_String" />
-            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   IsEmpty([RAW Base Touchdown Zone Elevation Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base Touchdown Zone Elevation Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base Touchdown Zone Elevation Source Date" source="Formula: IF   Substring([Field_1], 694, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 688, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base Takeoff Run Available" source="Formula: ToNumber(Substring([Field_1], 698, 5))" type="Int32" />
             <Field name="Base Takeoff Distance Available" source="Formula: ToNumber(Substring([Field_1], 703, 5))" type="Int32" />
             <Field name="Base ACLT Stop Distance Available" source="Formula: ToNumber(Substring([Field_1], 708, 5))" type="Int32" />
@@ -4924,14 +4833,41 @@ Geo</AnnotationText>
             <Field name="Base LAHSO Intersecting Runway" size="7" source="Formula: Substring([Field_1], 723, 7)" type="V_String" />
             <Field name="Base LAHSO Stop Point Description" size="40" source="Formula: Substring([Field_1], 730, 40)" type="V_String" />
             <Field name="Base LAHSO Source" size="16" source="Formula: Substring([Field_1], 824, 16)" type="V_String" />
-            <Field name="RAW Base LAHSO Source Date" size="10" source="Formula: Trim(Substring([Field_1], 840, 10))" type="V_String" />
-            <Field name="Base LAHSO Source Date" source="Formula: IF   IsEmpty([RAW Base LAHSO Source Date])&#xA;THEN NULL()&#xA;ELSE DateTimeParse([RAW Base LAHSO Source Date],&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Base LAHSO Source Date" source="Formula: IF   Substring([Field_1], 846, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 840, 10),&quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
             <Field name="Base LAHSO Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base LAHSO Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings Macro="utilities\Parse S Coordinates.yxmc" />
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="3330" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\11\Engine_10004_e9f661e1420e47dc97db1608d20c59f0_\Engine_7500_0b39482feb2f47d6a250ee793a655932_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
   </Nodes>
   <Connections>
@@ -5026,6 +4962,10 @@ Geo</AnnotationText>
     <Connection>
       <Origin ToolID="26" Connection="Output" />
       <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="39" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="27" Connection="Output" />
@@ -5172,6 +5112,7 @@ Geo</AnnotationText>
         <Tool ToolId="35" Selected="True" />
         <Tool ToolId="37" Selected="True" />
         <Tool ToolId="38" Selected="True" />
+        <Tool ToolId="39" Selected="False" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />

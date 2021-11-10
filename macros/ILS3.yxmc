@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
@@ -188,15 +188,15 @@ Runway End Identifier = Substr...</DefaultAnnotationText>
             <Field name="Antenna Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Coordinate Source" size="2" source="Formula: Substring([Field_1], 110, 2)" type="String" />
             <Field name="Coordinate Source Name" size="50" source="Formula: Switch(&#xA;  Trim([Coordinate Source]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;A&quot;, &quot;Air Force&quot;,&#xA;  &quot;C&quot;, &quot;Coast Guard&quot;,&#xA;  &quot;D&quot;, &quot;Canadian AIRAC&quot;,&#xA;  &quot;F&quot;, &quot;FAA&quot;,&#xA;  &quot;FS&quot;, &quot;Tech ops (AFS-530)&quot;,&#xA;  &quot;G&quot;, &quot;NOS (Historical)&quot;,&#xA;  &quot;K&quot;, &quot;NGS&quot;,&#xA;  &quot;M&quot;, &quot;DOD (NGA)&quot;,&#xA;  &quot;N&quot;, &quot;US Navy&quot;,&#xA;  &quot;O&quot;, &quot;Owner&quot;,&#xA;  &quot;P&quot;, &quot;NOS Photo Survey (Historical)&quot;,&#xA;  &quot;Q&quot;, &quot;Quad Plot (Historical)&quot;,&#xA;  &quot;R&quot;, &quot;Army&quot;,&#xA;  &quot;S&quot;, &quot;SIAP&quot;,&#xA;  &quot;T&quot;, &quot;3rd Party Survey&quot;,&#xA;  &quot;Z&quot;, &quot;Surveyed&quot;&#xA;)" type="V_String" />
-            <Field name="Distance from End of Runway" source="Formula: ToNumber(Substring([Field_1], 112, 7))" type="Int32" />
-            <Field name="Distance from Runway Centerline" source="Formula: ToNumber(Substring([Field_1], 119, 4))" type="Int32" />
+            <Field name="Distance from End of Runway" source="Formula: ToNumber(Trim(Substring([Field_1], 112, 7)))" type="Int32" />
+            <Field name="Distance from Runway Centerline" source="Formula: ToNumber(Trim(Substring([Field_1], 119, 4)))" type="Int32" />
             <Field name="Direction from Runway Centerline" size="1" source="Formula: Substring([Field_1], 123, 1)" type="String" />
             <Field name="Distance Source" size="1073741823" source="Formula: Substring([Field_1], 124, 2)" type="V_WString" />
             <Field name="Distance Source Name" size="1073741823" source="Formula: Switch(&#xA;  Trim([Coordinate Source]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;A&quot;, &quot;Air Force&quot;,&#xA;  &quot;C&quot;, &quot;Coast Guard&quot;,&#xA;  &quot;D&quot;, &quot;Canadian AIRAC&quot;,&#xA;  &quot;F&quot;, &quot;FAA&quot;,&#xA;  &quot;FS&quot;, &quot;Tech ops (AFS-530)&quot;,&#xA;  &quot;G&quot;, &quot;NOS (Historical)&quot;,&#xA;  &quot;K&quot;, &quot;NGS&quot;,&#xA;  &quot;M&quot;, &quot;DOD (NGA)&quot;,&#xA;  &quot;N&quot;, &quot;US Navy&quot;,&#xA;  &quot;O&quot;, &quot;Owner&quot;,&#xA;  &quot;P&quot;, &quot;NOS Photo Survey (Historical)&quot;,&#xA;  &quot;Q&quot;, &quot;Quad Plot (Historical)&quot;,&#xA;  &quot;R&quot;, &quot;Army&quot;,&#xA;  &quot;S&quot;, &quot;SIAP&quot;,&#xA;  &quot;T&quot;, &quot;3rd Party Survey&quot;,&#xA;  &quot;Z&quot;, &quot;Surveyed&quot;&#xA;)" type="V_WString" />
-            <Field name="Antenna Site Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 126, 7))" type="FixedDecimal" />
+            <Field name="Antenna Site Elevation" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 126, 7)))" type="FixedDecimal" />
             <Field name="Glide Slope Class" size="15" source="Formula: Substring([Field_1], 133, 15)" type="V_String" />
             <Field name="Angle" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 148, 5)))" type="FixedDecimal" />
-            <Field name="Runway Elevation Adjacent to Antenna" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 160, 5)))" type="FixedDecimal" />
+            <Field name="Runway Elevation Adjacent to Antenna" scale="1" size="10" source="Formula: IF   Trim(Substring([Field_1], 160, 5)) = '-'&#xA;THEN 0&#xA;ELSE ToNumber(Trim(Substring([Field_1], 160, 5)))&#xA;ENDIF" type="FixedDecimal" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -243,15 +243,15 @@ Runway End Identifier = Substr...</DefaultAnnotationText>
             <Field name="Antenna Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Coordinate Source" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Coordinate Source Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Distance from End of Runway" source="Formula: ToNumber(Substring([Field_1], 112, 7))" type="Int32" />
-            <Field name="Distance from Runway Centerline" source="Formula: ToNumber(Substring([Field_1], 119, 4))" type="Int32" />
+            <Field name="Distance from End of Runway" source="Formula: ToNumber(Trim(Substring([Field_1], 112, 7)))" type="Int32" />
+            <Field name="Distance from Runway Centerline" source="Formula: ToNumber(Trim(Substring([Field_1], 119, 4)))" type="Int32" />
             <Field name="Direction from Runway Centerline" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Distance Source" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
             <Field name="Distance Source Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
-            <Field name="Antenna Site Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 126, 7))" type="FixedDecimal" />
+            <Field name="Antenna Site Elevation" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 126, 7)))" type="FixedDecimal" />
             <Field name="Glide Slope Class" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Angle" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 148, 5)))" type="FixedDecimal" />
-            <Field name="Runway Elevation Adjacent to Antenna" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 160, 5)))" type="FixedDecimal" />
+            <Field name="Runway Elevation Adjacent to Antenna" scale="1" size="10" source="Formula: IF   Trim(Substring([Field_1], 160, 5)) = '-'&#xA;THEN 0&#xA;ELSE ToNumber(Trim(Substring([Field_1], 160, 5)))&#xA;ENDIF" type="FixedDecimal" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -347,15 +347,15 @@ Status Date = DateTimeParse(Substring([Fie...</DefaultAnnotationText>
           <FormulaFields>
             <FormulaField expression="Substring([Field_1], 110, 2)" field="Coordinate Source" size="2" type="String" />
             <FormulaField expression="Switch(&#xA;  Trim([Coordinate Source]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;A&quot;, &quot;Air Force&quot;,&#xA;  &quot;C&quot;, &quot;Coast Guard&quot;,&#xA;  &quot;D&quot;, &quot;Canadian AIRAC&quot;,&#xA;  &quot;F&quot;, &quot;FAA&quot;,&#xA;  &quot;FS&quot;, &quot;Tech ops (AFS-530)&quot;,&#xA;  &quot;G&quot;, &quot;NOS (Historical)&quot;,&#xA;  &quot;K&quot;, &quot;NGS&quot;,&#xA;  &quot;M&quot;, &quot;DOD (NGA)&quot;,&#xA;  &quot;N&quot;, &quot;US Navy&quot;,&#xA;  &quot;O&quot;, &quot;Owner&quot;,&#xA;  &quot;P&quot;, &quot;NOS Photo Survey (Historical)&quot;,&#xA;  &quot;Q&quot;, &quot;Quad Plot (Historical)&quot;,&#xA;  &quot;R&quot;, &quot;Army&quot;,&#xA;  &quot;S&quot;, &quot;SIAP&quot;,&#xA;  &quot;T&quot;, &quot;3rd Party Survey&quot;,&#xA;  &quot;Z&quot;, &quot;Surveyed&quot;&#xA;)" field="Coordinate Source Name" size="50" type="V_String" />
-            <FormulaField expression="ToNumber(Substring([Field_1], 112, 7))" field="Distance from End of Runway" size="4" type="Int32" />
-            <FormulaField expression="ToNumber(Substring([Field_1], 119, 4))" field="Distance from Runway Centerline" size="4" type="Int32" />
+            <FormulaField expression="ToNumber(Trim(Substring([Field_1], 112, 7)))" field="Distance from End of Runway" size="4" type="Int32" />
+            <FormulaField expression="ToNumber(Trim(Substring([Field_1], 119, 4)))" field="Distance from Runway Centerline" size="4" type="Int32" />
             <FormulaField expression="Substring([Field_1], 123, 1)" field="Direction from Runway Centerline" size="1" type="String" />
             <FormulaField expression="Substring([Field_1], 124, 2)" field="Distance Source" size="1073741823" type="V_WString" />
             <FormulaField expression="Switch(&#xA;  Trim([Coordinate Source]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;A&quot;, &quot;Air Force&quot;,&#xA;  &quot;C&quot;, &quot;Coast Guard&quot;,&#xA;  &quot;D&quot;, &quot;Canadian AIRAC&quot;,&#xA;  &quot;F&quot;, &quot;FAA&quot;,&#xA;  &quot;FS&quot;, &quot;Tech ops (AFS-530)&quot;,&#xA;  &quot;G&quot;, &quot;NOS (Historical)&quot;,&#xA;  &quot;K&quot;, &quot;NGS&quot;,&#xA;  &quot;M&quot;, &quot;DOD (NGA)&quot;,&#xA;  &quot;N&quot;, &quot;US Navy&quot;,&#xA;  &quot;O&quot;, &quot;Owner&quot;,&#xA;  &quot;P&quot;, &quot;NOS Photo Survey (Historical)&quot;,&#xA;  &quot;Q&quot;, &quot;Quad Plot (Historical)&quot;,&#xA;  &quot;R&quot;, &quot;Army&quot;,&#xA;  &quot;S&quot;, &quot;SIAP&quot;,&#xA;  &quot;T&quot;, &quot;3rd Party Survey&quot;,&#xA;  &quot;Z&quot;, &quot;Surveyed&quot;&#xA;)" field="Distance Source Name" size="1073741823" type="V_WString" />
-            <FormulaField expression="ToNumber(Substring([Field_1], 126, 7))" field="Antenna Site Elevation" size="10.1" type="FixedDecimal" />
+            <FormulaField expression="ToNumber(Trim(Substring([Field_1], 126, 7)))" field="Antenna Site Elevation" size="10.1" type="FixedDecimal" />
             <FormulaField expression="Substring([Field_1], 133, 15)" field="Glide Slope Class" size="15" type="V_String" />
             <FormulaField expression="ToNumber(Trim(Substring([Field_1], 148, 5)))" field="Angle" size="10.2" type="FixedDecimal" />
-            <FormulaField expression="ToNumber(Trim(Substring([Field_1], 160, 5)))" field="Runway Elevation Adjacent to Antenna" size="10.1" type="FixedDecimal" />
+            <FormulaField expression="IF   Trim(Substring([Field_1], 160, 5)) = '-'&#xA;THEN 0&#xA;ELSE ToNumber(Trim(Substring([Field_1], 160, 5)))&#xA;ENDIF" field="Runway Elevation Adjacent to Antenna" size="10.1" type="FixedDecimal" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="2">
@@ -377,15 +377,15 @@ Coordinate Source Name = Switch...</DefaultAnnotationText>
             <Field name="Antenna Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Coordinate Source" size="2" source="Formula: Substring([Field_1], 110, 2)" type="String" />
             <Field name="Coordinate Source Name" size="50" source="Formula: Switch(&#xA;  Trim([Coordinate Source]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;A&quot;, &quot;Air Force&quot;,&#xA;  &quot;C&quot;, &quot;Coast Guard&quot;,&#xA;  &quot;D&quot;, &quot;Canadian AIRAC&quot;,&#xA;  &quot;F&quot;, &quot;FAA&quot;,&#xA;  &quot;FS&quot;, &quot;Tech ops (AFS-530)&quot;,&#xA;  &quot;G&quot;, &quot;NOS (Historical)&quot;,&#xA;  &quot;K&quot;, &quot;NGS&quot;,&#xA;  &quot;M&quot;, &quot;DOD (NGA)&quot;,&#xA;  &quot;N&quot;, &quot;US Navy&quot;,&#xA;  &quot;O&quot;, &quot;Owner&quot;,&#xA;  &quot;P&quot;, &quot;NOS Photo Survey (Historical)&quot;,&#xA;  &quot;Q&quot;, &quot;Quad Plot (Historical)&quot;,&#xA;  &quot;R&quot;, &quot;Army&quot;,&#xA;  &quot;S&quot;, &quot;SIAP&quot;,&#xA;  &quot;T&quot;, &quot;3rd Party Survey&quot;,&#xA;  &quot;Z&quot;, &quot;Surveyed&quot;&#xA;)" type="V_String" />
-            <Field name="Distance from End of Runway" source="Formula: ToNumber(Substring([Field_1], 112, 7))" type="Int32" />
-            <Field name="Distance from Runway Centerline" source="Formula: ToNumber(Substring([Field_1], 119, 4))" type="Int32" />
+            <Field name="Distance from End of Runway" source="Formula: ToNumber(Trim(Substring([Field_1], 112, 7)))" type="Int32" />
+            <Field name="Distance from Runway Centerline" source="Formula: ToNumber(Trim(Substring([Field_1], 119, 4)))" type="Int32" />
             <Field name="Direction from Runway Centerline" size="1" source="Formula: Substring([Field_1], 123, 1)" type="String" />
             <Field name="Distance Source" size="1073741823" source="Formula: Substring([Field_1], 124, 2)" type="V_WString" />
             <Field name="Distance Source Name" size="1073741823" source="Formula: Switch(&#xA;  Trim([Coordinate Source]), &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;A&quot;, &quot;Air Force&quot;,&#xA;  &quot;C&quot;, &quot;Coast Guard&quot;,&#xA;  &quot;D&quot;, &quot;Canadian AIRAC&quot;,&#xA;  &quot;F&quot;, &quot;FAA&quot;,&#xA;  &quot;FS&quot;, &quot;Tech ops (AFS-530)&quot;,&#xA;  &quot;G&quot;, &quot;NOS (Historical)&quot;,&#xA;  &quot;K&quot;, &quot;NGS&quot;,&#xA;  &quot;M&quot;, &quot;DOD (NGA)&quot;,&#xA;  &quot;N&quot;, &quot;US Navy&quot;,&#xA;  &quot;O&quot;, &quot;Owner&quot;,&#xA;  &quot;P&quot;, &quot;NOS Photo Survey (Historical)&quot;,&#xA;  &quot;Q&quot;, &quot;Quad Plot (Historical)&quot;,&#xA;  &quot;R&quot;, &quot;Army&quot;,&#xA;  &quot;S&quot;, &quot;SIAP&quot;,&#xA;  &quot;T&quot;, &quot;3rd Party Survey&quot;,&#xA;  &quot;Z&quot;, &quot;Surveyed&quot;&#xA;)" type="V_WString" />
-            <Field name="Antenna Site Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 126, 7))" type="FixedDecimal" />
+            <Field name="Antenna Site Elevation" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 126, 7)))" type="FixedDecimal" />
             <Field name="Glide Slope Class" size="15" source="Formula: Substring([Field_1], 133, 15)" type="V_String" />
             <Field name="Angle" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 148, 5)))" type="FixedDecimal" />
-            <Field name="Runway Elevation Adjacent to Antenna" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 160, 5)))" type="FixedDecimal" />
+            <Field name="Runway Elevation Adjacent to Antenna" scale="1" size="10" source="Formula: IF   Trim(Substring([Field_1], 160, 5)) = '-'&#xA;THEN 0&#xA;ELSE ToNumber(Trim(Substring([Field_1], 160, 5)))&#xA;ENDIF" type="FixedDecimal" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -523,7 +523,7 @@ Coordinate Source Name = Switch...</DefaultAnnotationText>
       <Wiz_OpenOutputTools>
         <Tool ToolId="2" Selected="True" />
         <Tool ToolId="8" Selected="True" />
-        <Tool ToolId="10" Selected="False" />
+        <Tool ToolId="11" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />

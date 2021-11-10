@@ -1,0 +1,583 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="114" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>AWY</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\AWY.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>10000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>65001</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>AWY.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="10000" source="File: F:\repositories\us_airspace_data\28DaySubscription\AWY.txt" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="138" y="78" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>SaveTo</Name>
+          <DefaultAnnotationText>SaveTo</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings>
+        <Position x="210" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="AWY1">
+          <RecordInfo>
+            <Field name="Airway Designation" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airway Designation Category" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airway Type" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airway Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 10, 5))" type="Int32" />
+            <Field name="Effective Date" source="Formula: IF   IsEmpty(Trim(Substring([Field_1], 15, 10)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 15, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="RNAV Track Angle Outbound" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="RNAV Distance to Changeover Point" source="Formula: ToNumber(Substring([Field_1], 32, 5))" type="Int32" />
+            <Field name="RNAV Track Angle Inbound" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="RNAV Distance to Next Point" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 44, 6))" type="FixedDecimal" />
+            <Field name="Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 56, 6))" type="FixedDecimal" />
+            <Field name="Opposite Magnetic Course" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 62, 6))" type="FixedDecimal" />
+            <Field name="Distance to Next Point" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 68, 6))" type="FixedDecimal" />
+            <Field name="Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 74, 5))" type="Int32" />
+            <Field name="Minimum Enroute Direction" size="6" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Opposite Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 85, 5))" type="Int32" />
+            <Field name="Opposite Minimum Enroute Direction" size="6" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Maximum Authorized Altitude" source="Formula: ToNumber(Substring([Field_1], 96, 5))" type="Int32" />
+            <Field name="Minimum Obstruction Clearance Altitude" source="Formula: ToNumber(Substring([Field_1], 101, 5))" type="Int32" />
+            <Field name="Airway Discontinued" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="US Airspace Only" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="NAVAID Magnetic Variation" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="NAVAID ARTCC" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="GNSS Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 217, 5))" type="Int32" />
+            <Field name="GNSS Minimum Enroute Direction" size="6" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Opposite GNSS Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 228, 5))" type="Int32" />
+            <Field name="Opposite GNSS Minimum Enroute Direction" size="6" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Minimum Crossing Altitude Point" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="DME Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 279, 5))" type="Int32" />
+            <Field name="DME Minimum Enroute Direction" size="6" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Opposite DME Minimum Enroute Altitude" source="Formula: ToNumber(Substring([Field_1], 290, 5))" type="Int32" />
+            <Field name="Opposite DME Minimum Enroute Direction" size="6" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Dogleg" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="AWY1.yxmc" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings>
+        <Position x="210" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="AWY2">
+          <RecordInfo>
+            <Field name="Airway Designation" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airway Type" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 10, 5))" type="Int32" />
+            <Field name="NAVAID Facility Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="NAVAID Facility Type" size="19" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Fix Type Publication Category" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="NAVAID State" size="64" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="NAVAID Facility Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="NAVAID Facility Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Minimum Reception Altitude" source="Formula: ToNumber(Substring([Field_1], 111, 5))" type="Int32" />
+            <Field name="NAVAID Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="AWY2.yxmc" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings>
+        <Position x="210" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="AWY3">
+          <RecordInfo>
+            <Field name="Airway Designation" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airway Type" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 10, 5))" type="Int32" />
+            <Field name="NAVAID Facility Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="NAVAID Facility Type" size="19" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="NAVAID Facility State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="NAVAID Facility Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="NAVAID Facility Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="AWY3.yxmc" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings>
+        <Position x="210" y="438" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="AWY4">
+          <RecordInfo>
+            <Field name="Airway Designation" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airway Type" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 10, 5))" type="Int32" />
+            <Field name="Remarks" size="202" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="AWY4.yxmc" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings>
+        <Position x="210" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="AWY5">
+          <RecordInfo>
+            <Field name="Airway Designation" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airway Type" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 10, 5))" type="Int32" />
+            <Field name="Remarks" size="202" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="AWY5.yxmc" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings>
+        <Position x="210" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="AWY-RMK">
+          <RecordInfo>
+            <Field name="Airway Designation" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airway Type" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Remark Sequence" source="Formula: ToNumber(Substring([Field_1], 10, 3))" type="Int32" />
+            <Field name="Remark Reference" size="6" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Remark Reference Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Remark" size="220" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="AWY-RMK.yxmc" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="306" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\AWY1.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>AWY1.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="306" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\AWY2.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>AWY2.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="306" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\AWY3.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>AWY3.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="306" y="438" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\AWY4.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>AWY4.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="306" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\AWY5.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>AWY5.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="306" y="606" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\AWY-RMK.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>AWY-RMK.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="4" Connection="AWY" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="5" Connection="AWY" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="6" Connection="AWY" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="7" Connection="AWY" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="8" Connection="AWY" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="9" Connection="AWY" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="AWY1" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="AWY2" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="AWY3" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="AWY4" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="AWY5" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="AWY-RMK" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>SaveTo</Name>
+        <Value>F:\repositories\us_airspace_data\parsed_data</Value>
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>AWY</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="02ce3d42-d719-4002-aea4-ab1caa9f8377" />
+      <Telemetry>
+        <PreviousWorkflowId value="9d4dbc4d-a304-4fc8-9d2d-6b612a0d3d44" />
+        <OriginWorkflowId value="9d4dbc4d-a304-4fc8-9d2d-6b612a0d3d44" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (2)</Description>
+              <Name>Macro Input (2)</Name>
+              <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Save To</Description>
+              <Name>SaveTo</Name>
+              <ToolId value="3" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="4" Selected="True" />
+        <Tool ToolId="5" Selected="True" />
+        <Tool ToolId="6" Selected="True" />
+        <Tool ToolId="7" Selected="True" />
+        <Tool ToolId="8" Selected="True" />
+        <Tool ToolId="9" Selected="True" />
+        <Tool ToolId="10" Selected="True" />
+        <Tool ToolId="11" Selected="True" />
+        <Tool ToolId="12" Selected="True" />
+        <Tool ToolId="13" Selected="True" />
+        <Tool ToolId="14" Selected="True" />
+        <Tool ToolId="15" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

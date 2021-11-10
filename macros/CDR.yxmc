@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -15,7 +16,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="126" y="198" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -48,9 +49,6 @@
           <DefaultAnnotationText>CDR.txt</DefaultAnnotationText>
           <Left value="True" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\CDR.txt" type="V_String" />
@@ -66,7 +64,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="222" y="198" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -77,7 +75,7 @@
             <SelectField field="Field_2" selected="True" rename="Origin" type="String" size="4" />
             <SelectField field="Field_3" selected="True" rename="Destination" type="String" size="4" />
             <SelectField field="Field_4" selected="True" rename="Departure Fix" size="7" />
-            <SelectField field="Field_5" selected="True" rename="Route" />
+            <SelectField field="Field_5" selected="True" rename="Route" size="1000" />
             <SelectField field="Field_6" selected="True" rename="ARTCC" type="String" size="3" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
@@ -93,7 +91,7 @@
             <Field name="Origin" size="4" source="File: F:\repositories\us_airspace_data\28DaySubscription\CDR.txt" type="String" />
             <Field name="Destination" size="4" source="File: F:\repositories\us_airspace_data\28DaySubscription\CDR.txt" type="String" />
             <Field name="Departure Fix" size="7" source="File: F:\repositories\us_airspace_data\28DaySubscription\CDR.txt" type="V_String" />
-            <Field name="Route" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\CDR.txt" type="V_String" />
+            <Field name="Route" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\CDR.txt" type="V_String" />
             <Field name="ARTCC" size="3" source="File: F:\repositories\us_airspace_data\28DaySubscription\CDR.txt" type="String" />
           </RecordInfo>
         </MetaInfo>
@@ -102,7 +100,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="318" y="198" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -220,7 +218,7 @@
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
         <Tool ToolId="2" Selected="True" />
-        <Tool ToolId="4" Selected="False" />
+        <Tool ToolId="4" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />

@@ -1,0 +1,619 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="174" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>ILS</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\ILS.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>10000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>65001</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>ILS.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="10000" source="File: F:\repositories\us_airspace_data\28DaySubscription\ILS.txt" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="198" y="102" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>SaveTo</Name>
+          <DefaultAnnotationText>SaveTo</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings>
+        <Position x="270" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="ILS1">
+          <RecordInfo>
+            <Field name="Airport Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway End Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ILS System Type" size="10" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="ILS System Type Name" size="200" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="ILS Identification Code" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 34, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Airport Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated City" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="State Name" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="FAA Region Code" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ILS Runway Length" source="Formula: ToNumber(Substring([Field_1], 163, 5))" type="Int32" />
+            <Field name="ILS Runway Width" source="Formula: ToNumber(Substring([Field_1], 168, 4))" type="Int32" />
+            <Field name="ILS Category" size="9" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Owner Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Operator Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="ILS Approach Bearing" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 281, 6))" type="FixedDecimal" />
+            <Field name="Magnetic Variation" size="3" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Magnetic Variation Numeric" source="Formula: IF   Right([Magnetic Variation], 1) = 'W'&#xA;THEN ToNumber(&quot;-&quot;+Left([Magnetic Variation], 2))&#xA;ELSE ToNumber(Left([Magnetic Variation], 2))&#xA;ENDIF" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="ILS1.yxmc" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings>
+        <Position x="270" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="ILS2">
+          <RecordInfo>
+            <Field name="Airport Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway End Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ILS System Type" size="10" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Status" size="22" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Status Date" source="Formula: DateTimeParse(Substring([Field_1], 50, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Antenna Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Antenna Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Coordinate Source" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Coordinate Source Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Distance from End of Runway" source="Formula: ToNumber(Substring([Field_1], 112, 7))" type="Int32" />
+            <Field name="Distance from Runway Centerline" source="Formula: ToNumber(Substring([Field_1], 119, 4))" type="Int32" />
+            <Field name="Direction from Runway Centerline" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Distance Source" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Distance Source Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Antenna Site Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 126, 7))" type="FixedDecimal" />
+            <Field name="Frequency" scale="3" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 133, 7)))" type="FixedDecimal" />
+            <Field name="Back Course Status" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Course Width" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 155, 5))" type="FixedDecimal" />
+            <Field name="Distance from Runway Stop End" source="Formula: ToNumber(Substring([Field_1], 167, 7))" type="Int32" />
+            <Field name="Direction from Runway Stop End" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Services Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Services Code Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="ILS2.yxmc" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings>
+        <Position x="270" y="462" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="ILS4">
+          <RecordInfo>
+            <Field name="Airport Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway End Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ILS System Type" size="10" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Status" size="22" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Status Date" source="Formula: DateTimeParse(Substring([Field_1], 50, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Antenna Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Antenna Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Coordinate Source" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Coordinate Source Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Distance from End of Runway" source="Formula: ToNumber(Substring([Field_1], 112, 7))" type="Int32" />
+            <Field name="Distance from Runway Centerline" source="Formula: ToNumber(Substring([Field_1], 119, 4))" type="Int32" />
+            <Field name="Direction from Runway Centerline" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Distance Source" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Distance Source Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Antenna Site Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 126, 7))" type="FixedDecimal" />
+            <Field name="Transmission Channel" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Antenna Distance from Runway Stop End" source="Formula: ToNumber(Substring([Field_1], 137, 7))" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="ILS4.yxmc" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings>
+        <Position x="270" y="546" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="ILS5">
+          <RecordInfo>
+            <Field name="Airport Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway End Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ILS System Type" size="10" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Marker Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Marker Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Status" size="22" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Status Date" source="Formula: DateTimeParse(Substring([Field_1], 52, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Antenna Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Antenna Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Coordinate Source" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Coordinate Source Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Distance from End of Runway" source="Formula: ToNumber(Substring([Field_1], 114, 7))" type="Int32" />
+            <Field name="Distance from Runway Centerline" source="Formula: ToNumber(Substring([Field_1], 121, 4))" type="Int32" />
+            <Field name="Direction from Runway Centerline" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Distance Source" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Distance Source Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Antenna Site Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 128, 7))" type="FixedDecimal" />
+            <Field name="Facility Type" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Location Identifier at Marker" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Marker Locator Beacon Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Frequency at Middle Marker" source="Formula: ToNumber(Substring([Field_1], 182, 3))" type="Int32" />
+            <Field name="Colocated NAVAID" size="25" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Low Powered NDB Status" size="22" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Service Provided by Marker" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="ILS5.yxmc" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings>
+        <Position x="270" y="630" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="ILS6">
+          <RecordInfo>
+            <Field name="Airport Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway End Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ILS System Type" size="10" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Remark" size="350" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="ILS6.yxmc" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="366" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\ILS1.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>ILS1.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="366" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\ILS2.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>ILS2.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="366" y="378" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\ILS3.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>ILS3.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="366" y="462" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\ILS4.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>ILS4.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="366" y="546" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\ILS5.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>ILS5.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="366" y="630" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\ILS6.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>ILS6.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings>
+        <Position x="270" y="378" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>ILS3 (6)</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="ILS3">
+          <RecordInfo>
+            <Field name="Airport Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Runway End Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ILS System Type" size="10" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Status" size="22" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Status Date" source="Formula: DateTimeParse(Substring([Field_1], 50, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Antenna Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Antenna Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Coordinate Source" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Coordinate Source Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Distance from End of Runway" source="Formula: ToNumber(Trim(Substring([Field_1], 112, 7)))" type="Int32" />
+            <Field name="Distance from Runway Centerline" source="Formula: ToNumber(Trim(Substring([Field_1], 119, 4)))" type="Int32" />
+            <Field name="Direction from Runway Centerline" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Distance Source" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Distance Source Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Antenna Site Elevation" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 126, 7)))" type="FixedDecimal" />
+            <Field name="Glide Slope Class" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Angle" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 148, 5)))" type="FixedDecimal" />
+            <Field name="Runway Elevation Adjacent to Antenna" scale="1" size="10" source="Formula: IF   Trim(Substring([Field_1], 160, 5)) = '-'&#xA;THEN 0&#xA;ELSE ToNumber(Trim(Substring([Field_1], 160, 5)))&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="ILS3.yxmc" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="4" Connection="ILS" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="5" Connection="ILS" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="16" Connection="ILS" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="7" Connection="ILS" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="8" Connection="ILS" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="9" Connection="ILS" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="ILS1" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="ILS2" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="ILS4" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="ILS5" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="ILS6" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="ILS3" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>SaveTo</Name>
+        <Value>F:\repositories\us_airspace_data\parsed_data</Value>
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>ILS</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="030b698d-375e-45ca-bb9c-b75a14866f65" />
+      <Telemetry>
+        <PreviousWorkflowId value="04b4e12f-41ff-43ae-9136-d3ffcd5a7350" />
+        <OriginWorkflowId value="04b4e12f-41ff-43ae-9136-d3ffcd5a7350" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (2)</Description>
+              <Name>Macro Input (2)</Name>
+              <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Save To</Description>
+              <Name>SaveTo</Name>
+              <ToolId value="3" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="4" Selected="True" />
+        <Tool ToolId="5" Selected="True" />
+        <Tool ToolId="7" Selected="True" />
+        <Tool ToolId="8" Selected="True" />
+        <Tool ToolId="9" Selected="True" />
+        <Tool ToolId="10" Selected="True" />
+        <Tool ToolId="11" Selected="True" />
+        <Tool ToolId="12" Selected="True" />
+        <Tool ToolId="13" Selected="True" />
+        <Tool ToolId="14" Selected="True" />
+        <Tool ToolId="15" Selected="True" />
+        <Tool ToolId="16" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
