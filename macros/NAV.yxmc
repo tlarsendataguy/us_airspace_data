@@ -1,0 +1,612 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="150" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>NAV</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\NAV.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>10000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>NAV.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="10000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="174" y="126" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>SaveTo</Name>
+          <DefaultAnnotationText>SaveTo</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings>
+        <Position x="246" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="NAV1">
+          <RecordInfo>
+            <Field name="NAVAID Facility ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="NAVAID Facility Type" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated City" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="NAVAID Facility Type Name" size="200" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 32, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="NAVAID Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated City State Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated City State Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Responsible FAA Region" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Responsible FAA Region Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Country Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Country Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Owner Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Operator Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Common System Usage" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Public Use" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Class" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Hours of Operation" size="11" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="High Altitude ARTCC ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="High Altitude ARTCC Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Low Altitude ARTCC ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Low Altitude ARTCC Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="NAVAID Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="NAVAID Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Location Accuracy Code" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Location Accuracy Code Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Offsite TACAN Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Offsite TACAN Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 472, 7))" type="FixedDecimal" />
+            <Field name="Magnetic Variation" source="Formula: IF   Right(Trim([RAW Magnetic Variation]),1) = 'W'&#xA;THEN -[Magnetic Variation]&#xA;ELSE [Magnetic Variation]&#xA;ENDIF" type="Int32" />
+            <Field name="Magnetic Variation Epoch Year" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Simultaneous Voice Feature" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Power Output" source="Formula: ToNumber(Substring([Field_1], 491, 4))" type="Int32" />
+            <Field name="Automatic Voice Identification Feature" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Monitoring Category" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Monitoring Category Name" size="200" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Radio Voice Call" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Transmit Channel" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Transmit Frequency" scale="3" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 533, 6)))" type="FixedDecimal" />
+            <Field name="Transmitted Identifier" size="24" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Fan Marker Type" size="10" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Fan Marker Major Axis True Bearing" source="Formula: ToNumber(Substring([Field_1], 573, 3))" type="Int32" />
+            <Field name="Protected Frequency Altitude" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Low Altitude Facility Used in High Structure" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Z Marker Available" size="3" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Hours" size="9" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Phone Number" size="9" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated FSS ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Associated FSS Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="FSS Hours of Operation" size="100" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="NOTAM Accountability Code" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Quadrant ID and Range Leg Bearing" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="NAVAID Status" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Pitch Flag" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Catch Flag" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="SUA ATCAA Flag" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="NAVAID Restriction Flag" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="HIWAS Flag" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Transcribed Weather Broadcast Restriction" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="NAV1.yxmc" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings>
+        <Position x="246" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="NAV2">
+          <RecordInfo>
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 4, 4)&#xA;ELSE [Row-1:NAVAID Facility ID]&#xA;ENDIF" name="NAVAID Facility ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 8, 20)&#xA;ELSE [Row-1:NAVAID Facility Type]&#xA;ENDIF" name="NAVAID Facility Type" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 72, 40)&#xA;ELSE [Row-1:Associated City]&#xA;ENDIF" name="Associated City" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Remarks" size="600" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="Formula: [Row-1:Sequence]+1" name="Sequence" source="Formula: [Row-1:Sequence]+1" type="Int32" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="NAVAID Facility ID" order="Asc" />
+            <Field field="NAVAID Facility Type" order="Asc" />
+            <Field field="Associated City" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="NAV2.yxmc" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings>
+        <Position x="246" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="NAV3">
+          <RecordInfo>
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 4, 4)&#xA;ELSE [Row-1:NAVAID Facility ID]&#xA;ENDIF" name="NAVAID Facility ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 8, 20)&#xA;ELSE [Row-1:NAVAID Facility Type]&#xA;ENDIF" name="NAVAID Facility Type" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 72, 40)&#xA;ELSE [Row-1:Associated City]&#xA;ENDIF" name="Associated City" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated Fix" size="36" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="TextToColumns: Parsed from Associated Fix" name="Associated Fix ID" size="25" source="TextToColumns: Parsed from Associated Fix" type="V_String" />
+            <Field description="TextToColumns: Parsed from Associated Fix" name="Associated Fix State Code" size="2" source="TextToColumns: Parsed from Associated Fix" type="V_String" />
+            <Field description="TextToColumns: Parsed from Associated Fix" name="Associated Fix ICAO Region Code" size="2" source="TextToColumns: Parsed from Associated Fix" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="NAV3.yxmc" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings>
+        <Position x="246" y="486" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="NAV4">
+          <RecordInfo>
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 4, 4)&#xA;ELSE [Row-1:NAVAID Facility ID]&#xA;ENDIF" name="NAVAID Facility ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 8, 20)&#xA;ELSE [Row-1:NAVAID Facility Type]&#xA;ENDIF" name="NAVAID Facility Type" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 72, 40)&#xA;ELSE [Row-1:Associated City]&#xA;ENDIF" name="Associated City" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Holding Pattern Name" size="80" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Holding Pattern Number" source="Formula: ToNumber(Substring([Holding Pattern], 80, 3))" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="NAV4.yxmc" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings>
+        <Position x="246" y="570" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="NAV5">
+          <RecordInfo>
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 4, 4)&#xA;ELSE [Row-1:NAVAID Facility ID]&#xA;ENDIF" name="NAVAID Facility ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 8, 20)&#xA;ELSE [Row-1:NAVAID Facility Type]&#xA;ENDIF" name="NAVAID Facility Type" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 72, 40)&#xA;ELSE [Row-1:Associated City]&#xA;ENDIF" name="Associated City" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Fan Marker Name" size="720" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="NAV5.yxmc" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings>
+        <Position x="246" y="654" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="NAV6">
+          <RecordInfo>
+            <Field name="Field_1" size="10000" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 4, 4)&#xA;ELSE [Row-1:NAVAID Facility ID]&#xA;ENDIF" name="NAVAID Facility ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 8, 20)&#xA;ELSE [Row-1:NAVAID Facility Type]&#xA;ENDIF" name="NAVAID Facility Type" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 72, 40)&#xA;ELSE [Row-1:Associated City]&#xA;ENDIF" name="Associated City" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Air Ground Code" size="720" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Checkpoint Bearing" source="Formula: ToNumber(Substring([Field_1], 30, 3))" type="Int32" />
+            <Field name="Checkpoint Altitude" source="Formula: ToNumber(Substring([Field_1], 33, 5))" type="Int32" />
+            <Field name="Airport ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Description" size="75" source="Formula: Trim([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="NAV6.yxmc" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="342" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\NAV1.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>NAV1.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="342" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\NAV2.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>NAV2.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="342" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\NAV3.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>NAV3.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="342" y="486" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\NAV4.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>NAV4.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="342" y="570" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\NAV5.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>NAV5.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="342" y="654" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\NAV6.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>NAV6.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="4" Connection="NAV" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="5" Connection="NAV" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="6" Connection="NAV" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="7" Connection="NAV" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="8" Connection="NAV" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="9" Connection="NAV" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="NAV1" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="NAV2" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="NAV3" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="NAV4" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="NAV5" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="NAV6" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>SaveTo</Name>
+        <Value>F:\repositories\us_airspace_data\parsed_data</Value>
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>NAV</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="c978df15-49fc-4fec-80ee-5aa7f833c2c1" />
+      <Telemetry>
+        <PreviousWorkflowId value="" />
+        <OriginWorkflowId value="c978df15-49fc-4fec-80ee-5aa7f833c2c1" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (2)</Description>
+              <Name>Macro Input (2)</Name>
+              <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Save To</Description>
+              <Name>SaveTo</Name>
+              <ToolId value="3" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="4" Selected="True" />
+        <Tool ToolId="5" Selected="True" />
+        <Tool ToolId="6" Selected="True" />
+        <Tool ToolId="7" Selected="True" />
+        <Tool ToolId="8" Selected="True" />
+        <Tool ToolId="9" Selected="True" />
+        <Tool ToolId="10" Selected="True" />
+        <Tool ToolId="11" Selected="True" />
+        <Tool ToolId="12" Selected="True" />
+        <Tool ToolId="13" Selected="True" />
+        <Tool ToolId="14" Selected="True" />
+        <Tool ToolId="15" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
