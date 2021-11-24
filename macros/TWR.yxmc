@@ -1,0 +1,766 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>TWR</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\28DaySubscription\TWR.txt</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>10000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\0</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TWR.txt</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="10000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="78" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>SaveTo</Name>
+          <DefaultAnnotationText>SaveTo</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings>
+        <Position x="150" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="TWR1">
+          <RecordInfo>
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Effective Date" source="Formula: DateTImeParse(Substring([Field_1], 8, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="Landing Facility Site Number" size="11" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="FAA Region Code" size="3" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="FAA Region Code Name" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Associated State Name" size="30" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Associated State" size="2" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Associated City" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Official Airport Name" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Tie In FSS ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Tie In FSS Name" size="30" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Facility Type" size="12" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Facility Type Description" size="1073741823" source="Formula: TrimRight([_CurrentField_])" type="V_WString" />
+            <Field name="Hours of Operation" size="2" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Days of Operation" size="3" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Days of Operation Description" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Master Airport Location ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Master Airport Name" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Direction Finding Equipment" size="15" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Direction Finding Antenna Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Direction Finding Antenna Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Tower Operator Name" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Military Operations Operator" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Primary Approach Control Operator" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Secondary Approach Control Operator" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Primary Departure Control Operator" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Secondary Departure Control Operator" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Tower Radio Call" size="26" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Military Operations Radio Call" size="26" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Primary Approach Radio Call" size="26" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Secondary Approach Radio Call" size="26" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Primary Departure Radio Call" size="26" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Secondary Departure Radio Call" size="26" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="TWR1.yxmc" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings>
+        <Position x="150" y="246" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="TWR2">
+          <RecordInfo>
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Military Pilot To Metro Service" size="200" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Military Aircraft Command Post" size="200" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Military Operations" size="200" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Primary Approach Control Facility" size="200" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Secondary Approach Control Facility" size="200" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Primary Departure Control Facility" size="200" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Secondary Departure Control Facility" size="200" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Tower Operation" size="200" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="TWR2.yxmc" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings>
+        <Position x="150" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="TWR3">
+          <RecordInfo>
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Frequency" size="60" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Frequency Use" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Frequency Number" scale="3" size="10" source="Formula: ToNumber(REGEX_Replace([Frequency], &quot;^([0-9.]+).*$&quot;, &quot;$1&quot;))" type="FixedDecimal" />
+            <Field name="Frequency Comment" size="60" source="Formula: REGEX_Replace([Frequency], &quot;^[^;]*(;(.*)|$)&quot;,&quot;$2&quot;)" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Terminal Communications Facility ID" order="" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="TWR3.yxmc" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings>
+        <Position x="150" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="TWR4">
+          <RecordInfo>
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Master Airport Services" size="100" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="TWR4.yxmc" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings>
+        <Position x="150" y="498" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="TWR5">
+          <RecordInfo>
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Primary Approach Type of Radar" size="9" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Secondary Approach Type of Radar" size="9" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Primary Departure Type of Radar" size="9" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Secondary Departure Type of Radar" size="9" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="TWR5-RadarDetails">
+          <RecordInfo>
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Sequence" size="7" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Radar Type" size="10" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Radar Hours of Operation" size="200" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="TWR5.yxmc" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings>
+        <Position x="150" y="690" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="TWR6">
+          <RecordInfo>
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Tower Element Number" size="5" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Tower Remark Text" size="800" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Remark For" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="TWR6.yxmc" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings>
+        <Position x="150" y="774" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="TWR7">
+          <RecordInfo>
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Satellite Frequency" size="44" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Satellite Frequency Number" scale="3" size="10" source="Formula: ToNumber(REGEX_Replace([Satellite Frequency], &quot;^([0-9.]+).*$&quot;, &quot;$1&quot;))" type="FixedDecimal" />
+            <Field name="Satellite Frequency Comment" size="60" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Satellite Frequency Use" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Satellite Airport Site Number" size="11" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Satellite Airport Location ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Satellite FAA Region Code" size="3" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Satellite Associated State" size="2" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Satellite Associated State Name" size="30" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Satellite Associated City" size="40" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Satellite Airport Name" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Satellite Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Satellite Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="FSS Identifier" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="FSS Name" size="30" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="TWR7.yxmc" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings>
+        <Position x="150" y="858" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="TWR8">
+          <RecordInfo>
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Class B Airspace" size="1" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Class C Airspace" size="1" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Class D Airspace" size="1" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Class E Airspace" size="1" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Airspace Hours" size="300" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="TWR8.yxmc" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings>
+        <Position x="150" y="942" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="TWR9">
+          <RecordInfo>
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Serial Number" source="Formula: ToNumber(Substring([Field_1], 8, 4))" type="Int64" />
+            <Field name="Hours of Operation" size="200" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Purpose Fulfilled by ATIS" size="100" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field name="Phone Number" size="18" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="TWR9.yxmc" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="246" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\TWR1.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TWR1.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="246" y="246" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\TWR2.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TWR2.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="246" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\TWR3.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TWR3.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="246" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\TWR4.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TWR4.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="246" y="498" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\TWR5.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TWR5.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="246" y="582" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\TWR5-RadarDetails.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TWR5-RadarDetails.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="246" y="690" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\TWR6.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TWR6.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="246" y="774" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\TWR7.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TWR7.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="246" y="858" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\TWR8.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TWR8.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="246" y="942" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\TWR9.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TWR9.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="4" Connection="TWR" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="5" Connection="TWR" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="7" Connection="TWR" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="6" Connection="TWR" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="8" Connection="TWR" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="9" Connection="TWR" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="10" Connection="TWR" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="11" Connection="TWR" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="12" Connection="TWR" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="TWR1" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="TWR2" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="TWR3" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="TWR4" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="TWR5" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="TWR5-RadarDetails" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="TWR6" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="TWR7" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="TWR8" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="TWR9" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (2)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>SaveTo</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>TWR</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="1bd2bed4-c131-41cb-8b2f-a7f0d51abe04" />
+      <Telemetry>
+        <PreviousWorkflowId value="" />
+        <OriginWorkflowId value="1bd2bed4-c131-41cb-8b2f-a7f0d51abe04" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (1)</Name>
+          <ToolId value="1" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (2)</Description>
+              <Name>Macro Input (2)</Name>
+              <ToolId value="2" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Save To</Description>
+              <Name>SaveTo</Name>
+              <ToolId value="3" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="2" Selected="True" />
+        <Tool ToolId="4" Selected="True" />
+        <Tool ToolId="5" Selected="True" />
+        <Tool ToolId="6" Selected="True" />
+        <Tool ToolId="7" Selected="True" />
+        <Tool ToolId="8" Selected="True" />
+        <Tool ToolId="9" Selected="True" />
+        <Tool ToolId="10" Selected="True" />
+        <Tool ToolId="11" Selected="True" />
+        <Tool ToolId="12" Selected="True" />
+        <Tool ToolId="13" Selected="True" />
+        <Tool ToolId="14" Selected="True" />
+        <Tool ToolId="15" Selected="True" />
+        <Tool ToolId="16" Selected="True" />
+        <Tool ToolId="17" Selected="True" />
+        <Tool ToolId="18" Selected="True" />
+        <Tool ToolId="19" Selected="True" />
+        <Tool ToolId="20" Selected="True" />
+        <Tool ToolId="21" Selected="True" />
+        <Tool ToolId="22" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

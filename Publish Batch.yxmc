@@ -1,0 +1,526 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="222" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">%Question.Directory%\%Question.ControlParam.Table%.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>File</AnnotationText>
+          <DefaultAnnotationText>%Question.ControlParam.Table%.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Facility Type" size="13" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Location Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 31, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="FAA Region Code" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="FAA Region Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="FAA Field Office" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Associated State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Associated State Name" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated County" size="21" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated County State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Associated City" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Official Facility Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Ownership Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Ownership Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Use" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Facility Use Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Owner Name" size="35" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Owner Address" size="72" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Owner City State and Zip Code" size="45" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Owner Phone Number" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Manager Name" size="35" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Manager Address" size="72" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Manager City State and Zip Code" size="45" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Manage Phone Number" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Elevation" scale="1" size="10" source="Formula: ToNumber([RAW Airport Elevation])" type="FixedDecimal" />
+            <Field name="Airport Elevation Estimation Method" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Magnetic Variation and Direction" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Magnetic Variation Epoch Year" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Traffic Pattern Altitude" source="Formula: IF   [Traffic Pattern Altitude] = 0&#xA;THEN 1000&#xA;ELSE [Traffic Pattern Altitude]&#xA;ENDIF" type="Int32" />
+            <Field name="Sectional Chart" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Distance from Associated City" source="Formula: ToNumber(Substring([Field_1], 627, 2))" type="Int32" />
+            <Field name="Direction from Associated City" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Land Area Covered By Airport" source="Formula: ToNumber(Substring([Field_1], 632, 5))" type="Int32" />
+            <Field name="Boundary ARTCC Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Boundary ARTCC Computer Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Boundary ARTCC Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Responsible ARTCC Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Responsible ARTCC Computer Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Responsible ARTCC Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Tie-In FSS Physically Located on Facility" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Tie-In FSS Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Tie-In FSS Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Phone Number to FSS for Administrative Services" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Phone Number to FSS for Pilot Briefing Services" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Alternate FSS Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Alternate FSS Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Phone Number to Alternate FSS for Pilot Briefing Services" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Responsible for NOTAMS and Weather" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Availability of NOTAM D Service" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Activation Date" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Status Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Status Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport ARFF Certification Type and Date" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport ARFF Certification Class" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport ARFF Certification CFR 139 Code" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport ARFF Certification Scheduled Service" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport ARFF Certification Date" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Airspace Analysis Determination" size="13" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport of Entry for Customs" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Customs Landing Rights Airport" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Military Civil Join Use Agreement" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Rights Granted to Military" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Inspection Method" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Inspection Method Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Group Performing Physical Inspection" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Group Performing Physical Inspection Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Last Physical Inspection Date" source="Formula: IF   IsEmpty(Trim(Substring([Field_1], 884, 8)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 884, 8), &quot;%m%d%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Last Date Information Request was Completed" source="Formula: IF   IsEmpty(Trim(Substring([Field_1], 892, 8)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 892, 8), &quot;%m%d%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Airframe Repair Service Availability" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Power Plant Repair Availability" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Type of Bottled Oxygen Available" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Type of Bulk Oxygen Available" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Lighting Schedule" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Beacon Lighting Schedule" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Air Traffic Control Tower Located on Airport" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Unicom Frequency" scale="3" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 981, 7)))" type="FixedDecimal" />
+            <Field name="CTAF" scale="3" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 988, 7)))" type="FixedDecimal" />
+            <Field name="Segmented Circle Airport Marker System" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Lens Color of Beacon" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Lens Color of Beacon Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Landing Fee Charged to Non-Commercial Users" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Facility Used for Medical Purposes" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Single Engine GA Aircraft" source="Formula: ToNumber(Substring([Field_1], 1004, 3))" type="Int32" />
+            <Field name="Multi Engine GA Aircraft" source="Formula: ToNumber(Substring([Field_1], 1007, 3))" type="Int32" />
+            <Field name="Jet Engine GA Aircraft" source="Formula: ToNumber(Substring([Field_1], 1010, 3))" type="Int32" />
+            <Field name="GA Helicopter" source="Formula: ToNumber(Substring([Field_1], 1013, 3))" type="Int32" />
+            <Field name="Operational Gliders" source="Formula: ToNumber(Substring([Field_1], 1016, 3))" type="Int32" />
+            <Field name="Operational Military Aircraft" source="Formula: ToNumber(Substring([Field_1], 1019, 3))" type="Int32" />
+            <Field name="Ultralight Aircraft" source="Formula: ToNumber(Substring([Field_1], 1022, 3))" type="Int32" />
+            <Field name="Scheduled Operations by CAB-Certified Carriers" source="Formula: ToNumber(Substring([Field_1], 1025, 6))" type="Int32" />
+            <Field name="Scheduled Commuter/Cargo Carriers" source="Formula: ToNumber(Substring([Field_1], 1031, 6))" type="Int32" />
+            <Field name="Air Taxi Operations" source="Formula: ToNumber(Substring([Field_1], 1037, 6))" type="Int32" />
+            <Field name="GA Local Operations" source="Formula: ToNumber(Substring([Field_1], 1043, 6))" type="Int32" />
+            <Field name="GA Itinerant Operations" source="Formula: ToNumber(Substring([Field_1], 1049, 6))" type="Int32" />
+            <Field name="Military Operations" source="Formula: ToNumber(Substring([Field_1], 1055, 6))" type="Int32" />
+            <Field name="12-Month Annual Operations Ending Date" source="Formula: IF   IsEmpty(Trim(Substring([Field_1], 1061, 10)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 1061, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Airport Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Position Source Date" source="Formula: IF   Substring([Field_1], 1093, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 1087, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Airport Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Elevation Source Date" source="Formula: IF   Substring([Field_1], 1119, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 1113, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Transient Storage Facilities" size="12" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Wind Indicator" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Identifier" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Minimum Operational Network" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="414" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">odbc:DSN=nasr|||public.%Question.ControlParam.Table%</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <Projection />
+            <SpatialObjSize>8000</SpatialObjSize>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL />
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL />
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Delete</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Table</AnnotationText>
+          <DefaultAnnotationText>DSN=nasr
+Query=public.%Question.ControlPara...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.ControlParam.ControlParam">
+        <Position x="54" y="66" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>Table</Name>
+          <DefaultAnnotationText>Table</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="210" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>Directory</Name>
+          <DefaultAnnotationText>Directory</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.DropDown">
+        <Position x="354" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Drop Down (8)</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="354" y="126" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Update Value</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+        <Position x="318" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <When>First</When>
+          <Filter />
+          <Type>Message</Type>
+          <Priority>Normal</Priority>
+          <Transient>False</Transient>
+          <MessageExpression>"Exporting %Question.ControlParam.Table%..."</MessageExpression>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Facility Type" size="13" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Location Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 31, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
+            <Field name="FAA Region Code" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="FAA Region Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="FAA Field Office" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Associated State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Associated State Name" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated County" size="21" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Associated County State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Associated City" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Official Facility Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Ownership Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Ownership Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Use" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Facility Use Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Owner Name" size="35" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Owner Address" size="72" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Owner City State and Zip Code" size="45" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Owner Phone Number" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Manager Name" size="35" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Manager Address" size="72" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Manager City State and Zip Code" size="45" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Manage Phone Number" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Reference Point Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Reference Point Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Airport Elevation" scale="1" size="10" source="Formula: ToNumber([RAW Airport Elevation])" type="FixedDecimal" />
+            <Field name="Airport Elevation Estimation Method" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Magnetic Variation and Direction" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Magnetic Variation Epoch Year" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Traffic Pattern Altitude" source="Formula: IF   [Traffic Pattern Altitude] = 0&#xA;THEN 1000&#xA;ELSE [Traffic Pattern Altitude]&#xA;ENDIF" type="Int32" />
+            <Field name="Sectional Chart" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Distance from Associated City" source="Formula: ToNumber(Substring([Field_1], 627, 2))" type="Int32" />
+            <Field name="Direction from Associated City" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Land Area Covered By Airport" source="Formula: ToNumber(Substring([Field_1], 632, 5))" type="Int32" />
+            <Field name="Boundary ARTCC Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Boundary ARTCC Computer Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Boundary ARTCC Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Responsible ARTCC Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Responsible ARTCC Computer Identifier" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Responsible ARTCC Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Tie-In FSS Physically Located on Facility" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Tie-In FSS Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Tie-In FSS Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Phone Number to FSS for Administrative Services" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Phone Number to FSS for Pilot Briefing Services" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Alternate FSS Identifier" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Alternate FSS Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Phone Number to Alternate FSS for Pilot Briefing Services" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Facility Responsible for NOTAMS and Weather" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Availability of NOTAM D Service" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Activation Date" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Status Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Status Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport ARFF Certification Type and Date" size="15" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport ARFF Certification Class" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport ARFF Certification CFR 139 Code" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport ARFF Certification Scheduled Service" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport ARFF Certification Date" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Airspace Analysis Determination" size="13" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport of Entry for Customs" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Customs Landing Rights Airport" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Military Civil Join Use Agreement" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Landing Rights Granted to Military" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Inspection Method" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Inspection Method Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Group Performing Physical Inspection" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Group Performing Physical Inspection Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Last Physical Inspection Date" source="Formula: IF   IsEmpty(Trim(Substring([Field_1], 884, 8)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 884, 8), &quot;%m%d%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Last Date Information Request was Completed" source="Formula: IF   IsEmpty(Trim(Substring([Field_1], 892, 8)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 892, 8), &quot;%m%d%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Airframe Repair Service Availability" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Power Plant Repair Availability" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Type of Bottled Oxygen Available" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Type of Bulk Oxygen Available" size="8" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Airport Lighting Schedule" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Beacon Lighting Schedule" size="7" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Air Traffic Control Tower Located on Airport" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Unicom Frequency" scale="3" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 981, 7)))" type="FixedDecimal" />
+            <Field name="CTAF" scale="3" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 988, 7)))" type="FixedDecimal" />
+            <Field name="Segmented Circle Airport Marker System" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Lens Color of Beacon" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Lens Color of Beacon Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Landing Fee Charged to Non-Commercial Users" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Facility Used for Medical Purposes" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="Single Engine GA Aircraft" source="Formula: ToNumber(Substring([Field_1], 1004, 3))" type="Int32" />
+            <Field name="Multi Engine GA Aircraft" source="Formula: ToNumber(Substring([Field_1], 1007, 3))" type="Int32" />
+            <Field name="Jet Engine GA Aircraft" source="Formula: ToNumber(Substring([Field_1], 1010, 3))" type="Int32" />
+            <Field name="GA Helicopter" source="Formula: ToNumber(Substring([Field_1], 1013, 3))" type="Int32" />
+            <Field name="Operational Gliders" source="Formula: ToNumber(Substring([Field_1], 1016, 3))" type="Int32" />
+            <Field name="Operational Military Aircraft" source="Formula: ToNumber(Substring([Field_1], 1019, 3))" type="Int32" />
+            <Field name="Ultralight Aircraft" source="Formula: ToNumber(Substring([Field_1], 1022, 3))" type="Int32" />
+            <Field name="Scheduled Operations by CAB-Certified Carriers" source="Formula: ToNumber(Substring([Field_1], 1025, 6))" type="Int32" />
+            <Field name="Scheduled Commuter/Cargo Carriers" source="Formula: ToNumber(Substring([Field_1], 1031, 6))" type="Int32" />
+            <Field name="Air Taxi Operations" source="Formula: ToNumber(Substring([Field_1], 1037, 6))" type="Int32" />
+            <Field name="GA Local Operations" source="Formula: ToNumber(Substring([Field_1], 1043, 6))" type="Int32" />
+            <Field name="GA Itinerant Operations" source="Formula: ToNumber(Substring([Field_1], 1049, 6))" type="Int32" />
+            <Field name="Military Operations" source="Formula: ToNumber(Substring([Field_1], 1055, 6))" type="Int32" />
+            <Field name="12-Month Annual Operations Ending Date" source="Formula: IF   IsEmpty(Trim(Substring([Field_1], 1061, 10)))&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 1061, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Airport Position Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Position Source Date" source="Formula: IF   Substring([Field_1], 1093, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 1087, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Airport Elevation Source" size="16" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Airport Elevation Source Date" source="Formula: IF   Substring([Field_1], 1119, 4) &lt; '1900'&#xA;THEN NULL()&#xA;ELSE DateTimeParse(Substring([Field_1], 1113, 10), &quot;%m/%d/%Y&quot;)&#xA;ENDIF" type="Date" />
+            <Field name="Transient Storage Facilities" size="12" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Wind Indicator" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="ICAO Identifier" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Minimum Operational Network" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="8" Connection="Question" />
+      <Destination ToolID="9" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="9" Connection="Action" />
+      <Destination ToolID="4" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>ControlParam.Table</Name>
+        <Value>APT</Value>
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Directory</Name>
+        <Value>F:\repositories\us_airspace_data\parsed_data</Value>
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Drop Down (8)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Publish Batch</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="4e4ff5b0-3721-464a-bb29-f375063b7d5c" />
+      <Telemetry>
+        <PreviousWorkflowId value="fd380913-8e8d-4489-a440-3f2f6c44b31c" />
+        <OriginWorkflowId value="fd380913-8e8d-4489-a440-3f2f6c44b31c" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="9" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>4/FormatSpecificOptions/OutputOption</Destination>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (5)</Name>
+          <ToolId value="5" />
+          <Questions>
+            <Question>
+              <Type>ControlParam</Type>
+              <Description>Table</Description>
+              <Name>Table</Name>
+              <ToolId value="6" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>Directory</Description>
+              <Name>Directory</Name>
+              <ToolId value="7" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>ListBox</Type>
+              <Description>Mode</Description>
+              <Name>Drop Down (8)</Name>
+              <ToolId value="8" />
+              <Multiple value="False" />
+              <Default />
+              <Mode>Manual</Mode>
+              <Manual_Values><![CDATA[Delete data and append5419541n5148905f1n0941f5809Delete
+Create new table5419541n5148905f1n0941f5809Create
+]]></Manual_Values>
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <BatchMacro>
+        <OutputMode>AllSame</OutputMode>
+        <ControlParams>
+          <ControlParam>
+            <Name>Table</Name>
+            <Description>Table</Description>
+          </ControlParam>
+        </ControlParams>
+      </BatchMacro>
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="4" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
