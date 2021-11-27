@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -15,7 +16,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="114" y="126" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -58,7 +59,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="210" y="126" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -84,7 +85,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="306" y="126" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -128,7 +129,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="498" y="126" />
+        <Position x="438" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -158,7 +159,7 @@
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="402" y="126" />
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -189,7 +190,7 @@ Location Identi...</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="594" y="126" />
+        <Position x="534" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -219,7 +220,7 @@ Location Identi...</DefaultAnnotationText>
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="978" y="126" />
+        <Position x="1014" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -236,7 +237,7 @@ Location Identi...</DefaultAnnotationText>
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
-        <Position x="690" y="126" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -276,7 +277,7 @@ Location Identi...</DefaultAnnotationText>
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="786" y="126" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -325,7 +326,7 @@ Location Identi...</DefaultAnnotationText>
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="882" y="126" />
+        <Position x="918" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -342,15 +343,56 @@ Location Identi...</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Landing Facility Site Number" size="11" source="Formula: Trim(Substring([Field_1], 3, 11))" type="String" />
-            <Field name="Location Identifier" size="4" source="Formula: Trim(Substring([Field_1], 27, 4))" type="String" />
-            <Field name="Effective Date" source="Formula: DateTimeParse(Substring([Field_1], 31, 10), &quot;%m/%d/%Y&quot;)" type="Date" />
-            <Field name="NPIAS Federal Agreements Code" size="7" source="Formula: Trim(Substring([Field_1], 857, 7))" type="String" />
+            <Field name="Landing Facility Site Number" size="11" source="Summarize: GroupBy - Landing Facility Site Number" type="String" />
+            <Field name="Location Identifier" size="4" source="Summarize: GroupBy - Location Identifier" type="String" />
+            <Field name="Effective Date" source="Summarize: GroupBy - Effective Date" type="Date" />
+            <Field name="NPIAS Federal Agreements Code" size="7" source="Summarize: GroupBy - NPIAS Federal Agreements Code" type="String" />
             <Field name="NAIPS Federal Agreements Name" size="200" source="Formula: Switch(&#xA;  [NPIAS Federal Agreements Code], &quot;Unknown&quot;,&#xA;  &quot;N&quot;, &quot;National Plan of Integrated Airport Systems (NAIPS)&quot;,&#xA;  &quot;B&quot;, &quot;Installation of Navigational Facilities on Privately Owned Airports under F&amp;E Program&quot;,&#xA;  &quot;G&quot;, &quot;Grant Agreements under FAAP/ADAP/AIP&quot;,&#xA;  &quot;P&quot;, &quot;Surplus Property Agreement under Public Law 289&quot;,&#xA;  &quot;R&quot;, &quot;Surplus Property Agreement under Regulation 16-WAA&quot;,&#xA;  &quot;S&quot;, &quot;Conveyance Under Seciton 16, Federal Airport Act of 1946 or Section 23, Airport and Airway Development Act of 1970&quot;,&#xA;  &quot;V&quot;, &quot;Advance Planning Agreement under FAAP&quot;,&#xA;  &quot;X&quot;, &quot;Obligations Assumed by Transfer&quot;,&#xA;  &quot;Y&quot;, &quot;Assurance Pursuant to Title VI, Civil Rights Act of 1964&quot;,&#xA;  &quot;Z&quot;, &quot;Conveyance Under Section 303(C), Federal Aviation Act of 1958&quot;,&#xA;  &quot;1&quot;, &quot;Grant agreement has expired; however, agreement remains in effect for this facility as long as it is public use.&quot;,&#xA;  &quot;2&quot;, &quot;Section 303(C) authority of FAA Act of 1958 has expired; however, agreement remains in effect for this facility as long as it is public use.&quot;,&#xA;  &quot;3&quot;, &quot;AP-4 agreement under DLAND or DCLA has expired&quot;&#xA;)" type="V_String" />
           </RecordInfo>
+          <SortInfo>
+            <Field field="Landing Facility Site Number" order="Asc" />
+            <Field field="Location Identifier" order="Asc" />
+            <Field field="Effective Date" order="Asc" />
+            <Field field="NPIAS Federal Agreements Code" order="Asc" />
+          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="822" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Landing Facility Site Number" action="GroupBy" rename="Landing Facility Site Number" />
+            <SummarizeField field="Location Identifier" action="GroupBy" rename="Location Identifier" />
+            <SummarizeField field="Effective Date" action="GroupBy" rename="Effective Date" />
+            <SummarizeField field="NPIAS Federal Agreements Code" action="GroupBy" rename="NPIAS Federal Agreements Code" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Landing Facility Site Number" size="11" source="Summarize: GroupBy - Landing Facility Site Number" type="String" />
+            <Field name="Location Identifier" size="4" source="Summarize: GroupBy - Location Identifier" type="String" />
+            <Field name="Effective Date" source="Summarize: GroupBy - Effective Date" type="Date" />
+            <Field name="NPIAS Federal Agreements Code" size="7" source="Summarize: GroupBy - NPIAS Federal Agreements Code" type="String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Landing Facility Site Number" order="Asc" />
+            <Field field="Location Identifier" order="Asc" />
+            <Field field="Effective Date" order="Asc" />
+            <Field field="NPIAS Federal Agreements Code" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
     </Node>
   </Nodes>
   <Connections>
@@ -384,11 +426,15 @@ Location Identi...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="11" Connection="True" />
-      <Destination ToolID="12" Connection="Input" />
+      <Destination ToolID="14" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="12" Connection="Output" />
       <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -483,7 +529,7 @@ Location Identi...</DefaultAnnotationText>
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
         <Tool ToolId="2" Selected="True" />
-        <Tool ToolId="9" Selected="False" />
+        <Tool ToolId="9" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />
