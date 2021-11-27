@@ -24,8 +24,8 @@ The NASR and daily object files are parsed using Alteryx workflows. This reposit
 
 The following high-level objects are contained in the database, represented by 1 or more tables:
 
-|Object   |Description                                                           |
-|---------|----------------------------------------------------------------------|
-|AFF      |Air Route Traffic Control Center (ARTCC) facilities and communications|
-|APT      |Airports and heliports                                                |
-|ARB      |ARTCC boundary segments                                               |
+|Object              |Description                                                           |
+|--------------------|----------------------------------------------------------------------|
+|[AFF](/ARB.md)      |Air Route Traffic Control Center (ARTCC) facilities and communications|
+|APT                 |Landing facilities (airports, heliports, ultralight aerodromes, etc)  |
+|ARB                 |ARTCC boundary segments                                               |
