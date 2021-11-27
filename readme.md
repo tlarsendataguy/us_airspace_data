@@ -26,6 +26,6 @@ The following high-level objects are contained in the database, represented by 1
 
 |Object              |Description                                                           |
 |--------------------|----------------------------------------------------------------------|
-|[AFF](/ARB.md)      |Air Route Traffic Control Center (ARTCC) facilities and communications|
+|[AFF](/doc/ARB.md)  |Air Route Traffic Control Center (ARTCC) facilities and communications|
 |APT                 |Landing facilities (airports, heliports, ultralight aerodromes, etc)  |
 |ARB                 |ARTCC boundary segments                                               |
