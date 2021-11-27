@@ -8,7 +8,7 @@
       <Properties>
         <Configuration>
           <UseFileInput value="True" />
-          <Name>SSD</Name>
+          <Name>STARDP</Name>
           <Abbrev />
           <ShowFieldMap value="False" />
           <Optional value="False" />
@@ -46,11 +46,11 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="2166" y="54" />
+        <Position x="2262" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Name>SSD-Adapted Airport</Name>
+          <Name>STARDP-Adapted Airport</Name>
           <Abbrev>A</Abbrev>
         </Configuration>
         <Annotation DisplayMode="0">
@@ -1219,11 +1219,11 @@ ENDIF</DefaultAnnotationText>
     </Node>
     <Node ToolID="42">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="2166" y="138" />
+        <Position x="2262" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Name>SSD-Route</Name>
+          <Name>STARDP-Route</Name>
           <Abbrev>R</Abbrev>
         </Configuration>
         <Annotation DisplayMode="0">
@@ -1233,6 +1233,45 @@ ENDIF</DefaultAnnotationText>
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="2166" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Procedure" action="GroupBy" rename="Procedure" />
+            <SummarizeField field="SID/STAR ID" action="GroupBy" rename="SID/STAR ID" />
+            <SummarizeField field="SID/STAR Name" action="GroupBy" rename="SID/STAR Name" />
+            <SummarizeField field="Adapted Airport" action="GroupBy" rename="Adapted Airport" />
+            <SummarizeField field="Latitude" action="First" rename="Latitude" />
+            <SummarizeField field="Longitude" action="First" rename="Longitude" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Procedure" size="4" source="Summarize: GroupBy - Procedure" type="String" />
+            <Field description="Formula: IF   IsEmpty([ID])&#xA;THEN [Row-1:ID]&#xA;ELSE [ID]&#xA;ENDIF" name="SID/STAR ID" size="13" source="Summarize: GroupBy - SID/STAR ID" type="V_String" />
+            <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="SID/STAR Name" size="110" source="Summarize: GroupBy - SID/STAR Name" type="V_String" />
+            <Field name="Adapted Airport" size="6" source="Summarize: GroupBy - Adapted Airport" type="String" />
+            <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
+            <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Procedure" order="Asc" />
+            <Field field="SID/STAR ID" order="Asc" />
+            <Field field="SID/STAR Name" order="Asc" />
+            <Field field="Adapted Airport" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
     </Node>
   </Nodes>
   <Connections>
@@ -1346,6 +1385,10 @@ ENDIF</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="40" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
       <Destination ToolID="2" Connection="Input" />
     </Connection>
   </Connections>
@@ -1388,7 +1431,7 @@ ENDIF</DefaultAnnotationText>
     </Constants>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>SSD</Name>
+      <Name>STARDP</Name>
       <Description />
       <RootToolName />
       <ToolVersion />

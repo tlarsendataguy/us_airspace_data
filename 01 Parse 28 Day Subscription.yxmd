@@ -468,80 +468,9 @@
       </Properties>
       <EngineSettings Macro="macros\FSS-All.yxmc" />
     </Node>
-    <Node ToolID="24">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="810" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Passwords />
-          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">%User.Source%\HARFIX.txt</File>
-          <FormatSpecificOptions>
-            <HeaderRow>False</HeaderRow>
-            <IgnoreErrors>False</IgnoreErrors>
-            <AllowShareWrite>False</AllowShareWrite>
-            <ImportLine>1</ImportLine>
-            <FieldLen>10000</FieldLen>
-            <SingleThreadRead>False</SingleThreadRead>
-            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
-            <Delimeter>\0</Delimeter>
-            <QuoteRecordBreak>False</QuoteRecordBreak>
-            <CodePage>28591</CodePage>
-          </FormatSpecificOptions>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>HARFIX.txt</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="Field_1" size="10000" source="File: F:\repositories\us_airspace_data\28DaySubscription\HARFIX.txt" type="V_String" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
-    </Node>
-    <Node ToolID="25">
-      <GuiSettings>
-        <Position x="150" y="810" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings Macro="macros\HARFIX.yxmc" />
-    </Node>
-    <Node ToolID="26">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="246" y="810" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <File FileFormat="19" MaxRecords="">%User.SaveTo%\HARFIX.yxdb</File>
-          <Passwords />
-          <FormatSpecificOptions>
-            <NoSpatialIndex>False</NoSpatialIndex>
-            <SaveSource>True</SaveSource>
-            <WriteCompatibleVersion>False</WriteCompatibleVersion>
-          </FormatSpecificOptions>
-          <MultiFile value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>HARFIX.yxdb</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
-    </Node>
     <Node ToolID="27">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="894" />
+        <Position x="54" y="810" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -575,7 +504,7 @@
     </Node>
     <Node ToolID="28">
       <GuiSettings>
-        <Position x="150" y="894" />
+        <Position x="150" y="810" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -607,7 +536,7 @@
     </Node>
     <Node ToolID="30">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="978" />
+        <Position x="54" y="894" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -655,7 +584,7 @@
     </Node>
     <Node ToolID="34">
       <GuiSettings>
-        <Position x="150" y="978" />
+        <Position x="150" y="894" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -671,7 +600,7 @@
     </Node>
     <Node ToolID="35">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="1062" />
+        <Position x="54" y="978" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -705,7 +634,7 @@
     </Node>
     <Node ToolID="36">
       <GuiSettings>
-        <Position x="150" y="1062" />
+        <Position x="150" y="978" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -719,7 +648,7 @@
     </Node>
     <Node ToolID="37">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="246" y="1062" />
+        <Position x="246" y="978" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -742,7 +671,7 @@
     </Node>
     <Node ToolID="38">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="1146" />
+        <Position x="54" y="1062" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -776,7 +705,7 @@
     </Node>
     <Node ToolID="39">
       <GuiSettings>
-        <Position x="150" y="1146" />
+        <Position x="150" y="1062" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -792,7 +721,7 @@
     </Node>
     <Node ToolID="40">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="1230" />
+        <Position x="54" y="1146" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -826,7 +755,7 @@
     </Node>
     <Node ToolID="41">
       <GuiSettings>
-        <Position x="150" y="1230" />
+        <Position x="150" y="1146" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -840,80 +769,9 @@
       </Properties>
       <EngineSettings Macro="macros\MTR.yxmc" />
     </Node>
-    <Node ToolID="42">
-      <GuiSettings>
-        <Position x="150" y="1314" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings Macro="macros\NATFIX.yxmc" />
-    </Node>
-    <Node ToolID="43">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="246" y="1314" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <File FileFormat="19" MaxRecords="">%User.SaveTo%\NATFIX.yxdb</File>
-          <Passwords />
-          <FormatSpecificOptions>
-            <NoSpatialIndex>False</NoSpatialIndex>
-            <SaveSource>True</SaveSource>
-            <WriteCompatibleVersion>False</WriteCompatibleVersion>
-          </FormatSpecificOptions>
-          <MultiFile value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>NATFIX.yxdb</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
-    </Node>
-    <Node ToolID="44">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="1314" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Passwords />
-          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">%User.Source%\NATFIX.txt</File>
-          <FormatSpecificOptions>
-            <HeaderRow>False</HeaderRow>
-            <IgnoreErrors>False</IgnoreErrors>
-            <AllowShareWrite>False</AllowShareWrite>
-            <ImportLine>1</ImportLine>
-            <FieldLen>10000</FieldLen>
-            <SingleThreadRead>False</SingleThreadRead>
-            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
-            <Delimeter>\0</Delimeter>
-            <QuoteRecordBreak>False</QuoteRecordBreak>
-            <CodePage>28591</CodePage>
-          </FormatSpecificOptions>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>NATFIX.txt</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="Field_1" size="10000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NATFIX.txt" type="V_String" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
-    </Node>
     <Node ToolID="45">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="1398" />
+        <Position x="54" y="1230" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -947,7 +805,7 @@
     </Node>
     <Node ToolID="46">
       <GuiSettings>
-        <Position x="150" y="1398" />
+        <Position x="150" y="1230" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -963,7 +821,7 @@
     </Node>
     <Node ToolID="47">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="1482" />
+        <Position x="54" y="1314" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -997,7 +855,7 @@
     </Node>
     <Node ToolID="49">
       <GuiSettings>
-        <Position x="150" y="1482" />
+        <Position x="150" y="1314" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1013,7 +871,7 @@
     </Node>
     <Node ToolID="50">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="1566" />
+        <Position x="54" y="1398" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1047,7 +905,7 @@
     </Node>
     <Node ToolID="51">
       <GuiSettings>
-        <Position x="150" y="1566" />
+        <Position x="150" y="1398" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1063,12 +921,12 @@
     </Node>
     <Node ToolID="52">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="1650" />
+        <Position x="54" y="1482" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Passwords />
-          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">%User.Source%\SSD.txt</File>
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">%User.Source%\STARDP.txt</File>
           <FormatSpecificOptions>
             <HeaderRow>False</HeaderRow>
             <IgnoreErrors>False</IgnoreErrors>
@@ -1084,38 +942,24 @@
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>SSD.txt</DefaultAnnotationText>
+          <DefaultAnnotationText>STARDP.txt</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Field_1" size="10000" source="File: F:\repositories\us_airspace_data\28DaySubscription\SSD.txt" type="V_String" />
+            <Field name="Field_1" size="10000" source="File: F:\repositories\us_airspace_data\28DaySubscription\STARDP.txt" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
     </Node>
-    <Node ToolID="53">
-      <GuiSettings>
-        <Position x="150" y="1650" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings Macro="macros\SSD.yxmc" />
-    </Node>
     <Node ToolID="54">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="246" y="1650" />
+        <Position x="246" y="1482" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="19" MaxRecords="">%User.SaveTo%\SSD-AdaptedAirport.yxdb</File>
+          <File FileFormat="19" MaxRecords="">%User.SaveTo%\STARDP-AdaptedAirport.yxdb</File>
           <Passwords />
           <FormatSpecificOptions>
             <NoSpatialIndex>False</NoSpatialIndex>
@@ -1126,7 +970,7 @@
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>SSD-AdaptedAirport.yxdb</DefaultAnnotationText>
+          <DefaultAnnotationText>STARDP-AdaptedAirport.yxdb</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
@@ -1134,11 +978,11 @@
     </Node>
     <Node ToolID="55">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="246" y="1746" />
+        <Position x="246" y="1578" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="19" MaxRecords="">%User.SaveTo%\SSD-Route.yxdb</File>
+          <File FileFormat="19" MaxRecords="">%User.SaveTo%\STARDP-Route.yxdb</File>
           <Passwords />
           <FormatSpecificOptions>
             <NoSpatialIndex>False</NoSpatialIndex>
@@ -1149,7 +993,7 @@
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>SSD-Route.yxdb</DefaultAnnotationText>
+          <DefaultAnnotationText>STARDP-Route.yxdb</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
@@ -1157,7 +1001,7 @@
     </Node>
     <Node ToolID="56">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="1830" />
+        <Position x="54" y="1662" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1191,7 +1035,7 @@
     </Node>
     <Node ToolID="58">
       <GuiSettings>
-        <Position x="150" y="1830" />
+        <Position x="150" y="1662" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1207,7 +1051,7 @@
     </Node>
     <Node ToolID="59">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="1998" />
+        <Position x="54" y="1830" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1231,9 +1075,6 @@
           <DefaultAnnotationText>WXL.txt</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="10000" source="File: F:\repositories\us_airspace_data\28DaySubscription\WXL.txt" type="V_String" />
@@ -1244,7 +1085,7 @@
     </Node>
     <Node ToolID="60">
       <GuiSettings>
-        <Position x="150" y="1998" />
+        <Position x="150" y="1830" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -1253,15 +1094,12 @@
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings Macro="macros\WXL.yxmc" />
     </Node>
     <Node ToolID="61">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="246" y="1914" />
+        <Position x="246" y="1746" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1279,15 +1117,12 @@
           <DefaultAnnotationText>WXL.yxdb</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="62">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="246" y="1998" />
+        <Position x="246" y="1830" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1305,15 +1140,12 @@
           <DefaultAnnotationText>WXL-Services.yxdb</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="63">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="246" y="2094" />
+        <Position x="246" y="1926" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1331,11 +1163,22 @@
           <DefaultAnnotationText>WXL-AffectedAreas.yxdb</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="64">
+      <GuiSettings>
+        <Position x="150" y="1482" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="macros\STARDP.yxmc" />
     </Node>
   </Nodes>
   <Connections>
@@ -1380,14 +1223,6 @@
       <Destination ToolID="23" Connection="FSS" />
     </Connection>
     <Connection>
-      <Origin ToolID="24" Connection="Output" />
-      <Destination ToolID="25" Connection="HARFIX" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="25" Connection="HARFIX" />
-      <Destination ToolID="26" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="27" Connection="Output" />
       <Destination ToolID="28" Connection="HPF" />
     </Connection>
@@ -1416,14 +1251,6 @@
       <Destination ToolID="41" Connection="MTR" />
     </Connection>
     <Connection>
-      <Origin ToolID="42" Connection="NATFIX" />
-      <Destination ToolID="43" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="44" Connection="Output" />
-      <Destination ToolID="42" Connection="NATFIX" />
-    </Connection>
-    <Connection>
       <Origin ToolID="45" Connection="Output" />
       <Destination ToolID="46" Connection="NAV" />
     </Connection>
@@ -1437,15 +1264,7 @@
     </Connection>
     <Connection>
       <Origin ToolID="52" Connection="Output" />
-      <Destination ToolID="53" Connection="SSD" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="53" Connection="SSD-Adapted Airport" />
-      <Destination ToolID="54" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="53" Connection="SSD-Route" />
-      <Destination ToolID="55" Connection="Input" />
+      <Destination ToolID="64" Connection="STARDP" />
     </Connection>
     <Connection>
       <Origin ToolID="56" Connection="Output" />
@@ -1466,6 +1285,14 @@
     <Connection>
       <Origin ToolID="60" Connection="WXL-AffectedAreas" />
       <Destination ToolID="63" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="64" Connection="STARDP-Adapted Airport" />
+      <Destination ToolID="54" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="64" Connection="STARDP-Route" />
+      <Destination ToolID="55" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

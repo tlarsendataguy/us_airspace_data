@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -15,7 +16,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="126" y="162" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -48,9 +49,6 @@
           <DefaultAnnotationText>NAV.txt</DefaultAnnotationText>
           <Left value="True" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
@@ -61,7 +59,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="222" y="162" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -87,7 +85,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="318" y="162" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -131,7 +129,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="414" y="162" />
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -162,7 +160,7 @@ NAVAID Facility Type = Substring...</DefaultAnnotationText>
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1278" y="162" />
+        <Position x="1206" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -224,23 +222,26 @@ NAVAID Facility Type = Substring...</DefaultAnnotationText>
             <Field name="Transmitted Identifier" size="24" source="Formula: Substring([Field_1], 539, 24)" type="V_String" />
             <Field name="Fan Marker Type" size="10" source="Formula: Substring([Field_1], 563, 10)" type="V_String" />
             <Field name="Fan Marker Major Axis True Bearing" source="Formula: ToNumber(Substring([Field_1], 573, 3))" type="Int32" />
-            <Field name="Protected Frequency Altitude" size="1" source="Formula: Substring([Field_1], 576, 1)" type="String" />
-            <Field name="Low Altitude Facility Used in High Structure" size="3" source="Formula: Substring([Field_1], 577, 3)" type="String" />
-            <Field name="Z Marker Available" size="3" source="Formula: Substring([Field_1], 580, 3)" type="V_String" />
-            <Field name="Transcribed Weather Broadcast Hours" size="9" source="Formula: Substring([Field_1], 583, 9)" type="V_String" />
-            <Field name="Transcribed Weather Broadcast Phone Number" size="9" source="Formula: Substring([Field_1], 583, 9)" type="V_String" />
-            <Field name="Associated FSS ID" size="4" source="Formula: Substring([Field_1], 612, 4)" type="String" />
-            <Field name="Associated FSS Name" size="30" source="Formula: Substring([Field_1], 616, 30)" type="V_String" />
-            <Field name="FSS Hours of Operation" size="100" source="Formula: Substring([Field_1], 646, 100)" type="V_String" />
-            <Field name="NOTAM Accountability Code" size="4" source="Formula: Substring([Field_1], 746, 4)" type="String" />
-            <Field name="Quadrant ID and Range Leg Bearing" size="16" source="Formula: Substring([Field_1], 750, 16)" type="V_String" />
-            <Field name="NAVAID Status" size="30" source="Formula: Substring([Field_1], 766, 30)" type="V_String" />
-            <Field name="Pitch Flag" size="1" source="Formula: Substring([Field_1], 796, 1)" type="String" />
-            <Field name="Catch Flag" size="1" source="Formula: Substring([Field_1], 797, 1)" type="String" />
-            <Field name="SUA ATCAA Flag" size="1" source="Formula: Substring([Field_1], 798, 1)" type="String" />
-            <Field name="NAVAID Restriction Flag" size="1" source="Formula: Substring([Field_1], 799, 1)" type="String" />
-            <Field name="HIWAS Flag" size="1" source="Formula: Substring([Field_1], 800, 1)" type="String" />
-            <Field name="Transcribed Weather Broadcast Restriction" size="1" source="Formula: Substring([Field_1], 801, 1)" type="String" />
+            <Field name="VOR Standard Service Volume" size="2" source="Formula: Substring([Field_1], 576, 2)" type="String" />
+            <Field name="VOR Standard Service Volume Description" size="20" source="Formula: Switch(&#xA;  Trim([VOR Standard Service Volume]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,   &quot;&quot;,&#xA;  &quot;H&quot;,  &quot;High Altitude&quot;,&#xA;  &quot;L&quot;,  &quot;Low Altitude&quot;,&#xA;  &quot;T&quot;,  &quot;Terminal&quot;,&#xA;  &quot;VH&quot;, &quot;VOR High&quot;,&#xA;  &quot;VL&quot;, &quot;VOR Low&quot;&#xA;)" type="V_String" />
+            <Field name="DME Standard Service Volume" size="2" source="Formula: Substring([Field_1], 578, 2)" type="String" />
+            <Field name="DME Standard Service Volume Description" size="1073741823" source="Formula: Switch(&#xA;  Trim([DME Standard Service Volume]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,   &quot;&quot;,&#xA;  &quot;H&quot;,  &quot;High Altitude&quot;,&#xA;  &quot;L&quot;,  &quot;Low Altitude&quot;,&#xA;  &quot;T&quot;,  &quot;Terminal&quot;,&#xA;  &quot;DH&quot;, &quot;DME High&quot;,&#xA;  &quot;DL&quot;, &quot;DME Low&quot;&#xA;)" type="V_WString" />
+            <Field name="Low Altitude Facility Used in High Structure" size="3" source="Formula: Substring([Field_1], 580, 3)" type="String" />
+            <Field name="Z Marker Available" size="3" source="Formula: Substring([Field_1], 583, 3)" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Hours" size="9" source="Formula: Substring([Field_1], 586, 9)" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Phone Number" size="20" source="Formula: Substring([Field_1], 595, 20)" type="V_String" />
+            <Field name="Associated FSS ID" size="4" source="Formula: Substring([Field_1], 615, 4)" type="String" />
+            <Field name="Associated FSS Name" size="30" source="Formula: Substring([Field_1], 619, 30)" type="V_String" />
+            <Field name="FSS Hours of Operation" size="100" source="Formula: Substring([Field_1], 649, 100)" type="V_String" />
+            <Field name="NOTAM Accountability Code" size="4" source="Formula: Substring([Field_1], 749, 4)" type="String" />
+            <Field name="Quadrant ID and Range Leg Bearing" size="16" source="Formula: Substring([Field_1], 753, 16)" type="V_String" />
+            <Field name="NAVAID Status" size="30" source="Formula: Substring([Field_1], 769, 30)" type="V_String" />
+            <Field name="Pitch Flag" size="1" source="Formula: Substring([Field_1], 799, 1)" type="String" />
+            <Field name="Catch Flag" size="1" source="Formula: Substring([Field_1], 800, 1)" type="String" />
+            <Field name="SUA ATCAA Flag" size="1" source="Formula: Substring([Field_1], 801, 1)" type="String" />
+            <Field name="NAVAID Restriction Flag" size="1" source="Formula: Substring([Field_1], 802, 1)" type="String" />
+            <Field name="HIWAS Flag" size="1" source="Formula: Substring([Field_1], 803, 1)" type="String" />
+            <Field name="Transcribed Weather Broadcast Restriction" size="1" source="Formula: Substring([Field_1], 804, 1)" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -248,7 +249,7 @@ NAVAID Facility Type = Substring...</DefaultAnnotationText>
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="1374" y="162" />
+        <Position x="1302" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -334,11 +335,14 @@ NAVAID Facility Type = Substring...</DefaultAnnotationText>
             <Field name="Transmitted Identifier" size="24" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Fan Marker Type" size="10" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Fan Marker Major Axis True Bearing" source="Formula: ToNumber(Substring([Field_1], 573, 3))" type="Int32" />
-            <Field name="Protected Frequency Altitude" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="VOR Standard Service Volume" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="VOR Standard Service Volume Description" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="DME Standard Service Volume" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field name="DME Standard Service Volume Description" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
             <Field name="Low Altitude Facility Used in High Structure" size="3" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Z Marker Available" size="3" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Transcribed Weather Broadcast Hours" size="9" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Transcribed Weather Broadcast Phone Number" size="9" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Phone Number" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Associated FSS ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Associated FSS Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="FSS Hours of Operation" size="100" source="Formula: Trim([_CurrentField_])" type="V_String" />
@@ -358,7 +362,7 @@ NAVAID Facility Type = Substring...</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1470" y="162" />
+        <Position x="1398" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -375,7 +379,7 @@ NAVAID Facility Type = Substring...</DefaultAnnotationText>
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="510" y="162" />
+        <Position x="438" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -423,7 +427,7 @@ NAVAID Facility Type = Substring...</DefaultAnnotationText>
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="606" y="162" />
+        <Position x="534" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -479,7 +483,7 @@ Operator Name = Substring([Field_1], ...</DefaultAnnotationText>
     </Node>
     <Node ToolID="13">
       <GuiSettings>
-        <Position x="702" y="162" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -494,9 +498,6 @@ Operator Name = Substring([Field_1], ...</DefaultAnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
@@ -532,7 +533,7 @@ Operator Name = Substring([Field_1], ...</DefaultAnnotationText>
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="798" y="162" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -586,7 +587,7 @@ Location Accuracy Code Nam...</DefaultAnnotationText>
     </Node>
     <Node ToolID="15">
       <GuiSettings>
-        <Position x="894" y="162" />
+        <Position x="822" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -601,9 +602,6 @@ Location Accuracy Code Nam...</DefaultAnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
@@ -643,7 +641,7 @@ Location Accuracy Code Nam...</DefaultAnnotationText>
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="990" y="162" />
+        <Position x="918" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -716,7 +714,7 @@ RAW Magnetic Variation = Trim...</DefaultAnnotationText>
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1086" y="162" />
+        <Position x="1014" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -727,14 +725,17 @@ RAW Magnetic Variation = Trim...</DefaultAnnotationText>
             <FormulaField expression="Substring([Field_1], 539, 24)" field="Transmitted Identifier" size="24" type="V_String" />
             <FormulaField expression="Substring([Field_1], 563, 10)" field="Fan Marker Type" size="10" type="V_String" />
             <FormulaField expression="ToNumber(Substring([Field_1], 573, 3))" field="Fan Marker Major Axis True Bearing" size="4" type="Int32" />
-            <FormulaField expression="Substring([Field_1], 576, 1)" field="Protected Frequency Altitude" size="1" type="String" />
-            <FormulaField expression="Substring([Field_1], 577, 3)" field="Low Altitude Facility Used in High Structure" size="3" type="String" />
-            <FormulaField expression="Substring([Field_1], 580, 3)" field="Z Marker Available" size="3" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 583, 9)" field="Transcribed Weather Broadcast Hours" size="9" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 583, 9)" field="Transcribed Weather Broadcast Phone Number" size="9" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 612, 4)" field="Associated FSS ID" size="4" type="String" />
-            <FormulaField expression="Substring([Field_1], 616, 30)" field="Associated FSS Name" size="30" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 646, 100)" field="FSS Hours of Operation" size="100" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 576, 2)" field="VOR Standard Service Volume" size="2" type="String" />
+            <FormulaField expression="Switch(&#xA;  Trim([VOR Standard Service Volume]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,   &quot;&quot;,&#xA;  &quot;H&quot;,  &quot;High Altitude&quot;,&#xA;  &quot;L&quot;,  &quot;Low Altitude&quot;,&#xA;  &quot;T&quot;,  &quot;Terminal&quot;,&#xA;  &quot;VH&quot;, &quot;VOR High&quot;,&#xA;  &quot;VL&quot;, &quot;VOR Low&quot;&#xA;)" field="VOR Standard Service Volume Description" size="20" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 578, 2)" field="DME Standard Service Volume" size="2" type="String" />
+            <FormulaField expression="Switch(&#xA;  Trim([DME Standard Service Volume]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,   &quot;&quot;,&#xA;  &quot;H&quot;,  &quot;High Altitude&quot;,&#xA;  &quot;L&quot;,  &quot;Low Altitude&quot;,&#xA;  &quot;T&quot;,  &quot;Terminal&quot;,&#xA;  &quot;DH&quot;, &quot;DME High&quot;,&#xA;  &quot;DL&quot;, &quot;DME Low&quot;&#xA;)" field="DME Standard Service Volume Description" size="1073741823" type="V_WString" />
+            <FormulaField expression="Substring([Field_1], 580, 3)" field="Low Altitude Facility Used in High Structure" size="3" type="String" />
+            <FormulaField expression="Substring([Field_1], 583, 3)" field="Z Marker Available" size="3" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 586, 9)" field="Transcribed Weather Broadcast Hours" size="9" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 595, 20)" field="Transcribed Weather Broadcast Phone Number" size="20" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 615, 4)" field="Associated FSS ID" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 619, 30)" field="Associated FSS Name" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 649, 100)" field="FSS Hours of Operation" size="100" type="V_String" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="2">
@@ -790,14 +791,17 @@ Transmit Channel = Substring([F...</DefaultAnnotationText>
             <Field name="Transmitted Identifier" size="24" source="Formula: Substring([Field_1], 539, 24)" type="V_String" />
             <Field name="Fan Marker Type" size="10" source="Formula: Substring([Field_1], 563, 10)" type="V_String" />
             <Field name="Fan Marker Major Axis True Bearing" source="Formula: ToNumber(Substring([Field_1], 573, 3))" type="Int32" />
-            <Field name="Protected Frequency Altitude" size="1" source="Formula: Substring([Field_1], 576, 1)" type="String" />
-            <Field name="Low Altitude Facility Used in High Structure" size="3" source="Formula: Substring([Field_1], 577, 3)" type="String" />
-            <Field name="Z Marker Available" size="3" source="Formula: Substring([Field_1], 580, 3)" type="V_String" />
-            <Field name="Transcribed Weather Broadcast Hours" size="9" source="Formula: Substring([Field_1], 583, 9)" type="V_String" />
-            <Field name="Transcribed Weather Broadcast Phone Number" size="9" source="Formula: Substring([Field_1], 583, 9)" type="V_String" />
-            <Field name="Associated FSS ID" size="4" source="Formula: Substring([Field_1], 612, 4)" type="String" />
-            <Field name="Associated FSS Name" size="30" source="Formula: Substring([Field_1], 616, 30)" type="V_String" />
-            <Field name="FSS Hours of Operation" size="100" source="Formula: Substring([Field_1], 646, 100)" type="V_String" />
+            <Field name="VOR Standard Service Volume" size="2" source="Formula: Substring([Field_1], 576, 2)" type="String" />
+            <Field name="VOR Standard Service Volume Description" size="20" source="Formula: Switch(&#xA;  Trim([VOR Standard Service Volume]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,   &quot;&quot;,&#xA;  &quot;H&quot;,  &quot;High Altitude&quot;,&#xA;  &quot;L&quot;,  &quot;Low Altitude&quot;,&#xA;  &quot;T&quot;,  &quot;Terminal&quot;,&#xA;  &quot;VH&quot;, &quot;VOR High&quot;,&#xA;  &quot;VL&quot;, &quot;VOR Low&quot;&#xA;)" type="V_String" />
+            <Field name="DME Standard Service Volume" size="2" source="Formula: Substring([Field_1], 578, 2)" type="String" />
+            <Field name="DME Standard Service Volume Description" size="1073741823" source="Formula: Switch(&#xA;  Trim([DME Standard Service Volume]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,   &quot;&quot;,&#xA;  &quot;H&quot;,  &quot;High Altitude&quot;,&#xA;  &quot;L&quot;,  &quot;Low Altitude&quot;,&#xA;  &quot;T&quot;,  &quot;Terminal&quot;,&#xA;  &quot;DH&quot;, &quot;DME High&quot;,&#xA;  &quot;DL&quot;, &quot;DME Low&quot;&#xA;)" type="V_WString" />
+            <Field name="Low Altitude Facility Used in High Structure" size="3" source="Formula: Substring([Field_1], 580, 3)" type="String" />
+            <Field name="Z Marker Available" size="3" source="Formula: Substring([Field_1], 583, 3)" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Hours" size="9" source="Formula: Substring([Field_1], 586, 9)" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Phone Number" size="20" source="Formula: Substring([Field_1], 595, 20)" type="V_String" />
+            <Field name="Associated FSS ID" size="4" source="Formula: Substring([Field_1], 615, 4)" type="String" />
+            <Field name="Associated FSS Name" size="30" source="Formula: Substring([Field_1], 619, 30)" type="V_String" />
+            <Field name="FSS Hours of Operation" size="100" source="Formula: Substring([Field_1], 649, 100)" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -805,27 +809,27 @@ Transmit Channel = Substring([F...</DefaultAnnotationText>
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1182" y="162" />
+        <Position x="1110" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <FormulaFields>
-            <FormulaField expression="Substring([Field_1], 746, 4)" field="NOTAM Accountability Code" size="4" type="String" />
-            <FormulaField expression="Substring([Field_1], 750, 16)" field="Quadrant ID and Range Leg Bearing" size="16" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 766, 30)" field="NAVAID Status" size="30" type="V_String" />
-            <FormulaField expression="Substring([Field_1], 796, 1)" field="Pitch Flag" size="1" type="String" />
-            <FormulaField expression="Substring([Field_1], 797, 1)" field="Catch Flag" size="1" type="String" />
-            <FormulaField expression="Substring([Field_1], 798, 1)" field="SUA ATCAA Flag" size="1" type="String" />
-            <FormulaField expression="Substring([Field_1], 799, 1)" field="NAVAID Restriction Flag" size="1" type="String" />
-            <FormulaField expression="Substring([Field_1], 800, 1)" field="HIWAS Flag" size="1" type="String" />
-            <FormulaField expression="Substring([Field_1], 801, 1)" field="Transcribed Weather Broadcast Restriction" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 749, 4)" field="NOTAM Accountability Code" size="4" type="String" />
+            <FormulaField expression="Substring([Field_1], 753, 16)" field="Quadrant ID and Range Leg Bearing" size="16" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 769, 30)" field="NAVAID Status" size="30" type="V_String" />
+            <FormulaField expression="Substring([Field_1], 799, 1)" field="Pitch Flag" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 800, 1)" field="Catch Flag" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 801, 1)" field="SUA ATCAA Flag" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 802, 1)" field="NAVAID Restriction Flag" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 803, 1)" field="HIWAS Flag" size="1" type="String" />
+            <FormulaField expression="Substring([Field_1], 804, 1)" field="Transcribed Weather Broadcast Restriction" size="1" type="String" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="2">
           <Name />
           <AnnotationText><![CDATA[
 ]]></AnnotationText>
-          <DefaultAnnotationText>NOTAM Accountability Code = Substring([Field_1], 746, 4)
+          <DefaultAnnotationText>NOTAM Accountability Code = Substring([Field_1], 749, 4)
 Quadrant ID and Range L...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
@@ -876,23 +880,26 @@ Quadrant ID and Range L...</DefaultAnnotationText>
             <Field name="Transmitted Identifier" size="24" source="Formula: Substring([Field_1], 539, 24)" type="V_String" />
             <Field name="Fan Marker Type" size="10" source="Formula: Substring([Field_1], 563, 10)" type="V_String" />
             <Field name="Fan Marker Major Axis True Bearing" source="Formula: ToNumber(Substring([Field_1], 573, 3))" type="Int32" />
-            <Field name="Protected Frequency Altitude" size="1" source="Formula: Substring([Field_1], 576, 1)" type="String" />
-            <Field name="Low Altitude Facility Used in High Structure" size="3" source="Formula: Substring([Field_1], 577, 3)" type="String" />
-            <Field name="Z Marker Available" size="3" source="Formula: Substring([Field_1], 580, 3)" type="V_String" />
-            <Field name="Transcribed Weather Broadcast Hours" size="9" source="Formula: Substring([Field_1], 583, 9)" type="V_String" />
-            <Field name="Transcribed Weather Broadcast Phone Number" size="9" source="Formula: Substring([Field_1], 583, 9)" type="V_String" />
-            <Field name="Associated FSS ID" size="4" source="Formula: Substring([Field_1], 612, 4)" type="String" />
-            <Field name="Associated FSS Name" size="30" source="Formula: Substring([Field_1], 616, 30)" type="V_String" />
-            <Field name="FSS Hours of Operation" size="100" source="Formula: Substring([Field_1], 646, 100)" type="V_String" />
-            <Field name="NOTAM Accountability Code" size="4" source="Formula: Substring([Field_1], 746, 4)" type="String" />
-            <Field name="Quadrant ID and Range Leg Bearing" size="16" source="Formula: Substring([Field_1], 750, 16)" type="V_String" />
-            <Field name="NAVAID Status" size="30" source="Formula: Substring([Field_1], 766, 30)" type="V_String" />
-            <Field name="Pitch Flag" size="1" source="Formula: Substring([Field_1], 796, 1)" type="String" />
-            <Field name="Catch Flag" size="1" source="Formula: Substring([Field_1], 797, 1)" type="String" />
-            <Field name="SUA ATCAA Flag" size="1" source="Formula: Substring([Field_1], 798, 1)" type="String" />
-            <Field name="NAVAID Restriction Flag" size="1" source="Formula: Substring([Field_1], 799, 1)" type="String" />
-            <Field name="HIWAS Flag" size="1" source="Formula: Substring([Field_1], 800, 1)" type="String" />
-            <Field name="Transcribed Weather Broadcast Restriction" size="1" source="Formula: Substring([Field_1], 801, 1)" type="String" />
+            <Field name="VOR Standard Service Volume" size="2" source="Formula: Substring([Field_1], 576, 2)" type="String" />
+            <Field name="VOR Standard Service Volume Description" size="20" source="Formula: Switch(&#xA;  Trim([VOR Standard Service Volume]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,   &quot;&quot;,&#xA;  &quot;H&quot;,  &quot;High Altitude&quot;,&#xA;  &quot;L&quot;,  &quot;Low Altitude&quot;,&#xA;  &quot;T&quot;,  &quot;Terminal&quot;,&#xA;  &quot;VH&quot;, &quot;VOR High&quot;,&#xA;  &quot;VL&quot;, &quot;VOR Low&quot;&#xA;)" type="V_String" />
+            <Field name="DME Standard Service Volume" size="2" source="Formula: Substring([Field_1], 578, 2)" type="String" />
+            <Field name="DME Standard Service Volume Description" size="1073741823" source="Formula: Switch(&#xA;  Trim([DME Standard Service Volume]), &quot;Unknown&quot;,&#xA;  &quot;&quot;,   &quot;&quot;,&#xA;  &quot;H&quot;,  &quot;High Altitude&quot;,&#xA;  &quot;L&quot;,  &quot;Low Altitude&quot;,&#xA;  &quot;T&quot;,  &quot;Terminal&quot;,&#xA;  &quot;DH&quot;, &quot;DME High&quot;,&#xA;  &quot;DL&quot;, &quot;DME Low&quot;&#xA;)" type="V_WString" />
+            <Field name="Low Altitude Facility Used in High Structure" size="3" source="Formula: Substring([Field_1], 580, 3)" type="String" />
+            <Field name="Z Marker Available" size="3" source="Formula: Substring([Field_1], 583, 3)" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Hours" size="9" source="Formula: Substring([Field_1], 586, 9)" type="V_String" />
+            <Field name="Transcribed Weather Broadcast Phone Number" size="20" source="Formula: Substring([Field_1], 595, 20)" type="V_String" />
+            <Field name="Associated FSS ID" size="4" source="Formula: Substring([Field_1], 615, 4)" type="String" />
+            <Field name="Associated FSS Name" size="30" source="Formula: Substring([Field_1], 619, 30)" type="V_String" />
+            <Field name="FSS Hours of Operation" size="100" source="Formula: Substring([Field_1], 649, 100)" type="V_String" />
+            <Field name="NOTAM Accountability Code" size="4" source="Formula: Substring([Field_1], 749, 4)" type="String" />
+            <Field name="Quadrant ID and Range Leg Bearing" size="16" source="Formula: Substring([Field_1], 753, 16)" type="V_String" />
+            <Field name="NAVAID Status" size="30" source="Formula: Substring([Field_1], 769, 30)" type="V_String" />
+            <Field name="Pitch Flag" size="1" source="Formula: Substring([Field_1], 799, 1)" type="String" />
+            <Field name="Catch Flag" size="1" source="Formula: Substring([Field_1], 800, 1)" type="String" />
+            <Field name="SUA ATCAA Flag" size="1" source="Formula: Substring([Field_1], 801, 1)" type="String" />
+            <Field name="NAVAID Restriction Flag" size="1" source="Formula: Substring([Field_1], 802, 1)" type="String" />
+            <Field name="HIWAS Flag" size="1" source="Formula: Substring([Field_1], 803, 1)" type="String" />
+            <Field name="Transcribed Weather Broadcast Restriction" size="1" source="Formula: Substring([Field_1], 804, 1)" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -1049,7 +1056,7 @@ Quadrant ID and Range L...</DefaultAnnotationText>
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
         <Tool ToolId="2" Selected="True" />
-        <Tool ToolId="8" Selected="False" />
+        <Tool ToolId="8" Selected="True" />
         <Tool ToolId="13" Selected="True" />
         <Tool ToolId="15" Selected="True" />
       </Wiz_OpenOutputTools>
