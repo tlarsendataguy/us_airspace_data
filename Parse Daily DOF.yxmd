@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="102" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">%User.Source%\DOF.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DOF.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="OAS" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="VERIFIED STATUS" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="COUNTRY" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="STATE" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="CITY" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="LATDEC" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="LONDEC" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="DMSLAT" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="DMSLON" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="TYPE" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="QUANTITY" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="AGL" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="AMSL" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="LIGHTING" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="ACCURACY" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="MARKING" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="FAA STUDY" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="ACTION" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+            <Field name="JDATE" size="254" source="File: F:\repositories\us_airspace_data\DAILY_DOF_CSV\DOF.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="390" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%User.SaveTo%\DOF.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DOF.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="294" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="OAS" selected="True" rename="Obstacle Number" size="9" />
+            <SelectField field="VERIFIED STATUS" selected="True" rename="Verification Status" type="String" size="1" />
+            <SelectField field="Verification Status Name" selected="True" />
+            <SelectField field="COUNTRY" selected="True" rename="Country" type="String" size="2" />
+            <SelectField field="STATE" selected="True" rename="State" type="String" size="2" />
+            <SelectField field="CITY" selected="True" rename="City" size="40" />
+            <SelectField field="LATDEC" selected="True" rename="Latitude" type="FixedDecimal" size="12.7" />
+            <SelectField field="LONDEC" selected="True" rename="Longitude" type="FixedDecimal" size="12.7" />
+            <SelectField field="DMSLAT" selected="False" />
+            <SelectField field="DMSLON" selected="False" />
+            <SelectField field="TYPE" selected="True" rename="Obstacle Type" size="20" />
+            <SelectField field="QUANTITY" selected="True" rename="Quantity" type="Int64" size="8" />
+            <SelectField field="AGL" selected="True" rename="Height AGL" type="Int64" size="8" />
+            <SelectField field="AMSL" selected="True" rename="Height MSL" type="Int64" size="8" />
+            <SelectField field="LIGHTING" selected="True" rename="Type of Lighting" type="String" size="1" />
+            <SelectField field="Type of Lighting Description" selected="True" />
+            <SelectField field="ACCURACY" selected="True" rename="Accuracy Code" type="String" size="2" />
+            <SelectField field="Horizontal Accuracy" selected="True" />
+            <SelectField field="Vertical Accuracy" selected="True" />
+            <SelectField field="MARKING" selected="True" rename="Mark Indicator" type="String" size="1" />
+            <SelectField field="Marker Indicator Description" selected="True" />
+            <SelectField field="FAA STUDY" selected="True" rename="FAA Study Number" size="14" />
+            <SelectField field="ACTION" selected="True" rename="Action" type="String" size="1" />
+            <SelectField field="Action Description" selected="True" />
+            <SelectField field="JDATE" selected="False" rename="Date of Action" />
+            <SelectField field="Date of Action" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="198" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Switch(&#xA;  [VERIFIED STATUS], &quot;Unknown&quot;,&#xA;  &quot;&quot;, &quot;&quot;,&#xA;  &quot;O&quot;, &quot;Verified&quot;,&#xA;  &quot;U&quot;, &quot;Unverified&quot;&#xA;)" field="Verification Status Name" size="20" type="V_String" />
+            <FormulaField expression="Switch(&#xA;  [LIGHTING], &quot;Unknown&quot;,&#xA;  &quot;&quot;,  &quot;&quot;,&#xA;  &quot;R&quot;, &quot;Red&quot;,&#xA;  &quot;D&quot;, &quot;Medium intensity white strobe and red&quot;,&#xA;  &quot;H&quot;, &quot;High intensity white strobe and red&quot;,&#xA;  &quot;M&quot;, &quot;Medium intensity white strobe&quot;,&#xA;  &quot;S&quot;, &quot;High intensity white strobe&quot;,&#xA;  &quot;F&quot;, &quot;Flood&quot;,&#xA;  &quot;C&quot;, &quot;Dual medium catenary&quot;,&#xA;  &quot;W&quot;, &quot;Synchronized red lighting&quot;,&#xA;  &quot;L&quot;, &quot;Lighted (type unknown)&quot;,&#xA;  &quot;N&quot;, &quot;None&quot;,&#xA;  &quot;U&quot;, &quot;Unknown&quot;&#xA;)" field="Type of Lighting Description" size="50" type="V_String" />
+            <FormulaField expression="Switch(&#xA;  [MARKING], &quot;Unknown&quot;,&#xA;  &quot;&quot;,  &quot;&quot;,&#xA;  &quot;P&quot;, &quot;Orange or orange and white paint&quot;,&#xA;  &quot;W&quot;, &quot;White paint only&quot;,&#xA;  &quot;M&quot;, &quot;Marked&quot;,&#xA;  &quot;F&quot;, &quot;Flag marker&quot;,&#xA;  &quot;S&quot;, &quot;Spherical marker&quot;,&#xA;  &quot;N&quot;, &quot;None&quot;,&#xA;  &quot;U&quot;, &quot;Unknown&quot;&#xA;)" field="Marker Indicator Description" size="50" type="V_String" />
+            <FormulaField expression="Switch(&#xA;  [ACTION], &quot;Unknown&quot;,&#xA;  &quot;&quot;,  &quot;&quot;,&#xA;  &quot;A&quot;, &quot;Added&quot;,&#xA;  &quot;C&quot;, &quot;Changed&quot;&#xA;)" field="Action Description" size="20" type="V_String" />
+            <FormulaField expression="DateTimeParse([JDATE],&quot;%Y%j&quot;)" field="Date of Action" size="10" type="Date" />
+            <FormulaField expression="Switch(&#xA;  Left([ACCURACY],1), NULL(),&#xA;  '1', 20,&#xA;  '2', 50,&#xA;  '3', 100,&#xA;  '4', 250,&#xA;  '5', 500,&#xA;  '6', 1000,&#xA;  '7', 3038,&#xA;  '8', 6076,&#xA;  '9', NULL()&#xA;)" field="Horizontal Accuracy" size="8" type="Int64" />
+            <FormulaField expression="Switch(&#xA;  Right([ACCURACY],1), NULL(),&#xA;  'A', 3,&#xA;  'B', 10,&#xA;  'C', 20,&#xA;  'D', 50,&#xA;  'E', 125,&#xA;  'F', 250,&#xA;  'G', 500,&#xA;  'H', 1000,&#xA;  'I', NULL()&#xA;)" field="Vertical Accuracy" size="8" type="Int64" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>Verification Status Name = Switch(
+  [VERIFIED STATUS], "Unknown",
+  "", "",
+  "...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>User</Namespace>
+        <Name>Source</Name>
+        <Value>F:\repositories\us_airspace_data\DAILY_DOF_CSV</Value>
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>User</Namespace>
+        <Name>SaveTo</Name>
+        <Value>F:\repositories\us_airspace_data\parsed_data</Value>
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Parse Daily DOF</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="f5229c86-61cb-42a0-a6ab-574ab9847cb1" />
+      <Telemetry>
+        <PreviousWorkflowId value="" />
+        <OriginWorkflowId value="f5229c86-61cb-42a0-a6ab-574ab9847cb1" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
