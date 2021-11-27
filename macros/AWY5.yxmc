@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
@@ -160,15 +160,20 @@ Airway Type = Substring([Field_1...</DefaultAnnotationText>
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="534" y="54" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <OrderChanged value="False" />
+          <OrderChanged value="True" />
           <CommaDecimal value="False" />
           <SelectFields>
             <SelectField field="Field_1" selected="False" />
             <SelectField field="RecordType" selected="False" />
+            <SelectField field="Airway Designation" selected="True" />
+            <SelectField field="Airway Type" selected="True" />
+            <SelectField field="Sequence" selected="True" />
+            <SelectField field="Remark ID" selected="True" />
+            <SelectField field="Remarks" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -182,15 +187,21 @@ Airway Type = Substring([Field_1...</DefaultAnnotationText>
             <Field name="Airway Designation" size="5" source="Formula: Substring([Field_1], 4, 5)" type="String" />
             <Field name="Airway Type" size="1" source="Formula: Substring([Field_1], 9, 1)" type="String" />
             <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 10, 5))" type="Int32" />
+            <Field description="Formula: [Row-1:Remark ID]+1" name="Remark ID" source="Formula: [Row-1:Remark ID]+1" type="Int64" />
             <Field name="Remarks" size="202" source="Formula: Substring([Field_1], 15, 202)" type="V_String" />
           </RecordInfo>
+          <SortInfo>
+            <Field field="Airway Designation" order="Asc" />
+            <Field field="Airway Type" order="Asc" />
+            <Field field="Sequence" order="Asc" />
+          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="630" y="54" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -198,12 +209,7 @@ Airway Type = Substring([Field_1...</DefaultAnnotationText>
           <Fields orderChanged="False">
             <Field name="Airway Designation" />
             <Field name="Airway Type" />
-            <Field name="NAVAID Facility Name" />
-            <Field name="NAVAID Facility Type" />
-            <Field name="Fix Type Publication Category" />
-            <Field name="NAVAID State PO Box Code" />
-            <Field name="ICAO Region Code" />
-            <Field name="NAVAID Identifier" />
+            <Field name="Remarks" />
             <Field name="*Unknown" />
           </Fields>
           <CopyOutput value="False" />
@@ -221,6 +227,7 @@ Airway Type = Substring([Field_1...</DefaultAnnotationText>
             <Field name="Airway Designation" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Airway Type" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 10, 5))" type="Int32" />
+            <Field description="Formula: [Row-1:Remark ID]+1" name="Remark ID" source="Formula: [Row-1:Remark ID]+1" type="Int64" />
             <Field name="Remarks" size="202" source="Formula: Trim([_CurrentField_])" type="V_String" />
           </RecordInfo>
         </MetaInfo>
@@ -229,7 +236,7 @@ Airway Type = Substring([Field_1...</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="726" y="54" />
+        <Position x="822" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -273,6 +280,51 @@ Airway Type = Substring([Field_1...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="534" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Field_1</UpdateField_Name>
+          <CreateField_Name>Remark ID</CreateField_Name>
+          <CreateField_Type>Int64</CreateField_Type>
+          <CreateField_Size>8</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>[Row-1:Remark ID]+1</Expression>
+          <GroupByFields>
+            <Field field="Airway Designation" />
+            <Field field="Airway Type" />
+            <Field field="Sequence" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Remark ID</AnnotationText>
+          <DefaultAnnotationText>[Row-1:Remark ID]+1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\AWY.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Trim(Left([Field_1],4))" type="String" />
+            <Field name="Airway Designation" size="5" source="Formula: Substring([Field_1], 4, 5)" type="String" />
+            <Field name="Airway Type" size="1" source="Formula: Substring([Field_1], 9, 1)" type="String" />
+            <Field name="Sequence" source="Formula: ToNumber(Substring([Field_1], 10, 5))" type="Int32" />
+            <Field name="Remarks" size="202" source="Formula: Substring([Field_1], 15, 202)" type="V_String" />
+            <Field description="Formula: [Row-1:Remark ID]+1" name="Remark ID" source="Formula: [Row-1:Remark ID]+1" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Airway Designation" order="Asc" />
+            <Field field="Airway Type" order="Asc" />
+            <Field field="Sequence" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -301,6 +353,10 @@ Airway Type = Substring([Field_1...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
       <Destination ToolID="6" Connection="Input" />
     </Connection>
   </Connections>

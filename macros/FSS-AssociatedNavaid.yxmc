@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
@@ -173,7 +173,7 @@ Associated NAVAID = Substring([Field_1], 3425, 525)
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1014" y="54" />
+        <Position x="1110" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -342,7 +342,7 @@ Associated NAVAID = Substring([Field_1], 3425, 525)
     </Node>
     <Node ToolID="26">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="918" y="54" />
+        <Position x="1014" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -360,12 +360,44 @@ Associated NAVAID = Substring([Field_1], 3425, 525)
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="FSS ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Associated NAVAID" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field name="FSS ID" size="4" source="Summarize: GroupBy - FSS ID" type="String" />
+            <Field name="Associated NAVAID" size="7" source="Summarize: GroupBy - Associated NAVAID" type="V_String" />
           </RecordInfo>
+          <SortInfo>
+            <Field field="FSS ID" order="Asc" />
+          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="918" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="FSS ID" action="GroupBy" rename="FSS ID" />
+            <SummarizeField field="Associated NAVAID" action="GroupBy" rename="Associated NAVAID" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="FSS ID" size="4" source="Summarize: GroupBy - FSS ID" type="String" />
+            <Field name="Associated NAVAID" size="525" source="Summarize: GroupBy - Associated NAVAID" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="FSS ID" order="Asc" />
+            <Field field="Associated NAVAID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
     </Node>
   </Nodes>
   <Connections>
@@ -399,7 +431,7 @@ Associated NAVAID = Substring([Field_1], 3425, 525)
     </Connection>
     <Connection>
       <Origin ToolID="16" Connection="True" />
-      <Destination ToolID="26" Connection="Input" />
+      <Destination ToolID="27" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="20" Connection="Output" />
@@ -416,6 +448,10 @@ Associated NAVAID = Substring([Field_1], 3425, 525)
     <Connection>
       <Origin ToolID="26" Connection="Output" />
       <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

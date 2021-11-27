@@ -162,15 +162,21 @@ IC...</DefaultAnnotationText>
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="534" y="54" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <OrderChanged value="False" />
+          <OrderChanged value="True" />
           <CommaDecimal value="False" />
           <SelectFields>
             <SelectField field="Field_1" selected="False" />
             <SelectField field="RecordType" selected="False" />
+            <SelectField field="Fix ID" selected="True" />
+            <SelectField field="Fix State" selected="True" />
+            <SelectField field="ICAO Region" selected="True" />
+            <SelectField field="Field Label" selected="True" />
+            <SelectField field="Remark ID" selected="True" />
+            <SelectField field="Remark" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -185,15 +191,19 @@ IC...</DefaultAnnotationText>
             <Field name="Fix State" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
             <Field name="ICAO Region" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
             <Field name="Field Label" size="100" source="Formula: Substring([Field_1], 66, 100)" type="V_String" />
+            <Field description="Formula: [Row-1:Remark ID]+1" name="Remark ID" source="Formula: [Row-1:Remark ID]+1" type="Int64" />
             <Field name="Remark" size="300" source="Formula: Substring([Field_1], 166, 300)" type="V_String" />
           </RecordInfo>
+          <SortInfo>
+            <Field field="Fix ID" order="Asc" />
+          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="630" y="54" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -222,6 +232,7 @@ IC...</DefaultAnnotationText>
             <Field name="Fix State" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="ICAO Region" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Field Label" size="100" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="Formula: [Row-1:Remark ID]+1" name="Remark ID" source="Formula: [Row-1:Remark ID]+1" type="Int64" />
             <Field name="Remark" size="300" source="Formula: Trim([_CurrentField_])" type="V_String" />
           </RecordInfo>
         </MetaInfo>
@@ -230,7 +241,7 @@ IC...</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="726" y="54" />
+        <Position x="822" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -276,6 +287,48 @@ Remark = Substring([Field_1], 166, 3...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="534" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Field_1</UpdateField_Name>
+          <CreateField_Name>Remark ID</CreateField_Name>
+          <CreateField_Type>Int64</CreateField_Type>
+          <CreateField_Size>8</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>[Row-1:Remark ID]+1</Expression>
+          <GroupByFields>
+            <Field field="Fix ID" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Remark ID</AnnotationText>
+          <DefaultAnnotationText>[Row-1:Remark ID]+1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\FIX.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="Fix ID" size="30" source="Formula: Substring([Field_1], 4, 30)" type="V_String" />
+            <Field name="Fix State" size="30" source="Formula: Substring([Field_1], 34, 30)" type="V_String" />
+            <Field name="ICAO Region" size="2" source="Formula: Substring([Field_1], 64, 2)" type="String" />
+            <Field name="Field Label" size="100" source="Formula: Substring([Field_1], 66, 100)" type="V_String" />
+            <Field name="Remark" size="300" source="Formula: Substring([Field_1], 166, 300)" type="V_String" />
+            <Field description="Formula: [Row-1:Remark ID]+1" name="Remark ID" source="Formula: [Row-1:Remark ID]+1" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Fix ID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -304,6 +357,10 @@ Remark = Substring([Field_1], 166, 3...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
       <Destination ToolID="6" Connection="Input" />
     </Connection>
   </Connections>

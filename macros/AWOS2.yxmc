@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
@@ -129,7 +129,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="630" y="54" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -146,15 +146,19 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="438" y="54" />
+        <Position x="534" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <OrderChanged value="False" />
+          <OrderChanged value="True" />
           <CommaDecimal value="False" />
           <SelectFields>
             <SelectField field="Field_1" selected="False" />
             <SelectField field="RecordType" selected="False" />
+            <SelectField field="WX Sensor ID" selected="True" />
+            <SelectField field="WX Sensor Type" selected="True" />
+            <SelectField field="Sequence" selected="True" />
+            <SelectField field="Remark" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -167,15 +171,20 @@
           <RecordInfo>
             <Field name="WX Sensor ID" size="4" source="Formula: Substring([Field_1], 5, 4)" type="String" />
             <Field name="WX Sensor Type" size="10" source="Formula: Substring([Field_1], 9, 10)" type="V_String" />
+            <Field description="Formula: [Row-1:Sequence]+1" name="Sequence" source="Formula: [Row-1:Sequence]+1" type="Int64" />
             <Field name="Remark" size="236" source="Formula: Substring([Field_1], 19, 236)" type="V_String" />
           </RecordInfo>
+          <SortInfo>
+            <Field field="WX Sensor ID" order="Asc" />
+            <Field field="WX Sensor Type" order="Asc" />
+          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="534" y="54" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -200,6 +209,7 @@
           <RecordInfo>
             <Field name="WX Sensor ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="WX Sensor Type" size="10" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="Formula: [Row-1:Sequence]+1" name="Sequence" source="Formula: [Row-1:Sequence]+1" type="Int64" />
             <Field name="Remark" size="236" source="Formula: Trim([_CurrentField_])" type="V_String" />
           </RecordInfo>
         </MetaInfo>
@@ -238,6 +248,48 @@ WX Sensor Type = Substring([Field_1], ...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="438" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Field_1</UpdateField_Name>
+          <CreateField_Name>Sequence</CreateField_Name>
+          <CreateField_Type>Int64</CreateField_Type>
+          <CreateField_Size>8</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>[Row-1:Sequence]+1</Expression>
+          <GroupByFields>
+            <Field field="WX Sensor ID" />
+            <Field field="WX Sensor Type" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Sequence</AnnotationText>
+          <DefaultAnnotationText>[Row-1:Sequence]+1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="300" source="File: F:\repositories\us_airspace_data\28DaySubscription\AWOS.txt" type="V_String" />
+            <Field name="RecordType" size="5" source="Formula: Trim(Substring([Field_1],0, 5))" type="String" />
+            <Field name="WX Sensor ID" size="4" source="Formula: Substring([Field_1], 5, 4)" type="String" />
+            <Field name="WX Sensor Type" size="10" source="Formula: Substring([Field_1], 9, 10)" type="V_String" />
+            <Field name="Remark" size="236" source="Formula: Substring([Field_1], 19, 236)" type="V_String" />
+            <Field description="Formula: [Row-1:Sequence]+1" name="Sequence" source="Formula: [Row-1:Sequence]+1" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="WX Sensor ID" order="Asc" />
+            <Field field="WX Sensor Type" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -262,6 +314,10 @@ WX Sensor Type = Substring([Field_1], ...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
       <Destination ToolID="6" Connection="Input" />
     </Connection>
   </Connections>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
@@ -178,7 +178,7 @@ Checkpoint Bearing = ToNumber(Subs...</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="918" y="54" />
+        <Position x="1014" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -309,15 +309,27 @@ THEN Substring([Field_1], 72, 40)
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="726" y="54" />
+        <Position x="822" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <OrderChanged value="False" />
+          <OrderChanged value="True" />
           <CommaDecimal value="False" />
           <SelectFields>
+            <SelectField field="Field_1" selected="False" />
+            <SelectField field="RecordType" selected="False" />
+            <SelectField field="NAVAID Facility ID" selected="True" />
+            <SelectField field="NAVAID Facility Type" selected="True" />
+            <SelectField field="Associated City" selected="True" />
+            <SelectField field="Checkpoint ID" selected="True" />
+            <SelectField field="Air Ground Code" selected="True" />
+            <SelectField field="Checkpoint Bearing" selected="True" />
+            <SelectField field="Checkpoint Altitude" selected="True" />
+            <SelectField field="Airport ID" selected="True" />
+            <SelectField field="State" selected="True" />
             <SelectField field="Description in Air" selected="False" />
             <SelectField field="Description on Ground" selected="False" />
+            <SelectField field="Description" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -328,11 +340,10 @@ THEN Substring([Field_1], 72, 40)
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
-            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
             <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 4, 4)&#xA;ELSE [Row-1:NAVAID Facility ID]&#xA;ENDIF" name="NAVAID Facility ID" size="4" source="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 4, 4)&#xA;ELSE [Row-1:NAVAID Facility ID]&#xA;ENDIF" type="String" />
             <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 8, 20)&#xA;ELSE [Row-1:NAVAID Facility Type]&#xA;ENDIF" name="NAVAID Facility Type" size="20" source="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 8, 20)&#xA;ELSE [Row-1:NAVAID Facility Type]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 72, 40)&#xA;ELSE [Row-1:Associated City]&#xA;ENDIF" name="Associated City" size="40" source="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 72, 40)&#xA;ELSE [Row-1:Associated City]&#xA;ENDIF" type="V_String" />
+            <Field description="Formula: [Row-1:Checkpoint ID]+1" name="Checkpoint ID" source="Formula: [Row-1:Checkpoint ID]+1" type="Int64" />
             <Field name="Air Ground Code" size="720" source="Formula: Substring([Field_1], 28, 2)" type="V_String" />
             <Field name="Checkpoint Bearing" source="Formula: ToNumber(Substring([Field_1], 30, 3))" type="Int32" />
             <Field name="Checkpoint Altitude" source="Formula: ToNumber(Substring([Field_1], 33, 5))" type="Int32" />
@@ -340,20 +351,23 @@ THEN Substring([Field_1], 72, 40)
             <Field name="State" size="2" source="Formula: Substring([Field_1], 42, 2)" type="String" />
             <Field name="Description" size="75" source="Formula: IF   IsEmpty(Trim([Description in Air]))&#xA;THEN [Description on Ground]&#xA;ELSE [Description in Air]&#xA;ENDIF" type="V_String" />
           </RecordInfo>
+          <SortInfo>
+            <Field field="NAVAID Facility ID" order="Asc" />
+            <Field field="NAVAID Facility Type" order="Asc" />
+            <Field field="Associated City" order="Asc" />
+          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
     <Node ToolID="22">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="822" y="54" />
+        <Position x="918" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <FieldType>Text</FieldType>
           <Fields orderChanged="False">
-            <Field name="Field_1" />
-            <Field name="RecordType" />
             <Field name="NAVAID Facility ID" />
             <Field name="NAVAID Facility Type" />
             <Field name="Associated City" />
@@ -375,11 +389,10 @@ THEN Substring([Field_1], 72, 40)
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Field_1" size="1000" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="RecordType" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 4, 4)&#xA;ELSE [Row-1:NAVAID Facility ID]&#xA;ENDIF" name="NAVAID Facility ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 8, 20)&#xA;ELSE [Row-1:NAVAID Facility Type]&#xA;ENDIF" name="NAVAID Facility Type" size="20" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 72, 40)&#xA;ELSE [Row-1:Associated City]&#xA;ENDIF" name="Associated City" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="Formula: [Row-1:Checkpoint ID]+1" name="Checkpoint ID" source="Formula: [Row-1:Checkpoint ID]+1" type="Int64" />
             <Field name="Air Ground Code" size="720" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Checkpoint Bearing" source="Formula: ToNumber(Substring([Field_1], 30, 3))" type="Int32" />
             <Field name="Checkpoint Altitude" source="Formula: ToNumber(Substring([Field_1], 33, 5))" type="Int32" />
@@ -390,6 +403,58 @@ THEN Substring([Field_1], 72, 40)
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="726" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Field_1</UpdateField_Name>
+          <CreateField_Name>Checkpoint ID</CreateField_Name>
+          <CreateField_Type>Int64</CreateField_Type>
+          <CreateField_Size>8</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>[Row-1:Checkpoint ID]+1</Expression>
+          <GroupByFields>
+            <Field field="NAVAID Facility ID" />
+            <Field field="NAVAID Facility Type" />
+            <Field field="Associated City" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Checkpoint ID</AnnotationText>
+          <DefaultAnnotationText>[Row-1:Checkpoint ID]+1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\NAV.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 4, 4)&#xA;ELSE [Row-1:NAVAID Facility ID]&#xA;ENDIF" name="NAVAID Facility ID" size="4" source="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 4, 4)&#xA;ELSE [Row-1:NAVAID Facility ID]&#xA;ENDIF" type="String" />
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 8, 20)&#xA;ELSE [Row-1:NAVAID Facility Type]&#xA;ENDIF" name="NAVAID Facility Type" size="20" source="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 8, 20)&#xA;ELSE [Row-1:NAVAID Facility Type]&#xA;ENDIF" type="V_String" />
+            <Field description="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 72, 40)&#xA;ELSE [Row-1:Associated City]&#xA;ENDIF" name="Associated City" size="40" source="Formula: IF   [RecordType] = 'NAV1'&#xA;THEN Substring([Field_1], 72, 40)&#xA;ELSE [Row-1:Associated City]&#xA;ENDIF" type="V_String" />
+            <Field name="Air Ground Code" size="720" source="Formula: Substring([Field_1], 28, 2)" type="V_String" />
+            <Field name="Checkpoint Bearing" source="Formula: ToNumber(Substring([Field_1], 30, 3))" type="Int32" />
+            <Field name="Checkpoint Altitude" source="Formula: ToNumber(Substring([Field_1], 33, 5))" type="Int32" />
+            <Field name="Airport ID" size="4" source="Formula: Substring([Field_1], 38, 4)" type="String" />
+            <Field name="State" size="2" source="Formula: Substring([Field_1], 42, 2)" type="String" />
+            <Field name="Description in Air" size="75" source="Formula: Substring([Field_1], 44, 75)" type="V_String" />
+            <Field name="Description on Ground" size="75" source="Formula: Substring([Field_1], 119, 75)" type="V_String" />
+            <Field name="Description" size="75" source="Formula: IF   IsEmpty(Trim([Description in Air]))&#xA;THEN [Description on Ground]&#xA;ELSE [Description in Air]&#xA;ENDIF" type="V_String" />
+            <Field description="Formula: [Row-1:Checkpoint ID]+1" name="Checkpoint ID" source="Formula: [Row-1:Checkpoint ID]+1" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="NAVAID Facility ID" order="Asc" />
+            <Field field="NAVAID Facility Type" order="Asc" />
+            <Field field="Associated City" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
     </Node>
   </Nodes>
   <Connections>
@@ -407,7 +472,7 @@ THEN Substring([Field_1], 72, 40)
     </Connection>
     <Connection>
       <Origin ToolID="5" Connection="Output" />
-      <Destination ToolID="18" Connection="Input" />
+      <Destination ToolID="23" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="10" Connection="Output" />
@@ -428,6 +493,10 @@ THEN Substring([Field_1], 72, 40)
     <Connection>
       <Origin ToolID="22" Connection="Output" />
       <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

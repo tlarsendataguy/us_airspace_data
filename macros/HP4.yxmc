@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2021.2">
+<AlteryxDocument yxmdVer="2021.3">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
@@ -129,7 +129,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="630" y="54" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -178,15 +178,20 @@ Holding Pattern Number = ToNu...</DefaultAnnotationText>
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="438" y="54" />
+        <Position x="534" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <OrderChanged value="False" />
+          <OrderChanged value="True" />
           <CommaDecimal value="False" />
           <SelectFields>
             <SelectField field="Field_1" selected="False" />
             <SelectField field="RecordType" selected="False" />
+            <SelectField field="Holding Pattern Name" selected="True" />
+            <SelectField field="Holding Pattern Number" selected="True" />
+            <SelectField field="Field Label" selected="True" />
+            <SelectField field="Remark ID" selected="True" />
+            <SelectField field="Remarks" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -200,15 +205,21 @@ Holding Pattern Number = ToNu...</DefaultAnnotationText>
             <Field name="Holding Pattern Name" size="80" source="Formula: Substring([Field_1], 4, 80)" type="V_String" />
             <Field name="Holding Pattern Number" source="Formula: ToNumber(Substring([Field_1], 84, 3))" type="Int32" />
             <Field name="Field Label" size="100" source="Formula: Substring([Field_1], 87, 100)" type="V_String" />
+            <Field description="Formula: [Row-1:Remark ID]+1" name="Remark ID" source="Formula: [Row-1:Remark ID]+1" type="Int64" />
             <Field name="Remarks" size="300" source="Formula: Substring([Field_1], 187, 300)" type="V_String" />
           </RecordInfo>
+          <SortInfo>
+            <Field field="Holding Pattern Name" order="Asc" />
+            <Field field="Holding Pattern Number" order="Asc" />
+            <Field field="Field Label" order="Asc" />
+          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="534" y="54" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -234,11 +245,57 @@ Holding Pattern Number = ToNu...</DefaultAnnotationText>
             <Field name="Holding Pattern Name" size="80" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Holding Pattern Number" source="Formula: ToNumber(Substring([Field_1], 84, 3))" type="Int32" />
             <Field name="Field Label" size="100" source="Formula: Trim([_CurrentField_])" type="V_String" />
+            <Field description="Formula: [Row-1:Remark ID]+1" name="Remark ID" source="Formula: [Row-1:Remark ID]+1" type="Int64" />
             <Field name="Remarks" size="300" source="Formula: Trim([_CurrentField_])" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="438" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Field_1</UpdateField_Name>
+          <CreateField_Name>Remark ID</CreateField_Name>
+          <CreateField_Type>Int64</CreateField_Type>
+          <CreateField_Size>8</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>[Row-1:Remark ID]+1</Expression>
+          <GroupByFields>
+            <Field field="Holding Pattern Name" />
+            <Field field="Holding Pattern Number" />
+            <Field field="Field Label" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Remark ID</AnnotationText>
+          <DefaultAnnotationText>[Row-1:Remark ID]+1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="500" source="File: F:\repositories\us_airspace_data\28DaySubscription\HPF.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Substring([Field_1], 0, 3)" type="String" />
+            <Field name="Holding Pattern Name" size="80" source="Formula: Substring([Field_1], 4, 80)" type="V_String" />
+            <Field name="Holding Pattern Number" source="Formula: ToNumber(Substring([Field_1], 84, 3))" type="Int32" />
+            <Field name="Field Label" size="100" source="Formula: Substring([Field_1], 87, 100)" type="V_String" />
+            <Field name="Remarks" size="300" source="Formula: Substring([Field_1], 187, 300)" type="V_String" />
+            <Field description="Formula: [Row-1:Remark ID]+1" name="Remark ID" source="Formula: [Row-1:Remark ID]+1" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Holding Pattern Name" order="Asc" />
+            <Field field="Holding Pattern Number" order="Asc" />
+            <Field field="Field Label" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
     </Node>
   </Nodes>
   <Connections>
@@ -256,7 +313,7 @@ Holding Pattern Number = ToNu...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="6" Connection="Output" />
-      <Destination ToolID="7" Connection="Input" />
+      <Destination ToolID="9" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="7" Connection="Output" />
@@ -265,6 +322,10 @@ Holding Pattern Number = ToNu...</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="8" Connection="Output" />
       <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

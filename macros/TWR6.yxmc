@@ -46,7 +46,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="918" y="54" />
+        <Position x="1014" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -160,15 +160,20 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="726" y="54" />
+        <Position x="822" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <OrderChanged value="False" />
+          <OrderChanged value="True" />
           <CommaDecimal value="False" />
           <SelectFields>
             <SelectField field="Field_1" selected="False" />
             <SelectField field="RecordType" selected="False" />
+            <SelectField field="Terminal Communications Facility ID" selected="True" />
+            <SelectField field="Remark For" selected="True" />
+            <SelectField field="Sequence" selected="True" />
+            <SelectField field="Tower Element Number" selected="True" />
+            <SelectField field="Tower Remark Text" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -180,26 +185,31 @@
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="Remark For" size="50" source="Formula: IF     !IsEmpty([Remark For])&#xA;THEN   [Remark For]&#xA;ELSEIF REGEX_Match(Trim([Tower Element Number]), &quot;^[0-9]+$&quot;)&#xA;THEN   &quot;General&quot;&#xA;ELSE   &quot;Unknown&quot;&#xA;ENDIF" type="V_String" />
+            <Field description="Formula: IF   [Remark For] = 'General'&#xA;THEN ToNumber([Tower Element Number])&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [Remark For] = 'General'&#xA;THEN ToNumber([Tower Element Number])&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Tower Element Number" size="5" source="Formula: Trim(Substring([Field_1], 8, 5))" type="V_String" />
             <Field name="Tower Remark Text" size="800" source="Formula: Substring([Field_1], 13, 800)" type="V_String" />
-            <Field name="Remark For" size="50" source="Formula: IF     !IsEmpty([Remark For])&#xA;THEN   [Remark For]&#xA;ELSEIF REGEX_Match(Trim([Tower Element Number]), &quot;^[0-9]+$&quot;)&#xA;THEN   &quot;General&quot;&#xA;ELSE   &quot;Unknown&quot;&#xA;ENDIF" type="V_String" />
           </RecordInfo>
+          <SortInfo>
+            <Field field="Terminal Communications Facility ID" order="Asc" />
+            <Field field="Remark For" order="Asc" />
+          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="822" y="54" />
+        <Position x="918" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <FieldType>Text</FieldType>
           <Fields orderChanged="False">
             <Field name="Terminal Communications Facility ID" />
+            <Field name="Remark For" />
             <Field name="Tower Element Number" />
             <Field name="Tower Remark Text" />
-            <Field name="Remark For" />
             <Field name="*Unknown" />
           </Fields>
           <CopyOutput value="False" />
@@ -215,9 +225,10 @@
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Terminal Communications Facility ID" size="4" source="Formula: TrimRight([_CurrentField_])" type="String" />
+            <Field name="Remark For" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
+            <Field description="Formula: IF   [Remark For] = 'General'&#xA;THEN ToNumber([Tower Element Number])&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [Remark For] = 'General'&#xA;THEN ToNumber([Tower Element Number])&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Tower Element Number" size="5" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
             <Field name="Tower Remark Text" size="800" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
-            <Field name="Remark For" size="50" source="Formula: TrimRight([_CurrentField_])" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -432,6 +443,53 @@ ELSEIF REGEX_Matc...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="726" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Field_1</UpdateField_Name>
+          <CreateField_Name>Sequence</CreateField_Name>
+          <CreateField_Type>Int64</CreateField_Type>
+          <CreateField_Size>8</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>IF   [Remark For] = 'General'
+THEN ToNumber([Tower Element Number])
+ELSE [Row-1:Sequence]+1
+ENDIF</Expression>
+          <GroupByFields>
+            <Field field="Terminal Communications Facility ID" />
+            <Field field="Remark For" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Sequence</AnnotationText>
+          <DefaultAnnotationText>IF   [Remark For] = 'General'
+THEN ToNumber([Tower Element Nu...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="2000" source="File: F:\repositories\us_airspace_data\28DaySubscription\TWR.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1],4)" type="String" />
+            <Field name="Terminal Communications Facility ID" size="4" source="Formula: Substring([Field_1], 4, 4)" type="String" />
+            <Field name="Tower Element Number" size="5" source="Formula: Trim(Substring([Field_1], 8, 5))" type="V_String" />
+            <Field name="Tower Remark Text" size="800" source="Formula: Substring([Field_1], 13, 800)" type="V_String" />
+            <Field name="Remark For" size="50" source="Formula: IF     !IsEmpty([Remark For])&#xA;THEN   [Remark For]&#xA;ELSEIF REGEX_Match(Trim([Tower Element Number]), &quot;^[0-9]+$&quot;)&#xA;THEN   &quot;General&quot;&#xA;ELSE   &quot;Unknown&quot;&#xA;ENDIF" type="V_String" />
+            <Field description="Formula: IF   [Remark For] = 'General'&#xA;THEN ToNumber([Tower Element Number])&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [Remark For] = 'General'&#xA;THEN ToNumber([Tower Element Number])&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Terminal Communications Facility ID" order="Asc" />
+            <Field field="Remark For" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -472,6 +530,10 @@ ELSEIF REGEX_Matc...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
       <Destination ToolID="6" Connection="Input" />
     </Connection>
   </Connections>

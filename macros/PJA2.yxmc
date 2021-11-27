@@ -156,15 +156,18 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="534" y="54" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <OrderChanged value="False" />
+          <OrderChanged value="True" />
           <CommaDecimal value="False" />
           <SelectFields>
             <SelectField field="Field_1" selected="False" />
             <SelectField field="RecordType" selected="False" />
+            <SelectField field="PJA ID" selected="True" />
+            <SelectField field="Sequence" selected="True" />
+            <SelectField field="Times of Use" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -176,15 +179,19 @@
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="PJA ID" size="6" source="Formula: Substring([Field_1], 4, 6)" type="String" />
+            <Field description="Formula: [Row-1:Sequence]+1" name="Sequence" source="Formula: [Row-1:Sequence]+1" type="Int64" />
             <Field name="Times of Use" size="75" source="Formula: Substring([Field_1], 10, 75)" type="V_String" />
           </RecordInfo>
+          <SortInfo>
+            <Field field="PJA ID" order="Asc" />
+          </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-        <Position x="630" y="54" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -207,6 +214,7 @@
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="PJA ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
+            <Field description="Formula: [Row-1:Sequence]+1" name="Sequence" source="Formula: [Row-1:Sequence]+1" type="Int64" />
             <Field name="Times of Use" size="75" source="Formula: Trim([_CurrentField_])" type="V_String" />
           </RecordInfo>
         </MetaInfo>
@@ -215,7 +223,7 @@
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="726" y="54" />
+        <Position x="822" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -259,6 +267,45 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="534" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Field_1</UpdateField_Name>
+          <CreateField_Name>Sequence</CreateField_Name>
+          <CreateField_Type>Int64</CreateField_Type>
+          <CreateField_Size>8</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>[Row-1:Sequence]+1</Expression>
+          <GroupByFields>
+            <Field field="PJA ID" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Sequence</AnnotationText>
+          <DefaultAnnotationText>[Row-1:Sequence]+1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="1000" source="File: F:\repositories\us_airspace_data\28DaySubscription\PJA.txt" type="V_String" />
+            <Field name="RecordType" size="4" source="Formula: Left([Field_1], 4)" type="String" />
+            <Field name="PJA ID" size="6" source="Formula: Substring([Field_1], 4, 6)" type="String" />
+            <Field name="Times of Use" size="75" source="Formula: Substring([Field_1], 10, 75)" type="V_String" />
+            <Field description="Formula: [Row-1:Sequence]+1" name="Sequence" source="Formula: [Row-1:Sequence]+1" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="PJA ID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -287,6 +334,10 @@
     </Connection>
     <Connection>
       <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
       <Destination ToolID="6" Connection="Input" />
     </Connection>
   </Connections>
