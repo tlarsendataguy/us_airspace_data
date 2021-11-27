@@ -22,5 +22,10 @@ The NASR and daily object files are parsed using Alteryx workflows. This reposit
 
 ### Object catalog
 
+The following high-level objects are contained in the database, represented by 1 or more tables:
 
-
+|Object   |Description                                                           |
+|---------|----------------------------------------------------------------------|
+|AFF      |Air Route Traffic Control Center (ARTCC) facilities and communications|
+|APT      |Airports and heliports                                                |
+|ARB      |ARTCC boundary segments                                               |
