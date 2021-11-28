@@ -4,7 +4,7 @@
 
 Landing facilities are any kind of aeronautical landing facility. Besides normal airports, this can also include heliports, seaplane bases, ultralight fields, and more.
 
-There are many different tables representing various aspects of landing facilities.
+There are several tables representing various aspects of landing facilities.
 
 |Table            |Description                                                                     |
 |-----------------|--------------------------------------------------------------------------------|
