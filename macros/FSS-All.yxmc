@@ -6,6 +6,7 @@
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -15,7 +16,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="186" y="210" />
+        <Position x="54" y="162" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -48,9 +49,6 @@
           <DefaultAnnotationText>FSS.txt</DefaultAnnotationText>
           <Left value="True" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="100000" source="File: F:\repositories\us_airspace_data\28DaySubscription\FSS.txt" type="V_WString" />
@@ -61,7 +59,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="210" y="102" width="59" height="59" />
+        <Position x="78" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -74,7 +72,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings>
-        <Position x="282" y="210" />
+        <Position x="150" y="162" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -83,9 +81,6 @@
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="FSS">
           <RecordInfo>
             <Field name="FSS ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -129,110 +124,9 @@
       </Properties>
       <EngineSettings Macro="FSS.yxmc" />
     </Node>
-    <Node ToolID="5">
-      <GuiSettings>
-        <Position x="282" y="294" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-        <MetaInfo connection="FSS-AssociatedNavaid">
-          <RecordInfo>
-            <Field name="FSS ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Associated NAVAID" size="7" source="Formula: Trim([_CurrentField_])" type="V_String" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings Macro="FSS-AssociatedNavaid.yxmc" />
-    </Node>
-    <Node ToolID="6">
-      <GuiSettings>
-        <Position x="282" y="378" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-        <MetaInfo connection="FSS-CommunicationsOutletIdentification">
-          <RecordInfo>
-            <Field name="FSS ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Communications Outlet Identification" size="14" source="Formula: Trim([_CurrentField_])" type="V_String" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings Macro="FSS-CommunicationsOutletIdentification.yxmc" />
-    </Node>
-    <Node ToolID="7">
-      <GuiSettings>
-        <Position x="282" y="462" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-        <MetaInfo connection="FSS-Facility">
-          <RecordInfo>
-            <Field name="FSS ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Facility City" size="780" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field description="Formula: [Row-1:Sequence]+1" name="Sequence" source="Formula: [Row-1:Sequence]+1" type="Int32" />
-            <Field name="Facility State" size="600" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Facility Latitude" size="420" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Facility Longitude" size="420" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Facility Owner Code" size="400" source="Formula: Trim([_CurrentField_])" type="V_String" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="FSS ID" order="" />
-            <Field field="Sequence" order="" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings Macro="FSS-Facility.yxmc" />
-    </Node>
-    <Node ToolID="8">
-      <GuiSettings>
-        <Position x="282" y="546" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-        <MetaInfo connection="FSS-AssociatedNavaid">
-          <RecordInfo>
-            <Field name="FSS ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Primary Frequency" size="40" source="Formula: Trim([_CurrentField_])" type="V_String" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings Macro="FSS-PrimaryFrequencies.yxmc" />
-    </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="378" y="210" />
+        <Position x="246" y="162" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -250,113 +144,6 @@
           <DefaultAnnotationText>FSS.yxdb</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
-    </Node>
-    <Node ToolID="10">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="378" y="294" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\FSS-AssociatedNavaid.yxdb</File>
-          <Passwords />
-          <FormatSpecificOptions>
-            <NoSpatialIndex>False</NoSpatialIndex>
-            <SaveSource>True</SaveSource>
-            <WriteCompatibleVersion>False</WriteCompatibleVersion>
-          </FormatSpecificOptions>
-          <MultiFile value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>FSS-AssociatedNavaid.yxdb</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
-    </Node>
-    <Node ToolID="11">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="378" y="378" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\FSS-CommunicationsOutletIdentification.yxdb</File>
-          <Passwords />
-          <FormatSpecificOptions>
-            <NoSpatialIndex>False</NoSpatialIndex>
-            <SaveSource>True</SaveSource>
-            <WriteCompatibleVersion>False</WriteCompatibleVersion>
-          </FormatSpecificOptions>
-          <MultiFile value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>FSS-CommunicationsOutletIdentification.yxdb</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
-    </Node>
-    <Node ToolID="12">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="378" y="462" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\FSS-Facility.yxdb</File>
-          <Passwords />
-          <FormatSpecificOptions>
-            <NoSpatialIndex>False</NoSpatialIndex>
-            <SaveSource>True</SaveSource>
-            <WriteCompatibleVersion>False</WriteCompatibleVersion>
-          </FormatSpecificOptions>
-          <MultiFile value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>FSS-Facility.yxdb</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
-    </Node>
-    <Node ToolID="13">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="378" y="546" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <File FileFormat="19" MaxRecords="">%Question.SaveTo%\FSS-PrimaryFrequencies.yxdb</File>
-          <Passwords />
-          <FormatSpecificOptions>
-            <NoSpatialIndex>False</NoSpatialIndex>
-            <SaveSource>True</SaveSource>
-            <WriteCompatibleVersion>False</WriteCompatibleVersion>
-          </FormatSpecificOptions>
-          <MultiFile value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>FSS-PrimaryFrequencies.yxdb</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
@@ -367,40 +154,8 @@
       <Destination ToolID="4" Connection="FSS" />
     </Connection>
     <Connection>
-      <Origin ToolID="2" Connection="Output" />
-      <Destination ToolID="5" Connection="FSS" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="2" Connection="Output" />
-      <Destination ToolID="6" Connection="FSS" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="2" Connection="Output" />
-      <Destination ToolID="7" Connection="FSS" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="2" Connection="Output" />
-      <Destination ToolID="8" Connection="FSS" />
-    </Connection>
-    <Connection>
       <Origin ToolID="4" Connection="FSS" />
       <Destination ToolID="9" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="5" Connection="FSS-AssociatedNavaid" />
-      <Destination ToolID="10" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="6" Connection="FSS-CommunicationsOutletIdentification" />
-      <Destination ToolID="11" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="7" Connection="FSS-Facility" />
-      <Destination ToolID="12" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="8" Connection="FSS-AssociatedNavaid" />
-      <Destination ToolID="13" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -494,15 +249,7 @@
       <Wiz_OpenOutputTools>
         <Tool ToolId="2" Selected="True" />
         <Tool ToolId="4" Selected="True" />
-        <Tool ToolId="5" Selected="True" />
-        <Tool ToolId="6" Selected="True" />
-        <Tool ToolId="7" Selected="True" />
-        <Tool ToolId="8" Selected="True" />
         <Tool ToolId="9" Selected="True" />
-        <Tool ToolId="10" Selected="True" />
-        <Tool ToolId="11" Selected="True" />
-        <Tool ToolId="12" Selected="True" />
-        <Tool ToolId="13" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />
