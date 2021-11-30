@@ -6,7 +6,7 @@ AWOS (Automated Weather Observing System) and ASOS (Automated Surface Observing 
 
 AWOS/ASOS are defined by 2 tables.
 
-|Table |Description                                                                                 |
-|------|--------------------------------------------------------------------------------------------|
+|Table |Description|
+|------|-----------|
 |AWOS1 |Contains the operational data of the station, including sensor type, location, and frequency|
-|AWOS2 |Remarks                                                                                     |
+|AWOS2 |Remarks|

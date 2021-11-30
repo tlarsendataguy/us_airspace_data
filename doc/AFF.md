@@ -6,9 +6,9 @@ ARTCCs (often called 'centers') are air traffic control facilities providing con
 
 The AFF object is represented in the database via 4 different tables.
 
-|Table  |Description                                                            |
-|-------|-----------------------------------------------------------------------|
-|AFF1   |General descriptive information related to an ARTCC facility           |
-|AFF2   |Remarks for an ARTCC facility                                          |
+|Table  |Description|
+|-------|-----------|
+|AFF1   |General descriptive information related to an ARTCC facility|
+|AFF2   |Remarks for an ARTCC facility|
 |AFF3   |The communications frequencies used by an ARTCC facility and their uses|
-|AFF4   |Remarks relating to the ARTCC's communications frequencies             |
+|AFF4   |Remarks relating to the ARTCC's communications frequencies|

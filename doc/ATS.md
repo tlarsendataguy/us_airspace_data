@@ -6,9 +6,9 @@ Air Traffic Service (ATS) routes are specified routes designed to channel air tr
 
 There are 4 tables defining ATS routes:
 
-|Table        |Description                                                                   |
-|-------------|------------------------------------------------------------------------------|
-|ATS1         |Defines each segment of the ATS route                                         |
-|ATS2         |Defines points in the ATS route                                               |
-|ATS4         |Remarks about points in ATS routes                                            |
-|ATS-RMK      |Remarks about entire ATS routes rather than specific points                   |
+|Table        |Description|
+|-------------|-----------|
+|ATS1         |Defines each segment of the ATS route|
+|ATS2         |Defines points in the ATS route|
+|ATS4         |Remarks about points in ATS routes|
+|ATS-RMK      |Remarks about entire ATS routes rather than specific points|
