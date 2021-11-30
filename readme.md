@@ -9,11 +9,13 @@ This project is not affiliated or endorsed by the FAA or any department of the U
 All of the parsed NASR data is provided in a publicly-accessible PostgreSQL database. The database can be accessed with the following connection parameters using the postgres ODBC driver:
 
 ```
-Host: ayx-data.postgres.database.azure.com
-Post: 5432
-Database: nasr
-Username: nasr_access@ayx-data
-Password: f!5C$66eMxYC&^vz
+Driver:    Use the Unicode driver; the ANSI driver will not be able to connect
+Host:      ayx-data.postgres.database.azure.com
+Post:      5432
+Database:  nasr
+Username:  nasr_access@ayx-data
+Password:  f!5C$66eMxYC&^vz
+SSL Mode:  Require
 ```
 
 ### Parsing and replication
