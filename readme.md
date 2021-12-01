@@ -22,6 +22,8 @@ SSL Mode:  Require
 
 The NASR and digital object files are parsed using Alteryx workflows. This repository contains the workflows used to parse and publish the NASR data to a PostgreSQL database hosted on Azure. To encourage an atmosphere of open collaboration, all workflows are provided under an MIT license.
 
+The data in the database will be updated on a 28-day cycle, in alignment with the NASR schedule. The date-time of the last update and the effective date of the data can be found in the properties table.
+
 ### Object catalog
 
 The following high-level objects are contained in the database, represented by 1 or more tables:
