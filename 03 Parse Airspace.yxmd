@@ -1,0 +1,503 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="378" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="12">%User.Source%\Class_Airspace.shp</File>
+          <FormatSpecificOptions>
+            <Projection />
+            <AllStrings>False</AllStrings>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Class_Airspace.shp</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="IDENT" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="NAME" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="UPPER_DESC" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="UPPER_VAL" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="UPPER_UOM" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="UPPER_CODE" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="LOWER_DESC" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="LOWER_VAL" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="LOWER_UOM" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="LOWER_CODE" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="TYPE_CODE" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="LOCAL_TYPE" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="CLASS" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="MIL_CODE" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="COMM_NAME" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="LEVEL" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="SECTOR" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="ONSHORE" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="EXCLUSION" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="WKHR_CODE" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="WKHR_RMK" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="DST" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="GMTOFFSET" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="SHAPE_Leng" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="Double" />
+            <Field name="SHAPE_Area" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="Double" />
+            <Field name="SpatialObj" size="2147483647" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="SpatialObj" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1338" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%User.SaveTo%\Airspace-Points.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Airspace-Points.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.PolySplit.PolySplit">
+        <Position x="666" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SpatialObj field="SpatialObj" />
+          <SplitTo type="Region" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxPolySplit" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.PolySplit.PolySplit">
+        <Position x="1050" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SpatialObj field="Split_SpatialObj" />
+          <SplitTo type="Point" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxPolySplit" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1242" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Split_SpatialObj" selected="False" />
+            <SelectField field="Split_SequenceNum" selected="True" rename="Sequence" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1146" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ST_CentroidY([Split_SpatialObj])" field="Latitude" size="12.7" type="FixedDecimal" />
+            <FormulaField expression="ST_CentroidX([Split_SpatialObj])" field="Longitude" size="12.7" type="FixedDecimal" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>coords</AnnotationText>
+          <DefaultAnnotationText>Latitude = ST_CentroidY([Split_SpatialObj])
+Longitude = ST_CentroidX([Split_Spat...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="954" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Identifier" selected="True" />
+            <SelectField field="NAME" selected="False" />
+            <SelectField field="UPPER_DESC" selected="False" />
+            <SelectField field="UPPER_VAL" selected="False" />
+            <SelectField field="UPPER_UOM" selected="False" />
+            <SelectField field="UPPER_CODE" selected="False" />
+            <SelectField field="LOWER_DESC" selected="False" />
+            <SelectField field="LOWER_VAL" selected="False" />
+            <SelectField field="LOWER_UOM" selected="False" />
+            <SelectField field="LOWER_CODE" selected="False" />
+            <SelectField field="TYPE_CODE" selected="False" />
+            <SelectField field="LOCAL_TYPE" selected="False" />
+            <SelectField field="CLASS" selected="False" />
+            <SelectField field="MIL_CODE" selected="False" />
+            <SelectField field="COMM_NAME" selected="False" />
+            <SelectField field="LEVEL" selected="False" />
+            <SelectField field="SECTOR" selected="False" />
+            <SelectField field="ONSHORE" selected="False" />
+            <SelectField field="EXCLUSION" selected="False" />
+            <SelectField field="WKHR_CODE" selected="False" />
+            <SelectField field="WKHR_RMK" selected="False" />
+            <SelectField field="DST" selected="False" />
+            <SelectField field="GMTOFFSET" selected="False" />
+            <SelectField field="SHAPE_Leng" selected="False" />
+            <SelectField field="SHAPE_Area" selected="False" />
+            <SelectField field="Airspace ID" selected="True" />
+            <SelectField field="Shape ID" selected="True" />
+            <SelectField field="Split_SpatialObj" selected="True" />
+            <SelectField field="Split_IsHole" selected="True" rename="Is Hole" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="570" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>IDENT</UpdateField_Name>
+          <CreateField_Name>Airspace ID</CreateField_Name>
+          <CreateField_Type>Int64</CreateField_Type>
+          <CreateField_Size>8</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>[Row-1:Airspace ID]+1</Expression>
+          <GroupByFields>
+            <Field field="Identifier" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Airspace ID</AnnotationText>
+          <DefaultAnnotationText>[Row-1:Airspace ID]+1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="666" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Identifier" selected="True" />
+            <SelectField field="Airspace ID" selected="True" />
+            <SelectField field="Top Description" selected="True" />
+            <SelectField field="Top" selected="True" />
+            <SelectField field="Top UOM" selected="True" />
+            <SelectField field="Top Code" selected="True" />
+            <SelectField field="Bottom Description" selected="True" />
+            <SelectField field="Bottom" selected="True" />
+            <SelectField field="Bottom UOM" selected="True" />
+            <SelectField field="Bottom Code" selected="True" />
+            <SelectField field="Type" selected="True" />
+            <SelectField field="Local Type" selected="True" />
+            <SelectField field="Working Hours" selected="True" />
+            <SelectField field="Working Hours Remark" selected="True" />
+            <SelectField field="SpatialObj" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="858" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>IDENT</UpdateField_Name>
+          <CreateField_Name>Shape ID</CreateField_Name>
+          <CreateField_Type>Int64</CreateField_Type>
+          <CreateField_Size>8</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>[Row-1:Shape ID]+1</Expression>
+          <GroupByFields>
+            <Field field="Identifier" />
+            <Field field="Airspace ID" />
+          </GroupByFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Shape ID</AnnotationText>
+          <DefaultAnnotationText>[Row-1:Shape ID]+1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="43">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="474" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="IDENT" selected="True" rename="Identifier" type="String" size="4" />
+            <SelectField field="NAME" selected="True" rename="Name" size="100" />
+            <SelectField field="UPPER_DESC" selected="True" rename="Top Description" type="String" size="3" />
+            <SelectField field="UPPER_VAL" selected="True" rename="Top" type="Int64" size="8" />
+            <SelectField field="UPPER_UOM" selected="True" rename="Top UOM" type="String" size="2" />
+            <SelectField field="UPPER_CODE" selected="True" rename="Top Code" type="String" size="3" />
+            <SelectField field="LOWER_DESC" selected="True" rename="Bottom Description" size="100" />
+            <SelectField field="LOWER_VAL" selected="True" rename="Bottom" type="Int64" size="8" />
+            <SelectField field="LOWER_UOM" selected="True" rename="Bottom UOM" type="String" size="2" />
+            <SelectField field="LOWER_CODE" selected="True" rename="Bottom Code" type="String" size="3" />
+            <SelectField field="TYPE_CODE" selected="True" rename="Type" size="10" />
+            <SelectField field="LOCAL_TYPE" selected="True" rename="Local Type" size="10" />
+            <SelectField field="CLASS" selected="True" rename="Class" size="1" />
+            <SelectField field="MIL_CODE" selected="False" />
+            <SelectField field="COMM_NAME" selected="False" />
+            <SelectField field="LEVEL" selected="True" rename="Level" type="String" size="1" />
+            <SelectField field="SECTOR" selected="True" rename="Sector" size="50" />
+            <SelectField field="ONSHORE" selected="True" rename="Onshore" type="Bool" size="1" />
+            <SelectField field="EXCLUSION" selected="True" rename="Exclusion" type="Bool" size="1" />
+            <SelectField field="WKHR_CODE" selected="True" rename="Working Hours" size="10" />
+            <SelectField field="WKHR_RMK" selected="True" rename="Working Hours Remark" size="100" />
+            <SelectField field="DST" selected="False" />
+            <SelectField field="GMTOFFSET" selected="False" />
+            <SelectField field="SHAPE_Leng" selected="False" />
+            <SelectField field="SHAPE_Area" selected="False" />
+            <SelectField field="SpatialObj" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="47">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="762" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">%User.SaveTo%\Airspace.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Airspace.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="51">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="762" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="1033">
+            <Field field="Identifier" order="Ascending" />
+            <Field field="Airspace ID" order="Ascending" />
+            <Field field="Split_IsHole" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>Identifier - Ascending
+Airspace ID - Ascending
+Split_IsHole - Ascending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="51" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="47" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="43" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>User</Namespace>
+        <Name>Source</Name>
+        <Value>F:\repositories\us_airspace_data\Shape_Files</Value>
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>User</Namespace>
+        <Name>SaveTo</Name>
+        <Value>F:\repositories\us_airspace_data\parsed_data</Value>
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>03 Parse Airspace</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="a24e82ba-88a4-42f5-bab9-b884a108f296" />
+      <Telemetry>
+        <PreviousWorkflowId value="1df4c919-31bc-46c8-81ec-b928bb8eb221" />
+        <OriginWorkflowId value="1df4c919-31bc-46c8-81ec-b928bb8eb221" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

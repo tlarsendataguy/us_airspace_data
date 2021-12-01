@@ -3,5 +3,6 @@
 DAILY_DOF_CSV
 parsed_data
 .idea
+Shape_Files
 *.bak
 *.yxzp
