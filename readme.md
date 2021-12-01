@@ -29,7 +29,7 @@ The following high-level objects are contained in the database, represented by 1
 |Object                       |Description|
 |-----------------------------|-----------|
 |[AFF](/doc/AFF.md)           |Air Route Traffic Control Center (ARTCC) facilities and communications|
-|[Airspace](/doc.Airspace.md) |Class B, C, D, and E Airspace|
+|[Airspace](/doc/Airspace.md) |Class B, C, D, and E Airspace|
 |[APT](/doc/APT.md)           |Landing facilities (airports, heliports, ultralight aerodromes, etc)|
 |[ARB](/doc/ARB.md)           |ARTCC boundary segments|
 |[ATS](/doc/ATS.md)           |Air traffic service route airways|
