@@ -20,7 +20,7 @@ SSL Mode:  Require
 
 ### Parsing and replication
 
-The NASR and daily object files are parsed using Alteryx workflows. This repository contains the workflows used to parse and publish the NASR data to a PostgreSQL database hosted on Azure. To encourage an atmosphere of open collaboration, all workflows are provided under an MIT license.
+The NASR and digital object files are parsed using Alteryx workflows. This repository contains the workflows used to parse and publish the NASR data to a PostgreSQL database hosted on Azure. To encourage an atmosphere of open collaboration, all workflows are provided under an MIT license.
 
 ### Object catalog
 
