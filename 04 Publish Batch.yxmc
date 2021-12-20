@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="222" y="234" />
+        <Position x="162" y="258" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -133,21 +133,21 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="414" y="234" />
+        <Position x="354" y="258" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File MaxRecords="" FileFormat="23">odbc:DSN=nasr|||public.%Question.ControlParam.Table%</File>
+          <File MaxRecords="" FileFormat="65">aka:NASR Snowflake Bulk|||NASR.PUBLIC.%Question.ControlParam.Table%</File>
           <Passwords />
+          <CachedCosmeticName />
           <FormatSpecificOptions>
-            <Projection />
-            <SpatialObjSize>8000</SpatialObjSize>
-            <TransactionSize>10000</TransactionSize>
             <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
             <PostSQL />
+            <ChunkSize>64</ChunkSize>
             <TableStyle>Quoted</TableStyle>
             <PreSQL />
-            <TransactionMessages>False</TransactionMessages>
+            <CompressionType>GZip</CompressionType>
+            <NumThreads>4</NumThreads>
             <OutputOption>Delete</OutputOption>
           </FormatSpecificOptions>
           <MultiFile value="False" />
@@ -155,10 +155,13 @@
         <Annotation DisplayMode="0">
           <Name />
           <AnnotationText>Table</AnnotationText>
-          <DefaultAnnotationText>DSN=nasr
-Query=public.%Question.ControlPara...</DefaultAnnotationText>
+          <DefaultAnnotationText>aka:NASR Snowflake Bulk
+Query=NASR.PUBLIC.%Question.Contro...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
@@ -216,11 +219,11 @@ Query=public.%Question.ControlPara...</DefaultAnnotationText>
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="354" y="126" width="59" height="59" />
+        <Position x="354" y="150" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
-        <Annotation DisplayMode="0">
+        <Annotation DisplayMode="2">
           <Name />
           <DefaultAnnotationText>Update Value</DefaultAnnotationText>
           <Left value="False" />
@@ -229,7 +232,7 @@ Query=public.%Question.ControlPara...</DefaultAnnotationText>
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
-        <Position x="318" y="234" />
+        <Position x="258" y="258" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -359,6 +362,50 @@ Query=public.%Question.ControlPara...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
     </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="354" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">odbc:DSN=nasr|||public.%Question.ControlParam.Table%</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <Projection />
+            <SpatialObjSize>8000</SpatialObjSize>
+            <TransactionSize>10000</TransactionSize>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL />
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL />
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Delete</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Table</AnnotationText>
+          <DefaultAnnotationText>DSN=nasr
+Query=public.%Question.ControlPara...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="450" y="150" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>Update Value</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -369,6 +416,10 @@ Query=public.%Question.ControlPara...</DefaultAnnotationText>
       <Origin ToolID="8" Connection="Question" />
       <Destination ToolID="9" Connection="Question" />
     </Connection>
+    <Connection name="#1">
+      <Origin ToolID="8" Connection="Question" />
+      <Destination ToolID="12" Connection="Question" />
+    </Connection>
     <Connection name="#2">
       <Origin ToolID="9" Connection="Action" />
       <Destination ToolID="4" Connection="Action" />
@@ -376,6 +427,14 @@ Query=public.%Question.ControlPara...</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="10" Connection="Output" />
       <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="12" Connection="Action" />
+      <Destination ToolID="11" Connection="Action" />
     </Connection>
   </Connections>
   <Properties>
@@ -417,7 +476,7 @@ Query=public.%Question.ControlPara...</DefaultAnnotationText>
     </Constants>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>Publish Batch</Name>
+      <Name>04 Publish Batch</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
@@ -455,6 +514,15 @@ Query=public.%Question.ControlPara...</DefaultAnnotationText>
               <Variable />
               <Replace value="False" />
               <Destination>4/FormatSpecificOptions/OutputOption</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="12" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>11/FormatSpecificOptions/OutputOption</Destination>
             </Action>
           </True>
         </NoCondition>
@@ -517,6 +585,7 @@ Create new table5419541n5148905f1n0941f5809Create
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
         <Tool ToolId="4" Selected="True" />
+        <Tool ToolId="11" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />

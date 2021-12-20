@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="114" y="198" />
+        <Position x="102" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -35,7 +35,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="114" y="126" />
+        <Position x="102" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -70,6 +70,7 @@
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -79,7 +80,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Date.Date">
-        <Position x="66" y="42" width="59" height="59" />
+        <Position x="54" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -92,7 +93,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="402" y="126" />
+        <Position x="390" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -117,7 +118,7 @@
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="306" y="198" />
+        <Position x="294" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -143,7 +144,7 @@
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="210" y="198" />
+        <Position x="198" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -171,7 +172,7 @@
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="210" y="126" />
+        <Position x="198" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -199,7 +200,40 @@
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="498" y="126" />
+        <Position x="486" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="65">aka:NASR Snowflake Bulk|||public.properties</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <PostSQL />
+            <ChunkSize>64</ChunkSize>
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL />
+            <CompressionType>GZip</CompressionType>
+            <NumThreads>4</NumThreads>
+            <OutputOption>Delete</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>properties</AnnotationText>
+          <DefaultAnnotationText>aka:NASR Snowflake Bulk
+Query=public.properties</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="486" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -242,6 +276,10 @@ Query=public.properties</DefaultAnnotationText>
       <Origin ToolID="6" Connection="Output" />
       <Destination ToolID="10" Connection="Input" />
     </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
     <Connection name="#2">
       <Origin ToolID="7" Connection="Output" />
       <Destination ToolID="6" Connection="Input" />
@@ -282,7 +320,7 @@ Query=public.properties</DefaultAnnotationText>
     </Constants>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>04 Update Properties</Name>
+      <Name>05 Update Properties</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
@@ -327,7 +365,7 @@ Query=public.properties</DefaultAnnotationText>
       <ModuleType>Wizard</ModuleType>
       <MacroCustomHelp value="False" />
       <MacroDynamicOutputFields value="False" />
-      <MacroImageStd value="39" />
+      <MacroImageStd value="0" />
       <MacroInputs />
       <MacroOutputs />
       <Wiz_CustomHelp value="False" />
@@ -335,6 +373,7 @@ Query=public.properties</DefaultAnnotationText>
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
         <Tool ToolId="10" Selected="True" />
+        <Tool ToolId="11" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />

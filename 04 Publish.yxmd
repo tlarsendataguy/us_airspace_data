@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Directory.Directory">
-        <Position x="174" y="222" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -22,7 +22,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="366" y="222" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -42,7 +42,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="270" y="222" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -61,9 +61,9 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="8">
+    <Node ToolID="11">
       <GuiSettings>
-        <Position x="462" y="222" />
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -91,7 +91,7 @@
     </Connection>
     <Connection>
       <Origin ToolID="3" Connection="Output" />
-      <Destination ToolID="8" Connection="Control" />
+      <Destination ToolID="11" Connection="Control" />
     </Connection>
     <Connection>
       <Origin ToolID="4" Connection="Output" />
@@ -117,7 +117,7 @@
     <LayoutType>Horizontal</LayoutType>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>Publish</Name>
+      <Name>04 Publish</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
