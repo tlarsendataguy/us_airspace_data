@@ -70,7 +70,7 @@
           <FormulaFields>
             <FormulaField expression="Substring([Field_1], 0, 5)" field="Internal Sequence Number" size="5" type="String" />
             <FormulaField expression="Substring([Field_1], 10, 2)" field="Fix Type" size="2" type="String" />
-            <FormulaField expression="Switch(&#xA;  Trim([Fix Type]), 'Unknown',&#xA;  'AA', 'Adapted Airport',&#xA;  'B',  'Break In Route',&#xA;  'C',  'Coordinated Fix',&#xA;  'CN', 'Computer Navigation Fix',&#xA;  'D',  'Distance Measuring Equipment (DME)',&#xA;  'E',  'Entry (ARTCC)',&#xA;  'I',  'Bearing Intersection',&#xA;  'IB', 'Air Routes Bearing Intersection',&#xA;  'IS', 'Segment Bearing Intersection',&#xA;  'NA', 'Airport',&#xA;  'ND', 'VOR with DME',&#xA;  'NO', 'DME Only',&#xA;  'NV', 'VOR',&#xA;  'NW', 'VORTAC',&#xA;  'NX', 'RBN',&#xA;  'NT', 'TACAN',&#xA;  'NZ', 'ILS',&#xA;  'N7', 'LFR',&#xA;  'N8', 'VHFRBN',&#xA;  'N9', 'VHFRBN',&#xA;  'P',  'Waypoint',&#xA;  'R',  'Reporting Point',&#xA;  'SS', 'Start STARS Departing',&#xA;  'ST', 'Start STARS Transition',&#xA;  'T',  'Turning Point',&#xA;  'TA', 'Turning Point',&#xA;  'TP', 'Turning Point',&#xA;  'TT', 'Training Point',&#xA;  'U',  'ARTCC Boundary Point',&#xA;  'XA', 'Airway Crossing',&#xA;  'XT', 'Transition Crossing',&#xA;  'Z',  'ARTCC Boundary Crossing'&#xA;)" field="Fix Type Name" size="1073741823" type="V_WString" />
+            <FormulaField expression="Switch(&#xA;  Trim([Fix Type]), 'Unknown',&#xA;  'AA', 'Adapted Airport',&#xA;  'B',  'Break In Route',&#xA;  'C',  'Coordinated Fix',&#xA;  'CN', 'Computer Navigation Fix',&#xA;  'D',  'Distance Measuring Equipment (DME)',&#xA;  'E',  'Entry (ARTCC)',&#xA;  'I',  'Bearing Intersection',&#xA;  'IB', 'Air Routes Bearing Intersection',&#xA;  'IS', 'Segment Bearing Intersection',&#xA;  'NA', 'Airport',&#xA;  'ND', 'VOR with DME',&#xA;  'NO', 'DME Only',&#xA;  'NV', 'VOR',&#xA;  'NW', 'VORTAC',&#xA;  'NX', 'RBN',&#xA;  'NT', 'TACAN',&#xA;  'NZ', 'ILS',&#xA;  'N7', 'LFR',&#xA;  'N8', 'VHFRBN',&#xA;  'N9', 'VHFRBN',&#xA;  'P',  'Waypoint',&#xA;  'R',  'Reporting Point',&#xA;  'SS', 'Start STARS Departing',&#xA;  'ST', 'Start STARS Transition',&#xA;  'T',  'Turning Point',&#xA;  'TA', 'Turning Point',&#xA;  'TP', 'Turning Point',&#xA;  'TT', 'Training Point',&#xA;  'U',  'ARTCC Boundary Point',&#xA;  'XA', 'Airway Crossing',&#xA;  'XT', 'Transition Crossing',&#xA;  'Z',  'ARTCC Boundary Crossing'&#xA;)" field="Fix Type Name" size="50" type="V_String" />
             <FormulaField expression="IF   Left([Field_1],1) = 'S'&#xA;THEN 'STAR'&#xA;ELSE 'SID'&#xA;ENDIF" field="Procedure" size="4" type="String" />
           </FormulaFields>
         </Configuration>
@@ -87,7 +87,7 @@ Fix Type = Substring([Fiel...</DefaultAnnotationText>
             <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\STARDP.txt" type="V_String" />
             <Field name="Internal Sequence Number" size="5" source="Formula: Substring([Field_1], 0, 5)" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Substring([Field_1], 10, 2)" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Switch(&#xA;  Trim([Fix Type]), 'Unknown',&#xA;  'AA', 'Adapted Airport',&#xA;  'B',  'Break In Route',&#xA;  'C',  'Coordinated Fix',&#xA;  'CN', 'Computer Navigation Fix',&#xA;  'D',  'Distance Measuring Equipment (DME)',&#xA;  'E',  'Entry (ARTCC)',&#xA;  'I',  'Bearing Intersection',&#xA;  'IB', 'Air Routes Bearing Intersection',&#xA;  'IS', 'Segment Bearing Intersection',&#xA;  'NA', 'Airport',&#xA;  'ND', 'VOR with DME',&#xA;  'NO', 'DME Only',&#xA;  'NV', 'VOR',&#xA;  'NW', 'VORTAC',&#xA;  'NX', 'RBN',&#xA;  'NT', 'TACAN',&#xA;  'NZ', 'ILS',&#xA;  'N7', 'LFR',&#xA;  'N8', 'VHFRBN',&#xA;  'N9', 'VHFRBN',&#xA;  'P',  'Waypoint',&#xA;  'R',  'Reporting Point',&#xA;  'SS', 'Start STARS Departing',&#xA;  'ST', 'Start STARS Transition',&#xA;  'T',  'Turning Point',&#xA;  'TA', 'Turning Point',&#xA;  'TP', 'Turning Point',&#xA;  'TT', 'Training Point',&#xA;  'U',  'ARTCC Boundary Point',&#xA;  'XA', 'Airway Crossing',&#xA;  'XT', 'Transition Crossing',&#xA;  'Z',  'ARTCC Boundary Crossing'&#xA;)" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Switch(&#xA;  Trim([Fix Type]), 'Unknown',&#xA;  'AA', 'Adapted Airport',&#xA;  'B',  'Break In Route',&#xA;  'C',  'Coordinated Fix',&#xA;  'CN', 'Computer Navigation Fix',&#xA;  'D',  'Distance Measuring Equipment (DME)',&#xA;  'E',  'Entry (ARTCC)',&#xA;  'I',  'Bearing Intersection',&#xA;  'IB', 'Air Routes Bearing Intersection',&#xA;  'IS', 'Segment Bearing Intersection',&#xA;  'NA', 'Airport',&#xA;  'ND', 'VOR with DME',&#xA;  'NO', 'DME Only',&#xA;  'NV', 'VOR',&#xA;  'NW', 'VORTAC',&#xA;  'NX', 'RBN',&#xA;  'NT', 'TACAN',&#xA;  'NZ', 'ILS',&#xA;  'N7', 'LFR',&#xA;  'N8', 'VHFRBN',&#xA;  'N9', 'VHFRBN',&#xA;  'P',  'Waypoint',&#xA;  'R',  'Reporting Point',&#xA;  'SS', 'Start STARS Departing',&#xA;  'ST', 'Start STARS Transition',&#xA;  'T',  'Turning Point',&#xA;  'TA', 'Turning Point',&#xA;  'TP', 'Turning Point',&#xA;  'TT', 'Training Point',&#xA;  'U',  'ARTCC Boundary Point',&#xA;  'XA', 'Airway Crossing',&#xA;  'XT', 'Transition Crossing',&#xA;  'Z',  'ARTCC Boundary Crossing'&#xA;)" type="V_String" />
             <Field name="Procedure" size="4" source="Formula: IF   Left([Field_1],1) = 'S'&#xA;THEN 'STAR'&#xA;ELSE 'SID'&#xA;ENDIF" type="String" />
           </RecordInfo>
         </MetaInfo>
@@ -132,7 +132,7 @@ ToNumber(Substring([Field_1],...</DefaultAnnotationText>
             <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\STARDP.txt" type="V_String" />
             <Field name="Internal Sequence Number" size="5" source="Formula: Substring([Field_1], 0, 5)" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Substring([Field_1], 10, 2)" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Switch(&#xA;  Trim([Fix Type]), 'Unknown',&#xA;  'AA', 'Adapted Airport',&#xA;  'B',  'Break In Route',&#xA;  'C',  'Coordinated Fix',&#xA;  'CN', 'Computer Navigation Fix',&#xA;  'D',  'Distance Measuring Equipment (DME)',&#xA;  'E',  'Entry (ARTCC)',&#xA;  'I',  'Bearing Intersection',&#xA;  'IB', 'Air Routes Bearing Intersection',&#xA;  'IS', 'Segment Bearing Intersection',&#xA;  'NA', 'Airport',&#xA;  'ND', 'VOR with DME',&#xA;  'NO', 'DME Only',&#xA;  'NV', 'VOR',&#xA;  'NW', 'VORTAC',&#xA;  'NX', 'RBN',&#xA;  'NT', 'TACAN',&#xA;  'NZ', 'ILS',&#xA;  'N7', 'LFR',&#xA;  'N8', 'VHFRBN',&#xA;  'N9', 'VHFRBN',&#xA;  'P',  'Waypoint',&#xA;  'R',  'Reporting Point',&#xA;  'SS', 'Start STARS Departing',&#xA;  'ST', 'Start STARS Transition',&#xA;  'T',  'Turning Point',&#xA;  'TA', 'Turning Point',&#xA;  'TP', 'Turning Point',&#xA;  'TT', 'Training Point',&#xA;  'U',  'ARTCC Boundary Point',&#xA;  'XA', 'Airway Crossing',&#xA;  'XT', 'Transition Crossing',&#xA;  'Z',  'ARTCC Boundary Crossing'&#xA;)" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Switch(&#xA;  Trim([Fix Type]), 'Unknown',&#xA;  'AA', 'Adapted Airport',&#xA;  'B',  'Break In Route',&#xA;  'C',  'Coordinated Fix',&#xA;  'CN', 'Computer Navigation Fix',&#xA;  'D',  'Distance Measuring Equipment (DME)',&#xA;  'E',  'Entry (ARTCC)',&#xA;  'I',  'Bearing Intersection',&#xA;  'IB', 'Air Routes Bearing Intersection',&#xA;  'IS', 'Segment Bearing Intersection',&#xA;  'NA', 'Airport',&#xA;  'ND', 'VOR with DME',&#xA;  'NO', 'DME Only',&#xA;  'NV', 'VOR',&#xA;  'NW', 'VORTAC',&#xA;  'NX', 'RBN',&#xA;  'NT', 'TACAN',&#xA;  'NZ', 'ILS',&#xA;  'N7', 'LFR',&#xA;  'N8', 'VHFRBN',&#xA;  'N9', 'VHFRBN',&#xA;  'P',  'Waypoint',&#xA;  'R',  'Reporting Point',&#xA;  'SS', 'Start STARS Departing',&#xA;  'ST', 'Start STARS Transition',&#xA;  'T',  'Turning Point',&#xA;  'TA', 'Turning Point',&#xA;  'TP', 'Turning Point',&#xA;  'TT', 'Training Point',&#xA;  'U',  'ARTCC Boundary Point',&#xA;  'XA', 'Airway Crossing',&#xA;  'XT', 'Transition Crossing',&#xA;  'Z',  'ARTCC Boundary Crossing'&#xA;)" type="V_String" />
             <Field name="Procedure" size="4" source="Formula: IF   Left([Field_1],1) = 'S'&#xA;THEN 'STAR'&#xA;ELSE 'SID'&#xA;ENDIF" type="String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -167,7 +167,7 @@ I...</DefaultAnnotationText>
             <Field name="Field_1" size="254" source="File: F:\repositories\us_airspace_data\28DaySubscription\STARDP.txt" type="V_String" />
             <Field name="Internal Sequence Number" size="5" source="Formula: Substring([Field_1], 0, 5)" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Substring([Field_1], 10, 2)" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Switch(&#xA;  Trim([Fix Type]), 'Unknown',&#xA;  'AA', 'Adapted Airport',&#xA;  'B',  'Break In Route',&#xA;  'C',  'Coordinated Fix',&#xA;  'CN', 'Computer Navigation Fix',&#xA;  'D',  'Distance Measuring Equipment (DME)',&#xA;  'E',  'Entry (ARTCC)',&#xA;  'I',  'Bearing Intersection',&#xA;  'IB', 'Air Routes Bearing Intersection',&#xA;  'IS', 'Segment Bearing Intersection',&#xA;  'NA', 'Airport',&#xA;  'ND', 'VOR with DME',&#xA;  'NO', 'DME Only',&#xA;  'NV', 'VOR',&#xA;  'NW', 'VORTAC',&#xA;  'NX', 'RBN',&#xA;  'NT', 'TACAN',&#xA;  'NZ', 'ILS',&#xA;  'N7', 'LFR',&#xA;  'N8', 'VHFRBN',&#xA;  'N9', 'VHFRBN',&#xA;  'P',  'Waypoint',&#xA;  'R',  'Reporting Point',&#xA;  'SS', 'Start STARS Departing',&#xA;  'ST', 'Start STARS Transition',&#xA;  'T',  'Turning Point',&#xA;  'TA', 'Turning Point',&#xA;  'TP', 'Turning Point',&#xA;  'TT', 'Training Point',&#xA;  'U',  'ARTCC Boundary Point',&#xA;  'XA', 'Airway Crossing',&#xA;  'XT', 'Transition Crossing',&#xA;  'Z',  'ARTCC Boundary Crossing'&#xA;)" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Switch(&#xA;  Trim([Fix Type]), 'Unknown',&#xA;  'AA', 'Adapted Airport',&#xA;  'B',  'Break In Route',&#xA;  'C',  'Coordinated Fix',&#xA;  'CN', 'Computer Navigation Fix',&#xA;  'D',  'Distance Measuring Equipment (DME)',&#xA;  'E',  'Entry (ARTCC)',&#xA;  'I',  'Bearing Intersection',&#xA;  'IB', 'Air Routes Bearing Intersection',&#xA;  'IS', 'Segment Bearing Intersection',&#xA;  'NA', 'Airport',&#xA;  'ND', 'VOR with DME',&#xA;  'NO', 'DME Only',&#xA;  'NV', 'VOR',&#xA;  'NW', 'VORTAC',&#xA;  'NX', 'RBN',&#xA;  'NT', 'TACAN',&#xA;  'NZ', 'ILS',&#xA;  'N7', 'LFR',&#xA;  'N8', 'VHFRBN',&#xA;  'N9', 'VHFRBN',&#xA;  'P',  'Waypoint',&#xA;  'R',  'Reporting Point',&#xA;  'SS', 'Start STARS Departing',&#xA;  'ST', 'Start STARS Transition',&#xA;  'T',  'Turning Point',&#xA;  'TA', 'Turning Point',&#xA;  'TP', 'Turning Point',&#xA;  'TT', 'Training Point',&#xA;  'U',  'ARTCC Boundary Point',&#xA;  'XA', 'Airway Crossing',&#xA;  'XT', 'Transition Crossing',&#xA;  'Z',  'ARTCC Boundary Crossing'&#xA;)" type="V_String" />
             <Field name="Procedure" size="4" source="Formula: IF   Left([Field_1],1) = 'S'&#xA;THEN 'STAR'&#xA;ELSE 'SID'&#xA;ENDIF" type="String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -203,7 +203,7 @@ I...</DefaultAnnotationText>
           <RecordInfo>
             <Field name="Internal Sequence Number" size="5" source="Formula: Substring([Field_1], 0, 5)" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Substring([Field_1], 10, 2)" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Switch(&#xA;  Trim([Fix Type]), 'Unknown',&#xA;  'AA', 'Adapted Airport',&#xA;  'B',  'Break In Route',&#xA;  'C',  'Coordinated Fix',&#xA;  'CN', 'Computer Navigation Fix',&#xA;  'D',  'Distance Measuring Equipment (DME)',&#xA;  'E',  'Entry (ARTCC)',&#xA;  'I',  'Bearing Intersection',&#xA;  'IB', 'Air Routes Bearing Intersection',&#xA;  'IS', 'Segment Bearing Intersection',&#xA;  'NA', 'Airport',&#xA;  'ND', 'VOR with DME',&#xA;  'NO', 'DME Only',&#xA;  'NV', 'VOR',&#xA;  'NW', 'VORTAC',&#xA;  'NX', 'RBN',&#xA;  'NT', 'TACAN',&#xA;  'NZ', 'ILS',&#xA;  'N7', 'LFR',&#xA;  'N8', 'VHFRBN',&#xA;  'N9', 'VHFRBN',&#xA;  'P',  'Waypoint',&#xA;  'R',  'Reporting Point',&#xA;  'SS', 'Start STARS Departing',&#xA;  'ST', 'Start STARS Transition',&#xA;  'T',  'Turning Point',&#xA;  'TA', 'Turning Point',&#xA;  'TP', 'Turning Point',&#xA;  'TT', 'Training Point',&#xA;  'U',  'ARTCC Boundary Point',&#xA;  'XA', 'Airway Crossing',&#xA;  'XT', 'Transition Crossing',&#xA;  'Z',  'ARTCC Boundary Crossing'&#xA;)" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Switch(&#xA;  Trim([Fix Type]), 'Unknown',&#xA;  'AA', 'Adapted Airport',&#xA;  'B',  'Break In Route',&#xA;  'C',  'Coordinated Fix',&#xA;  'CN', 'Computer Navigation Fix',&#xA;  'D',  'Distance Measuring Equipment (DME)',&#xA;  'E',  'Entry (ARTCC)',&#xA;  'I',  'Bearing Intersection',&#xA;  'IB', 'Air Routes Bearing Intersection',&#xA;  'IS', 'Segment Bearing Intersection',&#xA;  'NA', 'Airport',&#xA;  'ND', 'VOR with DME',&#xA;  'NO', 'DME Only',&#xA;  'NV', 'VOR',&#xA;  'NW', 'VORTAC',&#xA;  'NX', 'RBN',&#xA;  'NT', 'TACAN',&#xA;  'NZ', 'ILS',&#xA;  'N7', 'LFR',&#xA;  'N8', 'VHFRBN',&#xA;  'N9', 'VHFRBN',&#xA;  'P',  'Waypoint',&#xA;  'R',  'Reporting Point',&#xA;  'SS', 'Start STARS Departing',&#xA;  'ST', 'Start STARS Transition',&#xA;  'T',  'Turning Point',&#xA;  'TA', 'Turning Point',&#xA;  'TP', 'Turning Point',&#xA;  'TT', 'Training Point',&#xA;  'U',  'ARTCC Boundary Point',&#xA;  'XA', 'Airway Crossing',&#xA;  'XT', 'Transition Crossing',&#xA;  'Z',  'ARTCC Boundary Crossing'&#xA;)" type="V_String" />
             <Field name="Procedure" size="4" source="Formula: IF   Left([Field_1],1) = 'S'&#xA;THEN 'STAR'&#xA;ELSE 'SID'&#xA;ENDIF" type="String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -247,7 +247,7 @@ I...</DefaultAnnotationText>
           <RecordInfo>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Procedure" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -293,7 +293,7 @@ ENDIF</DefaultAnnotationText>
           <RecordInfo>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Procedure" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -338,7 +338,7 @@ ENDIF</Expression>
           <RecordInfo>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Procedure" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -386,7 +386,7 @@ ELSEI...</DefaultAnnotationText>
           <RecordInfo>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Procedure" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -441,7 +441,7 @@ ELSEI...</DefaultAnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -483,7 +483,7 @@ ELSE...</DefaultAnnotationText>
           <RecordInfo>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Procedure" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -533,7 +533,7 @@ ELSE...</DefaultAnnotationText>
           <RecordInfo>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Procedure" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -551,7 +551,7 @@ ELSE...</DefaultAnnotationText>
           <RecordInfo>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Procedure" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -602,7 +602,7 @@ Transition</AnnotationText>
           <RecordInfo>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Procedure" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -620,7 +620,7 @@ Transition</AnnotationText>
           <RecordInfo>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Procedure" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -743,7 +743,7 @@ Transition</AnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -762,7 +762,7 @@ Transition</AnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -826,7 +826,7 @@ Transition</AnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -848,7 +848,7 @@ Transition</AnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -902,7 +902,7 @@ Transition</AnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -960,7 +960,7 @@ Transition</AnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Transition Name" size="110" source="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -1016,7 +1016,7 @@ E...</DefaultAnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Transition Name" size="110" source="Formula: IF   IsNull([_CurrentField_])&#xA;THEN ''&#xA;ELSE [_CurrentField_]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -1057,7 +1057,7 @@ Sequence - Ascending</DefaultAnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Transition Name" size="110" source="Formula: IF   IsNull([_CurrentField_])&#xA;THEN ''&#xA;ELSE [_CurrentField_]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -1099,7 +1099,7 @@ ENDIF</DefaultAnnotationText>
           <RecordInfo>
             <Field name="Internal Sequence Number" size="5" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Procedure" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
@@ -1154,7 +1154,7 @@ ENDIF</DefaultAnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Transition Name" size="110" source="Formula: IF   IsNull([_CurrentField_])&#xA;THEN ''&#xA;ELSE [_CurrentField_]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
@@ -1171,7 +1171,7 @@ ENDIF</DefaultAnnotationText>
             <Field description="Formula: IF   IsEmpty([Name])&#xA;THEN [Row-1:Name]&#xA;ELSE [Name]&#xA;ENDIF" name="Transition Name" size="110" source="Formula: IF   IsNull([_CurrentField_])&#xA;THEN ''&#xA;ELSE [_CurrentField_]&#xA;ENDIF" type="V_String" />
             <Field description="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" name="Sequence" source="Formula: IF   [ID] != [Row-1:ID] || [Name] != [Row-1:Name]&#xA;THEN 1&#xA;ELSE [Row-1:Sequence]+1&#xA;ENDIF" type="Int64" />
             <Field name="Fix Type" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
-            <Field name="Fix Type Name" size="1073741823" source="Formula: Trim([_CurrentField_])" type="V_WString" />
+            <Field name="Fix Type Name" size="50" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="Latitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 13, 1) = 'S'&#xA;THEN -[Latitude]&#xA;ELSE [Latitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Longitude" scale="7" size="12" source="Formula: IF   Substring([Field_1], 21, 1) = 'W'&#xA;THEN -[Longitude]&#xA;ELSE [Longitude]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Fix ID" size="6" source="Formula: Trim([_CurrentField_])" type="String" />
