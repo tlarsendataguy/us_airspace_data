@@ -1,0 +1,329 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.3">
+  <Nodes>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="198" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\elevation downloads.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>False</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>10000</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>elevation downloads.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_2" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_3" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_4" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_5" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_6" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_7" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_8" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_9" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_10" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_11" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_12" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_13" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_14" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_15" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_16" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_17" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_18" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_19" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_20" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_21" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_22" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_23" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_24" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_25" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="774" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\2\Engine_8300_ac83b94e8e4b468a8982283fd7e5165b_\Engine_6300_c4ff0075296f43f79ef37cb4c97c9375_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="390" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Field_1" selected="True" rename="Name" />
+            <SelectField field="Field_12" selected="True" rename="Size (MB)" type="Double" size="8" />
+            <SelectField field="Field_13" selected="True" rename="Tile Size" />
+            <SelectField field="Field_15" selected="True" rename="Download URL" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="486" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[Size (MB)] / 1000000" field="Size (MB)" size="8" type="Double" />
+            <FormulaField expression="&quot;%Engine.WorkflowDirectory%&quot; + &quot;elevation\&quot; + [Name] + '.tif'" field="Save To" size="2147483647" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Size
+Save To</AnnotationText>
+          <DefaultAnnotationText>Size (MB) = [Size (MB)] / 1000000
+Save To = "%Engine.WorkflowDirectory%" + "elev...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="294" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Left(LowerCase([Field_1]), 10) = 'usgs 1 arc'</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>1 arc second</AnnotationText>
+          <DefaultAnnotationText>Left(LowerCase([Field_1]), 10) = 'usgs 1 arc'</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="678" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Password />
+          <URLField>Download URL</URLField>
+          <OutputMode>SpecificFile</OutputMode>
+          <OutputFileNameField>Save To</OutputFileNameField>
+          <EncodeURLs value="True" />
+          <Headers>
+            <NameValues />
+            <Fields orderChanged="False">
+              <Field name="Name" selected="False" />
+              <Field name="Size (MB)" selected="False" />
+              <Field name="Tile Size" selected="False" />
+              <Field name="Download URL" selected="False" />
+              <Field name="Save To" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>GET</HTTPAction>
+            <QueryStringBodyMode>Compose</QueryStringBodyMode>
+            <ComposeNameValues />
+            <ComposeFields orderChanged="False">
+              <Field name="Name" selected="False" />
+              <Field name="Size (MB)" selected="False" />
+              <Field name="Tile Size" selected="False" />
+              <Field name="Download URL" selected="False" />
+              <Field name="Save To" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </ComposeFields>
+          </Payload>
+          <UserName />
+          <numConnections>2</numConnections>
+          <Timeout>600</Timeout>
+          <EnableRPM value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Directory.Directory">
+        <Position x="198" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Directory>%Engine.WorkflowDirectory%elevation</Directory>
+          <FileSpec>*.tif</FileSpec>
+          <IncludeSubDirs value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>elevation</AnnotationText>
+          <DefaultAnnotationText>dir %Engine.WorkflowDirectory%elevation\*.tif</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDirectory" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="582" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="Save To" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="FullPath" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="10" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="True" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Left" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>z_Download Elevation</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="9440a7f3-d49b-4e25-add9-423d139345df" />
+      <Telemetry>
+        <PreviousWorkflowId value="3d7e208f-b2a7-4a9a-836d-01094ba0993c" />
+        <OriginWorkflowId value="3d7e208f-b2a7-4a9a-836d-01094ba0993c" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
