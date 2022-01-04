@@ -19,7 +19,7 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDirectory" />
     </Node>
-    <Node ToolID="6">
+    <Node ToolID="7">
       <GuiSettings>
         <Position x="150" y="54" />
       </GuiSettings>
@@ -40,7 +40,7 @@
   <Connections>
     <Connection>
       <Origin ToolID="2" Connection="Output" />
-      <Destination ToolID="6" Connection="Control" />
+      <Destination ToolID="7" Connection="Control" />
     </Connection>
   </Connections>
   <Properties>

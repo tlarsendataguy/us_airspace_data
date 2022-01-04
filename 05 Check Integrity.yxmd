@@ -1,0 +1,609 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.3">
+  <Nodes>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="125" y="245" width="589" height="149" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>all other tables</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+          <Caption>all other tables</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Caption>all other tables</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="11">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="150" y="294" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <CachedCosmeticName />
+              <File RecordLimit="" FileFormat="23">aka:NASR Snowflake|||show primary keys in database NASR</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>primary keys</AnnotationText>
+              <DefaultAnnotationText>aka:NASR Snowflake
+Query=show primary keys in databas...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="created_on" source="File: aka:NASR Snowflake|||show primary keys in database NASR" type="DateTime" />
+                <Field name="database_name" size="16777216" source="File: aka:NASR Snowflake|||show primary keys in database NASR" type="V_WString" />
+                <Field name="schema_name" size="16777216" source="File: aka:NASR Snowflake|||show primary keys in database NASR" type="V_WString" />
+                <Field name="table_name" size="16777216" source="File: aka:NASR Snowflake|||show primary keys in database NASR" type="V_WString" />
+                <Field name="column_name" size="16777216" source="File: aka:NASR Snowflake|||show primary keys in database NASR" type="V_WString" />
+                <Field name="key_sequence" source="File: aka:NASR Snowflake|||show primary keys in database NASR" type="Int32" />
+                <Field name="constraint_name" size="16777216" source="File: aka:NASR Snowflake|||show primary keys in database NASR" type="V_WString" />
+                <Field name="comment" size="16777216" source="File: aka:NASR Snowflake|||show primary keys in database NASR" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="12">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="246" y="294" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="table_name" action="GroupBy" rename="table_name" />
+                <SummarizeField field="column_name" action="Concat" rename="keys">
+                  <Concat_Start>"</Concat_Start>
+                  <Separator>", "</Separator>
+                  <Concat_End>"</Concat_End>
+                </SummarizeField>
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="15">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="342" y="294" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>!=</Operator>
+                <Field>table_name</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2022-01-04 06:17:31</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>elevation</Operand>
+                  <StartDate>2022-01-04 06:17:31</StartDate>
+                  <EndDate>2022-01-04 06:17:31</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>!elevation</AnnotationText>
+              <DefaultAnnotationText>[table_name] != "elevation"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="16">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="630" y="294" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\tlarsen\AppData\Local\Temp\2\Engine_10268_b9da9d1a7b4f4df6ab22be12800d1dcc_\Engine_10076_590a3ff43ca8469787901d4cb438c221_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="17">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicInput.DynamicInput">
+            <Position x="438" y="294" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputConfiguration>
+                <Configuration>
+                  <Passwords />
+                  <CachedCosmeticName />
+                  <File RecordLimit="" FileFormat="23">aka:NASR Snowflake|||with dups as (select count(*) ct from NASR.PUBLIC."APT" group by "Landing Facility Site Number")
+select count(*) from dups where ct &gt; 1</File>
+                  <FormatSpecificOptions>
+                    <PreSQL />
+                    <PreSQLOnConfig>True</PreSQLOnConfig>
+                    <NoProgress>True</NoProgress>
+                    <CacheData>False</CacheData>
+                    <TableStyle>Quoted</TableStyle>
+                    <ReadUncommitted>False</ReadUncommitted>
+                    <PostSQL />
+                  </FormatSpecificOptions>
+                </Configuration>
+              </InputConfiguration>
+              <Mode>ModifySQL</Mode>
+              <Modifications>
+                <Modify Action="PassField" Annotation="table_name">
+                  <Field>table_name</Field>
+                </Modify>
+                <Modify Action="ReplaceString" Annotation="APT">
+                  <Field>table_name</Field>
+                  <ReplaceText>APT</ReplaceText>
+                </Modify>
+                <Modify Action="ReplaceString" Annotation="&quot;Landing Facility Site Number&quot;">
+                  <Field>keys</Field>
+                  <ReplaceText>"Landing Facility Site Number"</ReplaceText>
+                </Modify>
+              </Modifications>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicInput" />
+        </Node>
+        <Node ToolID="18">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+            <Position x="534" y="294" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <When>Filter</When>
+              <Filter>[COUNT(*)] &gt; 0</Filter>
+              <Type>Error</Type>
+              <Priority>High</Priority>
+              <Transient>False</Transient>
+              <MessageExpression>[table_name] + " has duplicate records"</MessageExpression>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>error if has dups</AnnotationText>
+              <DefaultAnnotationText>error if has dups</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="125" y="64" width="781" height="165" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>elevation check</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="False" />
+          <Caption>elevation check</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Caption>elevation check</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Caption>elevation check</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="1">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="150" y="113" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\elevation downloads all.csv</File>
+              <FormatSpecificOptions>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>10000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>,</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>elevation downloads all.csv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Field_1" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_2" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_3" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_4" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_5" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_6" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_7" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_8" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_9" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_10" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_11" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_12" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_13" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_14" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_15" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_16" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_17" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_18" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_19" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_20" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_21" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_22" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_23" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_24" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+                <Field name="Field_25" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads all.csv" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="3">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="246" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Field_1" selected="True" rename="name" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="4">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="342" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="REGEX_Replace([name], '.*((n|s)[0-9]{2}(e|w)[0-9]{3}).*', '$1')" field="box" size="2147483647" type="V_String" />
+                <FormulaField expression="ToNumber(Substring([box], 4, 3)) * 36000" field="left" size="8" type="Int64" />
+                <FormulaField expression="IF   Substring([box], 3, 1) = 'w'&#xA;THEN -[left]&#xA;ELSE [left]&#xA;ENDIF" field="left" size="8" type="Int64" />
+                <FormulaField expression="ToNumber(Substring([box], 1, 2)) * 36000" field="top" size="8" type="Int64" />
+                <FormulaField expression="IF   left([box], 1) = 's'&#xA;THEN -[top]&#xA;ELSE [top]&#xA;ENDIF" field="top" size="8" type="Int64" />
+                <FormulaField expression="[left] + 36000" field="right" size="8" type="Int64" />
+                <FormulaField expression="[top] - 36000" field="bottom" size="8" type="Int64" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>box</AnnotationText>
+              <DefaultAnnotationText>box = REGEX_Replace([name], '.*((n|s)[0-9]{2}(e|w)[0-9]{3}).*', '$1')
+left = ToN...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="438" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="name" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="6">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicInput.DynamicInput">
+            <Position x="534" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputConfiguration>
+                <Configuration>
+                  <Passwords />
+                  <CachedCosmeticName />
+                  <File RecordLimit="" FileFormat="23">aka:NASR Snowflake|||select count(*) 
+from NASR."PUBLIC"."elevation"
+where "Lon" between 1111111111 and 22222222 and
+"Lat" between 33333333 and 4444444444</File>
+                  <FormatSpecificOptions>
+                    <PreSQL />
+                    <PreSQLOnConfig>True</PreSQLOnConfig>
+                    <NoProgress>True</NoProgress>
+                    <CacheData>False</CacheData>
+                    <TableStyle>Quoted</TableStyle>
+                    <ReadUncommitted>False</ReadUncommitted>
+                    <PostSQL />
+                  </FormatSpecificOptions>
+                </Configuration>
+              </InputConfiguration>
+              <Mode>ModifySQL</Mode>
+              <Modifications>
+                <Modify Action="PassField" Annotation="box">
+                  <Field>box</Field>
+                </Modify>
+                <Modify Action="ReplaceString" Annotation="1111111111">
+                  <Field>left</Field>
+                  <ReplaceText>1111111111</ReplaceText>
+                </Modify>
+                <Modify Action="ReplaceString" Annotation="22222222">
+                  <Field>right</Field>
+                  <ReplaceText>22222222</ReplaceText>
+                </Modify>
+                <Modify Action="ReplaceString" Annotation="33333333">
+                  <Field>bottom</Field>
+                  <ReplaceText>33333333</ReplaceText>
+                </Modify>
+                <Modify Action="ReplaceString" Annotation="4444444444">
+                  <Field>top</Field>
+                  <ReplaceText>4444444444</ReplaceText>
+                </Modify>
+              </Modifications>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicInput" />
+        </Node>
+        <Node ToolID="8">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="630" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>[COUNT(*)] = 12960000 ||
+[COUNT(*)] = 0</Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>ok</AnnotationText>
+              <DefaultAnnotationText>[COUNT(*)] = 12960000 ||
+[COUNT(*)] = 0</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="9">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="822" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\tlarsen\AppData\Local\Temp\2\Engine_8908_868e634166e047cd82ff6b143a7f9593_\Engine_10076_5a6a03e43b7f428682b92f02a180cf04_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="10">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+            <Position x="726" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <When>Last</When>
+              <Filter />
+              <Type>Error</Type>
+              <Priority>High</Priority>
+              <Transient>False</Transient>
+              <MessageExpression>ToString([_RecordNumber_],0) + " boxes have unexpected record counts"</MessageExpression>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="True" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="False" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>05 Check Integrity</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="e3dd5d48-b3cc-4a82-bd4b-a99825b33e17" />
+      <Telemetry>
+        <PreviousWorkflowId value="5b97df07-628f-4f4c-aa2e-37e804c0438b" />
+        <OriginWorkflowId value="5b97df07-628f-4f4c-aa2e-37e804c0438b" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

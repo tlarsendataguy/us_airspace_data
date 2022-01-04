@@ -8,7 +8,7 @@
       <Properties>
         <Configuration>
           <Passwords />
-          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\elevation downloads.csv</File>
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">F:\repositories\us_airspace_data\elevation downloads delta.csv</File>
           <FormatSpecificOptions>
             <HeaderRow>False</HeaderRow>
             <IgnoreErrors>False</IgnoreErrors>
@@ -24,36 +24,39 @@
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>elevation downloads.csv</DefaultAnnotationText>
+          <DefaultAnnotationText>elevation downloads delta.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Field_1" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_2" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_3" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_4" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_5" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_6" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_7" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_8" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_9" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_10" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_11" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_12" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_13" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_14" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_15" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_16" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_17" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_18" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_19" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_20" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_21" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_22" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_23" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_24" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
-            <Field name="Field_25" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads.csv" type="V_String" />
+            <Field name="Field_1" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_2" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_3" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_4" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_5" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_6" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_7" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_8" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_9" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_10" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_11" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_12" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_13" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_14" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_15" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_16" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_17" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_18" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_19" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_20" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_21" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_22" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_23" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_24" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
+            <Field name="Field_25" size="10000" source="File: F:\repositories\us_airspace_data\elevation downloads delta.csv" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -61,11 +64,11 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="918" y="54" />
+        <Position x="534" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\2\Engine_9164_7f8ad13de2cb49ad85b207fcd711485d_\Engine_6300_e857a1f0fd6f443db1d25a01e770e4da_.yxdb</TempFile>
+          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\2\Engine_6368_a9b84851f4554a65845b5186783f461e_\Engine_6300_36c2aefb778b47ea92e720d26a040cb4_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -89,7 +92,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="246" y="54" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -113,7 +116,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="630" y="54" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -133,27 +136,9 @@ Save To = "%Engine.WorkflowDirectory%" + "elev...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
-    <Node ToolID="7">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="150" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Expression>Left(LowerCase([Field_1]), 10) = 'usgs 1 arc'</Expression>
-          <Mode>Custom</Mode>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>1 arc second</AnnotationText>
-          <DefaultAnnotationText>Left(LowerCase([Field_1]), 10) = 'usgs 1 arc'</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
-    </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
-        <Position x="822" y="54" />
+        <Position x="438" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -220,7 +205,7 @@ Save To = "%Engine.WorkflowDirectory%" + "elev...</DefaultAnnotationText>
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="726" y="54" />
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -248,82 +233,15 @@ Save To = "%Engine.WorkflowDirectory%" + "elev...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
     </Node>
-    <Node ToolID="11">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="342" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField expression="LowerCase(Substring([Name],18,7))" field="square" size="1073741823" type="V_WString" />
-            <FormulaField expression="IF   Contains([Name], &quot;arc-second&quot;)&#xA;THEN 0&#xA;ELSE 1&#xA;ENDIF" field="sort" size="4" type="Int32" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>square
-sort</AnnotationText>
-          <DefaultAnnotationText>square = LowerCase(Substring([Name],18,7))
-sort = IF   Contains([Name], "arc-sec...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="12">
-      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="534" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <SummarizeFields>
-            <SummarizeField field="square" action="GroupBy" rename="square" />
-            <SummarizeField field="FullPath" action="Count" rename="Count" />
-            <SummarizeField field="Name" action="Last" rename="Name" />
-            <SummarizeField field="Size (MB)" action="Last" rename="Size (MB)" />
-            <SummarizeField field="Tile Size" action="Last" rename="Tile Size" />
-            <SummarizeField field="Download URL" action="Last" rename="Download URL" />
-          </SummarizeFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
-    </Node>
-    <Node ToolID="13">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="438" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <SortInfo locale="1033">
-            <Field field="square" order="Ascending" />
-            <Field field="sort" order="Ascending" />
-            <Field field="Name" order="Ascending" />
-          </SortInfo>
-        </Configuration>
-        <Annotation DisplayMode="2">
-          <Name />
-          <DefaultAnnotationText>square - Ascending
-sort - Ascending
-Name - Ascending</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
-    </Node>
   </Nodes>
   <Connections>
     <Connection>
       <Origin ToolID="3" Connection="Output" />
-      <Destination ToolID="7" Connection="Input" />
+      <Destination ToolID="5" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="5" Connection="Output" />
-      <Destination ToolID="11" Connection="Input" />
+      <Destination ToolID="6" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="6" Connection="Output" />
@@ -334,28 +252,12 @@ Name - Ascending</DefaultAnnotationText>
       <Destination ToolID="10" Connection="Right" />
     </Connection>
     <Connection>
-      <Origin ToolID="7" Connection="True" />
-      <Destination ToolID="5" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="8" Connection="Output" />
       <Destination ToolID="4" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="10" Connection="Left" />
       <Destination ToolID="8" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="11" Connection="Output" />
-      <Destination ToolID="13" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="12" Connection="Output" />
-      <Destination ToolID="6" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="13" Connection="Output" />
-      <Destination ToolID="12" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

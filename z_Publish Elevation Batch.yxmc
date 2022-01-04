@@ -119,12 +119,13 @@
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="498" y="126" />
+        <Position x="594" y="126" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <File MaxRecords="" FileFormat="65">aka:NASR Snowflake Bulk|||NASR.PUBLIC."elevation"</File>
           <Passwords />
+          <CachedCosmeticName />
           <FormatSpecificOptions>
             <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
             <PostSQL />
@@ -149,6 +150,33 @@ Query=NASR.PUBLIC."elevation"</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="498" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Round([Elevation], 0.001)" field="Elevation" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>round</AnnotationText>
+          <DefaultAnnotationText><![CDATA[Elevation = Round([Elevation], 0.001)
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Lon" source="Formula: [_CurrentField_] * 36000" type="Int32" />
+            <Field name="Lat" source="Formula: [_CurrentField_] * 36000" type="Int32" />
+            <Field name="Elevation" source="Formula: Round([Elevation], 0.001)" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -161,6 +189,10 @@ Query=NASR.PUBLIC."elevation"</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
       <Destination ToolID="8" Connection="Input" />
     </Connection>
   </Connections>
@@ -185,7 +217,7 @@ Query=NASR.PUBLIC."elevation"</DefaultAnnotationText>
       <Constant>
         <Namespace>Question</Namespace>
         <Name>ControlParam.File</Name>
-        <Value>F:\repositories\us_airspace_data\elevation\USGS 1 arc-second n36w083 1 x 1 degree.tif</Value>
+        <Value>F:\repositories\us_airspace_data\elevation\USGS_1_n35w095_20190711.tif</Value>
         <IsNumeric value="False" />
       </Constant>
     </Constants>
