@@ -28,28 +28,29 @@ The data in the database will be updated on a 28-day cycle, in alignment with th
 
 The following high-level objects are contained in the database, represented by 1 or more tables:
 
-|Object                       |Description|
-|-----------------------------|-----------|
-|[AFF](/doc/AFF.md)           |Air Route Traffic Control Center (ARTCC) facilities and communications|
-|[Airspace](/doc/Airspace.md) |Class B, C, D, and E Airspace|
-|[APT](/doc/APT.md)           |Landing facilities (airports, heliports, ultralight aerodromes, etc)|
-|[ARB](/doc/ARB.md)           |ARTCC boundary segments|
-|[ATS](/doc/ATS.md)           |Air traffic service route airways|
-|[AWOS](/doc/AWOS.md)         |Automated weather/surface observing systems|
-|[AWY](/doc/AWY.md)           |Airways|
-|[CDR](/doc/CDR.md)           |Coded departure routes|
-|[DOF](/doc/DOF.md)           |Digital obstacle file|
-|[FIX](/doc/FIX.md)           |Radio fixes / reporting points|
-|[FSS](/doc/FSS.md)           |Flight service stations|
-|[HPF](/doc/HPF.md)           |Holding patterns|
-|[ILS](/doc/ILS.md)           |Instrument landing systems|
-|[LID](/doc/LID.md)           |Location identifiers|
-|[MAA](/doc/MAA.md)           |Miscellaneous activity areas|
-|[MTR](/doc/MTR.md)           |Military training routes|
-|[NAV](/doc/NAV.md)           |Navigational aids (NAVAIDS)|
-|[PFR](/doc/PFR.md)           |Preferred routes|
-|[PJA](/doc/PJA.md)           |Parachute jump areas|
-|[STARDP](/doc/STARDP.md)     |Standard terminal arrivals (STAR) and standard departure procedures (DP)|
-|SUA                          |Special use airspace (not current available)|
-|[TWR](/doc/TWR.md)           |Terminal communications services (towered airports)|
-|[WXL](/doc/WXL.md)           |Weather reporting locations|
+|Object                        |Description|
+|------------------------------|-----------|
+|[AFF](/doc/AFF.md)            |Air Route Traffic Control Center (ARTCC) facilities and communications|
+|[Airspace](/doc/Airspace.md)  |Class B, C, D, and E Airspace|
+|[APT](/doc/APT.md)            |Landing facilities (airports, heliports, ultralight aerodromes, etc)|
+|[ARB](/doc/ARB.md)            |ARTCC boundary segments|
+|[ATS](/doc/ATS.md)            |Air traffic service route airways|
+|[AWOS](/doc/AWOS.md)          |Automated weather/surface observing systems|
+|[AWY](/doc/AWY.md)            |Airways|
+|[CDR](/doc/CDR.md)            |Coded departure routes|
+|[DOF](/doc/DOF.md)            |Digital obstacle file|
+|[elevation](/doc/elevation.md)|Ground elevation|
+|[FIX](/doc/FIX.md)            |Radio fixes / reporting points|
+|[FSS](/doc/FSS.md)            |Flight service stations|
+|[HPF](/doc/HPF.md)            |Holding patterns|
+|[ILS](/doc/ILS.md)            |Instrument landing systems|
+|[LID](/doc/LID.md)            |Location identifiers|
+|[MAA](/doc/MAA.md)            |Miscellaneous activity areas|
+|[MTR](/doc/MTR.md)            |Military training routes|
+|[NAV](/doc/NAV.md)            |Navigational aids (NAVAIDS)|
+|[PFR](/doc/PFR.md)            |Preferred routes|
+|[PJA](/doc/PJA.md)            |Parachute jump areas|
+|[STARDP](/doc/STARDP.md)      |Standard terminal arrivals (STAR) and standard departure procedures (DP)|
+|SUA                           |Special use airspace (not current available)|
+|[TWR](/doc/TWR.md)            |Terminal communications services (towered airports)|
+|[WXL](/doc/WXL.md)            |Weather reporting locations|
