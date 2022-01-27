@@ -167,8 +167,8 @@
             <Field name="NAVAID ID" size="4" source="Formula: Substring([Field_1], 35, 4)" type="String" />
             <Field name="NAVAID Facility Type Code" size="2" source="Formula: Substring([Field_1], 39, 2)" type="String" />
             <Field name="NAVAID Facility Type Name" size="25" source="Formula: Substring([Field_1], 41, 25)" type="V_String" />
-            <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
-            <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 72, 6))" type="FixedDecimal" />
+            <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 66, 6)))" type="FixedDecimal" />
+            <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 72, 6)))" type="FixedDecimal" />
             <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 78, 30)" type="V_String" />
             <Field name="State" size="2" source="Formula: Substring([Field_1], 108, 2)" type="String" />
             <Field name="State Name" size="30" source="Formula: Substring([Field_1], 110, 30)" type="V_String" />
@@ -240,8 +240,8 @@
             <Field name="NAVAID ID" size="4" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="NAVAID Facility Type Code" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="NAVAID Facility Type Name" size="25" source="Formula: Trim([_CurrentField_])" type="V_String" />
-            <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
-            <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 72, 6))" type="FixedDecimal" />
+            <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 66, 6)))" type="FixedDecimal" />
+            <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 72, 6)))" type="FixedDecimal" />
             <Field name="NAVAID Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
             <Field name="State" size="2" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="State Name" size="30" source="Formula: Trim([_CurrentField_])" type="V_String" />
@@ -294,8 +294,8 @@
             <FormulaField expression="Substring([Field_1], 35, 4)" field="NAVAID ID" size="4" type="String" />
             <FormulaField expression="Substring([Field_1], 39, 2)" field="NAVAID Facility Type Code" size="2" type="String" />
             <FormulaField expression="Substring([Field_1], 41, 25)" field="NAVAID Facility Type Name" size="25" type="V_String" />
-            <FormulaField expression="ToNumber(Substring([Field_1], 66, 6))" field="Azimuth from NAVAID" size="10.2" type="FixedDecimal" />
-            <FormulaField expression="ToNumber(Substring([Field_1], 72, 6))" field="Distance from NAVAID" size="10.1" type="FixedDecimal" />
+            <FormulaField expression="ToNumber(Trim(Substring([Field_1], 66, 6)))" field="Azimuth from NAVAID" size="10.2" type="FixedDecimal" />
+            <FormulaField expression="ToNumber(Trim(Substring([Field_1], 72, 6)))" field="Distance from NAVAID" size="10.1" type="FixedDecimal" />
             <FormulaField expression="Substring([Field_1], 78, 30)" field="NAVAID Name" size="30" type="V_String" />
             <FormulaField expression="Substring([Field_1], 108, 2)" field="State" size="2" type="String" />
             <FormulaField expression="Substring([Field_1], 110, 30)" field="State Name" size="30" type="V_String" />
@@ -321,8 +321,8 @@ NAVAID ID = Substring([Field_1], 35, 4)
             <Field name="NAVAID ID" size="4" source="Formula: Substring([Field_1], 35, 4)" type="String" />
             <Field name="NAVAID Facility Type Code" size="2" source="Formula: Substring([Field_1], 39, 2)" type="String" />
             <Field name="NAVAID Facility Type Name" size="25" source="Formula: Substring([Field_1], 41, 25)" type="V_String" />
-            <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
-            <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 72, 6))" type="FixedDecimal" />
+            <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 66, 6)))" type="FixedDecimal" />
+            <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 72, 6)))" type="FixedDecimal" />
             <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 78, 30)" type="V_String" />
             <Field name="State" size="2" source="Formula: Substring([Field_1], 108, 2)" type="String" />
             <Field name="State Name" size="30" source="Formula: Substring([Field_1], 110, 30)" type="V_String" />
@@ -371,8 +371,8 @@ NAVAID ID = Substring([Field_1], 35, 4)
             <Field name="NAVAID ID" size="4" source="Formula: Substring([Field_1], 35, 4)" type="String" />
             <Field name="NAVAID Facility Type Code" size="2" source="Formula: Substring([Field_1], 39, 2)" type="String" />
             <Field name="NAVAID Facility Type Name" size="25" source="Formula: Substring([Field_1], 41, 25)" type="V_String" />
-            <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
-            <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 72, 6))" type="FixedDecimal" />
+            <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 66, 6)))" type="FixedDecimal" />
+            <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 72, 6)))" type="FixedDecimal" />
             <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 78, 30)" type="V_String" />
             <Field name="State" size="2" source="Formula: Substring([Field_1], 108, 2)" type="String" />
             <Field name="State Name" size="30" source="Formula: Substring([Field_1], 110, 30)" type="V_String" />
@@ -421,8 +421,8 @@ Associated Airport Name = S...</DefaultAnnotationText>
             <Field name="NAVAID ID" size="4" source="Formula: Substring([Field_1], 35, 4)" type="String" />
             <Field name="NAVAID Facility Type Code" size="2" source="Formula: Substring([Field_1], 39, 2)" type="String" />
             <Field name="NAVAID Facility Type Name" size="25" source="Formula: Substring([Field_1], 41, 25)" type="V_String" />
-            <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 66, 6))" type="FixedDecimal" />
-            <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 72, 6))" type="FixedDecimal" />
+            <Field name="Azimuth from NAVAID" scale="2" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 66, 6)))" type="FixedDecimal" />
+            <Field name="Distance from NAVAID" scale="1" size="10" source="Formula: ToNumber(Trim(Substring([Field_1], 72, 6)))" type="FixedDecimal" />
             <Field name="NAVAID Name" size="30" source="Formula: Substring([Field_1], 78, 30)" type="V_String" />
             <Field name="State" size="2" source="Formula: Substring([Field_1], 108, 2)" type="String" />
             <Field name="State Name" size="30" source="Formula: Substring([Field_1], 110, 30)" type="V_String" />

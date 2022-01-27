@@ -204,7 +204,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File MaxRecords="" FileFormat="65">aka:NASR Snowflake Bulk|||public.properties</File>
+          <File MaxRecords="" FileFormat="65">aka:NASR Snowflake Bulk|||NASR.PUBLIC."properties"</File>
           <Passwords />
           <FormatSpecificOptions>
             <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
@@ -222,43 +222,12 @@
           <Name />
           <AnnotationText>properties</AnnotationText>
           <DefaultAnnotationText>aka:NASR Snowflake Bulk
-Query=public.properties</DefaultAnnotationText>
+Query=NASR.PUBLIC."properties"</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <Dependencies>
           <Implicit />
         </Dependencies>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
-    </Node>
-    <Node ToolID="11">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="486" y="222" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <File MaxRecords="" FileFormat="23">odbc:DSN=nasr|||public.properties</File>
-          <Passwords />
-          <FormatSpecificOptions>
-            <Projection />
-            <SpatialObjSize>8000</SpatialObjSize>
-            <TransactionSize>10000</TransactionSize>
-            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
-            <PostSQL />
-            <TableStyle>Quoted</TableStyle>
-            <PreSQL />
-            <TransactionMessages>False</TransactionMessages>
-            <OutputOption>UpdateError</OutputOption>
-          </FormatSpecificOptions>
-          <MultiFile value="False" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>properties</AnnotationText>
-          <DefaultAnnotationText>DSN=nasr
-Query=public.properties</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
@@ -275,10 +244,6 @@ Query=public.properties</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="6" Connection="Output" />
       <Destination ToolID="10" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="6" Connection="Output" />
-      <Destination ToolID="11" Connection="Input" />
     </Connection>
     <Connection name="#2">
       <Origin ToolID="7" Connection="Output" />
@@ -373,7 +338,6 @@ Query=public.properties</DefaultAnnotationText>
       <Wiz_ShowOutput value="True" />
       <Wiz_OpenOutputTools>
         <Tool ToolId="10" Selected="True" />
-        <Tool ToolId="11" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />

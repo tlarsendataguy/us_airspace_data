@@ -61,7 +61,7 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="11">
+    <Node ToolID="12">
       <GuiSettings>
         <Position x="342" y="54" />
       </GuiSettings>
@@ -77,9 +77,6 @@
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings Macro="04 Publish Batch.yxmc" />
     </Node>
@@ -91,7 +88,7 @@
     </Connection>
     <Connection>
       <Origin ToolID="3" Connection="Output" />
-      <Destination ToolID="11" Connection="Control" />
+      <Destination ToolID="12" Connection="Control" />
     </Connection>
     <Connection>
       <Origin ToolID="4" Connection="Output" />

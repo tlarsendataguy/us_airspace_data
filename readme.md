@@ -1,26 +1,26 @@
 ## Open access National Airspace System Resource (NASR) data
 
-This project's goal is to provide NASR data files in an open and user-friendly format. The Federal Aviation Administration (FAA) provides NASR files on 28-day and 56-day cycles. These data files contain a wealth of information about the airspace of the USA, from airport and runway information to navigational aids and weather stations. The files are provided by the FAA in flat-formatted text and XML files. This project parses these files and uploads them into a publicly-accessible PostgreSQL database.
+This project's goal is to provide NASR data files in an open and user-friendly format. The Federal Aviation Administration (FAA) provides NASR files on 28-day and 56-day cycles. These data files contain a wealth of information about the airspace of the USA, from airport and runway information to navigational aids and weather stations. The files are provided by the FAA in flat-formatted text and XML files. This project parses these files and uploads them into a publicly-accessible Snowflake database.
 
 This project is not affiliated or endorsed by the FAA or any department of the US government. It is purely a hobbyist-supported project and should not be used for production systems. It is intended as an educational resource for those who have an interest in both aviation and data analysis.
 
 ### Data access
 
-All of the parsed NASR data is provided in a publicly-accessible PostgreSQL database. The database can be accessed with the following connection parameters using the postgres ODBC driver:
+All of the parsed NASR data is provided in a publicly-accessible Snowflake database. The database can be accessed with the following connection parameters using the Snowflake ODBC driver:
 
 ```
-Driver:    Use the Unicode driver; the ANSI driver will not be able to connect
-Host:      ayx-data.postgres.database.azure.com
-Post:      5432
-Database:  nasr
-Username:  nasr_access@ayx-data
+Driver:    SnowflakeDSIIDriver
+Server:    pe04767.east-us-2.azure.snowflakecomputing.com
+Database:  NASR
+Schema:    PUBLIC
+Warehouse: COMPUTE_WH
+Username:  nasr_access
 Password:  f!5C$66eMxYC&^vz
-SSL Mode:  Require
 ```
 
 ### Parsing and replication
 
-The NASR and digital object files are parsed using Alteryx workflows. This repository contains the workflows used to parse and publish the NASR data to a PostgreSQL database hosted on Azure. To encourage an atmosphere of open collaboration, all workflows are provided under an MIT license.
+The NASR and digital object files are parsed using Alteryx workflows. This repository contains the workflows used to parse and publish the NASR data to a Snowflake database. To encourage an atmosphere of open collaboration, all workflows are provided under an MIT license.
 
 The data in the database will be updated on a 28-day cycle, in alignment with the NASR schedule. The date-time of the last update and the effective date of the data can be found in the properties table.
 
