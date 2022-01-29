@@ -187,14 +187,7 @@ Runway State = Substr...</DefaultAnnotationText>
             <SelectField field="Field_1" selected="False" />
             <SelectField field="RecordType" selected="False" />
             <SelectField field="RAW Runway Surface Type and Condition" selected="False" />
-            <SelectField field="RAW Runway Length Source Date" selected="False" />
             <SelectField field="RAW Base Controlling Object Centerline Offset" selected="False" />
-            <SelectField field="RAW Base Position Source Date" selected="False" />
-            <SelectField field="RAW Base Elevation Source Date" selected="False" />
-            <SelectField field="RAW Base Displaced Threshold Position Source Date" selected="False" />
-            <SelectField field="RAW Base Displaced Threshold Elevation Source Date" selected="False" />
-            <SelectField field="RAW Base Touchdown Zone Elevation Source Date" selected="False" />
-            <SelectField field="RAW Base LAHSO Source Date" selected="False" />
             <SelectField field="RAW Reciprocal Controlling Object Centerline Offset" selected="False" />
             <SelectField field="RAW Reciprocal Position Source Date" selected="False" />
             <SelectField field="RAW Reciprocal Elevation Source Date" selected="False" />
@@ -238,6 +231,8 @@ Runway State = Substr...</DefaultAnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -289,7 +284,9 @@ Runway State = Substr...</DefaultAnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Substring([Field_1], 309, 1)" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 432, 7))" type="FixedDecimal" />
@@ -347,7 +344,7 @@ Runway State = Substr...</DefaultAnnotationText>
           <FieldType>Text</FieldType>
           <Fields orderChanged="False">
             <Field name="Landing Facility Site Number" />
-            <Field name="Runway State Post Office Code" />
+            <Field name="Runway State" />
             <Field name="Runway Identification" />
             <Field name="Runway Surface Condition" />
             <Field name="Runway Surface Condition Name" />
@@ -450,6 +447,8 @@ Runway State = Substr...</DefaultAnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -501,7 +500,9 @@ Runway State = Substr...</DefaultAnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 432, 7))" type="FixedDecimal" />
@@ -664,7 +665,7 @@ Base True Alignment = ToNumber(Sub...</DefaultAnnotationText>
             <Field name="Base ILS Type" />
             <Field name="Reciprocal ILS Type" />
             <Field name="Landing Facility Site Number" selected="False" />
-            <Field name="Runway State Post Office Code" selected="False" />
+            <Field name="Runway State" selected="False" />
             <Field name="Runway Identification" selected="False" />
             <Field name="Runway Surface Condition" selected="False" />
             <Field name="Runway Surface Condition Name" selected="False" />
@@ -693,6 +694,12 @@ Base True Alignment = ToNumber(Sub...</DefaultAnnotationText>
             <Field name="Base Gradient Direction" selected="False" />
             <Field name="Base Position Source" selected="False" />
             <Field name="Base Elevation Source" selected="False" />
+            <Field name="Base Displaced Threshold Position Source" selected="False" />
+            <Field name="Base Displaced Threshold Elevation Source" selected="False" />
+            <Field name="Base Touchdown Zone Elevation Source" selected="False" />
+            <Field name="Base LAHSO Intersecting Runway" selected="False" />
+            <Field name="Base LAHSO Stop Point Description" selected="False" />
+            <Field name="Base LAHSO Source" selected="False" />
             <Field name="Reciprocal Identifier" selected="False" />
             <Field name="Reciprocal Right Hand Traffic" selected="False" />
             <Field name="Reciprocal Runway Markings Type" selected="False" />
@@ -709,8 +716,16 @@ Base True Alignment = ToNumber(Sub...</DefaultAnnotationText>
             <Field name="Reciprocal FAA CFR Part 77 Category" selected="False" />
             <Field name="Reciprocal Controlling Object Clearance Slope" selected="False" />
             <Field name="Reciprocal Controlling Object Centerline Offset Direction" selected="False" />
-            <Field name="Base End ILS Type" selected="False" />
-            <Field name="Reciprocal End ILS Type" selected="False" />
+            <Field name="Reciprocal Gradient" selected="False" />
+            <Field name="Reciprocal Gradient Direction" selected="False" />
+            <Field name="Reciprocal Position Source" selected="False" />
+            <Field name="Reciprocal Elevation Source" selected="False" />
+            <Field name="Reciprocal Displaced Threshold Position Source" selected="False" />
+            <Field name="Reciprocal Displaced Threshold Elevation Source" selected="False" />
+            <Field name="Reciprocal Touchdown Zone Elevation Source" selected="False" />
+            <Field name="Reciprocal LAHSO Intersecting Runway" selected="False" />
+            <Field name="Reciprocal LAHSO Stop Point Description" selected="False" />
+            <Field name="Reciprocal LAHSO Source" selected="False" />
             <Field name="*Unknown" selected="False" />
           </Fields>
           <NewFieldAddOn><![CDATA[ Name]]></NewFieldAddOn>
@@ -772,6 +787,8 @@ Name</AnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -823,7 +840,9 @@ Name</AnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 432, 7))" type="FixedDecimal" />
@@ -993,6 +1012,8 @@ Type Name</AnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -1044,7 +1065,9 @@ Type Name</AnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 432, 7))" type="FixedDecimal" />
@@ -1214,6 +1237,8 @@ Name</AnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -1265,7 +1290,9 @@ Name</AnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 432, 7))" type="FixedDecimal" />
@@ -1328,13 +1355,15 @@ Name</AnnotationText>
         <Configuration>
           <FormulaFields>
             <FormulaField expression="ToNumber(Substring([Field_1], 142, 7))" field="Base Elevation" size="10.1" type="FixedDecimal" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 149, 3))" field="Base Threshold Crossing Height" size="4" type="Int32" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 152, 4))" field="Base Visual Glide Path Angle" size="10.2" type="FixedDecimal" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
           <AnnotationText>Base Geo</AnnotationText>
-          <DefaultAnnotationText><![CDATA[Base Elevation = ToNumber(Substring([Field_1], 142, 7))
-]]></DefaultAnnotationText>
+          <DefaultAnnotationText>Base Elevation = ToNumber(Substring([Field_1], 142, 7))
+Base Threshold Crossing ...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
@@ -1368,6 +1397,8 @@ Name</AnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -1427,6 +1458,8 @@ Base Runway Vis...</DefaultAnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -1583,6 +1616,8 @@ Name</AnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -1634,7 +1669,9 @@ Name</AnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 432, 7))" type="FixedDecimal" />
@@ -1818,6 +1855,8 @@ Name</AnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -1869,7 +1908,9 @@ Name</AnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 432, 7))" type="FixedDecimal" />
@@ -1987,6 +2028,8 @@ Base Controlling Object ...</DefaultAnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -2129,6 +2172,8 @@ Object Marked</AnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -2180,7 +2225,9 @@ Object Marked</AnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 432, 7))" type="FixedDecimal" />
@@ -2381,6 +2428,8 @@ Name</AnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -2432,7 +2481,9 @@ Name</AnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Trim([_CurrentField_])" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 432, 7))" type="FixedDecimal" />
@@ -2549,6 +2600,8 @@ Reciprocal True Alignment =...</DefaultAnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -2611,15 +2664,17 @@ Reciprocal True Alignment =...</DefaultAnnotationText>
       <Properties>
         <Configuration>
           <FormulaFields>
-            <FormulaField expression="ToNumber(Substring([Field_1], 371, 7))" field="Reciprocal Elevation" size="10.1" type="FixedDecimal" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 364, 7))" field="Reciprocal Elevation" size="10.1" type="FixedDecimal" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 371, 3))" field="Reciprocal Threshold Crossing Height" size="4" type="Int32" />
+            <FormulaField expression="ToNumber(Substring([Field_1], 374, 4))" field="Reciprocal Visual Glide Path Angle" size="10.2" type="FixedDecimal" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
           <AnnotationText>Reciprocal
 Geo</AnnotationText>
-          <DefaultAnnotationText><![CDATA[Reciprocal Elevation = ToNumber(Substring([Field_1], 371, 7))
-]]></DefaultAnnotationText>
+          <DefaultAnnotationText>Reciprocal Elevation = ToNumber(Substring([Field_1], 364, 7))
+Reciprocal Thresho...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
@@ -2653,6 +2708,8 @@ Geo</AnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -2705,7 +2762,9 @@ Geo</AnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Substring([Field_1], 309, 1)" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -2766,6 +2825,8 @@ Reciproca...</DefaultAnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -2818,7 +2879,9 @@ Reciproca...</DefaultAnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Substring([Field_1], 309, 1)" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 432, 7))" type="FixedDecimal" />
@@ -2896,6 +2959,8 @@ Reciprocal Control...</DefaultAnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -2948,7 +3013,9 @@ Reciprocal Control...</DefaultAnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Substring([Field_1], 309, 1)" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 432, 7))" type="FixedDecimal" />
@@ -3087,385 +3154,401 @@ Reciprocal Control...</DefaultAnnotationText>
             <isPattern>false</isPattern>
           </field25>
           <field26>
-            <text>Base Displaced Threshold Latitude</text>
+            <text>Base Threshold Crossing Height</text>
             <isPattern>false</isPattern>
           </field26>
           <field27>
-            <text>Base Displaced Threshold Longitude</text>
+            <text>Base Visual Glide Path Angle</text>
             <isPattern>false</isPattern>
           </field27>
           <field28>
-            <text>Base Displace Threshold Elevation</text>
+            <text>Base Displaced Threshold Latitude</text>
             <isPattern>false</isPattern>
           </field28>
           <field29>
-            <text>Base Displaced Threshold Length</text>
+            <text>Base Displaced Threshold Longitude</text>
             <isPattern>false</isPattern>
           </field29>
           <field30>
-            <text>Base Elevation at Touchdown Zone</text>
+            <text>Base Displace Threshold Elevation</text>
             <isPattern>false</isPattern>
           </field30>
           <field31>
-            <text>Base Visual Glide Slope Indicator.*</text>
-            <isPattern>true</isPattern>
+            <text>Base Displaced Threshold Length</text>
+            <isPattern>false</isPattern>
           </field31>
           <field32>
-            <text>Base Runway Visual Range Equipment</text>
+            <text>Base Elevation at Touchdown Zone</text>
             <isPattern>false</isPattern>
           </field32>
           <field33>
-            <text>Base Runway Visibility Value Equipment</text>
-            <isPattern>false</isPattern>
+            <text>Base Visual Glide Slope Indicator.*</text>
+            <isPattern>true</isPattern>
           </field33>
           <field34>
-            <text>Base Approach Light System.*</text>
-            <isPattern>true</isPattern>
+            <text>Base Runway Visual Range Equipment</text>
+            <isPattern>false</isPattern>
           </field34>
           <field35>
-            <text>Base Runway End Identifier Lights Available</text>
+            <text>Base Runway Visibility Value Equipment</text>
             <isPattern>false</isPattern>
           </field35>
           <field36>
-            <text>Base Runway Centerline Lights Available</text>
-            <isPattern>false</isPattern>
+            <text>Base Approach Light System.*</text>
+            <isPattern>true</isPattern>
           </field36>
           <field37>
-            <text>Base Runway End Touchdown Lights Available</text>
+            <text>Base Runway End Identifier Lights Available</text>
             <isPattern>false</isPattern>
           </field37>
           <field38>
-            <text>Base Controlling Object</text>
+            <text>Base Runway Centerline Lights Available</text>
             <isPattern>false</isPattern>
           </field38>
           <field39>
-            <text>Base Controlling Object Marked.*</text>
-            <isPattern>true</isPattern>
+            <text>Base Runway End Touchdown Lights Available</text>
+            <isPattern>false</isPattern>
           </field39>
           <field40>
-            <text>Base FAA CFR Part 77 Category.*</text>
-            <isPattern>true</isPattern>
+            <text>Base Controlling Object</text>
+            <isPattern>false</isPattern>
           </field40>
           <field41>
-            <text>Base Controlling Object Clearance Slope</text>
-            <isPattern>false</isPattern>
+            <text>Base Controlling Object Marked.*</text>
+            <isPattern>true</isPattern>
           </field41>
           <field42>
-            <text>Base Controlling Object Height Above Runway</text>
-            <isPattern>false</isPattern>
+            <text>Base FAA CFR Part 77 Category.*</text>
+            <isPattern>true</isPattern>
           </field42>
           <field43>
-            <text>Base Controlling Object Distance from Runway End</text>
+            <text>Base Controlling Object Clearance Slope</text>
             <isPattern>false</isPattern>
           </field43>
           <field44>
-            <text>Base Controlling Object Centerline Offset</text>
+            <text>Base Controlling Object Height Above Runway</text>
             <isPattern>false</isPattern>
           </field44>
           <field45>
-            <text>Base Controlling Object Centerline Offset Direction</text>
+            <text>Base Controlling Object Distance from Runway End</text>
             <isPattern>false</isPattern>
           </field45>
           <field46>
-            <text>Base Gradient</text>
+            <text>Base Controlling Object Centerline Offset</text>
             <isPattern>false</isPattern>
           </field46>
           <field47>
-            <text>Base Gradient Direction</text>
+            <text>Base Controlling Object Centerline Offset Direction</text>
             <isPattern>false</isPattern>
           </field47>
           <field48>
-            <text>Base Position Source</text>
+            <text>Base Gradient</text>
             <isPattern>false</isPattern>
           </field48>
           <field49>
-            <text>Base Position Source Date</text>
+            <text>Base Gradient Direction</text>
             <isPattern>false</isPattern>
           </field49>
           <field50>
-            <text>Base Elevation Source</text>
+            <text>Base Position Source</text>
             <isPattern>false</isPattern>
           </field50>
           <field51>
-            <text>Base Elevation Source Date</text>
+            <text>Base Position Source Date</text>
             <isPattern>false</isPattern>
           </field51>
           <field52>
-            <text>Base Displaced Threshold Position Source</text>
+            <text>Base Elevation Source</text>
             <isPattern>false</isPattern>
           </field52>
           <field53>
-            <text>Base Displaced Threshold Position Source Date</text>
+            <text>Base Elevation Source Date</text>
             <isPattern>false</isPattern>
           </field53>
           <field54>
-            <text>Base Displaced Threshold Elevation Source</text>
+            <text>Base Displaced Threshold Position Source</text>
             <isPattern>false</isPattern>
           </field54>
           <field55>
-            <text>Base Displaced Threshold Elevation Source Date</text>
+            <text>Base Displaced Threshold Position Source Date</text>
             <isPattern>false</isPattern>
           </field55>
           <field56>
-            <text>Base Touchdown Zone Elevation Source</text>
+            <text>Base Displaced Threshold Elevation Source</text>
             <isPattern>false</isPattern>
           </field56>
           <field57>
-            <text>Base Touchdown Zone Elevation Source Date</text>
+            <text>Base Displaced Threshold Elevation Source Date</text>
             <isPattern>false</isPattern>
           </field57>
           <field58>
-            <text>Base Takeoff Run Available</text>
+            <text>Base Touchdown Zone Elevation Source</text>
             <isPattern>false</isPattern>
           </field58>
           <field59>
-            <text>Base Takeoff Distance Available</text>
+            <text>Base Touchdown Zone Elevation Source Date</text>
             <isPattern>false</isPattern>
           </field59>
           <field60>
-            <text>Base ACLT Stop Distance Available</text>
+            <text>Base Takeoff Run Available</text>
             <isPattern>false</isPattern>
           </field60>
           <field61>
-            <text>Base Landing Distance Available</text>
+            <text>Base Takeoff Distance Available</text>
             <isPattern>false</isPattern>
           </field61>
           <field62>
-            <text>Base Available Distance for LAHSO</text>
+            <text>Base ACLT Stop Distance Available</text>
             <isPattern>false</isPattern>
           </field62>
           <field63>
-            <text>Base LAHSO Intersecting Runway</text>
+            <text>Base Landing Distance Available</text>
             <isPattern>false</isPattern>
           </field63>
           <field64>
-            <text>Base LAHSO Stop Point Description</text>
+            <text>Base Available Distance for LAHSO</text>
             <isPattern>false</isPattern>
           </field64>
           <field65>
-            <text>Base LAHSO Latitude</text>
+            <text>Base LAHSO Intersecting Runway</text>
             <isPattern>false</isPattern>
           </field65>
           <field66>
-            <text>Base LAHSO Longitude</text>
+            <text>Base LAHSO Stop Point Description</text>
             <isPattern>false</isPattern>
           </field66>
           <field67>
-            <text>Base LAHSO Source</text>
+            <text>Base LAHSO Latitude</text>
             <isPattern>false</isPattern>
           </field67>
           <field68>
-            <text>Base LAHSO Source Date</text>
+            <text>Base LAHSO Longitude</text>
             <isPattern>false</isPattern>
           </field68>
           <field69>
-            <text>Reciprocal Identifier</text>
+            <text>Base LAHSO Source</text>
             <isPattern>false</isPattern>
           </field69>
           <field70>
-            <text>Reciprocal True Alignment</text>
+            <text>Base LAHSO Source Date</text>
             <isPattern>false</isPattern>
           </field70>
           <field71>
-            <text>Reciprocal ILS Type.*</text>
-            <isPattern>true</isPattern>
+            <text>Reciprocal Identifier</text>
+            <isPattern>false</isPattern>
           </field71>
           <field72>
-            <text>Reciprocal Right Hand Traffic</text>
+            <text>Reciprocal True Alignment</text>
             <isPattern>false</isPattern>
           </field72>
           <field73>
-            <text>Reciprocal Runway Markings Type.*</text>
+            <text>Reciprocal ILS Type.*</text>
             <isPattern>true</isPattern>
           </field73>
           <field74>
-            <text>Reciprocal Runway Markings Condition.*</text>
-            <isPattern>true</isPattern>
+            <text>Reciprocal Right Hand Traffic</text>
+            <isPattern>false</isPattern>
           </field74>
           <field75>
-            <text>Reciprocal Latitude</text>
-            <isPattern>false</isPattern>
+            <text>Reciprocal Runway Markings Type.*</text>
+            <isPattern>true</isPattern>
           </field75>
           <field76>
-            <text>Reciprocal Longitude</text>
-            <isPattern>false</isPattern>
+            <text>Reciprocal Runway Markings Condition.*</text>
+            <isPattern>true</isPattern>
           </field76>
           <field77>
-            <text>Reciprocal Elevation</text>
+            <text>Reciprocal Latitude</text>
             <isPattern>false</isPattern>
           </field77>
           <field78>
-            <text>Reciprocal Displaced Threshold Latitude</text>
+            <text>Reciprocal Longitude</text>
             <isPattern>false</isPattern>
           </field78>
           <field79>
-            <text>Reciprocal Displaced Threshold Longitude</text>
+            <text>Reciprocal Elevation</text>
             <isPattern>false</isPattern>
           </field79>
           <field80>
-            <text>Reciprocal Displace Threshold Elevation</text>
+            <text>Reciprocal Threshold Crossing Height</text>
             <isPattern>false</isPattern>
           </field80>
           <field81>
-            <text>Reciprocal Displaced Threshold Length</text>
+            <text>Reciprocal Visual Glide Path Angle</text>
             <isPattern>false</isPattern>
           </field81>
           <field82>
-            <text>Reciprocal Elevation at Touchdown Zone</text>
+            <text>Reciprocal Displaced Threshold Latitude</text>
             <isPattern>false</isPattern>
           </field82>
           <field83>
-            <text>Reciprocal Visual Glide Slope Indicator.*</text>
-            <isPattern>true</isPattern>
+            <text>Reciprocal Displaced Threshold Longitude</text>
+            <isPattern>false</isPattern>
           </field83>
           <field84>
-            <text>Reciprocal Runway Visual Range Equipment</text>
+            <text>Reciprocal Displace Threshold Elevation</text>
             <isPattern>false</isPattern>
           </field84>
           <field85>
-            <text>Reciprocal Runway Visibility Value Equipment</text>
+            <text>Reciprocal Displaced Threshold Length</text>
             <isPattern>false</isPattern>
           </field85>
           <field86>
-            <text>Reciprocal Approach Light System.*</text>
-            <isPattern>true</isPattern>
+            <text>Reciprocal Elevation at Touchdown Zone</text>
+            <isPattern>false</isPattern>
           </field86>
           <field87>
-            <text>Reciprocal Runway End Identifier Lights Available</text>
-            <isPattern>false</isPattern>
+            <text>Reciprocal Visual Glide Slope Indicator.*</text>
+            <isPattern>true</isPattern>
           </field87>
           <field88>
-            <text>Reciprocal Runway Centerline Lights Available</text>
+            <text>Reciprocal Runway Visual Range Equipment</text>
             <isPattern>false</isPattern>
           </field88>
           <field89>
-            <text>Reciprocal Runway End Touchdown Lights Available</text>
+            <text>Reciprocal Runway Visibility Value Equipment</text>
             <isPattern>false</isPattern>
           </field89>
           <field90>
-            <text>Reciprocal Controlling Object</text>
-            <isPattern>false</isPattern>
+            <text>Reciprocal Approach Light System.*</text>
+            <isPattern>true</isPattern>
           </field90>
           <field91>
-            <text>Reciprocal Controlling Object Marked.*</text>
-            <isPattern>true</isPattern>
+            <text>Reciprocal Runway End Identifier Lights Available</text>
+            <isPattern>false</isPattern>
           </field91>
           <field92>
-            <text>Reciprocal FAA CFR Part 77 Category.*</text>
-            <isPattern>true</isPattern>
+            <text>Reciprocal Runway Centerline Lights Available</text>
+            <isPattern>false</isPattern>
           </field92>
           <field93>
-            <text>Reciprocal Controlling Object Clearance Slope</text>
+            <text>Reciprocal Runway End Touchdown Lights Available</text>
             <isPattern>false</isPattern>
           </field93>
           <field94>
-            <text>Reciprocal Controlling Object Height Above Runway</text>
+            <text>Reciprocal Controlling Object</text>
             <isPattern>false</isPattern>
           </field94>
           <field95>
-            <text>Reciprocal Controlling Object Distance from Runway End</text>
-            <isPattern>false</isPattern>
+            <text>Reciprocal Controlling Object Marked.*</text>
+            <isPattern>true</isPattern>
           </field95>
           <field96>
-            <text>Reciprocal Controlling Object Centerline Offset</text>
-            <isPattern>false</isPattern>
+            <text>Reciprocal FAA CFR Part 77 Category.*</text>
+            <isPattern>true</isPattern>
           </field96>
           <field97>
-            <text>Reciprocal Controlling Object Centerline Offset Direction</text>
+            <text>Reciprocal Controlling Object Clearance Slope</text>
             <isPattern>false</isPattern>
           </field97>
           <field98>
-            <text>Reciprocal Gradient</text>
+            <text>Reciprocal Controlling Object Height Above Runway</text>
             <isPattern>false</isPattern>
           </field98>
           <field99>
-            <text>Reciprocal Gradient Direction</text>
+            <text>Reciprocal Controlling Object Distance from Runway End</text>
             <isPattern>false</isPattern>
           </field99>
           <field100>
-            <text>Reciprocal Position Source</text>
+            <text>Reciprocal Controlling Object Centerline Offset</text>
             <isPattern>false</isPattern>
           </field100>
           <field101>
-            <text>Reciprocal Position Source Date</text>
+            <text>Reciprocal Controlling Object Centerline Offset Direction</text>
             <isPattern>false</isPattern>
           </field101>
           <field102>
-            <text>Reciprocal Elevation Source</text>
+            <text>Reciprocal Gradient</text>
             <isPattern>false</isPattern>
           </field102>
           <field103>
-            <text>Reciprocal Elevation Source Date</text>
+            <text>Reciprocal Gradient Direction</text>
             <isPattern>false</isPattern>
           </field103>
           <field104>
-            <text>Reciprocal Displaced Threshold Position Source</text>
+            <text>Reciprocal Position Source</text>
             <isPattern>false</isPattern>
           </field104>
           <field105>
-            <text>Reciprocal Displaced Threshold Position Source Date</text>
+            <text>Reciprocal Position Source Date</text>
             <isPattern>false</isPattern>
           </field105>
           <field106>
-            <text>Reciprocal Displaced Threshold Elevation Source</text>
+            <text>Reciprocal Elevation Source</text>
             <isPattern>false</isPattern>
           </field106>
           <field107>
-            <text>Reciprocal Displaced Threshold Elevation Source Date</text>
+            <text>Reciprocal Elevation Source Date</text>
             <isPattern>false</isPattern>
           </field107>
           <field108>
-            <text>Reciprocal Touchdown Zone Elevation Source</text>
+            <text>Reciprocal Displaced Threshold Position Source</text>
             <isPattern>false</isPattern>
           </field108>
           <field109>
-            <text>Reciprocal Touchdown Zone Elevation Source Date</text>
+            <text>Reciprocal Displaced Threshold Position Source Date</text>
             <isPattern>false</isPattern>
           </field109>
           <field110>
-            <text>Reciprocal Takeoff Run Available</text>
+            <text>Reciprocal Displaced Threshold Elevation Source</text>
             <isPattern>false</isPattern>
           </field110>
           <field111>
-            <text>Reciprocal Takeoff Distance Available</text>
+            <text>Reciprocal Displaced Threshold Elevation Source Date</text>
             <isPattern>false</isPattern>
           </field111>
           <field112>
-            <text>Reciprocal ACLT Stop Distance Available</text>
+            <text>Reciprocal Touchdown Zone Elevation Source</text>
             <isPattern>false</isPattern>
           </field112>
           <field113>
-            <text>Reciprocal Landing Distance Available</text>
+            <text>Reciprocal Touchdown Zone Elevation Source Date</text>
             <isPattern>false</isPattern>
           </field113>
           <field114>
-            <text>Reciprocal Available Distance for LAHSO</text>
+            <text>Reciprocal Takeoff Run Available</text>
             <isPattern>false</isPattern>
           </field114>
           <field115>
-            <text>Reciprocal LAHSO Intersecting Runway</text>
+            <text>Reciprocal Takeoff Distance Available</text>
             <isPattern>false</isPattern>
           </field115>
           <field116>
-            <text>Reciprocal LAHSO Stop Point Description</text>
+            <text>Reciprocal ACLT Stop Distance Available</text>
             <isPattern>false</isPattern>
           </field116>
           <field117>
-            <text>Reciprocal LAHSO Latitude</text>
+            <text>Reciprocal Landing Distance Available</text>
             <isPattern>false</isPattern>
           </field117>
           <field118>
-            <text>Reciprocal LAHSO Longitude</text>
+            <text>Reciprocal Available Distance for LAHSO</text>
             <isPattern>false</isPattern>
           </field118>
           <field119>
-            <text>Reciprocal LAHSO Source</text>
+            <text>Reciprocal LAHSO Intersecting Runway</text>
             <isPattern>false</isPattern>
           </field119>
           <field120>
-            <text>Reciprocal LAHSO Source Date</text>
+            <text>Reciprocal LAHSO Stop Point Description</text>
             <isPattern>false</isPattern>
           </field120>
+          <field121>
+            <text>Reciprocal LAHSO Latitude</text>
+            <isPattern>false</isPattern>
+          </field121>
+          <field122>
+            <text>Reciprocal LAHSO Longitude</text>
+            <isPattern>false</isPattern>
+          </field122>
+          <field123>
+            <text>Reciprocal LAHSO Source</text>
+            <isPattern>false</isPattern>
+          </field123>
+          <field124>
+            <text>Reciprocal LAHSO Source Date</text>
+            <isPattern>false</isPattern>
+          </field124>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -3531,6 +3614,10 @@ Reciprocal Control...</DefaultAnnotationText>
             <Field name="Base Longitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" size="12" scale="7">
             </Field>
             <Field name="Base Elevation" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 142, 7))" size="10" scale="1">
+            </Field>
+            <Field name="Base Threshold Crossing Height" type="Int32" source="Formula: ToNumber(Substring([Field_1], 149, 3))" size="4" scale="0">
+            </Field>
+            <Field name="Base Visual Glide Path Angle" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 152, 4))" size="10" scale="2">
             </Field>
             <Field name="Base Displaced Threshold Latitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" size="12" scale="7">
             </Field>
@@ -3648,7 +3735,11 @@ Reciprocal Control...</DefaultAnnotationText>
             </Field>
             <Field name="Reciprocal Longitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" size="12" scale="7">
             </Field>
-            <Field name="Reciprocal Elevation" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 371, 7))" size="10" scale="1">
+            <Field name="Reciprocal Elevation" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 364, 7))" size="10" scale="1">
+            </Field>
+            <Field name="Reciprocal Threshold Crossing Height" type="Int32" source="Formula: ToNumber(Substring([Field_1], 371, 3))" size="4" scale="0">
+            </Field>
+            <Field name="Reciprocal Visual Glide Path Angle" type="FixedDecimal" source="Formula: ToNumber(Substring([Field_1], 374, 4))" size="10" scale="2">
             </Field>
             <Field name="Reciprocal Displaced Threshold Latitude" type="FixedDecimal" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" size="12" scale="7">
             </Field>
@@ -3867,6 +3958,8 @@ Base Gradient Direction = Substring...</DefaultAnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -3989,6 +4082,8 @@ Reciprocal Gradient Direction...</DefaultAnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -4041,7 +4136,9 @@ Reciprocal Gradient Direction...</DefaultAnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Substring([Field_1], 309, 1)" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 432, 7))" type="FixedDecimal" />
@@ -4195,6 +4292,8 @@ Reciprocal Gradient Direction...</DefaultAnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
           </RecordInfo>
@@ -4252,6 +4351,8 @@ Base ...</DefaultAnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -4310,6 +4411,8 @@ Base ...</DefaultAnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -4417,6 +4520,8 @@ Geo</AnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -4469,7 +4574,9 @@ Geo</AnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Substring([Field_1], 309, 1)" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 432, 7))" type="FixedDecimal" />
@@ -4528,6 +4635,8 @@ Geo</AnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -4580,7 +4689,9 @@ Geo</AnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Substring([Field_1], 309, 1)" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
           </RecordInfo>
@@ -4636,6 +4747,8 @@ Geo</AnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -4688,7 +4801,9 @@ Geo</AnnotationText>
             <Field name="Reciprocal Runway Markings Condition" size="1" source="Formula: Substring([Field_1], 309, 1)" type="String" />
             <Field name="Reciprocal Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
-            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 371, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 364, 7))" type="FixedDecimal" />
+            <Field name="Reciprocal Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 371, 3))" type="Int32" />
+            <Field name="Reciprocal Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 374, 4))" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Reciprocal Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 432, 7))" type="FixedDecimal" />
@@ -4792,6 +4907,8 @@ Geo</AnnotationText>
             <Field name="Base Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 142, 7))" type="FixedDecimal" />
+            <Field name="Base Threshold Crossing Height" source="Formula: ToNumber(Substring([Field_1], 149, 3))" type="Int32" />
+            <Field name="Base Visual Glide Path Angle" scale="2" size="10" source="Formula: ToNumber(Substring([Field_1], 152, 4))" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Latitude" scale="7" size="12" source="Formula: IF   Right([__RAW LATITUDE__],1) = 'S'&#xA;THEN -[__FINAL LATITUDE__]&#xA;ELSE [__FINAL LATITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displaced Threshold Longitude" scale="7" size="12" source="Formula: IF   Right([__RAW LONGITUDE__],1) = 'W'&#xA;THEN -[__FINAL LONGITUDE__]&#xA;ELSE [__FINAL LONGITUDE__]&#xA;ENDIF" type="FixedDecimal" />
             <Field name="Base Displace Threshold Elevation" scale="1" size="10" source="Formula: ToNumber(Substring([Field_1], 210, 7))" type="FixedDecimal" />
@@ -4840,34 +4957,6 @@ Geo</AnnotationText>
         </MetaInfo>
       </Properties>
       <EngineSettings Macro="utilities\Parse S Coordinates.yxmc" />
-    </Node>
-    <Node ToolID="39">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="3330" y="126" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\tlarsen\AppData\Local\Temp\11\Engine_10004_e9f661e1420e47dc97db1608d20c59f0_\Engine_7500_0b39482feb2f47d6a250ee793a655932_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Profile</DefaultTab>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
   </Nodes>
   <Connections>
@@ -4962,10 +5051,6 @@ Geo</AnnotationText>
     <Connection>
       <Origin ToolID="26" Connection="Output" />
       <Destination ToolID="5" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="26" Connection="Output" />
-      <Destination ToolID="39" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="27" Connection="Output" />
@@ -5112,7 +5197,6 @@ Geo</AnnotationText>
         <Tool ToolId="35" Selected="True" />
         <Tool ToolId="37" Selected="True" />
         <Tool ToolId="38" Selected="True" />
-        <Tool ToolId="39" Selected="False" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />

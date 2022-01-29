@@ -1,22 +1,25 @@
 <?xml version="1.0"?>
 <AlteryxDocument yxmdVer="2021.3">
   <Nodes>
-    <Node ToolID="1">
+    <Node ToolID="3">
       <GuiSettings>
         <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Value name="Directory">F:\repositories\us_airspace_data\parsed_data</Value>
-          <Value name="Drop Down (8)">Create</Value>
+          <Value name="Drop Down (8)">Overwrite</Value>
           <Value name="ControlParams"><![CDATA[Table=Table
 ]]></Value>
         </Configuration>
         <Annotation DisplayMode="0">
-          <Name />
+          <Name>04 Publish Batch (1)</Name>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings Macro=".\04 Publish Batch.yxmc" />
     </Node>
@@ -26,16 +29,13 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <NumRows value="2" />
+          <NumRows value="1" />
           <Fields>
             <Field name="Table" />
           </Fields>
           <Data>
             <r>
-              <c>Airspace</c>
-            </r>
-            <r>
-              <c>Airspace-Points</c>
+              <c>RWY</c>
             </r>
           </Data>
         </Configuration>
@@ -51,7 +51,7 @@
   <Connections>
     <Connection>
       <Origin ToolID="2" Connection="Output" />
-      <Destination ToolID="1" Connection="Control" />
+      <Destination ToolID="3" Connection="Control" />
     </Connection>
   </Connections>
   <Properties>

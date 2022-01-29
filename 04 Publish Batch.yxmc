@@ -148,7 +148,7 @@
             <PreSQL />
             <CompressionType>GZip</CompressionType>
             <NumThreads>4</NumThreads>
-            <OutputOption>Delete</OutputOption>
+            <OutputOption>Overwrite</OutputOption>
           </FormatSpecificOptions>
           <MultiFile value="False" />
         </Configuration>
@@ -159,6 +159,9 @@
 Query=NASR.PUBLIC.%Question.Contro...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
@@ -492,6 +495,7 @@ Query=NASR.PUBLIC.%Question.Contro...</DefaultAnnotationText>
               <Mode>Manual</Mode>
               <Manual_Values><![CDATA[Delete data and append5419541n5148905f1n0941f5809Delete
 Create new table5419541n5148905f1n0941f5809Create
+Overwrite table5419541n5148905f1n0941f5809Overwrite
 ]]></Manual_Values>
             </Question>
           </Questions>
