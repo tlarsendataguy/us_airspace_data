@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="378" y="342" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -19,37 +19,34 @@
           <DefaultAnnotationText>Class_Airspace.shp</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="IDENT" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="NAME" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="UPPER_DESC" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="UPPER_VAL" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="UPPER_UOM" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="UPPER_CODE" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="LOWER_DESC" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="LOWER_VAL" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="LOWER_UOM" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="LOWER_CODE" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="TYPE_CODE" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="LOCAL_TYPE" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="CLASS" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="MIL_CODE" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="COMM_NAME" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="LEVEL" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="SECTOR" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="ONSHORE" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="EXCLUSION" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="WKHR_CODE" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="WKHR_RMK" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="DST" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="GMTOFFSET" size="200" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="V_String" />
-            <Field name="SHAPE_Leng" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="Double" />
-            <Field name="SHAPE_Area" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="Double" />
-            <Field name="SpatialObj" size="2147483647" source="File: F:\repositories\us_airspace_data\Shape_Files\Class_Airspace.shp" type="SpatialObj" />
+            <Field name="IDENT" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="NAME" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="UPPER_DESC" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="UPPER_VAL" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="UPPER_UOM" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="UPPER_CODE" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="LOWER_DESC" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="LOWER_VAL" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="LOWER_UOM" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="LOWER_CODE" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="TYPE_CODE" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="LOCAL_TYPE" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="CLASS" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="MIL_CODE" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="COMM_NAME" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="LEVEL" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="SECTOR" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="ONSHORE" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="EXCLUSION" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="WKHR_CODE" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="WKHR_RMK" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="DST" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="GMTOFFSET" size="200" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="V_String" />
+            <Field name="SHAPE_Leng" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="Double" />
+            <Field name="SHAPE_Area" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="Double" />
+            <Field name="SpatialObj" size="2147483647" source="File: F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files\Class_Airspace.shp" type="SpatialObj" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -57,7 +54,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1338" y="342" />
+        <Position x="1014" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -75,15 +72,12 @@
           <DefaultAnnotationText>Airspace-Points.yxdb</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.PolySplit.PolySplit">
-        <Position x="666" y="342" />
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -100,7 +94,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.PolySplit.PolySplit">
-        <Position x="1050" y="342" />
+        <Position x="726" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -117,7 +111,7 @@
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1242" y="342" />
+        <Position x="918" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -139,7 +133,7 @@
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1146" y="342" />
+        <Position x="822" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -160,7 +154,7 @@ Longitude = ST_CentroidX([Split_Spat...</DefaultAnnotationText>
     </Node>
     <Node ToolID="23">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="954" y="342" />
+        <Position x="630" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -209,7 +203,7 @@ Longitude = ST_CentroidX([Split_Spat...</DefaultAnnotationText>
     </Node>
     <Node ToolID="24">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="570" y="342" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -236,7 +230,7 @@ Longitude = ST_CentroidX([Split_Spat...</DefaultAnnotationText>
     </Node>
     <Node ToolID="38">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="666" y="426" />
+        <Position x="342" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -258,6 +252,12 @@ Longitude = ST_CentroidX([Split_Spat...</DefaultAnnotationText>
             <SelectField field="Working Hours" selected="True" />
             <SelectField field="Working Hours Remark" selected="True" />
             <SelectField field="SpatialObj" selected="False" />
+            <SelectField field="Name" selected="True" />
+            <SelectField field="Class" selected="True" />
+            <SelectField field="Level" selected="True" />
+            <SelectField field="Sector" selected="True" />
+            <SelectField field="Onshore" selected="True" />
+            <SelectField field="Exclusion" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -271,7 +271,7 @@ Longitude = ST_CentroidX([Split_Spat...</DefaultAnnotationText>
     </Node>
     <Node ToolID="42">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="858" y="342" />
+        <Position x="534" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -299,7 +299,7 @@ Longitude = ST_CentroidX([Split_Spat...</DefaultAnnotationText>
     </Node>
     <Node ToolID="43">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="474" y="342" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -345,7 +345,7 @@ Longitude = ST_CentroidX([Split_Spat...</DefaultAnnotationText>
     </Node>
     <Node ToolID="47">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="762" y="426" />
+        <Position x="438" y="138" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -363,15 +363,12 @@ Longitude = ST_CentroidX([Split_Spat...</DefaultAnnotationText>
           <DefaultAnnotationText>Airspace.yxdb</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="51">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="762" y="342" />
+        <Position x="438" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -463,7 +460,7 @@ Split_IsHole - Ascending</DefaultAnnotationText>
       <Constant>
         <Namespace>User</Namespace>
         <Name>Source</Name>
-        <Value>F:\repositories\us_airspace_data\Shape_Files</Value>
+        <Value>F:\repositories\us_airspace_data\28DaySubscription\Additional_Data\Shape_Files</Value>
         <IsNumeric value="False" />
       </Constant>
       <Constant>
